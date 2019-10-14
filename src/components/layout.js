@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -13,11 +6,16 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+  const {
+    site: {
+      siteMetadata: { title, description },
+    },
+  } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
@@ -25,20 +23,34 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+      <Header description={description} title={title} />
+      <div>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <div className="footer__container container mx-auto">
+            <div>
+              <h3>Features</h3>
+              <ul>
+                <li>KV</li>
+                <li>Sites</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Get Started</h3>
+              <ul>
+                <li>Docs</li>
+                <li>Tutorials</li>
+                <li>Wranglers</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Follow Us</h3>
+              <ul>
+                <li>Twitter</li>
+                <li>YouTube</li>
+              </ul>
+            </div>
+          </div>
         </footer>
       </div>
     </>

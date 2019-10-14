@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "project": {
+    "name": "built-with-workers"
+  },
+  "api": {
+    "projectId": "0s2zavz0",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    }
+  ]
+}
