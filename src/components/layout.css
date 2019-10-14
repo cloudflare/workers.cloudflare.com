@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+h1,
+h2,
+h3,
+h4 {
+  @apply font-bold;
+}
+
 h1 {
   @apply text-3xl;
 }
@@ -12,10 +19,6 @@ h2 {
 
 h3 {
   @apply text-xl;
-}
-
-main {
-  @apply mx-auto;
 }
 
 header {
@@ -94,9 +97,9 @@ footer {
 .project {
   @apply flex flex-col mr-4;
   .features {
-    @apply flex;
+    @apply flex mt-4;
     span {
-      @apply bg-orange-600 rounded-lg text-white px-4 mr-2;
+      @apply bg-orange-600 rounded-lg text-white px-2 py-1 mr-2;
     }
   }
 }

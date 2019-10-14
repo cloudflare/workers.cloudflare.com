@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 const Feature = ({
@@ -7,6 +8,7 @@ const Feature = ({
       asset: { fixed },
     },
     name,
+    slug,
     description,
   },
 }) => (
@@ -15,7 +17,9 @@ const Feature = ({
       <Img fixed={fixed} />
     </div>
     <div className="flex-1">
-      <h3>{name}</h3>
+      <h3>
+        <Link to={`/features/${slug}`}>{name}</Link>
+      </h3>
       <p>{description}</p>
     </div>
   </div>

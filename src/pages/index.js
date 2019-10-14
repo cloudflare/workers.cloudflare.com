@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Feature from "../components/feature"
 import Layout from "../components/layout"
@@ -48,41 +48,49 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
 }
 
 export const query = graphql`
+  fragment Feature on SanityFeature {
+    name
+    description
+    slug
+    image {
+      asset {
+        fixed(height: 200, width: 300) {
+          ...GatsbySanityImageFixed
+        }
+      }
+    }
+  }
+
+  fragment Project on SanityProject {
+    name
+    featured
+    description
+    slug
+    image {
+      asset {
+        fixed(height: 200, width: 300) {
+          ...GatsbySanityImageFixed
+        }
+      }
+    }
+    features {
+      name
+      slug
+    }
+  }
+
   query Homepage {
     allSanityFeature {
       edges {
         node {
-          name
-          description
-          slug
-          image {
-            asset {
-              fixed(height: 200, width: 300) {
-                ...GatsbySanityImageFixed
-              }
-            }
-          }
+          ...Feature
         }
       }
     }
     allSanityProject {
       edges {
         node {
-          name
-          featured
-          description
-          slug
-          image {
-            asset {
-              fixed(height: 200, width: 300) {
-                ...GatsbySanityImageFixed
-              }
-            }
-          }
-          features {
-            name
-            slug
-          }
+          ...Project
         }
       }
     }
