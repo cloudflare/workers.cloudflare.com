@@ -1,8 +1,19 @@
 import React from "react"
 
-const Featured = ({ project: { name, description, features } }) => (
+const Featured = ({
+  project: {
+    image: {
+      asset: {
+        fixed: { src, srcSet },
+      },
+    },
+    name,
+    description,
+    features,
+  },
+}) => (
   <div className="project__featured">
-    <img src="https://placehold.it/400x300" />
+    <img src={src} srcSet={srcSet} />
     <h2>{name}</h2>
     <p>{description}</p>
     <div className="features">
@@ -13,9 +24,20 @@ const Featured = ({ project: { name, description, features } }) => (
   </div>
 )
 
-const Project = ({ project: { name, description, features } }) => (
+const Project = ({
+  project: {
+    image: {
+      asset: {
+        fixed: { src, srcSet },
+      },
+    },
+    name,
+    description,
+    features,
+  },
+}) => (
   <div className="project">
-    <img src="https://placehold.it/400x300" />
+    <img src={src} srcSet={srcSet} />
     <h2>{name}</h2>
     <p>{description}</p>
     <div className="features">

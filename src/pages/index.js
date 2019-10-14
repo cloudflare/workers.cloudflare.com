@@ -55,6 +55,14 @@ export const query = graphql`
           name
           description
           slug
+          image {
+            asset {
+              fixed(height: 200, width: 300) {
+                src
+                srcSet
+              }
+            }
+          }
         }
       }
     }
@@ -62,12 +70,16 @@ export const query = graphql`
       edges {
         node {
           name
+          featured
           description
           slug
-          featured
           image {
-            _key
-            _type
+            asset {
+              fixed(height: 200, width: 300) {
+                src
+                srcSet
+              }
+            }
           }
           features {
             name
