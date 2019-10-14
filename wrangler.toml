@@ -1,0 +1,13 @@
+name = "built-with-workers"
+type = "webpack"
+account_id = "dc56444c4c955a1653106ccf997c1067"
+workers_dev = true
+
+[env.production]
+workers_dev = false
+route = ""
+zone_id = ""
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"

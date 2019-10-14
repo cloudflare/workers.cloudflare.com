@@ -18,8 +18,8 @@ module.exports = {
       options: {
         projectId: "0s2zavz0",
         dataset: "production",
-        watchMode: true,
-        overlayDrafts: true,
+        watchMode: process.env.NODE_ENV == "development" ? true : false,
+        overlayDrafts: process.env.NODE_ENV == "development" ? true : false,
         token: process.env.SANITY_READ_TOKEN,
       },
     },
