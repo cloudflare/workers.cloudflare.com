@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Built with Workers`,
@@ -9,5 +13,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "0s2zavz0",
+        dataset: "production",
+        watchMode: true,
+        overlayDrafts: true,
+        token: process.env.SANITY_READ_TOKEN,
+      },
+    },
   ],
 }
