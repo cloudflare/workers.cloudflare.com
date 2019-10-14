@@ -1,11 +1,10 @@
 import React from "react"
+import Img from "gatsby-image"
 
 const Feature = ({
   feature: {
     image: {
-      asset: {
-        fixed: { src, srcSet },
-      },
+      asset: { fixed },
     },
     name,
     description,
@@ -13,7 +12,7 @@ const Feature = ({
 }) => (
   <div className="features__feature">
     <div className="h-full">
-      <img src={src} srcSet={srcSet} />
+      <Img fixed={fixed} />
     </div>
     <div className="flex-1">
       <h3>{name}</h3>

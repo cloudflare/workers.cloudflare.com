@@ -1,11 +1,10 @@
 import React from "react"
+import Img from "gatsby-image"
 
 const Featured = ({
   project: {
     image: {
-      asset: {
-        fixed: { src, srcSet },
-      },
+      asset: { fixed },
     },
     name,
     description,
@@ -13,7 +12,7 @@ const Featured = ({
   },
 }) => (
   <div className="project__featured">
-    <img src={src} srcSet={srcSet} />
+    <Img fixed={fixed} />
     <h2>{name}</h2>
     <p>{description}</p>
     <div className="features">
@@ -27,9 +26,7 @@ const Featured = ({
 const Project = ({
   project: {
     image: {
-      asset: {
-        fixed: { src, srcSet },
-      },
+      asset: { fixed },
     },
     name,
     description,
@@ -37,7 +34,7 @@ const Project = ({
   },
 }) => (
   <div className="project">
-    <img src={src} srcSet={srcSet} />
+    <Img fixed={fixed} />
     <h2>{name}</h2>
     <p>{description}</p>
     <div className="features">

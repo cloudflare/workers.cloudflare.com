@@ -58,8 +58,7 @@ export const query = graphql`
           image {
             asset {
               fixed(height: 200, width: 300) {
-                src
-                srcSet
+                ...GatsbySanityImageFixed
               }
             }
           }
@@ -76,8 +75,7 @@ export const query = graphql`
           image {
             asset {
               fixed(height: 200, width: 300) {
-                src
-                srcSet
+                ...GatsbySanityImageFixed
               }
             }
           }
