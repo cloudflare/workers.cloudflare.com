@@ -2,7 +2,6 @@
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
   (factory());
 }(this, (function () { 'use strict';
 
@@ -60,11 +59,11 @@
       var type = el.type;
       var tagName = el.tagName;
 
-      if (tagName == 'INPUT' && inputTypesWhitelist[type] && !el.readOnly) {
+      if (tagName === 'INPUT' && inputTypesWhitelist[type] && !el.readOnly) {
         return true;
       }
 
-      if (tagName == 'TEXTAREA' && !el.readOnly) {
+      if (tagName === 'TEXTAREA' && !el.readOnly) {
         return true;
       }
 
