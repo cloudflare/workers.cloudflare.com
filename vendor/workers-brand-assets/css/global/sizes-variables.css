@@ -1,0 +1,19 @@
+html {
+  --html-font-size: 10px;
+  --line-height: 1.5;
+  --form-field-line-height: 1.3;
+  --focus-size: .1875em;
+  --button-top-padding: .55em;
+  --button-bottom-padding: .65em;
+  --button-horizontal-padding: .9em;
+  --button-line-height: var(--form-field-line-height);
+  --button-border-radius: .375em;
+  --section-vertical-padding: 6em;
+  --header-height: 4.5em;
+}
+
+@media (max-width: 1080px) {
+  html {
+    --section-vertical-padding: 4em;
+  }
+}
