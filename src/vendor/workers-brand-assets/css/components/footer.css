@@ -2,6 +2,7 @@
   padding: var(--section-vertical-padding) 3em 3em;
 }
 
+.Footer-with-top-separator,
 [theme="light"] .Footer-with-top-separator-light-theme-only {
   box-shadow: inset 0 .125em .5em -.5em;
 }
