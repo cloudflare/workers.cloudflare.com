@@ -1,105 +1,178 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "../vendor/workers-brand-assets/css/global/box-sizing.css";
+@import "../vendor/workers-brand-assets/css/global/element-normalization.css";
+@import "../vendor/workers-brand-assets/css/global/sizes-variables.css";
+@import "../vendor/workers-brand-assets/css/global/font-variables.css";
+@import "../vendor/workers-brand-assets/css/global/brand-color-variables.css";
+@import "../vendor/workers-brand-assets/css/global/theme-color-variables.css";
+@import "../vendor/workers-brand-assets/css/global/theme-helpers.css";
+@import "../vendor/workers-brand-assets/css/global/selection-color.css";
+@import "../vendor/workers-brand-assets/css/global/html.css";
+@import "../vendor/workers-brand-assets/css/global/surface.css";
+@import "../vendor/workers-brand-assets/css/global/body-font-size.css";
 
-h1,
-h2,
-h3,
-h4 {
-  @apply font-bold;
+@import "../vendor/workers-brand-assets/css/components/cloudflare-logo.css";
+@import "../vendor/workers-brand-assets/css/components/cloudflare-workers-logo.css";
+@import "../vendor/workers-brand-assets/css/components/number.css";
+@import "../vendor/workers-brand-assets/css/components/superscript.css";
+@import "../vendor/workers-brand-assets/css/components/link.css";
+@import "../vendor/workers-brand-assets/css/components/button.css";
+@import "../vendor/workers-brand-assets/css/components/inline-code.css";
+@import "../vendor/workers-brand-assets/css/components/code-block.css";
+@import "../vendor/workers-brand-assets/css/components/aspect-ratio.css";
+@import "../vendor/workers-brand-assets/css/components/stream-video.css";
+@import "../vendor/workers-brand-assets/css/components/radio-tabs.css";
+@import "../vendor/workers-brand-assets/css/components/markdown-lite.css";
+@import "../vendor/workers-brand-assets/css/components/footer.css";
+
+/* TODO - move these to workers-brand-assets and import into workers.cloudflare.com and built-with-workers */
+@import "../vendor/workers.cloudflare.com/css/components/header.css";
+@import "../vendor/workers.cloudflare.com/css/components/nav.css";
+
+.Main {
+  --vertical-padding-top: 2em;
+  --content-side-padding: 4.5em;
+  padding: calc(var(--header-height) + var(--vertical-padding-top)) 0 var(--section-vertical-padding);
+  width: 100%;
 }
 
-h1 {
-  @apply text-3xl;
+.Main > * + * {
+  margin-top: 4em;
 }
 
-h2 {
-  @apply text-2xl;
+.ProjectsRow--title {
+  padding: 0 var(--content-side-padding) .5em;
 }
 
-h3 {
-  @apply text-xl;
+.ProjectsRow--title-content {
+  font-size: 1.5em;
 }
 
-header {
-  @apply py-8;
+.ProjectsRow--projects {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 2rem;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scroll-padding: var(--content-side-padding); /* TODO */
+  margin-top: -1em;
 }
 
-footer {
-  @apply bg-blue-200 py-16;
-  .footer__container {
-    @apply flex;
-    div {
-      @apply flex-1;
-    }
-  }
+.ProjectsRow--project {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  margin: 1em;
 }
 
-.featured__container {
-  @apply flex content-between py-16;
+.ProjectsRow--project:first-child {
+  margin-left: var(--content-side-padding);
 }
 
-.features__container {
-  @apply bg-orange-200 py-16;
-
-  h2 {
-    @apply mb-8;
-  }
-
-  .features__collection {
-    @apply flex flex-wrap;
-  }
-
-  .features__feature {
-    @apply flex items-center mb-4;
-    div {
-      @apply mr-4;
-    }
-  }
-
-  @screen sm {
-    .features__feature {
-      @apply w-full;
-    }
-  }
-
-  @screen md {
-    .features__feature {
-      @apply w-1/2;
-    }
-  }
+.ProjectsRow--project:last-child {
+  margin-right: var(--content-side-padding);
 }
 
-.projects__container {
-  @apply py-16;
-
-  .projects__collection {
-    @apply flex flex-wrap content-center;
-  }
-
-  .project {
-    @apply mb-8;
-  }
-
-  @screen sm {
-    .project {
-      @apply w-full;
-    }
-  }
-
-  @screen md {
-    .project {
-      @apply w-1/5;
-    }
-  }
+.Project---link {
+  --border-radius: .5em;
+  border-radius: var(--border-radius);
+  display: block;
+  height: 100%; /* TODO - try to make this unnecessary */
+  text-decoration: none;
+  color: inherit;
+  --accent-color: var(--orange-6);
+  --focus-size: 5px;
+  --focus-shadow: 0 0 0 var(--focus-size) var(--focus-color);
+  box-shadow: var(--focus-shadow);
+  transition: box-shadow .3s ease;
 }
 
-.project {
-  @apply flex flex-col mr-4;
-  .features {
-    @apply flex mt-4;
-    span {
-      @apply bg-orange-600 rounded-lg text-white px-2 py-1 mr-2;
-    }
-  }
+[js-focus-visible-polyfill-available] .Project---link:focus {
+  outline: none;
+}
+
+.Project---link:not([is-focus-visible]):hover {
+  transition-duration: 0s;
+}
+
+.Project---link:not([is-focus-visible]):not(:hover) {
+  --focus-size: 0;
+}
+
+.Project {
+  position: relative;
+  overflow: hidden;
+  width: 300px; /* TODO - change once we change images */
+  height: 100%; /* TODO - try to make this unnecessary */
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+}
+
+.Project::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(var(--orange-3-rgb), .4);
+  transition: border .3s ease;
+}
+
+.Project---link:not([is-focus-visible]):not(:hover) .Project::after {
+  border-color: rgba(var(--shadow-color-rgb), .25);
+}
+
+.Project--image > div {
+  display: block !important; /* TODO - try to make this unnecessary */
+}
+
+.Project--content {
+  padding: 1.33em;
+}
+
+.Project--title {
+  font-size: 1.3em;
+  line-height: 1.25;
+  margin-bottom: .33em;
+  margin-top: -.1em;
+}
+
+.Project--features {
+  display: none;
+}
+
+.Project--description {
+  font-size: .9em;
+}
+
+.ProjectPage {
+  padding: 1em;
+  text-align: center;
+}
+
+.ProjectPage--title {
+  font-size: 3em;
+  font-weight: normal;
+  margin-bottom: .125em;
+}
+
+.ProjectPage--description {
+  font-size: 1.1em;
+  margin-bottom: 3em;
+}
+
+/* TODO - remove hack */
+.ProjectPage--image > div {
+  margin: 0 auto !important;
+  display: block !important;
+  width: 900px !important;
+  max-width: 80vw !important;
+  border-radius: .5em;
+}
+.ProjectPage--image img {
+  height: auto !important;
 }

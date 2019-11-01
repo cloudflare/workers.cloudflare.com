@@ -13,18 +13,24 @@ const Featured = ({
     features,
   },
 }) => (
-  <div className="project">
-    <Img fixed={fixed} />
-    <h2>
-      <Link to={`/projects/${slug}`}>{name}</Link>
-    </h2>
-    <p>{description}</p>
-    <div className="features">
-      {features.map(({ name, slug }) => (
-        <Link to={`/features/${slug}`}>
-          <span>{name}</span>
-        </Link>
-      ))}
+  <div className="Project Project-is-featured">
+    <div class="Project--image">
+      <Img fixed={fixed} />
+    </div>
+
+    <div class="Project--content">
+      <h2 class="Project--title">
+        <Link class="Link Link-without-underline Link-is-juicy" to={`/projects/${slug}`}>{name}</Link>
+      </h2>
+      <p class="Project--description">{description}</p>
+
+      <div className="Project--features">
+        {features.map(({ name, slug }) => (
+          <Link to={`/features/${slug}`}>
+            <span>{name}</span>
+          </Link>
+        ))}
+      </div>
     </div>
   </div>
 )
@@ -40,20 +46,27 @@ const Project = ({
     features,
   },
 }) => (
-  <div className="project">
-    <Img fixed={fixed} />
-    <h2>
-      <Link to={`/projects/${slug}`}>{name}</Link>
-    </h2>
-    <p>{description}</p>
-    <div className="features">
-      {features.map(({ name, slug }) => (
-        <Link to={`/features/${slug}`}>
-          <span>{name}</span>
-        </Link>
-      ))}
+  <Link class="Project---link" to={`/projects/${slug}`}>
+    <div class="Project">
+      <div class="Project--image">
+        <Img fixed={fixed} />
+      </div>
+
+      <div class="Project--content">
+        <h2 class="Project--title">
+          {name}
+        </h2>
+        <p class="Project--description">{description}</p>
+        <div className="Project--features">
+          {features.map(({ name, slug }) => (
+            <Link to={`/features/${slug}`}>
+              <span>{name}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
+  </Link>
 )
 
 const Variants = ({ variant, project }) => {

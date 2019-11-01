@@ -9,10 +9,12 @@ const Project = ({ data: { sanityProject: project } }) => {
   return (
     <Layout>
       <SEO title={project.name} />
-      <div className="container mx-auto">
-        <h2>{project.name}</h2>
-        <h3>{project.description}</h3>
-        <Img fixed={project.image.asset.fixed} />
+      <div class="ProjectPage">
+        <h2 class="ProjectPage--title">{project.name}</h2>
+        <p class="ProjectPage--description">{project.description}</p>
+        <div class="ProjectPage--image">
+          <Img fixed={project.image.asset.fixed} />
+        </div>
       </div>
     </Layout>
   )

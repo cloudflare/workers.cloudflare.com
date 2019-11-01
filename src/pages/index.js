@@ -17,30 +17,72 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
   return (
     <Layout>
       <SEO />
-      <div className="featured__container container mx-auto">
-        {featured.map(project => (
-          <Project variant="featured" project={project} />
-        ))}
-      </div>
 
-      <div className="features__container">
-        <div className="container mx-auto">
-          <h2>Learn more</h2>
-          <div className="features__collection">
-            {features.map(feature => (
-              <Feature feature={feature} />
-            ))}
-          </div>
+      <div class="ProjectsRow">
+        <div class="ProjectsRow--title">
+          <h2 class="ProjectsRow--title-content">Built with Workers Sites</h2>
+        </div>
+
+        <div class="ProjectsRow--projects">
+          {projects.map(project => (
+            <div class="ProjectsRow--project">
+              <Project project={project} />
+            </div>
+          ))}
+
+          {/* TODO - remove rendering projects multiple times for testing */}
+          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
         </div>
       </div>
 
-      <div className="projects__container">
-        <div className="container mx-auto">
-          <div className="projects__collection">
-            {unfeatured.map(project => (
+      <div class="ProjectsRow">
+        <div class="ProjectsRow--title">
+          <h2 class="ProjectsRow--title-content">Built with Workers KV</h2>
+        </div>
+
+        <div class="ProjectsRow--projects">
+          {projects.map(project => (
+            <div class="ProjectsRow--project">
               <Project project={project} />
-            ))}
-          </div>
+            </div>
+          ))}
+
+          {/* TODO - remove rendering projects multiple times for testing */}
+          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+        </div>
+      </div>
+
+      <div class="ProjectsRow">
+        <div class="ProjectsRow--title">
+          <h2 class="ProjectsRow--title-content">Built with Workers Sites</h2>
+        </div>
+
+        <div class="ProjectsRow--projects">
+          {projects.map(project => (
+            <div class="ProjectsRow--project">
+              <Project project={project} />
+            </div>
+          ))}
+
+          {/* TODO - remove rendering projects multiple times for testing */}
+          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+        </div>
+      </div>
+
+      <div class="ProjectsRow">
+        <div class="ProjectsRow--title">
+          <h2 class="ProjectsRow--title-content">Built with Workers Sites</h2>
+        </div>
+
+        <div class="ProjectsRow--projects">
+          {projects.map(project => (
+            <div class="ProjectsRow--project">
+              <Project project={project} />
+            </div>
+          ))}
+
+          {/* TODO - remove rendering projects multiple times for testing */}
+          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
         </div>
       </div>
     </Layout>
