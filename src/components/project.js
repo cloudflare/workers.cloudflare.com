@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const Featured = ({
   project: {
     image: {
-      asset: { fixed },
+      asset: { fluid },
     },
     name,
     slug,
@@ -15,7 +15,7 @@ const Featured = ({
 }) => (
   <div className="Project Project-is-featured">
     <div class="Project--image">
-      <Img fixed={fixed} />
+      <Img fluid={fluid} />
     </div>
 
     <div class="Project--content">
@@ -38,7 +38,7 @@ const Featured = ({
 const Project = ({
   project: {
     image: {
-      asset: { fixed },
+      asset: { fluid },
     },
     name,
     slug,
@@ -49,7 +49,7 @@ const Project = ({
   <Link class="Project---link" to={`/projects/${slug}`}>
     <div class="Project">
       <div class="Project--image">
-        <Img fixed={fixed} />
+        <Img fluid={fluid} />
       </div>
 
       <div class="Project--content">

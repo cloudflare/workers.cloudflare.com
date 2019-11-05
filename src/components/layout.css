@@ -126,8 +126,19 @@
   border-color: rgba(var(--shadow-color-rgb), .25);
 }
 
-.Project--image > div {
-  display: block !important; /* TODO - try to make this unnecessary */
+.Project--image {
+  position: relative;
+}
+
+.Project--image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(var(--shadow-color-rgb), .13);
 }
 
 .Project--content {
