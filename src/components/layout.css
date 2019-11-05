@@ -68,7 +68,14 @@
 }
 
 .ProjectsRow--project:last-child {
-  margin-right: var(--content-side-padding);
+  margin-right: 0;
+}
+
+.ProjectsRow--projects::after {
+  content: "[spacer]"; /* TODO - improve hack */
+  display: block;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .Project---link {
@@ -137,6 +144,11 @@
   bottom: 0;
   height: 1px;
   background: rgba(var(--shadow-color-rgb), .13);
+}
+
+/* TODO - fix hack */
+.Project--image picture img {
+  object-position: top center !important;
 }
 
 .Project--content {
