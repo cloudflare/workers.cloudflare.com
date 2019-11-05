@@ -26,7 +26,7 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
           </div>
 
           <div class="ProjectsRow--projects">
-            {projects.filter(project => project.features.length && featureNames.includes(project.features[0].name)).map(project => (
+            {projects.filter(project => project.features.length && project.features.map(f => f.name).includes(feature.name)).map(project => (
               <div class="ProjectsRow--project">
                 <Project project={project} />
               </div>
