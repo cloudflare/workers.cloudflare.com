@@ -96,7 +96,7 @@ export const query = graphql`
     slug
     image {
       asset {
-        fixed(height: 200, width: 300) {
+        fixed(height: 157, width: 300) {
           ...GatsbySanityImageFixed
         }
       }
@@ -110,7 +110,7 @@ export const query = graphql`
     slug
     image {
       asset {
-        fixed(height: 200, width: 300) {
+        fixed(height: 187, width: 300) {
           ...GatsbySanityImageFixed
         }
       }
