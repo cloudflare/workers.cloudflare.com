@@ -96,7 +96,7 @@ export const query = graphql`
     slug
     image {
       asset {
-        fluid(maxWidth: 300) {
+        fluid(maxWidth: 200) {
           ...GatsbySanityImageFluid
         }
       }
@@ -110,7 +110,7 @@ export const query = graphql`
     slug
     image {
       asset {
-        fluid(maxWidth: 300) {
+        fluid(maxWidth: 340) {
           ...GatsbySanityImageFluid
         }
       }

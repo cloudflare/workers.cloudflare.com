@@ -54,7 +54,7 @@
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x proximity;
-  scroll-padding: var(--content-side-padding); /* TODO */
+  scroll-padding: var(--content-side-padding);
   margin-top: -1em;
 }
 
@@ -102,7 +102,7 @@
 .Project {
   position: relative;
   overflow: hidden;
-  width: 300px; /* TODO - change once we change images */
+  width: 20em;
   height: 100%; /* TODO - try to make this unnecessary */
   background: var(--background-color);
   border-radius: var(--border-radius);
