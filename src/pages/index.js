@@ -10,6 +10,7 @@ const flatten = set => set.edges.map(({ node }) => node)
 
 const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
   const features = flatten(allSanityFeature)
+  const featureNames = features.map(f => f.name)
   const projects = flatten(allSanityProject)
   const featured = projects.filter(({ featured }) => !!featured)
   const unfeatured = projects.filter(({ featured }) => !featured)
@@ -18,73 +19,28 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
     <Layout>
       <SEO />
 
-      <div class="ProjectsRow">
-        <div class="ProjectsRow--title">
-          <h2 class="ProjectsRow--title-content">Built with Workers Sites</h2>
+      {features.map(feature => (
+        <div class="ProjectsRow">
+          <div class="ProjectsRow--title">
+            <h2 class="ProjectsRow--title-content">Built with { feature.name }</h2>
+          </div>
+
+          <div class="ProjectsRow--projects">
+            {projects.filter(project => project.features.length && featureNames.includes(project.features[0].name)).map(project => (
+              <div class="ProjectsRow--project">
+                <Project project={project} />
+              </div>
+            ))}
+
+            {/* TODO - remove rendering projects multiple times for testing */}
+            {feature.name === 'HTMLRewriter' && projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+            {feature.name === 'HTMLRewriter' && projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+            {feature.name === 'HTMLRewriter' && projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+            {feature.name === 'HTMLRewriter' && projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+            {feature.name === 'HTMLRewriter' && projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
+          </div>
         </div>
-
-        <div class="ProjectsRow--projects">
-          {projects.map(project => (
-            <div class="ProjectsRow--project">
-              <Project project={project} />
-            </div>
-          ))}
-
-          {/* TODO - remove rendering projects multiple times for testing */}
-          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
-        </div>
-      </div>
-
-      <div class="ProjectsRow">
-        <div class="ProjectsRow--title">
-          <h2 class="ProjectsRow--title-content">Built with Workers KV</h2>
-        </div>
-
-        <div class="ProjectsRow--projects">
-          {projects.map(project => (
-            <div class="ProjectsRow--project">
-              <Project project={project} />
-            </div>
-          ))}
-
-          {/* TODO - remove rendering projects multiple times for testing */}
-          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
-        </div>
-      </div>
-
-      <div class="ProjectsRow">
-        <div class="ProjectsRow--title">
-          <h2 class="ProjectsRow--title-content">Built with Workers Sites</h2>
-        </div>
-
-        <div class="ProjectsRow--projects">
-          {projects.map(project => (
-            <div class="ProjectsRow--project">
-              <Project project={project} />
-            </div>
-          ))}
-
-          {/* TODO - remove rendering projects multiple times for testing */}
-          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
-        </div>
-      </div>
-
-      <div class="ProjectsRow">
-        <div class="ProjectsRow--title">
-          <h2 class="ProjectsRow--title-content">Built with Workers Sites</h2>
-        </div>
-
-        <div class="ProjectsRow--projects">
-          {projects.map(project => (
-            <div class="ProjectsRow--project">
-              <Project project={project} />
-            </div>
-          ))}
-
-          {/* TODO - remove rendering projects multiple times for testing */}
-          {projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}{projects.map(project => (<div class="ProjectsRow--project"><Project project={project} /></div>))}
-        </div>
-      </div>
+      ))}
     </Layout>
   )
 }
