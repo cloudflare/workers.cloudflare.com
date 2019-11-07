@@ -13,7 +13,7 @@ const Project = ({ data: { sanityProject: project } }) => {
         <h2 class="ProjectPage--title">{project.name}</h2>
         <p class="ProjectPage--description">{project.description}</p>
         <div class="ProjectPage--image">
-          <Img fixed={project.image.asset.fixed} />
+          <Img fluid={project.image.asset.fluid} />
         </div>
       </div>
     </Layout>
