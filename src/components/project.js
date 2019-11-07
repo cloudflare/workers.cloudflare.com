@@ -46,8 +46,8 @@ const Project = ({
     features,
   },
 }) => (
-  <Link class="Project---link" to={`/projects/${slug}`}>
-    <div class="Project">
+  <Link class="Project---link Project---link-fills-height" to={`/projects/${slug}`}>
+    <div class="Project Project-fills-height">
       <div class="Project--image">
         <Img fluid={fluid} />
       </div>

@@ -31,6 +31,7 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
                 <Project project={project} />
               </div>
             ))}
+            <div class="ProjectsRow--row-end-spacer"></div>
           </div>
         </div>
       ))}
@@ -59,7 +60,7 @@ export const query = graphql`
     slug
     image {
       asset {
-        fluid(maxWidth: 340) {
+        fluid(maxWidth: 440) {
           ...GatsbySanityImageFluid
         }
       }

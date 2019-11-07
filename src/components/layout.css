@@ -30,7 +30,6 @@
 
 .Main {
   --vertical-padding-top: 2em;
-  --content-side-padding: 4.5em;
   padding: calc(var(--header-height) + var(--vertical-padding-top)) 0 var(--section-vertical-padding);
   width: 100%;
 }
@@ -39,8 +38,60 @@
   margin-top: 4em;
 }
 
+.ProjectsRow {
+  --content-horizontal-padding: 4.5em;
+  --project-horizontal-gutter: 3em;
+  --project-width: 20em;
+}
+
+@media (max-width: 576px) {
+  .ProjectsRow {
+    --content-horizontal-padding: 2.5em;
+    --project-horizontal-gutter: 1.5em;
+  }
+}
+
+@media (max-width: 375px) {
+  .ProjectsRow {
+    --content-horizontal-padding: 3em;
+    --project-horizontal-gutter: 2em;
+  }
+}
+
+@media (max-width: 2400px) { .ProjectsRow { --columns: 6 }}
+@media (max-width: 2100px) { .ProjectsRow { --columns: 5 }}
+@media (max-width: 1800px) { .ProjectsRow { --columns: 4 }}
+@media (max-width: 1500px) { .ProjectsRow { --columns: 3 }}
+@media (max-width: 1200px) { .ProjectsRow { --columns: 2 }}
+@media (max-width: 1200px) { .ProjectsRow { --columns: 2 }}
+
+@media (max-width:  768px) and
+       (min-height: 600px) { .ProjectsRow { --columns: 1 }}
+
+@media (max-width:  375px) { .ProjectsRow { --columns: 1 }}
+
+@media (max-width: 2400px) {
+  .ProjectsRow {
+    --project-width: calc(
+      (
+        100vw
+        - var(--content-horizontal-padding)
+        - var(--columns) * var(--project-horizontal-gutter)
+      )
+      /
+      (var(--columns) + .5)
+    );
+  }
+}
+
+@media (max-width: 375px) {
+  .ProjectsRow {
+    --project-width: calc(100vw - 2 * var(--content-horizontal-padding))
+  }
+}
+
 .ProjectsRow--title {
-  padding: 0 var(--content-side-padding) .5em;
+  padding: 0 var(--content-horizontal-padding) .5em;
 }
 
 .ProjectsRow--title-content {
@@ -52,37 +103,45 @@
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x proximity;
-  scroll-padding: var(--content-side-padding);
+  scroll-padding: var(--content-horizontal-padding);
   margin-top: -1em;
+}
+
+@media (max-width: 375px) {
+  .ProjectsRow--projects {
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+  }
 }
 
 .ProjectsRow--project {
   display: flex;
+  width: var(--project-width);
   flex-direction: column;
   scroll-snap-align: start;
-  margin: 1em 1.5em;
+  margin: 1em calc(var(--project-horizontal-gutter) / 2);
 }
 
 .ProjectsRow--project:first-child {
-  margin-left: var(--content-side-padding);
+  margin-left: var(--content-horizontal-padding);
 }
 
 .ProjectsRow--project:last-child {
   margin-right: 0;
 }
 
-.ProjectsRow--projects::after {
-  content: "[spacer]"; /* TODO - improve hack */
-  display: block;
-  opacity: 0;
-  pointer-events: none;
+.ProjectsRow--row-end-spacer {
+  flex-shrink: 0;
+  width: calc(
+    100vw
+    - var(--project-width)
+    - var(--content-horizontal-padding)
+    - calc(var(--project-horizontal-gutter) / 2)
+  );
 }
 
 .Project---link {
-  --border-radius: .5em;
-  border-radius: var(--border-radius);
   display: block;
-  height: 100%; /* TODO - try to make this unnecessary */
   text-decoration: none;
   color: inherit;
   --accent-color: var(--orange-6);
@@ -90,6 +149,8 @@
   --focus-shadow: 0 0 0 var(--focus-size) var(--focus-color);
   box-shadow: var(--focus-shadow);
   transition: box-shadow .3s ease;
+  --border-radius: .5em;
+  border-radius: var(--border-radius);
 }
 
 [js-focus-visible-polyfill-available] .Project---link:focus {
@@ -104,13 +165,21 @@
   --focus-size: 0;
 }
 
+@media (hover: none) {
+  .Project---link:not([is-focus-visible]):hover {
+    --focus-size: 0;
+  }
+}
+
 .Project {
   position: relative;
-  overflow: hidden;
-  width: 20em;
-  height: 100%; /* TODO - try to make this unnecessary */
-  background: var(--background-color);
-  border-radius: var(--border-radius);
+  width: var(--project-width, 20em);
+  border-radius: var(--border-radius, .5em);
+}
+
+.Project---link-fills-height,
+.Project-fills-height {
+  height: 100%;
 }
 
 .Project::after {
@@ -123,16 +192,32 @@
   left: 0;
   pointer-events: none;
   border-radius: var(--border-radius);
-  border: 1px solid rgba(var(--orange-3-rgb), .4);
+  border: 1px solid rgba(var(--shadow-color-rgb), .25);
   transition: border .3s ease;
 }
 
-.Project---link:not([is-focus-visible]):not(:hover) .Project::after {
-  border-color: rgba(var(--shadow-color-rgb), .25);
+/* TODO */
+@media (hover: hover) {
+  .Project---link:hover .Project::after,
+  .Project---link[is-focus-visible] .Project::after {
+    border-color: rgba(var(--orange-3-rgb), .4);
+  }
+}
+
+/* TODO */
+@media (hover: none) {
+  .Project---link:focus .Project::after,
+  .Project---link:active .Project::after {
+    background: rgba(var(--shadow-color-rgb), .25);
+  }
 }
 
 .Project--image {
   position: relative;
+  border-radius: var(--border-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
 }
 
 .Project--image::after {
@@ -146,7 +231,7 @@
   background: rgba(var(--shadow-color-rgb), .13);
 }
 
-/* TODO - fix hack */
+/* TODO - figure out why Gatsby is setting `object-position` inline */
 .Project--image picture img {
   object-position: top center !important;
 }
@@ -160,6 +245,9 @@
   line-height: 1.25;
   margin-bottom: .33em;
   margin-top: -.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Project--features {
