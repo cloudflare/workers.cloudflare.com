@@ -120,6 +120,12 @@
   flex-direction: column;
   scroll-snap-align: start;
   margin: 1em calc(var(--project-horizontal-gutter) / 2);
+  --border-radius: .5em;
+  border-radius: var(--border-radius);
+}
+
+[theme="dark"] .ProjectsRow--project {
+  background: rgba(var(--gray-1-rgb), .5);
 }
 
 .ProjectsRow--project:first-child {
@@ -196,10 +202,14 @@
   transition: border .3s ease;
 }
 
+[theme="dark"] .Project::after {
+  border-color: transparent;
+}
+
 /* TODO */
 @media (hover: hover) {
-  .Project---link:hover .Project::after,
-  .Project---link[is-focus-visible] .Project::after {
+  [theme] .Project---link:hover .Project::after,
+  [theme] .Project---link[is-focus-visible] .Project::after {
     border-color: rgba(var(--orange-3-rgb), .4);
   }
 }
@@ -228,7 +238,7 @@
   right: 0;
   bottom: 0;
   height: 1px;
-  background: rgba(var(--shadow-color-rgb), .13);
+  background: rgba(var(--color-rgb), .13);
 }
 
 /* TODO - figure out why Gatsby is setting `object-position` inline */
@@ -298,5 +308,10 @@
   bottom: 0;
   left: 0;
   pointer-events: none;
-  border: 1px solid rgba(var(--shadow-color-rgb), .15);
+  --border-opacity: .15;
+  border: 1px solid rgba(var(--color-rgb), var(--border-opacity));
+}
+
+[theme="dark"] .ProjectPage--image::after {
+  --border-opacity: .1;
 }
