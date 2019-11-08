@@ -63,7 +63,6 @@
 @media (max-width: 1800px) { .ProjectsRow { --columns: 4 }}
 @media (max-width: 1500px) { .ProjectsRow { --columns: 3 }}
 @media (max-width: 1200px) { .ProjectsRow { --columns: 2 }}
-@media (max-width: 1200px) { .ProjectsRow { --columns: 2 }}
 
 @media (max-width:  768px) and
        (min-height: 600px) { .ProjectsRow { --columns: 1 }}
