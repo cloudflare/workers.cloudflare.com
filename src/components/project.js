@@ -37,7 +37,7 @@ const Featured = ({
 
 const Project = ({
   project: {
-    image: {
+    thumbnail: {
       asset: { fluid },
     },
     name,

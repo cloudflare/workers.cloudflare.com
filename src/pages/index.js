@@ -58,9 +58,16 @@ export const query = graphql`
     featured
     description
     slug
-    image {
+    thumbnail: image {
       asset {
         fluid(maxWidth: 440) {
+          ...GatsbySanityImageFluid
+        }
+      }
+    }
+    image {
+      asset {
+        fluid(maxWidth: 816) {
           ...GatsbySanityImageFluid
         }
       }
