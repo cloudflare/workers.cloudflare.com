@@ -10,7 +10,6 @@ const flatten = set => set.edges.map(({ node }) => node)
 
 const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
   const features = flatten(allSanityFeature)
-  const featureNames = features.map(f => f.name).reverse() // TODO - manual sort?
   const projects = flatten(allSanityProject)
   const featured = projects.filter(({ featured }) => !!featured)
   const unfeatured = projects.filter(({ featured }) => !featured)
@@ -19,14 +18,14 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
     <Layout>
       <SEO />
 
-      {featureNames.map(featureName => (
+      {features.map(feature => (
         <div class="ProjectsRow">
           <div class="ProjectsRow--title">
-            <h2 class="ProjectsRow--title-content">Built with { featureName }</h2>
+            <h2 class="ProjectsRow--title-content">Built with { feature.name }</h2>
           </div>
 
           <div class="ProjectsRow--projects">
-            {projects.filter(project => project.features.length && project.features.map(f => f.name).includes(featureName)).map(project => (
+            {projects.filter(project => project.features.length && project.features.map(f => f.name).includes(feature.name)).map(project => (
               <div class="ProjectsRow--project">
                 <Project project={project} />
               </div>
