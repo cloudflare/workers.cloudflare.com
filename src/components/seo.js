@@ -27,24 +27,9 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
-  const themeQuery = window.matchMedia("(prefers-color-scheme: dark)")
-
-  const getTheme = () => {
-    return ["dark", "light"].includes(localStorage.theme) ?
-      localStorage.theme :
-      (themeQuery.matches ?
-        "dark" :
-        "light")
-  }
-
-  themeQuery.addListener(() => document.documentElement.setAttribute("theme", getTheme()))
-
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-        theme: getTheme()
-      }}
+      htmlAttributes={{ lang }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
