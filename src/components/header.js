@@ -1,21 +1,13 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import Nav from './nav'
 
-const Header = ({ description, title }) => (
-  <header>
-    <div className="container mx-auto">
-      <h1>
-        <Link to="/">{title}</Link>
-      </h1>
-      <h2>{description}</h2>
-    </div>
+// TODO - move these to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
+import '../vendor/workers.cloudflare.com/css/components/header.css'
+
+const Header = () => (
+  <header class="Header">
+    <Nav />
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-  siteDescription: PropTypes.string.isRequired,
-}
 
 export default Header

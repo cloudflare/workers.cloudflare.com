@@ -1,0 +1,134 @@
+.CodeBlock {
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--monospace-font-family);
+  font-size: .9em;
+  padding: .9em 1.25em;
+  margin: 0;
+  border-radius: .5em;
+  background: var(--code-block-background-color);
+  color: var(--code-block-color);
+  max-width: 100%;
+  cursor: text;
+}
+
+.CodeBlock > code {
+  font-family: inherit;
+}
+
+.CodeBlock::-webkit-scrollbar {
+  height: 8px;
+  transition: opacity .5s ease;
+}
+
+.CodeBlock:not(:hover)::-webkit-scrollbar {
+  opacity: 0;
+}
+
+.CodeBlock::-webkit-scrollbar-track-piece {
+  background: transparent;
+  border-radius: .5em;
+}
+
+.CodeBlock::-webkit-scrollbar-thumb {
+  border-radius: .5em;
+  box-shadow: inset 0 1px 1px rgba(var(--background-color-rgb), .15);
+  border: 2px solid var(--code-block-background-color);
+  background: var(--code-block-scrollbar-color);
+}
+
+.CodeBlock-is-one-liner {
+  border-radius: .3125em;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.CodeBlock-scrolls-horizontally {
+  white-space: pre;
+  word-break: normal;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.CodeBlock-is-hero {
+  padding: 1.25em 1.5em;
+  box-shadow:
+    0 1px 1px rgba(var(--shadow-color-rgb), .075),
+    0 .1333em .26667em rgba(var(--shadow-color-rgb), .075),
+    0 .2222em .66667em 0 rgba(var(--shadow-color-rgb), .075),
+    0 .4444em 1.3333em 0 rgba(var(--shadow-color-rgb), .075);
+}
+
+.CodeBlock-is-file {
+  background: var(--gray-9);
+  padding-top: 1.5em;
+  color: inherit;
+}
+
+.CodeBlock-is-file .CodeBlock--filename {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2em;
+  background: var(--gray-7);
+  padding: .4em 1.25em .3em;
+  border-radius: .5em .5em 0 0;
+  opacity: .9;
+  font-weight: bold;
+}
+
+.CodeBlock b {
+  font-weight: normal;
+}
+
+.CodeBlock u {
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  text-decoration: none;
+  transition: opacity .25s ease;
+}
+
+@media (hover: hover) {
+  .CodeBlock:hover u {
+    opacity: .25;
+  }
+}
+
+.CodeBlock[has-selection-contained-within] u {
+  opacity: .25;
+}
+
+@media (hover: none) {
+  .CodeBlock:hover u {
+    opacity: .25;
+  }
+}
+
+.CodeBlock--comment {
+  font-style: italic;
+  color: var(--code-gray);
+}
+
+.CodeBlock--directory {
+  color: var(--code-orange);
+}
+
+.CodeBlock--prompt {
+  color: var(--code-orange);
+  opacity: .7;
+}
+
+.CodeBlock--value {
+  color: var(--code-cyan);
+}
+
+.CodeBlock--success {
+  color: var(--code-green);
+}

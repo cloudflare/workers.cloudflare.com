@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const Feature = ({
   feature: {
     image: {
-      asset: { fixed },
+      asset: { fluid },
     },
     name,
     slug,
@@ -14,7 +14,7 @@ const Feature = ({
 }) => (
   <div className="features__feature">
     <div className="h-full">
-      <Img fixed={fixed} />
+      <Img fluid={fluid} />
     </div>
     <div className="flex-1">
       <h3>

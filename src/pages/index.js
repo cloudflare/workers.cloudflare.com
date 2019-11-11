@@ -17,32 +17,23 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
   return (
     <Layout>
       <SEO />
-      <div className="featured__container container mx-auto">
-        {featured.map(project => (
-          <Project variant="featured" project={project} />
-        ))}
-      </div>
 
-      <div className="features__container">
-        <div className="container mx-auto">
-          <h2>Learn more</h2>
-          <div className="features__collection">
-            {features.map(feature => (
-              <Feature feature={feature} />
+      {features.map(feature => (
+        <div class="ProjectsRow">
+          <div class="ProjectsRow--title">
+            <h2 class="ProjectsRow--title-content">Built with { feature.name }</h2>
+          </div>
+
+          <div class="ProjectsRow--projects">
+            {projects.filter(project => project.features.length && project.features.map(f => f.name).includes(feature.name)).map(project => (
+              <div class="ProjectsRow--project">
+                <Project project={project} />
+              </div>
             ))}
+            <div class="ProjectsRow--row-end-spacer"></div>
           </div>
         </div>
-      </div>
-
-      <div className="projects__container">
-        <div className="container mx-auto">
-          <div className="projects__collection">
-            {unfeatured.map(project => (
-              <Project project={project} />
-            ))}
-          </div>
-        </div>
-      </div>
+      ))}
     </Layout>
   )
 }
@@ -54,8 +45,8 @@ export const query = graphql`
     slug
     image {
       asset {
-        fixed(height: 200, width: 300) {
-          ...GatsbySanityImageFixed
+        fluid(maxWidth: 200) {
+          ...GatsbySanityImageFluid
         }
       }
     }
@@ -66,10 +57,17 @@ export const query = graphql`
     featured
     description
     slug
+    thumbnail: image {
+      asset {
+        fluid(maxWidth: 440) {
+          ...GatsbySanityImageFluid
+        }
+      }
+    }
     image {
       asset {
-        fixed(height: 200, width: 300) {
-          ...GatsbySanityImageFixed
+        fluid(maxWidth: 816) {
+          ...GatsbySanityImageFluid
         }
       }
     }
