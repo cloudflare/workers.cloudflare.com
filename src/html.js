@@ -7,7 +7,7 @@ const loadTheme = `
   const getTheme = () => {
     const storedTheme = localStorage.theme
     const matchedTheme = themeQuery.matches ? "dark" : "light"
-    return ["dark", "light"].includes(storedTheme) ? storedTheme: matchedTheme
+    return ["dark", "light"].includes(storedTheme) ? storedTheme : matchedTheme
   }
 
   const updateTheme = () => document.documentElement.setAttribute("theme", getTheme())
