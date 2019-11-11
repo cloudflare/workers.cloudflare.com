@@ -11,8 +11,6 @@ const flatten = set => set.edges.map(({ node }) => node)
 const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
   const features = flatten(allSanityFeature)
   const projects = flatten(allSanityProject)
-  const featured = projects.filter(({ featured }) => !!featured)
-  const unfeatured = projects.filter(({ featured }) => !featured)
 
   return (
     <Layout>
@@ -21,15 +19,23 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
       {features.map(feature => (
         <div class="ProjectsRow">
           <div class="ProjectsRow--title">
-            <h2 class="ProjectsRow--title-content">Built with { feature.name }</h2>
+            <h2 class="ProjectsRow--title-content">
+              Built with {feature.name}
+            </h2>
           </div>
 
           <div class="ProjectsRow--projects">
-            {projects.filter(project => project.features.length && project.features.map(f => f.name).includes(feature.name)).map(project => (
-              <div class="ProjectsRow--project">
-                <Project project={project} />
-              </div>
-            ))}
+            {projects
+              .filter(
+                project =>
+                  project.features.length &&
+                  project.features.map(f => f.name).includes(feature.name)
+              )
+              .map(project => (
+                <div class="ProjectsRow--project">
+                  <Project project={project} />
+                </div>
+              ))}
             <div class="ProjectsRow--row-end-spacer"></div>
           </div>
         </div>
@@ -54,8 +60,7 @@ export const query = graphql`
 
   fragment Project on SanityProject {
     name
-    featured
-    description
+    short_description
     slug
     thumbnail: image {
       asset {
@@ -70,6 +75,11 @@ export const query = graphql`
           ...GatsbySanityImageFluid
         }
       }
+    }
+    links {
+      primary
+      link_type
+      url
     }
     features {
       name
