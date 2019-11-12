@@ -36,7 +36,7 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
                   <Project project={project} />
                 </div>
               ))}
-            <div class="ProjectsRow--row-end-spacer"></div>
+            <div class="ProjectsRow--row-end-spacer" />
           </div>
         </div>
       ))}
@@ -60,7 +60,7 @@ export const query = graphql`
 
   fragment Project on SanityProject {
     name
-    short_description
+    shortDescription
     slug
     thumbnail: image {
       asset {
@@ -78,7 +78,7 @@ export const query = graphql`
     }
     links {
       primary
-      link_type
+      linkType
       url
     }
     features {

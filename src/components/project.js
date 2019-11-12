@@ -9,9 +9,8 @@ const Project = ({
     },
     name,
     slug,
-    short_description,
+    shortDescription,
     features,
-    links,
   },
 }) => (
   <Link
@@ -25,7 +24,7 @@ const Project = ({
 
       <div class="Project--content">
         <h2 class="Project--title">{name}</h2>
-        <p class="Project--description">{short_description}</p>
+        <p class="Project--description">{shortDescription}</p>
         <div className="Project--features">
           {features.map(({ name, slug }) => (
             <Link to={`/features/${slug}`}>

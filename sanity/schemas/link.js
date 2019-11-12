@@ -11,7 +11,7 @@ const link = {
     },
     {
       title: "Type",
-      name: "link_type",
+      name: "linkType",
       type: "string",
       options: {
         list: ["website", "twitter", "code", "blog-post"],

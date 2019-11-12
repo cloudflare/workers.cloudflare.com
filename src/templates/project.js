@@ -11,13 +11,13 @@ const Project = ({ data: { sanityProject: project } }) => {
       <SEO title={project.name} />
       <div class="ProjectPage">
         <h2 class="ProjectPage--title">{project.name}</h2>
-        <p class="ProjectPage--description">{project.short_description}</p>
+        <p class="ProjectPage--description">{project.shortDescription}</p>
         <div class="ProjectPage--image">
           <Img fluid={project.image.asset.fluid} />
         </div>
-        {project.links.map(({ link_type, url }) => (
+        {project.links.map(({ linkType, url }) => (
           <div>
-            <a href={url}>{link_type}</a>
+            <a href={url}>{linkType}</a>
           </div>
         ))}
       </div>

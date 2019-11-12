@@ -11,13 +11,13 @@ const project = {
     },
     {
       title: "Short Description",
-      name: "short_description",
+      name: "shortDescription",
       required: true,
       type: "string",
     },
     {
       title: "Long Description",
-      name: "long_description",
+      name: "longDescription",
       required: true,
       type: "text",
     },
