@@ -3,7 +3,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
   (factory());
-}(this, (function () { 'use strict';
+}(this, (function () {
 
   /**
    * https://github.com/WICG/focus-visible
@@ -174,7 +174,7 @@
      * @param {Event} e
      */
     function onVisibilityChange(e) {
-      if (document.visibilityState == 'hidden') {
+      if (document.visibilityState === 'hidden') {
         // If the tab becomes active again, the browser will handle calling focus
         // on the element (Safari actually calls it twice).
         // If this tab change caused a blur on an element with focus-visible,
