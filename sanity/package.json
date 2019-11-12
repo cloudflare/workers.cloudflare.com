@@ -24,5 +24,7 @@
     "react": "^16.2",
     "react-dom": "^16.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "yargs": "^14.2.0"
+  }
 }
