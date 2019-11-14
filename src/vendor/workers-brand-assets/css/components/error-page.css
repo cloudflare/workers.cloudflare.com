@@ -1,0 +1,32 @@
+.ErrorPage {
+  --vertical-padding: var(--section-vertical-padding, 3em);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ErrorPage--content {
+  text-align: center;
+  padding: var(--vertical-padding) 1em;
+}
+
+.ErrorPage--title {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: .333em;
+}
+
+@media (max-width: 768px) {
+  .ErrorPage--title {
+    font-size: 2em;
+  }
+}
+
+.ErrorPage--description {
+  margin-bottom: 2em;
+}
+
+.ErrorPage--action {
+  font-size: 1.3em;
+}
