@@ -25,13 +25,6 @@ const Project = ({
       <div className="Project--content">
         <h2 className="Project--title">{name}</h2>
         <p className="Project--description">{shortDescription}</p>
-        <div className="Project--features">
-          {features.map(({ name, slug }) => (
-            <Link key={slug} to={`/features/${slug}`}>
-              <span>{name}</span>
-            </Link>
-          ))}
-        </div>
       </div>
     </div>
   </Link>
