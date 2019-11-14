@@ -19,7 +19,7 @@ const project = {
       title: "Long Description",
       name: "longDescription",
       required: true,
-      type: "text",
+      type: "markdown",
     },
     {
       title: "Image",
