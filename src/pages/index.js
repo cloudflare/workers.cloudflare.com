@@ -13,17 +13,17 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO title="Homepage" />
 
       {features.map(feature => (
-        <div class="ProjectsRow">
-          <div class="ProjectsRow--title">
-            <h2 class="ProjectsRow--title-content">
+        <div className="ProjectsRow" key={feature.name}>
+          <div className="ProjectsRow--title">
+            <h2 className="ProjectsRow--title-content">
               Built with {feature.name}
             </h2>
           </div>
 
-          <div class="ProjectsRow--projects">
+          <div className="ProjectsRow--projects">
             {projects
               .filter(
                 project =>
@@ -31,11 +31,11 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
                   project.features.map(f => f.name).includes(feature.name)
               )
               .map(project => (
-                <div class="ProjectsRow--project">
+                <div className="ProjectsRow--project" key={project.name}>
                   <Project project={project} />
                 </div>
               ))}
-            <div class="ProjectsRow--row-end-spacer" />
+            <div className="ProjectsRow--row-end-spacer" />
           </div>
         </div>
       ))}

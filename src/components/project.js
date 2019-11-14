@@ -14,20 +14,20 @@ const Project = ({
   },
 }) => (
   <Link
-    class="Project---link Project---link-fills-height"
+    className="Project---link Project---link-fills-height"
     to={`/projects/${slug}`}
   >
-    <div class="Project Project-fills-height">
-      <div class="Project--image">
+    <div className="Project Project-fills-height">
+      <div className="Project--image">
         <Img fluid={fluid} />
       </div>
 
-      <div class="Project--content">
-        <h2 class="Project--title">{name}</h2>
-        <p class="Project--description">{shortDescription}</p>
+      <div className="Project--content">
+        <h2 className="Project--title">{name}</h2>
+        <p className="Project--description">{shortDescription}</p>
         <div className="Project--features">
           {features.map(({ name, slug }) => (
-            <Link to={`/features/${slug}`}>
+            <Link key={slug} to={`/features/${slug}`}>
               <span>{name}</span>
             </Link>
           ))}

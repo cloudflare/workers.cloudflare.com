@@ -9,10 +9,10 @@ const Project = ({ data: { sanityProject: project } }) => {
   return (
     <Layout>
       <SEO title={project.name} />
-      <div class="ProjectPage">
-        <h2 class="ProjectPage--title">{project.name}</h2>
-        <p class="ProjectPage--description">{project.shortDescription}</p>
-        <div class="ProjectPage--image">
+      <div className="ProjectPage">
+        <h2 className="ProjectPage--title">{project.name}</h2>
+        <p className="ProjectPage--description">{project.shortDescription}</p>
+        <div className="ProjectPage--image">
           <Img fluid={project.image.asset.fluid} />
         </div>
         {project.links.map(({ linkType, url }) => (
