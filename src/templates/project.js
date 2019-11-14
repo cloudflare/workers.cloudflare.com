@@ -5,6 +5,8 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import Markdown from "react-markdown"
+
 const Project = ({ data: { sanityProject: project } }) => {
   return (
     <Layout>
@@ -20,6 +22,10 @@ const Project = ({ data: { sanityProject: project } }) => {
             <a href={url}>{linkType}</a>
           </div>
         ))}
+        <Markdown
+          className="ProjectPage--description"
+          source={project.longDescription}
+        />
       </div>
     </Layout>
   )

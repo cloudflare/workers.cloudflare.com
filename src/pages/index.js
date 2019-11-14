@@ -60,6 +60,7 @@ export const query = graphql`
   fragment Project on SanityProject {
     name
     shortDescription
+    longDescription
     slug
     thumbnail: image {
       asset {
