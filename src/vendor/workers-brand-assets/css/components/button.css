@@ -106,7 +106,7 @@
   --color-rgb: var(--orange-7-rgb);
 }
 
-.Button-is-secondary-orange:not([disabled]):active {
+[theme="light"] .Button-is-secondary-orange:not([disabled]):active {
   --active-box-shadow-color: rgba(var(--color-rgb), .4);
 }
 
