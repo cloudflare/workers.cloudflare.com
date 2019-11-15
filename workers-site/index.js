@@ -1,6 +1,6 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
 
-import { clap, transformClap } from "./clap"
+import { clap, transformClap, unclap } from "./clap"
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -9,7 +9,7 @@ import { clap, transformClap } from "./clap"
  * 2. we will return an error message on exception in your Response rather
  *    than the default 404.html page.
  */
-const DEBUG = false
+const DEBUG = true
 
 addEventListener("fetch", event => {
   try {
@@ -30,8 +30,13 @@ async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
 
-  if (event.request.method === "PUT" || url.pathname.includes("/clap")) {
-    return await clap(event.request)
+  if (event.request.method === "POST") {
+    if (url.pathname.includes("/clap")) {
+      return await clap(event.request)
+    }
+    if (url.pathname.includes("/unclap")) {
+      return await unclap(event.request)
+    }
   }
 
   /**

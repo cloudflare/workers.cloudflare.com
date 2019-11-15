@@ -36,13 +36,27 @@ const Project = ({ data: { sanityProject: project } }) => {
   return (
     <Layout>
       <SEO title={project.name} />
-      <div class="ProjectPage">
-        <h2 class="ProjectPage--title">{project.name}</h2>
-        <p class="ProjectPage--description">{project.shortDescription}</p>
-        <p class="ProjectPage--description">
-          <Clap project={project} />
-        </p>
-        <div class="ProjectPage--image">
+
+      <div className="BuiltWithWorkersPage ProjectPage">
+        <div className="ProjectPage--header">
+          <div className="ProjectPage--header-content">
+            <h2 className="ProjectPage--title">{project.name}</h2>
+            <p className="ProjectPage--description">{project.shortDescription}</p>
+            <p className="ProjectPage--description"><Clap project={project} /></p>
+          </div>
+
+          {project.links.length > 0 && (
+            <div className="ProjectPage--header-action">
+              {[project.links[0]].map(({ linkType, url }) => (
+                <a className="ProjectPage--header-action-button Button Button-is-primary" href={url}>
+                  {getPrimaryLinkText(linkType)}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="ProjectPage--image">
           <Img fluid={project.image.asset.fluid} />
         </div>
 

@@ -3,25 +3,23 @@ import SSRWrapper from "./SSRWrapper"
 
 import "./clap.css"
 
-const clap = async (claps, setClaps, setClapped) => {
+const clap = async setClapped => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/clap", {
     method: "POST",
   })
 
-  setClaps(claps + 1)
   setClapped(true)
 
   return false
 }
 
-const unclap = async (claps, setClaps, setClapped) => {
+const unclap = async setClapped => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/unclap", {
     method: "POST",
   })
 
-  setClaps(claps - 1)
   setClapped(false)
 
   return false
@@ -30,10 +28,9 @@ const unclap = async (claps, setClaps, setClapped) => {
 const Clap = ({ project }) => {
   const [esr, setESR] = useState(false)
   const [clapped, setClapped] = useState(false)
-  const [claps, setClaps] = useState(0)
 
   useEffect(() => {
-    const data = document.querySelector("script#claps")
+    const data = document.querySelector("script#claps_json")
     if (!data.innerText.length) {
       setESR(false)
       return
@@ -42,8 +39,8 @@ const Clap = ({ project }) => {
     setESR(true)
 
     const parsed = JSON.parse(data.innerText)
-    if (parsed[project.slug]) {
-      setClaps(Number(parsed[project.slug]))
+    if (parsed[`${project.slug}_clapped`]) {
+      setClapped(parsed[`${project.slug}_clapped`])
     }
   }, [project.slug])
 
@@ -55,14 +52,10 @@ const Clap = ({ project }) => {
     <div class={"Clap" + (clapped ? " Clap-is-clapped" : "")}>
       <button
         class="Button"
-        onClick={() => !clapped ?
-          clap(claps, setClaps, setClapped) :
-          unclap(claps, setClaps, setClapped)
-        }
+        onClick={() => (!clapped ? clap(setClapped) : unclap(setClapped))}
       >
         <span class="Clap--clap-button-content"></span>
       </button>
-      <span class="Clap--count">{claps}</span>
     </div>
   )
 }
