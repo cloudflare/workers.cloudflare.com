@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import Clap from "../components/clap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -20,6 +21,7 @@ const Project = ({ data: { sanityProject: project } }) => {
             <a href={url}>{linkType}</a>
           </div>
         ))}
+        <Clap project={project} />
       </div>
     </Layout>
   )

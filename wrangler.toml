@@ -3,6 +3,10 @@ type = "webpack"
 account_id = "dc56444c4c955a1653106ccf997c1067"
 workers_dev = true
 
+kv-namespaces = [
+  { binding = "BUILT_WITH_WORKERS", id = "2030403ba3434e749794b2df2813d0c6" } # prod
+]
+
 [env.production]
 workers_dev = false
 route = ""
