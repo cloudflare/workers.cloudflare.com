@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react"
 
 // TODO - move these to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
 import '../vendor/workers.cloudflare.com/css/components/nav.css'
 
 const Nav = () => (
-  <nav class="Nav">
-    <a class="Nav--link Nav--link-logo" href="https://workers.cloudflare.com">
-      <div class="CloudflareWorkersLogo CloudflareWorkersLogo-horizontal-combination-mark">
+  <nav className="Nav">
+    <a className="Nav--link Nav--link-logo" href="https://workers.cloudflare.com">
+      <div className="CloudflareWorkersLogo CloudflareWorkersLogo-horizontal-combination-mark">
         <svg id="CloudflareWorkersLogoCombinationMarkHorizontal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1430 375" role="img" aria-labelledby="CloudflareWorkersLogoCombinationMarkHorizontal--title CloudflareWorkersLogoCombinationMarkHorizontal--desc">
           <title id="CloudflareWorkersLogoCombinationMarkHorizontal--title">Cloudflare Workers logo (horizontal)</title>
           <desc id="CloudflareWorkersLogoCombinationMarkHorizontal--desc">The horizontal wordmark logo for the Cloudflare Workers brand.</desc>
@@ -59,15 +59,15 @@ const Nav = () => (
       </div>
     </a>
 
-    <a class="Nav--link" href="https://support.cloudflare.com/hc/en-us/sections/360000215372-Cloudflare-Workers"><span>Support</span></a>
-    <a class="Nav--link" href="https://workers.cloudflare.com/docs/"><span>Docs</span></a>
+    <a className="Nav--link" href="https://support.cloudflare.com/hc/en-us/sections/360000215372-Cloudflare-Workers"><span>Support</span></a>
+    <a className="Nav--link" href="https://workers.cloudflare.com/docs/"><span>Docs</span></a>
 
-    <div class="Nav--item Nav--item-sign-in">
-      <a class="Button Button-is-secondary" href="https://dash.cloudflare.com/login?redirect_uri=https%3A%2F%2Fdash.cloudflare.com%2F%3Faccount%3Dworkers">Log in</a>
+    <div className="Nav--item Nav--item-sign-in">
+      <a className="Button Button-is-secondary" href="https://dash.cloudflare.com/login?redirect_uri=https%3A%2F%2Fdash.cloudflare.com%2F%3Faccount%3Dworkers">Log in</a>
     </div>
 
-    <div class="Nav--item Nav--item-sign-up">
-      <a class="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a>
+    <div className="Nav--item Nav--item-sign-up">
+      <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a>
     </div>
   </nav>
 )
