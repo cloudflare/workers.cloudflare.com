@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import SSRWrapper from "./SSRWrapper"
 
+import "./clap.css"
+
 const clap = async (claps, setClaps, setClapped) => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/clap", {
@@ -9,6 +11,18 @@ const clap = async (claps, setClaps, setClapped) => {
 
   setClaps(claps + 1)
   setClapped(true)
+
+  return false
+}
+
+const unclap = async (claps, setClaps, setClapped) => {
+  const url = new URL(window.location)
+  await fetch(url.pathname + "/unclap", {
+    method: "POST",
+  })
+
+  setClaps(claps - 1)
+  setClapped(false)
 
   return false
 }
@@ -38,14 +52,17 @@ const Clap = ({ project }) => {
   }
 
   return (
-    <div id="ProjectPage--claps">
+    <div class={"Clap" + (clapped ? " Clap-is-clapped" : "")}>
       <button
-        id="ProjectPage--claps"
-        onClick={() => clap(claps, setClaps, setClapped)}
-        disabled={clapped}
+        class="Button"
+        onClick={() => !clapped ?
+          clap(claps, setClaps, setClapped) :
+          unclap(claps, setClaps, setClapped)
+        }
       >
-        {claps}
+        <span class="Clap--clap-button-content"></span>
       </button>
+      <span class="Clap--count">{claps}</span>
     </div>
   )
 }

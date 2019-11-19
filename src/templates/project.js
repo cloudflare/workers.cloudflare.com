@@ -13,6 +13,9 @@ const Project = ({ data: { sanityProject: project } }) => {
       <div class="ProjectPage">
         <h2 class="ProjectPage--title">{project.name}</h2>
         <p class="ProjectPage--description">{project.shortDescription}</p>
+        <p class="ProjectPage--description">
+          <Clap project={project} />
+        </p>
         <div class="ProjectPage--image">
           <Img fluid={project.image.asset.fluid} />
         </div>
@@ -21,7 +24,6 @@ const Project = ({ data: { sanityProject: project } }) => {
             <a href={url}>{linkType}</a>
           </div>
         ))}
-        <Clap project={project} />
       </div>
     </Layout>
   )
