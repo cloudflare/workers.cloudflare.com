@@ -1,0 +1,3 @@
+.Collections > .Collections--collection:not(:last-child) {
+  margin-bottom: 4em;
+}

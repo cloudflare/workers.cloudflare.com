@@ -5,6 +5,10 @@ import Layout from "../components/layout"
 import Project from "../components/project"
 import SEO from "../components/seo"
 
+import "./built-with-workers-page.css"
+import "./collections.css"
+import "./collection.css"
+
 const flatten = set => set.edges.map(({ node }) => node)
 
 const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
@@ -15,30 +19,36 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
     <Layout>
       <SEO />
 
-      {features.map(feature => (
-        <div class="ProjectsRow">
-          <div class="ProjectsRow--title">
-            <h2 class="ProjectsRow--title-content">
-              Built with {feature.name}
-            </h2>
-          </div>
-
-          <div class="ProjectsRow--projects">
-            {projects
-              .filter(
-                project =>
-                  project.features.length &&
-                  project.features.map(f => f.name).includes(feature.name)
-              )
-              .map(project => (
-                <div class="ProjectsRow--project">
-                  <Project project={project} />
+      <div className="BuiltWithWorkersPage">
+        <div className="Collections">
+          {features.map(feature => (
+            <div className="Collections--collection">
+              <div className="Collection">
+                <div className="Collection--header">
+                  <h2 className="Collection--title">
+                    Built with {feature.name}
+                  </h2>
                 </div>
-              ))}
-            <div class="ProjectsRow--row-end-spacer" />
-          </div>
+
+                <div className="Collection--projects">
+                  {projects
+                    .filter(
+                      project =>
+                        project.features.length &&
+                        project.features.map(f => f.name).includes(feature.name)
+                    )
+                    .map(project => (
+                      <div className="Collection--project">
+                        <Project project={project} />
+                      </div>
+                    ))}
+                  <div className="Collection--spacer" />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </Layout>
   )
 }
@@ -60,6 +70,7 @@ export const query = graphql`
   fragment Project on SanityProject {
     name
     shortDescription
+    longDescription
     slug
     thumbnail: image {
       asset {
@@ -70,7 +81,7 @@ export const query = graphql`
     }
     image {
       asset {
-        fluid(maxWidth: 816) {
+        fluid(maxWidth: 952) {
           ...GatsbySanityImageFluid
         }
       }

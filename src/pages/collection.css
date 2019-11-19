@@ -1,0 +1,129 @@
+.Collection {
+  --content-horizontal-padding: 4.5em;
+  --gutter: 3em;
+  --project-width: 20em;
+}
+
+@media (max-width: 576px) {
+  .Collection {
+    --content-horizontal-padding: 2.5em;
+    --gutter: 1.5em;
+  }
+}
+
+@media (max-width: 375px) {
+  .Collection {
+    --content-horizontal-padding: 3em;
+    --gutter: 2em;
+  }
+}
+
+@media (max-width: 2400px) { .Collection { --columns: 6 }}
+@media (max-width: 2100px) { .Collection { --columns: 5 }}
+@media (max-width: 1800px) { .Collection { --columns: 4 }}
+@media (max-width: 1500px) { .Collection { --columns: 3 }}
+@media (max-width: 1200px) { .Collection { --columns: 2 }}
+
+@media (max-width:  768px) and
+       (min-height: 600px) { .Collection { --columns: 1 }}
+
+@media (max-width:  375px) { .Collection { --columns: 1 }}
+
+@media (max-width: 2400px) {
+  .Collection {
+    --project-width: calc(
+      (
+        100vw
+        - var(--content-horizontal-padding)
+        - var(--columns) * var(--gutter)
+      )
+      /
+      (var(--columns) + .5)
+    );
+  }
+}
+
+@media (max-width: 375px) {
+  .Collection {
+    --project-width: calc(100vw - 2 * var(--content-horizontal-padding))
+  }
+}
+
+.Collection--header {
+  padding: 0 var(--content-horizontal-padding) .5em;
+}
+
+.Collection--title {
+  font-size: 1.5em;
+}
+
+/* TODO - put scroll snap stuff inside of @supports (scroll-snap-align: start) */
+
+.Collection--projects {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scroll-padding: var(--content-horizontal-padding);
+  margin-top: -1em;
+}
+
+@media (max-width: 375px) {
+  .Collection--projects {
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+  }
+}
+
+.Collection--project {
+  display: flex;
+  width: var(--project-width);
+  flex-direction: column;
+  scroll-snap-align: start;
+  margin: 1em calc(var(--gutter) / 2);
+  --border-radius: .5em;
+  border-radius: var(--border-radius);
+}
+
+.Collection--project:first-child {
+  margin-left: var(--content-horizontal-padding);
+}
+
+.Collection--spacer {
+  flex-shrink: 0;
+  width: calc(
+    100vw
+    - var(--project-width)
+    - var(--content-horizontal-padding)
+    - calc(var(--gutter) / 2)
+  );
+}
+
+.Collection-is-centered {
+  --scroll-padding: calc(50vw - (var(--project-width) / 2));
+}
+
+.Collection-is-centered .Collection--projects {
+  scroll-padding: var(--scroll-padding);
+}
+
+.Collection-is-centered .Collection--project:first-child {
+  margin-left: var(--scroll-padding);
+}
+
+.Collection-is-centered .Collection--spacer {
+  width: calc(50vw - (var(--project-width) / 2) - (var(--gutter) / 2));
+}
+
+.Collection-is-centered .Collection--title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 768px) {
+  .Collection-is-centered .Collection--title {
+    font-size: 1.4em;
+  }
+}

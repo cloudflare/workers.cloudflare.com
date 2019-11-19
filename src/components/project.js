@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
+import "./project.css"
+
 const Project = ({
   project: {
     thumbnail: {
@@ -14,24 +16,17 @@ const Project = ({
   },
 }) => (
   <Link
-    class="Project---link Project---link-fills-height"
+    className="Project---link Project---link-fills-height"
     to={`/projects/${slug}`}
   >
-    <div class="Project Project-fills-height">
-      <div class="Project--image">
+    <div className="Project Project-fills-height">
+      <div className="Project--image">
         <Img fluid={fluid} />
       </div>
 
-      <div class="Project--content">
-        <h2 class="Project--title">{name}</h2>
-        <p class="Project--description">{shortDescription}</p>
-        <div className="Project--features">
-          {features.map(({ name, slug }) => (
-            <Link to={`/features/${slug}`}>
-              <span>{name}</span>
-            </Link>
-          ))}
-        </div>
+      <div className="Project--content">
+        <h2 className="Project--title">{name}</h2>
+        <p className="Project--description">{shortDescription}</p>
       </div>
     </div>
   </Link>

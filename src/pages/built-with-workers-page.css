@@ -1,0 +1,5 @@
+.BuiltWithWorkersPage {
+  --vertical-padding-top: 2em;
+  padding: calc(var(--header-height) + var(--vertical-padding-top)) 0 var(--section-vertical-padding);
+  width: 100%;
+}

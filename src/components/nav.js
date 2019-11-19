@@ -1,7 +1,10 @@
 import React from "react"
 
-// TODO - move these to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
-import '../vendor/workers.cloudflare.com/css/components/nav.css'
+import "../vendor/workers-brand-assets/css/components/cloudflare-workers-logo.css";
+import "../vendor/workers-brand-assets/css/components/button.css";
+
+// TODO - move this to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
+import "../vendor/workers.cloudflare.com/css/components/nav.css"
 
 const Nav = () => (
   <nav className="Nav">
