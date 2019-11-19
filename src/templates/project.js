@@ -58,35 +58,37 @@ const Project = ({ data: { sanityProject: project } }) => {
           <Img fluid={project.image.asset.fluid} />
         </div>
 
-        <div className="ProjectPage--body">
-          <div className="ProjectPage--about">
-            <Markdown source={project.longDescription}/>
-          </div>
-
-          {(project.developer || project.links.length > 0) && (
-            <div className="ProjectPage--metadata">
-              <dl className="DefinitionList">
-                <dt className="DefinitionList--term">Developer</dt>
-                <dd className="DefinitionList--definition">Cloudflare</dd>
-
-                {project.links.length > 0 && (
-                  <>
-                    <dt className="DefinitionList--term">Links</dt>
-                    <dd className="DefinitionList--definition">
-                      {project.links.map(({ linkType, url }) => (
-                        <span className="ProjectPage--metadata-link">
-                          <a className="Link Link-with-right-arrow" href={url}>
-                            {getLinkText(linkType)}
-                          </a>
-                        </span>
-                      ))}
-                    </dd>
-                  </>
-                )}
-              </dl>
+        {project.longDescription && (
+          <div className="ProjectPage--body">
+            <div className="ProjectPage--about">
+              <Markdown source={project.longDescription}/>
             </div>
-          )}
-        </div>
+
+            {(project.developer || project.links.length > 0) && (
+              <div className="ProjectPage--metadata">
+                <dl className="DefinitionList">
+                  <dt className="DefinitionList--term">Developer</dt>
+                  <dd className="DefinitionList--definition">Cloudflare</dd>
+
+                  {project.links.length > 0 && (
+                    <>
+                      <dt className="DefinitionList--term">Links</dt>
+                      <dd className="DefinitionList--definition">
+                        {project.links.map(({ linkType, url }) => (
+                          <span className="ProjectPage--metadata-link">
+                            <a className="Link Link-with-right-arrow" href={url}>
+                              {getLinkText(linkType)}
+                            </a>
+                          </span>
+                        ))}
+                      </dd>
+                    </>
+                  )}
+                </dl>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="ProjectPage--more">
           <div className="Collection Collection-is-centered">
