@@ -3,9 +3,11 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import Markdown from "../components/markdown"
+import RelatedProject from "../components/project"
 import SEO from "../components/seo"
 
-import Markdown from "../components/markdown"
+import { flatten, normalizeCollection } from "../utils"
 
 import "../pages/built-with-workers-page.css"
 import "./project-page.css"
@@ -31,7 +33,27 @@ const getLinkText = (linkType) => {
   }
 }
 
-const Project = ({ data: { sanityProject: project } }) => {
+const Project = ({
+  data: {
+    allSanityCollection,
+    allSanityFeature,
+    allSanityProject,
+    sanityProject: project,
+  },
+}) => {
+  const allCollections = flatten(allSanityCollection)
+  let collections = allCollections.map(collection =>
+    normalizeCollection(
+      collection,
+      flatten(allSanityFeature),
+      flatten(allSanityProject)
+    )
+  )
+
+  const collectionForProject = collections.find(({ projects }) =>
+    projects.find(({ id }) => id === project.id)
+  )
+
   return (
     <Layout>
       <SEO title={project.name} />
@@ -97,91 +119,15 @@ const Project = ({ data: { sanityProject: project } }) => {
             </div>
 
             <div className="Collection--projects">
-              <div className="Collection--project">
-                <a className="Project---link Project---link-fills-height">
-                  <div className="Project Project-fills-height">
-                    <div className="Project--image">
-                      <img title="ProPublica screenshot" src="https://cdn.sanity.io/images/0s2zavz0/production/4f5788b38acdf7bed5674c6ff8940c0d1d8c5dad-2880x1800.png?w=880&h=550&fit=crop&fm=webp"/>
-                    </div>
-                    <div className="Project--content">
-                      <h2 className="Project--title">ProPublica</h2>
-                      <p className="Project--description">An independent, non-profit newsroom that produces investigative journalism in the public interest.</p>
-                    </div>
+              {collectionForProject.projects
+                .filter(({ id }) => id !== project.id)
+                .map(project => (
+                  <div className="Collection--project" key={project.id}>
+                    <RelatedProject project={project} />
                   </div>
-                </a>
-              </div>
+                ))}
 
-              <div className="Collection--project">
-                <a className="Project---link Project---link-fills-height">
-                  <div className="Project Project-fills-height">
-                    <div className="Project--image">
-                      <img title="ProPublica screenshot" src="https://cdn.sanity.io/images/0s2zavz0/production/4f5788b38acdf7bed5674c6ff8940c0d1d8c5dad-2880x1800.png?w=880&h=550&fit=crop&fm=webp"/>
-                    </div>
-                    <div className="Project--content">
-                      <h2 className="Project--title">ProPublica</h2>
-                      <p className="Project--description">An independent, non-profit newsroom that produces investigative journalism in the public interest.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="Collection--project">
-                <a className="Project---link Project---link-fills-height">
-                  <div className="Project Project-fills-height">
-                    <div className="Project--image">
-                      <img title="ProPublica screenshot" src="https://cdn.sanity.io/images/0s2zavz0/production/4f5788b38acdf7bed5674c6ff8940c0d1d8c5dad-2880x1800.png?w=880&h=550&fit=crop&fm=webp"/>
-                    </div>
-                    <div className="Project--content">
-                      <h2 className="Project--title">ProPublica</h2>
-                      <p className="Project--description">An independent, non-profit newsroom that produces investigative journalism in the public interest.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="Collection--project">
-                <a className="Project---link Project---link-fills-height">
-                  <div className="Project Project-fills-height">
-                    <div className="Project--image">
-                      <img title="ProPublica screenshot" src="https://cdn.sanity.io/images/0s2zavz0/production/4f5788b38acdf7bed5674c6ff8940c0d1d8c5dad-2880x1800.png?w=880&h=550&fit=crop&fm=webp"/>
-                    </div>
-                    <div className="Project--content">
-                      <h2 className="Project--title">ProPublica</h2>
-                      <p className="Project--description">An independent, non-profit newsroom that produces investigative journalism in the public interest.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="Collection--project">
-                <a className="Project---link Project---link-fills-height">
-                  <div className="Project Project-fills-height">
-                    <div className="Project--image">
-                      <img title="ProPublica screenshot" src="https://cdn.sanity.io/images/0s2zavz0/production/4f5788b38acdf7bed5674c6ff8940c0d1d8c5dad-2880x1800.png?w=880&h=550&fit=crop&fm=webp"/>
-                    </div>
-                    <div className="Project--content">
-                      <h2 className="Project--title">ProPublica</h2>
-                      <p className="Project--description">An independent, non-profit newsroom that produces investigative journalism in the public interest.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="Collection--project">
-                <a className="Project---link Project---link-fills-height">
-                  <div className="Project Project-fills-height">
-                    <div className="Project--image">
-                      <img title="ProPublica screenshot" src="https://cdn.sanity.io/images/0s2zavz0/production/4f5788b38acdf7bed5674c6ff8940c0d1d8c5dad-2880x1800.png?w=880&h=550&fit=crop&fm=webp"/>
-                    </div>
-                    <div className="Project--content">
-                      <h2 className="Project--title">ProPublica</h2>
-                      <p className="Project--description">An independent, non-profit newsroom that produces investigative journalism in the public interest.</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="Collection--spacer"/>
+              <div className="Collection--spacer" />
             </div>
           </div>
         </div>
@@ -194,6 +140,37 @@ export const query = graphql`
   query ProjectPage($slug: String!) {
     sanityProject(slug: { eq: $slug }) {
       ...Project
+    }
+
+    allSanityFeature {
+      edges {
+        node {
+          ...Feature
+        }
+      }
+    }
+
+    allSanityProject {
+      edges {
+        node {
+          ...Project
+        }
+      }
+    }
+
+    allSanityCollection {
+      edges {
+        node {
+          ...Collection
+          feature {
+            ...Feature
+          }
+
+          projects {
+            ...Project
+          }
+        }
+      }
     }
   }
 `

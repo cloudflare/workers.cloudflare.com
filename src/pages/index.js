@@ -5,15 +5,31 @@ import Layout from "../components/layout"
 import Project from "../components/project"
 import SEO from "../components/seo"
 
+import { flatten, normalizeCollection } from "../utils"
+
 import "./built-with-workers-page.css"
 import "./collections.css"
 import "./collection.css"
 
-const flatten = set => set.edges.map(({ node }) => node)
-
-const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
-  const features = flatten(allSanityFeature)
-  const projects = flatten(allSanityProject)
+const IndexPage = ({
+  data: {
+    allSanityCollection,
+    allSanityFeature,
+    allSanityProject,
+    sanityLayout,
+  },
+}) => {
+  const allCollections = flatten(allSanityCollection)
+  let collections = sanityLayout.collections.map(collection =>
+    allCollections.find(({ id }) => id === collection.id)
+  )
+  collections = collections.map(collection =>
+    normalizeCollection(
+      collection,
+      flatten(allSanityFeature),
+      flatten(allSanityProject)
+    )
+  )
 
   return (
     <Layout>
@@ -21,27 +37,19 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
 
       <div className="BuiltWithWorkersPage">
         <div className="Collections">
-          {features.map(feature => (
+          {collections.map(collection => (
             <div className="Collections--collection">
               <div className="Collection">
                 <div className="Collection--header">
-                  <h2 className="Collection--title">
-                    Built with {feature.name}
-                  </h2>
+                  <h2 className="Collection--title">{collection.name}</h2>
                 </div>
 
                 <div className="Collection--projects">
-                  {projects
-                    .filter(
-                      project =>
-                        project.features.length &&
-                        project.features.map(f => f.name).includes(feature.name)
-                    )
-                    .map(project => (
-                      <div className="Collection--project">
-                        <Project project={project} />
-                      </div>
-                    ))}
+                  {collection.projects.map(project => (
+                    <div className="Collection--project">
+                      <Project project={project} />
+                    </div>
+                  ))}
                   <div className="Collection--spacer" />
                 </div>
               </div>
@@ -55,6 +63,7 @@ const IndexPage = ({ data: { allSanityFeature, allSanityProject } }) => {
 
 export const query = graphql`
   fragment Feature on SanityFeature {
+    id
     name
     description
     slug
@@ -68,6 +77,7 @@ export const query = graphql`
   }
 
   fragment Project on SanityProject {
+    id
     name
     shortDescription
     longDescription
@@ -92,8 +102,20 @@ export const query = graphql`
       url
     }
     features {
+      id
       name
       slug
+    }
+  }
+
+  fragment Collection on SanityCollection {
+    id
+    name
+    feature {
+      id
+    }
+    projects {
+      id
     }
   }
 
@@ -105,11 +127,26 @@ export const query = graphql`
         }
       }
     }
+
     allSanityProject {
       edges {
         node {
           ...Project
         }
+      }
+    }
+
+    allSanityCollection {
+      edges {
+        node {
+          ...Collection
+        }
+      }
+    }
+
+    sanityLayout(page_id: { eq: "homepage" }) {
+      collections {
+        id
       }
     }
   }
