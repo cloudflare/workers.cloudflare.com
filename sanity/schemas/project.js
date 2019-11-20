@@ -45,6 +45,12 @@ const project = {
       type: "array",
       of: [{ type: "link" }],
     },
+    {
+      title: "Developer",
+      name: "Developer",
+      required: true,
+      type: "string",
+    },
   ],
 }
 

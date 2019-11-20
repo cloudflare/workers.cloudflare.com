@@ -68,7 +68,7 @@ const Project = ({ data: { sanityProject: project } }) => {
               <div className="ProjectPage--metadata">
                 <dl className="DefinitionList">
                   <dt className="DefinitionList--term">Developer</dt>
-                  <dd className="DefinitionList--definition">Cloudflare</dd>
+                  <dd className="DefinitionList--definition">{project.developer}</dd>
 
                   {project.links.length > 0 && (
                     <>
