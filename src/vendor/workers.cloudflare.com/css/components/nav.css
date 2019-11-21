@@ -3,33 +3,23 @@
   height: 100%;
 }
 
-.Nav--link, .Nav--item {
+.Nav--link-logo {
   display: flex;
   align-items: center;
-  padding: 0 .75em;
   flex-shrink: 0;
+  border-bottom-right-radius: .3125em;
 }
 
-.Nav--link.Nav--link-logo:first-child, .Nav--item:last-child {
-  padding-left: 1em;
-  padding-right: 1em;
+.Nav--item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .Nav--link {
   color: inherit;
   text-decoration: none;
   transition: box-shadow .3s ease;
-}
-
-.Nav--item-sign-in {
-  padding-right: 0;
-}
-
-@media (max-width: 768px) {
-  .Nav--link:not(.Nav--link-logo):not(:first-child),
-  .Nav--item {
-    display: none;
-  }
 }
 
 .Nav--link:hover {
@@ -52,16 +42,77 @@
   --focus-size: 0;
 }
 
-.Nav--link.Nav--link-logo:first-child {
+.Nav--main-links {
+  display: flex;
+  height: 100%;
+  margin-left: auto;
   margin-right: auto;
-  border-bottom-right-radius: .3125em;
 }
 
-.Nav--link:last-child {
-  border-bottom-left-radius: .3125em;
+.Nav--main-links .Nav--link {
+  padding: .5em 1em;
+  border-radius: 10em;
 }
 
-.Nav--link:not(:first-child):not(:last-child) {
-  border-bottom-right-radius: .3125em;
-  border-bottom-left-radius: .3125em;
+@media (min-width: 1280px) {
+  .Nav--main-links .Nav--item {
+    padding-left: .25em;
+    padding-right: .25em;
+  }
+}
+
+.Nav--main-links .Nav--link.Nav--link-is-active {
+  background: rgba(var(--cloudflare-logo-light-orange-rgb), .18);
+  color: var(--orange-3);
+}
+
+[theme="dark"] .Nav--main-links .Nav--link.Nav--link-is-active {
+  color: var(--orange-7);
+}
+
+.Nav--link.Nav--link-logo,
+.Nav--item-sign-up {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.Nav--account-management {
+  display: flex;
+  height: 100%;
+}
+
+.Nav--item-sign-in {
+  padding-right: 0;
+}
+
+@media (max-width: 1136px) {
+  .Nav--link-home {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .Nav--main-links {
+    display: none;
+  }
+
+  .Nav--link.Nav--link-logo:first-child {
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 414px) {
+  .Nav--link-logo {
+    font-size: .85em;
+  }
+
+  .Nav--item-sign-up {
+    display: none;
+  }
+
+  .Nav--link.Nav--link-logo,
+  .Nav--item-sign-in {
+    padding-left: .75em;
+    padding-right: .75em;
+  }
 }
