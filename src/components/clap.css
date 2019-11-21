@@ -14,8 +14,3 @@
   -webkit-filter: hue-rotate(-30deg) brightness(1.15);
   filter: hue-rotate(-30deg) brightness(1.15);
 }
-
-.Clap--count {
-  font-size: 1.5em;
-  font-family: var(--monospace-font-family);
-}
