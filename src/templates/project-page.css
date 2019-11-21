@@ -18,7 +18,7 @@
 
 .ProjectPage--header-action-button {
   font-size: 1.2em;
-  min-width: 8.5em;
+  white-space: nowrap;
   text-align: center;
 }
 
@@ -41,7 +41,6 @@
   }
 
   .ProjectPage--header-action-button {
-    min-width: 100%;
     width: 100%;
   }
 }
