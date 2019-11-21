@@ -47,7 +47,7 @@ const project = {
     },
     {
       title: "Developer",
-      name: "Developer",
+      name: "developer",
       required: true,
       type: "string",
     },

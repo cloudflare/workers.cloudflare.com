@@ -82,6 +82,7 @@ export const query = graphql`
     shortDescription
     longDescription
     slug
+    developer
     thumbnail: image {
       asset {
         fluid(maxWidth: 440) {
