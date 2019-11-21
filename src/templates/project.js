@@ -119,7 +119,7 @@ const Project = ({
             </div>
 
             <div className="Collection--projects">
-              {collectionForProject.projects
+              {collectionForProject && collectionForProject.projects
                 .filter(({ id }) => id !== project.id)
                 .map(project => (
                   <div className="Collection--project" key={project.id}>
