@@ -17,9 +17,13 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  const projects = result.data.allSanityProject.edges.map(({ node }) => node)
-  projects.forEach((node, index) => {
-    const path = `/projects/${node.slug}`
+  const {
+    data: { allSanityProject },
+  } = result
+
+  const projects = allSanityProject.edges.map(({ node }) => node)
+  projects.forEach((node, _index) => {
+    const path = `/built-with/projects/${node.slug}`
 
     createPage({
       path,
