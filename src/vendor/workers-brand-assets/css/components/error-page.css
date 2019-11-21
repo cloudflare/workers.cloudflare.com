@@ -1,4 +1,5 @@
 .ErrorPage {
+  --extra-vertical-padding: var(--header-height, 0);
   --vertical-padding: var(--section-vertical-padding, 3em);
 
   display: flex;
@@ -8,10 +9,14 @@
 
 .ErrorPage--content {
   text-align: center;
-  padding: var(--vertical-padding) 1em;
+  padding:
+    calc(var(--extra-vertical-padding) + var(--vertical-padding))
+    1em
+    calc(var(--extra-vertical-padding) / 2  + var(--vertical-padding));
 }
 
 .ErrorPage--title {
+  line-height: 1;
   font-size: 3em;
   font-weight: bold;
   margin-bottom: .333em;
