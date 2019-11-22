@@ -42,11 +42,16 @@ const IndexPage = ({
         </div>
 
         <div className="Collections">
-          {collections.map(collection => (
+          {collections.map((collection, i) => (
             <div className="Collections--collection">
               <div className="Collection">
                 <div className="Collection--header">
                   <h2 className="Collection--title">{collection.name}</h2>
+                  {i === 0 && (
+                    <span className="Collection--submission-link">
+                      <a className="Link Link-with-right-arrow Link-is-juicy" href="https://forms.gle/hK4wNQeXtAUR6Ud19">Submit a project</a>
+                    </span>
+                  )}
                 </div>
 
                 <div className="Collection--projects">
