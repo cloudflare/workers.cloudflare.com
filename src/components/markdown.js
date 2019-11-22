@@ -18,7 +18,7 @@ const List = (props) => {
 
 const InlineCode = (props) => <code className="InlineCode">{props.children}</code>
 
-const CodeBlock = (props) => <pre className="CodeBlock CodeBlock-scrolls-horizontally"><code>{props.children}</code></pre>
+const CodeBlock = (props) => <pre className="CodeBlock CodeBlock-scrolls-horizontally"><code>{props.value}</code></pre>
 
 // TODO - look through for more renderers
 // https://www.npmjs.com/package/react-markdown
