@@ -54,7 +54,7 @@ const Clap = ({ project }) => {
         class="Button"
         onClick={() => (!clapped ? clap(setClapped) : unclap(setClapped))}
       >
-        <span class="Clap--clap-button-content"></span>
+        <span class="Clap--icon"></span>
       </button>
     </div>
   )

@@ -8,7 +8,7 @@
   filter: grayscale(1);
 }
 
-.Clap--clap-button-content::after {
+.Clap--icon::after {
   content: "👏";
   font-size: 2em;
   -webkit-filter: hue-rotate(-30deg) brightness(1.15);
