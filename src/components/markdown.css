@@ -1,3 +1,4 @@
+/* TODO - consider promoting to .Markdown in workers-brand-assets */
 .Markdown > * {
   margin-top: .75em;
   margin-bottom: .75em;
@@ -53,3 +54,10 @@
 .Markdown > *:last-child {
   margin-bottom: 0;
 }
+
+/* TODO - consider promoting to .Blockquote workers-brand-assets */
+.Markdown blockquote {
+  border-left: .25em solid var(--gray-8);
+  padding-left: 1em;
+}
+
