@@ -10,9 +10,8 @@
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3em;
-  padding-left: 1em;
-  padding-right: 1em;
+  margin-bottom: 2.5em;
+  padding: 1em 1em 0;
 }
 
 .BuiltWithWorkersPage--hero > h1 {
@@ -23,6 +22,10 @@
 }
 
 @media (max-width: 768px) {
+  .BuiltWithWorkersPage--hero {
+    padding-top: 0;
+  }
+
   .BuiltWithWorkersPage--hero > h1 {
     font-size: 2em;
   }
