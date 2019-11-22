@@ -17,7 +17,7 @@ const Project = ({
 }) => (
   <Link
     className="Project---link Project---link-fills-height"
-    to={`/projects/${slug}`}
+    to={`/built-with/projects/${slug}`}
   >
     <div className="Project Project-fills-height">
       <div className="Project--image">
