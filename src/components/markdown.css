@@ -14,16 +14,23 @@
 }
 
 .Markdown > h1,
-.Markdown > h2,
-.Markdown > h3,
-.Markdown > h4,
-.Markdown > h5,
-.Markdown > h6 {
+.Markdown > h2 {
   font-weight: bold;
   font-size: 1.333em;
   line-height: 1.2em;
   margin-bottom: .5em;
 }
+
+.Markdown > h3,
+.Markdown > h4,
+.Markdown > h5,
+.Markdown > h6 {
+  font-weight: bold;
+  font-size: 1.15em;
+  line-height: 1.333em;
+  margin-bottom: .5em;
+}
+
 
 .Markdown > h1 + *,
 .Markdown > h2 + *,
