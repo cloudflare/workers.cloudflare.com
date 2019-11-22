@@ -122,6 +122,10 @@
   width: calc(50vw - (var(--project-width) / 2) - (var(--gutter) / 2));
 }
 
+.Collection-is-centered .Collection--header {
+  justify-content: center;
+}
+
 .Collection-is-centered .Collection--title {
   text-align: center;
   font-size: 2em;
