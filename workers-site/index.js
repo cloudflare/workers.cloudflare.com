@@ -1,4 +1,6 @@
-import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
+
+import { clap, transformClap, unclap } from "./clap"
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -9,7 +11,7 @@ import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
  */
 const DEBUG = false
 
-addEventListener('fetch', event => {
+addEventListener("fetch", event => {
   try {
     event.respondWith(handleEvent(event))
   } catch (e) {
@@ -17,16 +19,25 @@ addEventListener('fetch', event => {
       return event.respondWith(
         new Response(e.message || e.toString(), {
           status: 500,
-        }),
+        })
       )
     }
-    event.respondWith(new Response('Internal Error', { status: 500 }))
+    event.respondWith(new Response("Internal Error", { status: 500 }))
   }
 })
 
 async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
+
+  if (event.request.method === "POST") {
+    if (url.pathname.includes("/clap")) {
+      return await clap(event.request)
+    }
+    if (url.pathname.includes("/unclap")) {
+      return await unclap(event.request)
+    }
+  }
 
   /**
    * You can add custom logic to how we fetch your assets
@@ -41,16 +52,21 @@ async function handleEvent(event) {
         bypassCache: true,
       }
     }
-    return await getAssetFromKV(event, options)
+    let response = await getAssetFromKV(event, options)
+    return transformClap(event.request, response)
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
       try {
         let notFoundResponse = await getAssetFromKV(event, {
-          mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
+          mapRequestToAsset: req =>
+            new Request(`${new URL(req.url).origin}/404.html`, req),
         })
 
-        return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
+        return new Response(notFoundResponse.body, {
+          ...notFoundResponse,
+          status: 404,
+        })
       } catch (e) {}
     }
 
@@ -72,7 +88,7 @@ function handlePrefix(prefix) {
     let url = new URL(defaultAssetKey.url)
 
     // strip the prefix from the path for lookup
-    url.pathname = url.pathname.replace(prefix, '/')
+    url.pathname = url.pathname.replace(prefix, "/")
 
     // inherit all other props from the default request
     return new Request(url.toString(), defaultAssetKey)

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
+import Clap from "../components/clap"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
 import RelatedProject from "../components/project"
@@ -66,6 +67,7 @@ const Project = ({
             </div>
             <h2 className="ProjectPage--title">{project.name}</h2>
             <p className="ProjectPage--description">{project.shortDescription}</p>
+            <p className="ProjectPage--description"><Clap project={project} /></p>
           </div>
 
           {project.links.length > 0 && (

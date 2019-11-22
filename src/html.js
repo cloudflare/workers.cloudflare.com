@@ -28,6 +28,7 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <script dangerouslySetInnerHTML={{ __html: loadTheme }} />
+        <script id="claps_json" type="application/json" />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

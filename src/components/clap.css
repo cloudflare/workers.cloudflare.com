@@ -1,0 +1,16 @@
+.Clap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.Clap:not(.Clap-is-clapped) {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.Clap--clap-button-content::after {
+  content: "👏";
+  font-size: 2em;
+  -webkit-filter: hue-rotate(-30deg) brightness(1.15);
+  filter: hue-rotate(-30deg) brightness(1.15);
+}
