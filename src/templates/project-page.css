@@ -16,6 +16,10 @@
   color: rgba(var(--color-rgb), .8);
 }
 
+.ProjectPage--header-content {
+  flex: 1;
+}
+
 .ProjectPage--header-action {
   margin-left: 3em;
 }
@@ -34,6 +38,10 @@
   .ProjectPage--header {
     flex-direction: column;
     text-align: center;
+  }
+
+  .ProjectPage--back-link {
+    display: none; /* TODO */
   }
 
   .ProjectPage--header-content {
