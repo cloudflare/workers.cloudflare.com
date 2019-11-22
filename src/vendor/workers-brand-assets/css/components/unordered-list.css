@@ -8,12 +8,12 @@
 
 .UnorderedList > li {
   padding-left: 2em;
-  background: url("./resources/icons/bullet.svg") no-repeat .25em center;
+  background: url("./resources/icons/bullet.svg") no-repeat .25em .4em;
   background-size: .6em .6em;
 }
 
 [theme="dark"] .UnorderedList > li {
-  background: url("./resources/icons/bullet-dark-theme.svg") no-repeat .25em center;
+  background: url("./resources/icons/bullet-dark-theme.svg") no-repeat .25em .4em;
   background-size: .6em .6em;
 }
 
@@ -28,7 +28,7 @@
 
 .UnorderedList.UnorderedList-is-primary > li,
 [theme="dark"] .UnorderedList.UnorderedList-is-primary > li {
-  background: url("./resources/icons/bullet-orange.svg") no-repeat left center;
+  background: url("./resources/icons/bullet-orange.svg") no-repeat 0 .25em;
   background-size: 1em 1em;
   padding-left: 2em;
 }
@@ -45,12 +45,12 @@
 
 .UnorderedList > li {
   padding-left: 2em;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" height="16" width="17"><path fill="%23232324" d="M9.5.4l5 2.8c1 .5 1.5 1.5 1.5 2.5v5.6c0 1-.6 2-1.5 2.5l-5 2.8a3 3 0 0 1-3 0l-5-2.8A2.8 2.8 0 0 1 0 11.3V5.7c0-1 .6-2 1.5-2.5l5-2.8a3 3 0 0 1 3 0z"/></svg>') no-repeat .25em center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" height="16" width="17"><path fill="%23232324" d="M9.5.4l5 2.8c1 .5 1.5 1.5 1.5 2.5v5.6c0 1-.6 2-1.5 2.5l-5 2.8a3 3 0 0 1-3 0l-5-2.8A2.8 2.8 0 0 1 0 11.3V5.7c0-1 .6-2 1.5-2.5l5-2.8a3 3 0 0 1 3 0z"/></svg>') no-repeat .25em .4em;
   background-size: .6em .6em;
 }
 
 [theme="dark"] .UnorderedList > li {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" height="16" width="17"><path fill="%23fff" d="M9.5.4l5 2.8c1 .5 1.5 1.5 1.5 2.5v5.6c0 1-.6 2-1.5 2.5l-5 2.8a3 3 0 0 1-3 0l-5-2.8A2.8 2.8 0 0 1 0 11.3V5.7c0-1 .6-2 1.5-2.5l5-2.8a3 3 0 0 1 3 0z"/></svg>') no-repeat .25em center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" height="16" width="17"><path fill="%23fff" d="M9.5.4l5 2.8c1 .5 1.5 1.5 1.5 2.5v5.6c0 1-.6 2-1.5 2.5l-5 2.8a3 3 0 0 1-3 0l-5-2.8A2.8 2.8 0 0 1 0 11.3V5.7c0-1 .6-2 1.5-2.5l5-2.8a3 3 0 0 1 3 0z"/></svg>') no-repeat .25em .4em;
   background-size: .6em .6em;
 }
 
