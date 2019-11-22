@@ -36,6 +36,11 @@ const IndexPage = ({
       <SEO />
 
       <div className="BuiltWithWorkersPage">
+        <div className="BuiltWithWorkersPage--hero">
+          <h1>Built with Workers</h1>
+          <p>Projects across the web utilizing Cloudflare&nbsp;Workers.</p>
+        </div>
+
         <div className="Collections">
           {collections.map(collection => (
             <div className="Collections--collection">
