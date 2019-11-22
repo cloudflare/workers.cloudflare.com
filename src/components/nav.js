@@ -62,15 +62,32 @@ const Nav = () => (
       </div>
     </a>
 
-    <a className="Nav--link" href="https://support.cloudflare.com/hc/en-us/sections/360000215372-Cloudflare-Workers"><span>Support</span></a>
-    <a className="Nav--link" href="https://workers.cloudflare.com/docs/"><span>Docs</span></a>
+    <div className="Nav--main-links">
+      <div className="Nav--item">
+        <a className="Nav--link" href="https://workers.cloudflare.com/sites">Workers Sites</a>
+      </div>
 
-    <div className="Nav--item Nav--item-sign-in">
-      <a className="Button Button-is-secondary" href="https://dash.cloudflare.com/login?redirect_uri=https%3A%2F%2Fdash.cloudflare.com%2F%3Faccount%3Dworkers">Log in</a>
+      <div className="Nav--item">
+        <a className="Nav--link Nav--link-is-active" href="https://workers.cloudflare.com/built-with">Built with Workers</a>
+      </div>
+
+      <div className="Nav--item">
+        <a className="Nav--link" href="https://workers.cloudflare.com/docs">Docs</a>
+      </div>
+
+      <div className="Nav--item">
+        <a className="Nav--link" href="https://support.cloudflare.com/hc/en-us/sections/360000215372-Cloudflare-Workers">Support</a>
+      </div>
     </div>
 
-    <div className="Nav--item Nav--item-sign-up">
-      <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a>
+    <div className="Nav--account-management">
+      <div className="Nav--item Nav--item-sign-in">
+        <a className="Button Button-is-secondary" href="https://dash.cloudflare.com/login?redirect_uri=https%3A%2F%2Fdash.cloudflare.com%2F%3Faccount%3Dworkers">Log in</a>
+      </div>
+
+      <div className="Nav--item Nav--item-sign-up">
+        <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a>
+      </div>
     </div>
   </nav>
 )
