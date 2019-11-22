@@ -31,9 +31,15 @@
 
 .Link-without-underline,
 .Link-without-underline:hover,
+.Link-with-left-arrow,
+.Link-with-left-arrow:hover,
 .Link-with-right-arrow,
 .Link-with-right-arrow:hover {
   --underline-size: 0;
+}
+
+.Link-with-left-arrow::before {
+  content: "←\00a0";
 }
 
 .Link-with-right-arrow::after {

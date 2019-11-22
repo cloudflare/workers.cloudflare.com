@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -61,6 +61,9 @@ const Project = ({
       <div className="BuiltWithWorkersPage ProjectPage">
         <div className="ProjectPage--header">
           <div className="ProjectPage--header-content">
+            <div className="ProjectPage--back-link">
+              <Link className="Link Link-with-left-arrow Link-is-juicy" to="/">Back</Link>
+            </div>
             <h2 className="ProjectPage--title">{project.name}</h2>
             <p className="ProjectPage--description">{project.shortDescription}</p>
           </div>

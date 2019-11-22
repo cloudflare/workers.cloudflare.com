@@ -12,6 +12,10 @@
   margin: 0 auto 3em;
 }
 
+.ProjectPage--back-link {
+  color: rgba(var(--color-rgb), .8);
+}
+
 .ProjectPage--header-action {
   margin-left: 3em;
 }
