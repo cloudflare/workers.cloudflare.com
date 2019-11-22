@@ -63,7 +63,7 @@ const Project = ({
         <div className="ProjectPage--header">
           <div className="ProjectPage--header-content">
             <div className="ProjectPage--back-link">
-              <Link className="Link Link-with-left-arrow Link-is-juicy" to="/">Back</Link>
+              <Link className="Link Link-with-left-arrow Link-is-juicy" to="/built-with">Back</Link>
             </div>
             <h2 className="ProjectPage--title">{project.name}</h2>
             <p className="ProjectPage--description">{project.shortDescription}</p>
