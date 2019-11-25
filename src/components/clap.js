@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import SSRWrapper from "./SSRWrapper"
+import { useSSR } from "../utils"
 
 import "./clap.css"
 
@@ -36,18 +36,19 @@ const unclap = async setClapped => {
   return false
 }
 
-const Clap = ({ project }) => {
-  const [esr, setESR] = useState(false)
-  const [clapped, setClapped] = useState(false)
+const ClapButton = ({ onClick }) => (
+  <button class="Button" onClick={onClick}>
+    <span class="Clap--icon"></span>
+  </button>
+)
 
+const Clap = ({ clapped, project, setClapped, setLoaded }) => {
   useEffect(() => {
     async function parse() {
       const data = document.querySelector("script#claps_json")
       if (!data.innerText.length) {
         await hydrate(setClapped)
       }
-
-      setESR(true)
 
       const parsed = JSON.parse(data.innerText)
       const kvClapped = parsed[`${project.slug}_clapped`]
@@ -57,23 +58,40 @@ const Clap = ({ project }) => {
     }
 
     parse()
+    setLoaded(true)
   }, [])
 
-  if (!esr) {
-    return null
-  }
-
   return (
-    <div class={"Clap" + (clapped ? " Clap-is-clapped" : "")}>
-      <button
-        class="Button"
-        onClick={() => (!clapped ? clap(setClapped) : unclap(setClapped))}
-      >
-        <span class="Clap--icon"></span>
-      </button>
-    </div>
+    <ClapButton
+      onClick={() => (!clapped ? clap(setClapped) : unclap(setClapped))}
+    />
   )
 }
 
-const WrappedClap = props => SSRWrapper(Clap, props)
-export default WrappedClap
+export default props => {
+  const [loaded, setLoaded] = useState(false)
+  const [clapped, setClapped] = useState(false)
+  const { isBrowser } = useSSR()
+
+  return (
+    <div
+      class={
+        "Clap" +
+        (clapped ? " Clap-is-clapped" : "") +
+        (loaded ? "" : " Clap-is-loading")
+      }
+    >
+      {isBrowser ? (
+        <Clap
+          {...props}
+          clapped={clapped}
+          setClapped={setClapped}
+          loaded={loaded}
+          setLoaded={setLoaded}
+        />
+      ) : (
+        <ClapButton />
+      )}
+    </div>
+  )
+}
