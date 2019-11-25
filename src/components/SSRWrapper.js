@@ -1,24 +1,41 @@
 import React from "react"
 
-class SSRWrapper extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      display: false,
+// h/t https://react.30secondsofcode.org/snippet/useSSR
+const isDOMavailable = !!(
+  typeof window !== "undefined" &&
+  window.document &&
+  window.document.createElement
+)
+
+const useSSR = (callback, delay) => {
+  const [inBrowser, setInBrowser] = React.useState(isDOMavailable)
+
+  React.useEffect(() => {
+    setInBrowser(isDOMavailable)
+    return () => {
+      setInBrowser(false)
     }
-  }
+  }, [])
 
-  componentDidMount() {
-    this.setState({ display: true })
-  }
+  const useSSRObject = React.useMemo(
+    () => ({
+      isBrowser: inBrowser,
+      isServer: !inBrowser,
+      canUseWorkers: typeof Worker !== "undefined",
+      canUseEventListeners: inBrowser && !!window.addEventListener,
+      canUseViewport: inBrowser && !!window.screen,
+    }),
+    [inBrowser]
+  )
 
-  render() {
-    const { component: Component, ...props } = this.props
-    return this.state.display ? <Component {...props} /> : null
-  }
+  return React.useMemo(
+    () => Object.assign(Object.values(useSSRObject), useSSRObject),
+    [inBrowser]
+  )
 }
 
-const createWrappedComponent = (component, props) => (
-  <SSRWrapper component={component} {...props} />
-)
-export default createWrappedComponent
+const SSRChecker = (Component, props) => {
+  const { isBrowser } = useSSR()
+  return isBrowser ? <Component {...props} /> : null
+}
+export default SSRChecker

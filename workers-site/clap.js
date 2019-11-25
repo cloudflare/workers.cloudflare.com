@@ -33,31 +33,47 @@ class EmbedClaps {
   }
 }
 
-const pattern = /\/projects\/([\w|-]*)/
+const pattern = /\/projects\/([\w|-]*)[\/]?/
 
-const _transform = async (request, response) => {
+const _processClapsForRequest = async request => {
   const url = new URL(request.url)
   const matches = url.pathname.match(pattern)
   const project = matches[1]
   const ip = request.headers.get("CF-Connecting-IP")
   const userAgent = request.headers.get("User-Agent")
   const ipKey = await generateHmac([ip, userAgent].join("-"))
-  const clapped = await BUILT_WITH_WORKERS.get(`projects:${project}:${ipKey}`)
-
-  const rewriter = new HTMLRewriter().on(
-    "script#claps_json",
-    new EmbedClaps(project, clapped ? true : false)
-  )
-
-  return rewriter.transform(response)
+  return BUILT_WITH_WORKERS.get(`projects:${project}:${ipKey}`)
 }
 
-const transformClap = (request, response) => {
+const hydrate = async request => {
   const url = new URL(request.url)
   if (url.pathname.includes("/projects")) {
-    return _transform(request, response)
+    const claps = await _processClapsForRequest(request)
+    return new Response(JSON.stringify({ claps }), {
+      headers: { "Content-type": "application/json" },
+    })
   } else {
-    return response
+    return new Response(null, { status: 403 })
+  }
+}
+
+const transformClap = async (request, response) => {
+  try {
+    const url = new URL(request.url)
+    if (url.pathname.includes("/projects")) {
+      const matches = url.pathname.match(pattern)
+      const project = matches[1]
+      const clapped = await _processClapsForRequest(request)
+      const rewriter = new HTMLRewriter().on(
+        "script#claps_json",
+        new EmbedClaps(project, clapped ? true : false)
+      )
+      return rewriter.transform(response)
+    } else {
+      return response
+    }
+  } catch (err) {
+    return new Response(err.toString())
   }
 }
 
@@ -100,4 +116,4 @@ const unclap = async request => {
   }
 }
 
-export { clap, transformClap, unclap }
+export { clap, hydrate, transformClap, unclap }

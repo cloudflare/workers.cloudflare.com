@@ -14,6 +14,17 @@ const clap = async setClapped => {
   return false
 }
 
+const hydrate = async setClapped => {
+  return new Promise(async resolve => {
+    const url = new URL(window.location)
+    const resp = await fetch(url.pathname + "/_hydrate")
+    const data = document.querySelector("script#claps_json")
+    const json = await resp.json()
+    data.innerText = JSON.stringify(json)
+    resolve()
+  })
+}
+
 const unclap = async setClapped => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/unclap", {
@@ -30,19 +41,23 @@ const Clap = ({ project }) => {
   const [clapped, setClapped] = useState(false)
 
   useEffect(() => {
-    const data = document.querySelector("script#claps_json")
-    if (!data.innerText.length) {
-      setESR(false)
-      return
+    async function parse() {
+      const data = document.querySelector("script#claps_json")
+      if (!data.innerText.length) {
+        await hydrate(setClapped)
+      }
+
+      setESR(true)
+
+      const parsed = JSON.parse(data.innerText)
+      const kvClapped = parsed[`${project.slug}_clapped`]
+      if (kvClapped) {
+        setClapped(kvClapped)
+      }
     }
 
-    setESR(true)
-
-    const parsed = JSON.parse(data.innerText)
-    if (parsed[`${project.slug}_clapped`]) {
-      setClapped(parsed[`${project.slug}_clapped`])
-    }
-  }, [project.slug])
+    parse()
+  }, [])
 
   if (!esr) {
     return null

@@ -1,6 +1,6 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
 
-import { clap, transformClap, unclap } from "./clap"
+import { clap, transformClap, unclap, hydrate } from "./clap"
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -37,6 +37,10 @@ async function handleEvent(event) {
     if (url.pathname.includes("/unclap")) {
       return await unclap(event.request)
     }
+  }
+
+  if (url.pathname.includes("/_hydrate")) {
+    return await hydrate(event.request)
   }
 
   /**
