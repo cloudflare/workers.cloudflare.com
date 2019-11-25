@@ -94,9 +94,12 @@ const Project = ({
             {(project.developer || project.links.length > 0) && (
               <div className="ProjectPage--metadata">
                 <dl className="DefinitionList">
-                  <dt className="DefinitionList--term">Developer</dt>
-                  <dd className="DefinitionList--definition">{project.developer}</dd>
-
+                  {project.developer && (
+                    <>
+                      <dt className="DefinitionList--term">Developer</dt>
+                      <dd className="DefinitionList--definition">{project.developer}</dd>
+                    </>
+                  )}
                   {project.links.length > 0 && (
                     <>
                       <dt className="DefinitionList--term">Links</dt>
