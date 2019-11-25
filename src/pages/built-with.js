@@ -39,6 +39,7 @@ const IndexPage = ({
         <div className="BuiltWithWorkersPage--hero">
           <h1>Built with Workers</h1>
           <p>Projects across the web utilizing Cloudflare&nbsp;Workers.</p>
+          <p><a className="Button Button-is-primary" href="https://forms.gle/hK4wNQeXtAUR6Ud19" mobile-only="true">Submit a project</a></p>
         </div>
 
         <div className="Collections">
@@ -48,7 +49,7 @@ const IndexPage = ({
                 <div className="Collection--header">
                   <h2 className="Collection--title">{collection.name}</h2>
                   {i === 0 && (
-                    <span className="Collection--submission-link">
+                    <span className="Collection--submission-link" desktop-only="true">
                       <a className="Link Link-with-right-arrow Link-is-juicy" href="https://forms.gle/hK4wNQeXtAUR6Ud19">Submit a project</a>
                     </span>
                   )}

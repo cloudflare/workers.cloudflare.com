@@ -34,3 +34,7 @@
 .BuiltWithWorkersPage--hero > p {
   font-size: 1.1em;
 }
+
+.BuiltWithWorkersPage--hero > p:not(:last-child) {
+  margin-bottom: 1em;
+}
