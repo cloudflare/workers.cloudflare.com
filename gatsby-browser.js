@@ -1,4 +1,6 @@
-import {globalHistory} from '@reach/router';
+import React from "react"
+import { EdgeStateProvider } from "./src/components/edge_state"
+import { globalHistory } from "@reach/router"
 
 export const onInitialClientRender = () => {
   /**
@@ -6,5 +8,9 @@ export const onInitialClientRender = () => {
    *
    * See https://github.com/gatsbyjs/gatsby/issues/8357 for more details
    */
-  globalHistory._onTransitionComplete();
+  globalHistory._onTransitionComplete()
 }
+
+export const wrapRootElement = ({ element }) => (
+  <EdgeStateProvider>{element}</EdgeStateProvider>
+)

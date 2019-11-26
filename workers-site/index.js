@@ -1,5 +1,6 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
 
+import { hydrateEdgeState } from "./edge_state"
 import { clap, transformClap, unclap, hydrate } from "./clap"
 
 /**
@@ -56,8 +57,10 @@ async function handleEvent(event) {
         bypassCache: true,
       }
     }
-    let response = await getAssetFromKV(event, options)
-    return transformClap(event.request, response)
+    return hydrateEdgeState({
+      response: getAssetFromKV(event, options),
+      state: transformClap(event.request),
+    })
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
@@ -75,26 +78,5 @@ async function handleEvent(event) {
     }
 
     return new Response(e.message || e.toString(), { status: 500 })
-  }
-}
-
-/**
- * Here's one example of how to modify a request to
- * remove a specific prefix, in this case `/docs` from
- * the url. This can be useful if you are deploying to a
- * route on a zone, or if you only want your static content
- * to exist at a specific path.
- */
-function handlePrefix(prefix) {
-  return request => {
-    // compute the default (e.g. / -> index.html)
-    let defaultAssetKey = mapRequestToAsset(request)
-    let url = new URL(defaultAssetKey.url)
-
-    // strip the prefix from the path for lookup
-    url.pathname = url.pathname.replace(prefix, "/")
-
-    // inherit all other props from the default request
-    return new Request(url.toString(), defaultAssetKey)
   }
 }

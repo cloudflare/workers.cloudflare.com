@@ -2,38 +2,40 @@ import React, { useEffect, useState } from "react"
 import { useSSR } from "../utils"
 
 import "./clap.css"
+import { EdgeStateContext } from "./edge_state"
 
-const clap = async setClapped => {
+const clap = async ({ key, setClapped, setState }) => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/clap", {
     method: "POST",
   })
 
   setClapped(true)
+  setState({ [key]: true })
 
   return false
 }
 
-const hydrate = async setClapped => {
-  return new Promise(async resolve => {
-    const url = new URL(window.location)
-    const resp = await fetch(url.pathname + "/_hydrate")
-    const data = document.querySelector("script#claps_json")
-    const json = await resp.json()
-    data.innerText = JSON.stringify(json)
-    resolve()
-  })
-}
-
-const unclap = async setClapped => {
+const unclap = async ({ key, setClapped, setState }) => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/unclap", {
     method: "POST",
   })
 
   setClapped(false)
+  setState({ [key]: false })
 
   return false
+}
+
+const hydrate = async (state, setState) => {
+  return new Promise(async resolve => {
+    const url = new URL(window.location)
+    const resp = await fetch(url.pathname + "/_hydrate")
+    const { claps } = await resp.json()
+    setState(claps)
+    resolve()
+  })
 }
 
 const ClapButton = ({ onClick }) => (
@@ -43,15 +45,16 @@ const ClapButton = ({ onClick }) => (
 )
 
 const Clap = ({ clapped, project, setClapped, setLoaded }) => {
+  const key = `${project.slug}_clapped`
+  const [state, setState] = React.useContext(EdgeStateContext)
+
   useEffect(() => {
     async function parse() {
-      const data = document.querySelector("script#claps_json")
-      if (!data.innerText.length) {
-        await hydrate(setClapped)
+      if (!state || !Object.keys(state).includes(key)) {
+        return hydrate(state, setState)
       }
 
-      const parsed = JSON.parse(data.innerText)
-      const kvClapped = parsed[`${project.slug}_clapped`]
+      const kvClapped = state[key]
       if (kvClapped) {
         setClapped(kvClapped)
       }
@@ -59,11 +62,15 @@ const Clap = ({ clapped, project, setClapped, setLoaded }) => {
 
     parse()
     setLoaded(true)
-  }, [])
+  }, [state])
 
   return (
     <ClapButton
-      onClick={() => (!clapped ? clap(setClapped) : unclap(setClapped))}
+      onClick={() =>
+        !clapped
+          ? clap({ key, setClapped, setState })
+          : unclap({ key, setClapped, setState })
+      }
     />
   )
 }
