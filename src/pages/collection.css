@@ -75,6 +75,16 @@
   margin-top: -1em;
 }
 
+@supports (-webkit-font-smoothing: antialiased) {
+  @media (any-pointer) {
+    .Collection--projects::-webkit-scrollbar {
+      border: 0;
+      height: 0;
+      width: 0;
+    }
+  }
+}
+
 @media (max-width: 375px) {
   .Collection--projects {
     scroll-snap-type: x mandatory;
