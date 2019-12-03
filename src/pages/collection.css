@@ -60,6 +60,7 @@
 }
 
 .Collection--submission-link {
+  display: inline-flex;
   font-size: .9em;
   padding-left: 2em;
 }
