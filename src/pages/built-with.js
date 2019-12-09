@@ -44,7 +44,7 @@ const IndexPage = ({
 
         <div className="Collections">
           {collections.map((collection, i) => (
-            <div className="Collections--collection">
+            <div className="Collections--collection" key={collection.id}>
               <div className="Collection">
                 <div className="Collection--header">
                   <h2 className="Collection--title">{collection.name}</h2>
@@ -57,7 +57,7 @@ const IndexPage = ({
 
                 <div className="Collection--projects">
                   {collection.projects.map(project => (
-                    <div className="Collection--project">
+                    <div className="Collection--project" key={project.id}>
                       <Project project={project} />
                     </div>
                   ))}

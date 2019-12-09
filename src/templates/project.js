@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import Clap from "../components/clap"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
 import RelatedProject from "../components/project"
@@ -72,7 +71,7 @@ const Project = ({
           {project.links.length > 0 && (
             <div className="ProjectPage--header-action">
               {[project.links[0]].map(({ linkType, url }) => (
-                <a className="ProjectPage--header-action-button Button Button-is-primary" href={url}>
+                <a className="ProjectPage--header-action-button Button Button-is-primary" href={url} key={url}>
                   {getPrimaryLinkText(linkType)}
                 </a>
               ))}
@@ -104,7 +103,7 @@ const Project = ({
                       <dt className="DefinitionList--term">Links</dt>
                       <dd className="DefinitionList--definition">
                         {project.links.map(({ linkType, url }) => (
-                          <span className="ProjectPage--metadata-link">
+                          <span className="ProjectPage--metadata-link" key={url}>
                             <a className="Link Link-with-right-arrow" href={url}>
                               {getLinkText(linkType)}
                             </a>
