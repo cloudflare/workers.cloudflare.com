@@ -23,5 +23,13 @@ module.exports = {
         token: process.env.SANITY_READ_TOKEN,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.svg$/ // See https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg
+        }
+      }
+    },
   ],
 }
