@@ -1,8 +1,6 @@
 .Clap {
   display: inline-flex;
   align-items: center;
-  /* trying to determine if we need this */
-  min-height: 72px;
 }
 
 .Clap-is-loading {
