@@ -1,3 +1,5 @@
+import React from "react"
+
 const flatten = set => set.edges.map(({ node }) => node)
 
 const normalizeCollection = (collection, features, projects) => {
@@ -22,4 +24,38 @@ const normalizeCollection = (collection, features, projects) => {
   return normalized
 }
 
-export { flatten, normalizeCollection }
+// h/t https://react.30secondsofcode.org/snippet/useSSR
+const isDOMavailable = !!(
+  typeof window !== "undefined" &&
+  window.document &&
+  window.document.createElement
+)
+
+const useSSR = (callback, delay) => {
+  const [inBrowser, setInBrowser] = React.useState(isDOMavailable)
+
+  React.useEffect(() => {
+    setInBrowser(isDOMavailable)
+    return () => {
+      setInBrowser(false)
+    }
+  }, [])
+
+  const useSSRObject = React.useMemo(
+    () => ({
+      isBrowser: inBrowser,
+      isServer: !inBrowser,
+      canUseWorkers: typeof Worker !== "undefined",
+      canUseEventListeners: inBrowser && !!window.addEventListener,
+      canUseViewport: inBrowser && !!window.screen,
+    }),
+    [inBrowser]
+  )
+
+  return React.useMemo(
+    () => Object.assign(Object.values(useSSRObject), useSSRObject),
+    [inBrowser]
+  )
+}
+
+export { flatten, normalizeCollection, useSSR }

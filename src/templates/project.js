@@ -66,6 +66,7 @@ const Project = ({
             </div>
             <h2 className="ProjectPage--title">{project.name}</h2>
             <p className="ProjectPage--description">{project.shortDescription}</p>
+            <Clap project={project} />
           </div>
 
           {project.links.length > 0 && (

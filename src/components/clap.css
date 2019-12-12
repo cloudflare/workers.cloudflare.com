@@ -3,6 +3,11 @@
   align-items: center;
 }
 
+.Clap-is-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .Clap:not(.Clap-is-clapped) {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
