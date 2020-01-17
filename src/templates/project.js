@@ -16,20 +16,20 @@ import "../vendor/workers-brand-assets/css/components/definition-list.css"
 
 const getPrimaryLinkText = (linkType) => {
   switch (linkType) {
-    case "website": return "Visit website";
-    case "twitter": return "View on Twitter";
+    case "announcement": return "Read announcement";
     case "code": return "Read code";
-    case "blog-post": return "Read announcement";
+    case "twitter": return "View on Twitter";
+    case "website": return "Visit website";
     default: return "Learn more";
   }
 }
 
 const getLinkText = (linkType) => {
   switch (linkType) {
-    case "website": return "Website";
-    case "twitter": return "Twitter";
+    case "announcement": return "Announcement";
     case "code": return "Code";
-    case "blog-post": return "Announcement";
+    case "twitter": return "Twitter";
+    case "website": return "Website";
     default: return "Learn more";
   }
 }
