@@ -67,7 +67,7 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <link rel="icon" type="image/png" href="favicon.ico" sizes="48x48" />
+      <link rel="icon" type="image/png" href="/favicon.ico" sizes="48x48" />
     </Helmet>
   )
 }
