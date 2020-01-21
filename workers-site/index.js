@@ -1,7 +1,7 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
 
 import { hydrateEdgeState } from "./edge_state"
-import { clap, transformClap, unclap, hydrate } from "./clap"
+import { bookmark, transformBookmark, unbookmark, hydrate } from "./bookmark"
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -32,11 +32,11 @@ async function handleEvent(event) {
   let options = {}
 
   if (event.request.method === "POST") {
-    if (url.pathname.includes("/clap")) {
-      return await clap(event.request)
+    if (url.pathname.includes("/bookmark")) {
+      return await bookmark(event.request)
     }
-    if (url.pathname.includes("/unclap")) {
-      return await unclap(event.request)
+    if (url.pathname.includes("/unbookmark")) {
+      return await unbookmark(event.request)
     }
   }
 
@@ -59,7 +59,7 @@ async function handleEvent(event) {
     }
     return hydrateEdgeState({
       response: getAssetFromKV(event, options),
-      state: transformClap(event.request),
+      state: transformBookmark(event.request),
     })
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html

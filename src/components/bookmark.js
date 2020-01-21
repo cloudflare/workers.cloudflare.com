@@ -1,51 +1,51 @@
 import React, { useEffect, useState } from "react"
 import { useSSR } from "../utils"
 
-import "./clap.css"
+import "./bookmark.css"
 import { EdgeStateContext } from "./edge_state"
 
-const clap = async ({ key, setClapped, setState }) => {
+const bookmark = async ({ key, setBookmarked, setState }) => {
   const url = new URL(window.location)
-  await fetch(url.pathname + "/clap", {
+  await fetch(url.pathname + "/bookmark", {
     method: "POST",
   })
 
-  setClapped(true)
+  setBookmarked(true)
   setState({ [key]: true })
 
   return false
 }
 
-const unclap = async ({ key, setClapped, setState }) => {
+const unbookmark = async ({ key, setBookmarked, setState }) => {
   const url = new URL(window.location)
-  await fetch(url.pathname + "/unclap", {
+  await fetch(url.pathname + "/unbookmark", {
     method: "POST",
   })
 
-  setClapped(false)
+  setBookmarked(false)
   setState({ [key]: false })
 
   return false
 }
 
-const hydrate = async (state, setState) => {
+const hydrate = async (_state, setState) => {
   return new Promise(async resolve => {
     const url = new URL(window.location)
     const resp = await fetch(url.pathname + "/_hydrate")
-    const { claps } = await resp.json()
-    setState(claps)
+    const { bookmarks } = await resp.json()
+    setState(bookmarks)
     resolve()
   })
 }
 
-const ClapButton = ({ onClick }) => (
+const BookmarkButton = ({ onClick }) => (
   <button class="Button" onClick={onClick}>
-    <span class="Clap--icon"></span>
+    <span class="Bookmark--icon"></span>
   </button>
 )
 
-const Clap = ({ clapped, project, setClapped, setLoaded }) => {
-  const key = `${project.slug}_clapped`
+const Bookmark = ({ bookmarked, project, setBookmarked, setLoaded }) => {
+  const key = `${project.slug}_bookmarked`
   const [state, setState] = React.useContext(EdgeStateContext)
 
   useEffect(() => {
@@ -54,9 +54,9 @@ const Clap = ({ clapped, project, setClapped, setLoaded }) => {
         return hydrate(state, setState)
       }
 
-      const kvClapped = state[key]
-      if (kvClapped) {
-        setClapped(kvClapped)
+      const kvBookmarked = state[key]
+      if (kvBookmarked) {
+        setBookmarked(kvBookmarked)
       }
     }
 
@@ -65,11 +65,11 @@ const Clap = ({ clapped, project, setClapped, setLoaded }) => {
   }, [state])
 
   return (
-    <ClapButton
+    <BookmarkButton
       onClick={() =>
-        !clapped
-          ? clap({ key, setClapped, setState })
-          : unclap({ key, setClapped, setState })
+        !bookmarked
+          ? bookmark({ key, setBookmarked, setState })
+          : unbookmark({ key, setBookmarked, setState })
       }
     />
   )
@@ -77,27 +77,27 @@ const Clap = ({ clapped, project, setClapped, setLoaded }) => {
 
 export default props => {
   const [loaded, setLoaded] = useState(false)
-  const [clapped, setClapped] = useState(false)
+  const [bookmarked, setBookmarked] = useState(false)
   const { isBrowser } = useSSR()
 
   return (
     <div
       class={
-        "Clap" +
-        (clapped ? " Clap-is-clapped" : "") +
-        (loaded ? "" : " Clap-is-loading")
+        "Bookmark" +
+        (bookmarked ? " Bookmark-is-bookmarked" : "") +
+        (loaded ? "" : " Bookmark-is-loading")
       }
     >
       {isBrowser ? (
-        <Clap
+        <Bookmark
           {...props}
-          clapped={clapped}
-          setClapped={setClapped}
+          bookmarked={bookmarked}
+          setBookmarked={setBookmarked}
           loaded={loaded}
           setLoaded={setLoaded}
         />
       ) : (
-        <ClapButton />
+        <BookmarkButton />
       )}
     </div>
   )

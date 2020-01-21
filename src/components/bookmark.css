@@ -1,20 +1,20 @@
-.Clap {
+.Bookmark {
   display: inline-flex;
   align-items: center;
 }
 
-.Clap-is-loading {
+.Bookmark-is-loading {
   opacity: 0;
   pointer-events: none;
 }
 
-.Clap:not(.Clap-is-clapped) {
+.Bookmark:not(.Bookmark-is-bookmarked) {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
 
-.Clap--icon::after {
-  content: "👏";
+.Bookmark--icon::after {
+  content: "📚";
   font-size: 2em;
   -webkit-filter: hue-rotate(-30deg) brightness(1.15);
   filter: hue-rotate(-30deg) brightness(1.15);

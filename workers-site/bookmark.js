@@ -36,10 +36,10 @@ const _generateKey = async request => {
   }
 }
 
-const _processClapsForRequest = async request => {
+const _processBookmarksForRequest = async request => {
   const { kvKey, project } = await _generateKey(request)
   return {
-    [`${project}_clapped`]: await BUILT_WITH_WORKERS.get(kvKey),
+    [`${project}_bookmarked`]: await BUILT_WITH_WORKERS.get(kvKey),
   }
 }
 
@@ -52,8 +52,8 @@ const shouldProcess = url => {
 const hydrate = async request => {
   const url = new URL(request.url)
   if (shouldProcess(url)) {
-    const claps = await _processClapsForRequest(request)
-    return new Response(JSON.stringify({ claps }), {
+    const bookmarks = await _processBookmarksForRequest(request)
+    return new Response(JSON.stringify({ bookmarks }), {
       headers: { "Content-type": "application/json" },
     })
   } else {
@@ -61,15 +61,15 @@ const hydrate = async request => {
   }
 }
 
-const transformClap = async request => {
+const transformBookmark = async request => {
   const url = new URL(request.url)
   if (shouldProcess(url)) {
-    return _processClapsForRequest(request)
+    return _processBookmarksForRequest(request)
   }
   return new Promise(r => r(null))
 }
 
-const clap = async request => {
+const bookmark = async request => {
   const { kvKey } = await _generateKey(request)
   const data = await BUILT_WITH_WORKERS.get(kvKey)
 
@@ -81,10 +81,10 @@ const clap = async request => {
   }
 }
 
-const unclap = async request => {
+const unbookmark = async request => {
   const { kvKey } = await _generateKey(request)
   await BUILT_WITH_WORKERS.delete(kvKey)
   return new Response(null, { status: 204 })
 }
 
-export { clap, hydrate, transformClap, unclap }
+export { bookmark, hydrate, transformBookmark, unbookmark }

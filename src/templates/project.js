@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import Clap from "../components/clap"
+import Bookmark from "../components/bookmark"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
 import RelatedProject from "../components/project"
@@ -14,23 +14,33 @@ import "../pages/built-with-workers-page.css"
 import "./project-page.css"
 import "../vendor/workers-brand-assets/css/components/definition-list.css"
 
-const getPrimaryLinkText = (linkType) => {
+const getPrimaryLinkText = linkType => {
   switch (linkType) {
-    case "announcement": return "Read announcement";
-    case "code": return "Read code";
-    case "twitter": return "View on Twitter";
-    case "website": return "Visit website";
-    default: return "Learn more";
+    case "announcement":
+      return "Read announcement"
+    case "code":
+      return "Read code"
+    case "twitter":
+      return "View on Twitter"
+    case "website":
+      return "Visit website"
+    default:
+      return "Learn more"
   }
 }
 
-const getLinkText = (linkType) => {
+const getLinkText = linkType => {
   switch (linkType) {
-    case "announcement": return "Announcement";
-    case "code": return "Code";
-    case "twitter": return "Twitter";
-    case "website": return "Website";
-    default: return "Learn more";
+    case "announcement":
+      return "Announcement"
+    case "code":
+      return "Code"
+    case "twitter":
+      return "Twitter"
+    case "website":
+      return "Website"
+    default:
+      return "Learn more"
   }
 }
 
@@ -63,17 +73,28 @@ const Project = ({
         <div className="ProjectPage--header">
           <div className="ProjectPage--header-content">
             <div className="ProjectPage--back-link">
-              <Link className="Link Link-with-left-arrow Link-is-juicy" to="/built-with">Back</Link>
+              <Link
+                className="Link Link-with-left-arrow Link-is-juicy"
+                to="/built-with"
+              >
+                Back
+              </Link>
             </div>
             <h2 className="ProjectPage--title">{project.name}</h2>
-            <p className="ProjectPage--description">{project.shortDescription}</p>
-            <Clap project={project} />
+            <p className="ProjectPage--description">
+              {project.shortDescription}
+            </p>
+            <Bookmark project={project} />
           </div>
 
           {project.links.length > 0 && (
             <div className="ProjectPage--header-action">
               {[project.links[0]].map(({ linkType, url }) => (
-                <a className="ProjectPage--header-action-button Button Button-is-primary" href={url} key={url}>
+                <a
+                  className="ProjectPage--header-action-button Button Button-is-primary"
+                  href={url}
+                  key={url}
+                >
                   {getPrimaryLinkText(linkType)}
                 </a>
               ))}
@@ -88,7 +109,7 @@ const Project = ({
         {project.longDescription && (
           <div className="ProjectPage--body">
             <div className="ProjectPage--about">
-              <Markdown source={project.longDescription}/>
+              <Markdown source={project.longDescription} />
             </div>
 
             {(project.developer || project.links.length > 0) && (
@@ -97,7 +118,9 @@ const Project = ({
                   {project.developer && (
                     <>
                       <dt className="DefinitionList--term">Developer</dt>
-                      <dd className="DefinitionList--definition">{project.developer}</dd>
+                      <dd className="DefinitionList--definition">
+                        {project.developer}
+                      </dd>
                     </>
                   )}
                   {project.links.length > 0 && (
@@ -105,8 +128,14 @@ const Project = ({
                       <dt className="DefinitionList--term">Links</dt>
                       <dd className="DefinitionList--definition">
                         {project.links.map(({ linkType, url }) => (
-                          <span className="ProjectPage--metadata-link" key={url}>
-                            <a className="Link Link-with-right-arrow" href={url}>
+                          <span
+                            className="ProjectPage--metadata-link"
+                            key={url}
+                          >
+                            <a
+                              className="Link Link-with-right-arrow"
+                              href={url}
+                            >
                               {getLinkText(linkType)}
                             </a>
                           </span>
@@ -127,13 +156,14 @@ const Project = ({
             </div>
 
             <div className="Collection--projects">
-              {collectionForProject && collectionForProject.projects
-                .filter(({ id }) => id !== project.id)
-                .map(project => (
-                  <div className="Collection--project" key={project.id}>
-                    <RelatedProject project={project} />
-                  </div>
-                ))}
+              {collectionForProject &&
+                collectionForProject.projects
+                  .filter(({ id }) => id !== project.id)
+                  .map(project => (
+                    <div className="Collection--project" key={project.id}>
+                      <RelatedProject project={project} />
+                    </div>
+                  ))}
 
               <div className="Collection--spacer" />
             </div>
