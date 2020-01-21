@@ -16,6 +16,10 @@ const loadTheme = `
   updateTheme()
 `
 
+const setDomainAttr = `
+  document.documentElement.setAttribute('domain', document.domain)
+`
+
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes} theme="light">
@@ -27,6 +31,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
+        <script dangerouslySetInnerHTML={{ __html: setDomainAttr }} />
         <script dangerouslySetInnerHTML={{ __html: loadTheme }} />
       </head>
       <body {...props.bodyAttributes}>

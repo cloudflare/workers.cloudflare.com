@@ -86,6 +86,33 @@
   overflow: hidden;
 }
 
+/* TODO */
+.Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child {
+  padding-bottom: 62.5% !important;
+}
+
+[domain="localhost"] .Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child {
+  background: var(--red-8);
+  color: var(--red-3);
+}
+
+[domain="localhost"] .Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child ~ * {
+  opacity: 0;
+}
+
+[domain="localhost"] .Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child::before {
+  position: absolute;
+  content: "Please use a 16:10 image.";
+  height: 1em;
+  line-height: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
 .Project--image::after {
   content: "";
   display: block;
