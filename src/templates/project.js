@@ -55,6 +55,10 @@ const Project = ({
     projects.find(({ id }) => id === project.id)
   )
 
+  // TODO - implement
+  let isBookmarked = Math.random() > .5
+  const toggleBookmark = () => {}
+
   return (
     <Layout>
       <SEO title={project.name} />
@@ -67,16 +71,24 @@ const Project = ({
             </div>
             <h2 className="ProjectPage--title">{project.name}</h2>
             <p className="ProjectPage--description">{project.shortDescription}</p>
-            <Clap project={project} />
           </div>
 
           {project.links.length > 0 && (
-            <div className="ProjectPage--header-action">
-              {[project.links[0]].map(({ linkType, url }) => (
-                <a className="ProjectPage--header-action-button Button Button-is-primary" href={url} key={url}>
-                  {getPrimaryLinkText(linkType)}
-                </a>
-              ))}
+            <div className="ProjectPage--header-actions">
+              <div className="ProjectPage--header-action-primary">
+                {[project.links[0]].map(({ linkType, url }) => (
+                  <a className="ProjectPage--header-action-button Button Button-is-primary" href={url} key={url}>
+                    {getPrimaryLinkText(linkType)}
+                  </a>
+                ))}
+              </div>
+
+              <div className="ProjectPage--header-action-bookmark" data-is-bookmarked={isBookmarked}>
+                <button className="ProjectPage--header-action-button Button" onClick={toggleBookmark}>
+                  <span className="ProjectPage--header-action-bookmark-icon"></span>
+                  <span className="ProjectPage--header-action-bookmark-text">{isBookmarked?'Remove':'Bookmark'}</span>
+                </button>
+              </div>
             </div>
           )}
         </div>
