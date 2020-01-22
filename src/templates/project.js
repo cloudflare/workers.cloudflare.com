@@ -84,20 +84,23 @@ const Project = ({
             <p className="ProjectPage--description">
               {project.shortDescription}
             </p>
-            <Bookmark project={project} />
           </div>
 
           {project.links.length > 0 && (
-            <div className="ProjectPage--header-action">
-              {[project.links[0]].map(({ linkType, url }) => (
-                <a
-                  className="ProjectPage--header-action-button Button Button-is-primary"
-                  href={url}
-                  key={url}
-                >
-                  {getPrimaryLinkText(linkType)}
-                </a>
-              ))}
+            <div className="ProjectPage--header-actions">
+              <div className="ProjectPage--header-action-primary">
+                {[project.links[0]].map(({ linkType, url }) => (
+                  <a
+                    className="ProjectPage--header-action-button Button Button-is-primary"
+                    href={url}
+                    key={url}
+                  >
+                    {getPrimaryLinkText(linkType)}
+                  </a>
+                ))}
+              </div>
+
+              <Bookmark project={project} />
             </div>
           )}
         </div>

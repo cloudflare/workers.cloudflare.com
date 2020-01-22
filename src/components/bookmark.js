@@ -38,9 +38,15 @@ const hydrate = async (_state, setState) => {
   })
 }
 
-const BookmarkButton = ({ onClick }) => (
-  <button class="Button" onClick={onClick}>
-    <span class="Bookmark--icon"></span>
+const BookmarkButton = ({ bookmarked = false, onClick }) => (
+  <button
+    className="ProjectPage--header-action-button Button"
+    onClick={onClick}
+  >
+    <span className="ProjectPage--header-action-bookmark-icon"></span>
+    <span className="ProjectPage--header-action-bookmark-text">
+      {bookmarked ? "Remove" : "Bookmark"}
+    </span>
   </button>
 )
 
@@ -65,13 +71,19 @@ const Bookmark = ({ bookmarked, project, setBookmarked, setLoaded }) => {
   }, [state])
 
   return (
-    <BookmarkButton
-      onClick={() =>
-        !bookmarked
-          ? bookmark({ key, setBookmarked, setState })
-          : unbookmark({ key, setBookmarked, setState })
-      }
-    />
+    <div
+      className="ProjectPage--header-action-bookmark"
+      data-is-bookmarked={bookmarked}
+    >
+      <BookmarkButton
+        bookmarked={bookmarked}
+        onClick={() =>
+          !bookmarked
+            ? bookmark({ key, setBookmarked, setState })
+            : unbookmark({ key, setBookmarked, setState })
+        }
+      />
+    </div>
   )
 }
 
@@ -81,13 +93,7 @@ export default props => {
   const { isBrowser } = useSSR()
 
   return (
-    <div
-      class={
-        "Bookmark" +
-        (bookmarked ? " Bookmark-is-bookmarked" : "") +
-        (loaded ? "" : " Bookmark-is-loading")
-      }
-    >
+    <>
       {isBrowser ? (
         <Bookmark
           {...props}
@@ -99,6 +105,6 @@ export default props => {
       ) : (
         <BookmarkButton />
       )}
-    </div>
+    </>
   )
 }
