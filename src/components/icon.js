@@ -1,5 +1,7 @@
 import React from "react"
 
+import "./icon.css"
+
 const randomString = () => Math.random().toString().split('.')[1].substr(0, 6)
 const uniqueReadableID = (prefix) => `${prefix}-${randomString()}`
 
@@ -9,7 +11,7 @@ const Icon = (props) => {
   const pathID = uniqueReadableID('path')
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={props.viewBox}>
+    <svg className="Icon" xmlns="http://www.w3.org/2000/svg" viewBox={props.viewBox}>
       <defs>
         {props.withGradientFill &&
           <linearGradient id={gradientID} x1="76%" x2="12%" y1="0%" y2="107%">

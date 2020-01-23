@@ -167,11 +167,3 @@
   border-radius: 2px 2px 5px 5px;
   z-index: 1;
 }
-
-.Project--bookmark > svg {
-  overflow: visible;
-}
-
-.Project--bookmark:hover {
-  opacity: .75;
-}
