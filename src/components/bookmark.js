@@ -28,13 +28,20 @@ const unbookmark = async ({ key, setBookmarked, setState }) => {
   return false
 }
 
-const hydrate = async ({ slug, state, setRequestedHydration, setState }) => {
+const hydrate = async ({
+  slug,
+  state,
+  setLoaded,
+  setRequestedHydration,
+  setState,
+}) => {
   return new Promise(async resolve => {
     setRequestedHydration(true)
     const resp = await fetch(`/built-with/projects/${slug}/_hydrate`)
     const { bookmarks } = await resp.json()
     setState(bookmarks)
     resolve()
+    setLoaded(true)
   })
 }
 
@@ -92,20 +99,26 @@ const BookmarkIndicator = ({ bookmarked }) => {
   ) : null
 }
 
-const BookmarkButton = ({ bookmarked = false, onClick }) => (
-  <button
-    className="ProjectPage--header-action-button Button"
-    onClick={onClick}
-  >
-    <span className="ProjectPage--header-action-bookmark-icon"></span>
-    <span className="ProjectPage--header-action-bookmark-text">
-      {bookmarked ? "Remove" : "Bookmark"}
-    </span>
-  </button>
+const BookmarkButton = ({ bookmarked = false, loaded, onClick }) => (
+  <div style={{ textAlign: "center" }}>
+    <button
+      className={`ProjectPage--header-action-bookmark Button ${
+        !loaded ? "hidden" : ""
+      }`}
+      data-is-bookmarked={bookmarked}
+      onClick={onClick}
+    >
+      <span className="ProjectPage--header-action-bookmark-icon"></span>
+      <span className="ProjectPage--header-action-bookmark-text">
+        {bookmarked ? "Remove" : "Bookmark"}
+      </span>
+    </button>
+  </div>
 )
 
 const Bookmark = ({
   bookmarked,
+  loaded,
   project,
   readOnly = false,
   setBookmarked,
@@ -121,9 +134,12 @@ const Bookmark = ({
         return hydrate({
           slug: project.slug,
           state,
+          setLoaded,
           setState,
           setRequestedHydration,
         })
+      } else {
+        setLoaded(true)
       }
 
       const kvBookmarked = state[key]
@@ -133,25 +149,22 @@ const Bookmark = ({
     }
 
     parse()
-    setLoaded(true)
   }, [state])
 
   return readOnly ? (
     <BookmarkIndicator bookmarked={bookmarked} />
   ) : (
-    <div
-      className="ProjectPage--header-action-bookmark"
-      data-is-bookmarked={bookmarked}
-    >
+    <>
       <BookmarkButton
         bookmarked={bookmarked}
+        loaded={loaded}
         onClick={() =>
           !bookmarked
             ? bookmark({ key, setBookmarked, setState })
             : unbookmark({ key, setBookmarked, setState })
         }
       />
-    </div>
+    </>
   )
 }
 
@@ -171,7 +184,7 @@ export default props => {
           setLoaded={setLoaded}
         />
       ) : (
-        <BookmarkButton />
+        <BookmarkButton loaded={loaded} />
       )}
     </>
   )

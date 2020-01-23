@@ -10,3 +10,7 @@
 @import "../vendor/workers-brand-assets/css/global/html.css";
 @import "../vendor/workers-brand-assets/css/global/surface.css";
 @import "../vendor/workers-brand-assets/css/global/body-font-size.css";
+
+.hidden {
+  visibility: hidden;
+}

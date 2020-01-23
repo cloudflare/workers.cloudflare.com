@@ -35,7 +35,7 @@
 }
 
 .ProjectPage--header-action-bookmark {
-  font-size: 0.85em;
+  white-space: nowrap;
   text-align: center;
 }
 
@@ -82,6 +82,10 @@
   }
 
   .ProjectPage--header-action-button {
+    width: 100%;
+  }
+
+  .ProjectPage--header-action-bookmark {
     width: 100%;
   }
 }
