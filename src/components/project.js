@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import BookmarkIcon from "./bookmark-icon.js"
+import BookmarkIcon from "./bookmark-icon"
 
 import "./project.css"
 
@@ -33,7 +33,7 @@ const Project = ({
 
       {Math.random() > .8 /* TODO - implement */ && (
         <div className="Project--bookmark">
-          <BookmarkIcon />
+          <BookmarkIcon withGradientFill withShadow />
         </div>
       )}
     </div>

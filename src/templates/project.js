@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
+import BookmarkIcon from "../components/bookmark-icon"
 import Clap from "../components/clap"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
@@ -85,8 +86,12 @@ const Project = ({
 
               <div className="ProjectPage--header-action-bookmark" data-is-bookmarked={isBookmarked}>
                 <button className="ProjectPage--header-action-button Button" onClick={toggleBookmark}>
-                  <span className="ProjectPage--header-action-bookmark-icon"></span>
-                  <span className="ProjectPage--header-action-bookmark-text">{isBookmarked?'Remove':'Bookmark'}</span>
+                  <span className="ProjectPage--header-action-bookmark-icon">
+                    {isBookmarked ? (<BookmarkIcon withGradientFill />) : (<BookmarkIcon />)}
+                  </span>
+                  <span className="ProjectPage--header-action-bookmark-text">
+                    {isBookmarked ? 'Bookmarked' : 'Bookmark'}
+                  </span>
                 </button>
               </div>
             </div>
