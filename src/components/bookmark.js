@@ -96,7 +96,7 @@ const BookmarkButton = ({ bookmarked = false, loaded, onClick }) => (
     >
       <span className="ProjectPage--header-action-bookmark-icon"></span>
       <span className="ProjectPage--header-action-bookmark-text">
-        {bookmarked ? "Remove" : "Bookmark"}
+        {bookmarked ? "Bookmarked" : "Bookmark"}
       </span>
     </button>
   </div>
