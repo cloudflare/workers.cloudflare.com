@@ -1,7 +1,7 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
 
 import { hydrateEdgeState } from "./edge_state"
-import { bookmark, transformBookmark, unbookmark, hydrate } from "./bookmark"
+import { bookmark, transformBookmark, unbookmark } from "./bookmark"
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -38,10 +38,6 @@ async function handleEvent(event) {
     if (url.pathname.includes("/unbookmark")) {
       return await unbookmark(event.request)
     }
-  }
-
-  if (url.pathname.includes("/_hydrate")) {
-    return await hydrate(event.request)
   }
 
   /**

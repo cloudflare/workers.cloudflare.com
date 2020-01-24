@@ -1,9 +1,10 @@
 import React from "react"
 import { useSSR } from "../utils"
 
-const parseDocumentState = () => {
+const parseDocumentState = key => {
   const edgeStateElement = document.querySelector("#edge_state")
-  return edgeStateElement ? JSON.parse(edgeStateElement.innerText) : {}
+  const jsonData = JSON.parse(edgeStateElement.innerText) || {}
+  return key ? jsonData[key] : jsonData
 }
 
 export const EdgeStateContext = React.createContext([{}, () => {}])
@@ -15,14 +16,14 @@ export const EdgeStateProvider = ({ children }) => {
     return <>{children}</>
   }
 
-  const edgeState = parseDocumentState()
+  const edgeState = parseDocumentState("bookmarks")
   if (!state && edgeState) {
     setState(edgeState)
   }
 
   const updateState = (newState, options = { immutable: true }) =>
     options.immutable
-      ? setState(Object.assign({}, state, newState))
+      ? setState([].concat(state, newState))
       : setState(newState)
 
   return (

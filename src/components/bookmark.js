@@ -9,40 +9,26 @@ const bookmark = async ({ key, setBookmarked, setState }) => {
   await fetch(url.pathname + "/bookmark", {
     method: "POST",
   })
+  localStorage.setItem(key, true)
 
   setBookmarked(true)
-  setState({ [key]: true })
+  setState([key])
 
   return false
 }
 
-const unbookmark = async ({ key, setBookmarked, setState }) => {
+const unbookmark = async ({ key, setBookmarked, setState, state }) => {
   const url = new URL(window.location)
   await fetch(url.pathname + "/unbookmark", {
     method: "POST",
   })
 
+  localStorage.removeItem(key)
   setBookmarked(false)
-  setState({ [key]: false })
+  const newState = state.filter(k => k != key)
+  setState(newState, { immutable: false })
 
   return false
-}
-
-const hydrate = async ({
-  slug,
-  state,
-  setLoaded,
-  setRequestedHydration,
-  setState,
-}) => {
-  return new Promise(async resolve => {
-    setRequestedHydration(true)
-    const resp = await fetch(`/built-with/projects/${slug}/_hydrate`)
-    const { bookmarks } = await resp.json()
-    setState(bookmarks)
-    resolve()
-    setLoaded(true)
-  })
 }
 
 const BookmarkIndicator = ({ bookmarked }) => {
@@ -124,27 +110,21 @@ const Bookmark = ({
   setBookmarked,
   setLoaded,
 }) => {
-  const key = `${project.slug}_bookmarked`
-  const [requestedHydration, setRequestedHydration] = useState(false)
+  const key = project.slug
   const [state, setState] = React.useContext(EdgeStateContext)
 
   useEffect(() => {
     async function parse() {
-      if (!requestedHydration) {
-        return hydrate({
-          slug: project.slug,
-          state,
-          setLoaded,
-          setState,
-          setRequestedHydration,
-        })
-      } else {
-        setLoaded(true)
-      }
+      setLoaded(true)
 
-      const kvBookmarked = state[key]
+      const kvBookmarked = state && !!state.find(k => k.includes(key))
       if (kvBookmarked) {
         setBookmarked(kvBookmarked)
+      }
+
+      const localCopy = localStorage.getItem(key)
+      if (localCopy) {
+        setBookmarked(true)
       }
     }
 
@@ -161,7 +141,7 @@ const Bookmark = ({
         onClick={() =>
           !bookmarked
             ? bookmark({ key, setBookmarked, setState })
-            : unbookmark({ key, setBookmarked, setState })
+            : unbookmark({ key, setBookmarked, setState, state })
         }
       />
     </>
