@@ -22,55 +22,38 @@ const generateHmac = async data => {
 
 const pattern = /\/projects\/([\w|-]*)[\/]?/
 
-const _generateKey = async request => {
-  const url = new URL(request.url)
-  const matches = url.pathname.match(pattern)
-  const project = matches[1]
+const ipKey = async request => {
   const ip = request.headers.get("CF-Connecting-IP")
   const userAgent = request.headers.get("User-Agent")
-  const ipKey = await generateHmac([ip, userAgent].join("-"))
-  const kvKey = `projects:${project}:${ipKey}`
-  return {
-    kvKey,
-    project,
-  }
+  return await generateHmac([ip, userAgent].join("-"))
 }
 
-const _processClapsForRequest = async request => {
-  const { kvKey, project } = await _generateKey(request)
-  return {
-    [`${project}_clapped`]: await BUILT_WITH_WORKERS.get(kvKey),
-  }
+const _processBookmarksForRequest = async request => {
+  const { keys } = await BUILT_WITH_WORKERS.list({
+    prefix: await ipKey(request),
+  })
+  return { bookmarks: keys.map(({ name }) => name) }
 }
 
 const shouldProcess = url => {
   const mimeType = mime.getType(url.pathname)
-  const projectUrl = url.pathname.includes("/projects")
-  return !mimeType && projectUrl
+  return !mimeType
 }
 
-const hydrate = async request => {
+const transformBookmark = async request => {
   const url = new URL(request.url)
   if (shouldProcess(url)) {
-    const claps = await _processClapsForRequest(request)
-    return new Response(JSON.stringify({ claps }), {
-      headers: { "Content-type": "application/json" },
-    })
-  } else {
-    return new Response(null, { status: 403 })
-  }
-}
-
-const transformClap = async request => {
-  const url = new URL(request.url)
-  if (shouldProcess(url)) {
-    return _processClapsForRequest(request)
+    return _processBookmarksForRequest(request)
   }
   return new Promise(r => r(null))
 }
 
-const clap = async request => {
-  const { kvKey } = await _generateKey(request)
+const bookmark = async request => {
+  const url = new URL(request.url)
+  const matches = url.pathname.match(pattern)
+  const project = matches[1]
+  const kvKey = `${await ipKey(request)}:${project}`
+
   const data = await BUILT_WITH_WORKERS.get(kvKey)
 
   if (data) {
@@ -81,10 +64,14 @@ const clap = async request => {
   }
 }
 
-const unclap = async request => {
-  const { kvKey } = await _generateKey(request)
+const unbookmark = async request => {
+  const url = new URL(request.url)
+  const matches = url.pathname.match(pattern)
+  const project = matches[1]
+  const kvKey = `${await ipKey(request)}:${project}`
+
   await BUILT_WITH_WORKERS.delete(kvKey)
   return new Response(null, { status: 204 })
 }
 
-export { clap, hydrate, transformClap, unclap }
+export { bookmark, transformBookmark, unbookmark }
