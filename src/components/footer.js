@@ -1,6 +1,6 @@
 import React from "react"
 
-import "@ag_dubs/workers-brand-assets/css/components/footer.css"
+import "@cloudflare/workers-brand-assets/css/components/footer.css"
 
 // TODO - move this to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
 const Footer = () => (

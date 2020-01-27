@@ -1,9 +1,9 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
 
-import "@ag_dubs/workers-brand-assets/css/components/link.css"
-import "@ag_dubs/workers-brand-assets/css/components/inline-code.css"
-import "@ag_dubs/workers-brand-assets/css/components/code-block.css"
+import "@cloudflare/workers-brand-assets/css/components/link.css"
+import "@cloudflare/workers-brand-assets/css/components/inline-code.css"
+import "@cloudflare/workers-brand-assets/css/components/code-block.css"
 import "./unordered-list.css"
 
 import "./markdown.css"

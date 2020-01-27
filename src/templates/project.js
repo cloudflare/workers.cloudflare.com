@@ -12,7 +12,7 @@ import { flatten, normalizeCollection } from "../utils"
 
 import "../pages/built-with-workers-page.css"
 import "./project-page.css"
-import "@ag_dubs/workers-brand-assets/css/components/definition-list.css"
+import "@cloudflare/workers-brand-assets/css/components/definition-list.css"
 
 const getPrimaryLinkText = linkType => {
   switch (linkType) {
