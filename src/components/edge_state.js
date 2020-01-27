@@ -3,8 +3,12 @@ import { useSSR } from "../utils"
 
 const parseDocumentState = key => {
   const edgeStateElement = document.querySelector("#edge_state")
-  const jsonData = JSON.parse(edgeStateElement.innerText) || {}
-  return key ? jsonData[key] : jsonData
+  try {
+    const jsonData = JSON.parse(edgeStateElement.innerText)
+    return key ? jsonData[key] : jsonData
+  } catch (err) {
+    return []
+  }
 }
 
 export const EdgeStateContext = React.createContext([{}, () => {}])
