@@ -1,16 +1,18 @@
 name = "built-with-workers"
 type = "webpack"
-account_id = "dc56444c4c955a1653106ccf997c1067"
+account_id = "8995c0f49cdcf57eb54d2c1e52b7d2f3"
 workers_dev = true
-
 kv-namespaces = [
-  { binding = "BUILT_WITH_WORKERS", id = "2030403ba3434e749794b2df2813d0c6" } # prod
+  { binding = "BUILT_WITH_WORKERS", id = "b2817b8f747d4f1b9bf87712eb72d1b5" } # prod
 ]
 
 [env.production]
 workers_dev = false
-route = ""
-zone_id = ""
+route = "workers.cloudflare.com/built-with*"
+zone_id = "29ed9c83c2c78d6967876c4053ec8154"
+kv-namespaces = [
+  { binding = "BUILT_WITH_WORKERS", id = "b2817b8f747d4f1b9bf87712eb72d1b5" } # prod
+]
 
 [site]
 bucket = "./public"
