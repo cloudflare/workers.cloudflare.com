@@ -1,4 +1,4 @@
-import "../vendor/workers-brand-assets/js/focus-visible-polyfill.js"
+import "@ag_dubs/workers-brand-assets/js/focus-visible-polyfill.js"
 
 import React from "react"
 import PropTypes from "prop-types"

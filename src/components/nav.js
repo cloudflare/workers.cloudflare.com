@@ -1,9 +1,9 @@
 import React from "react"
 
-import Logo from "../vendor/workers-brand-assets/resources/logo/logo-combination-mark-horizontal.svg"
+import Logo from "@ag_dubs/workers-brand-assets/resources/logo/logo-combination-mark-horizontal.svg"
 
-import "../vendor/workers-brand-assets/css/components/cloudflare-workers-logo.css";
-import "../vendor/workers-brand-assets/css/components/button.css";
+import "@ag_dubs/workers-brand-assets/css/components/cloudflare-workers-logo.css"
+import "@ag_dubs/workers-brand-assets/css/components/button.css"
 
 // TODO - move this to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
 import "../vendor/workers.cloudflare.com/css/components/nav.css"
