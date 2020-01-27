@@ -70,3 +70,5 @@ yarn-error.log
 
 # Wrangler / Workers
 dist
+
+build

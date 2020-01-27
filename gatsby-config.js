@@ -8,6 +8,7 @@ module.exports = {
     description: `Build your next application with Cloudflare Workers`,
     author: `@cloudflaredev`,
   },
+  assetPrefix: "/built-with",
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -27,9 +28,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /\.svg$/ // See https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg
-        }
-      }
+          include: /\.svg$/, // See https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg
+        },
+      },
     },
   ],
 }
