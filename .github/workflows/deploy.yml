@@ -19,7 +19,7 @@ jobs:
       env:
         SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
     - name: Publish app
-      uses: signalnerve/wrangler-action@master
+      uses: cloudflare/wrangler-action@master
       with:
-        apiKey: ${{ secrets.apiKey }}
-        email: ${{ secrets.email }}
+        apiToken: ${{ secrets.apiKey }}
+        environment: "production"
