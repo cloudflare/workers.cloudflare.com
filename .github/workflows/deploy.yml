@@ -16,6 +16,8 @@ jobs:
       run: "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc"
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Install gatsby-cli
+      run: "npm install -g gatsby-cli"
     - name: NPM install
       run: "npm install"
     - name: Build app
