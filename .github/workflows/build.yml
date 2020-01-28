@@ -1,15 +1,9 @@
-on:
-  push:
-    branches:
-      - master
-  repository_dispatch:
-  schedule:
-    - cron: "0 * * * *"
+on: push
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Build
     steps:
     - uses: actions/checkout@master
     - name: Add NPM token
@@ -22,8 +16,3 @@ jobs:
       run: "npm run build"
       env:
         SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
-    - name: Publish app
-      uses: cloudflare/wrangler-action@master
-      with:
-        apiToken: ${{ secrets.apiKey }}
-        environment: "production"
