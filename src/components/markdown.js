@@ -4,7 +4,8 @@ import ReactMarkdown from "react-markdown"
 import "@cloudflare/workers-brand-assets/css/components/link.css"
 import "@cloudflare/workers-brand-assets/css/components/inline-code.css"
 import "@cloudflare/workers-brand-assets/css/components/code-block.css"
-import "./unordered-list.css"
+// import "@cloudflare/workers-brand-assets/css/components/unordered-list.css"
+import "./unordered-list.css" // TODO - remove once https://git.io/JvmSL is resolved
 
 import "./markdown.css"
 

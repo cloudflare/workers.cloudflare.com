@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kristian Freeman <kristian@cloudflare.com>",
   "dependencies": {
-    "@cloudflare/workers-brand-assets": "^0.3.0",
+    "@cloudflare/workers-brand-assets": "0.3.0",
     "autoprefixer": "^9.6.5",
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",
