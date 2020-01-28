@@ -6,7 +6,7 @@ We're still getting this repo up-and-running from an open-source perspective, so
 
 ## Codebase
 
-We're generally _not_ looking for code contributions to Built with Workers – because there are a lot of moving parts, as well as developers/designers who need to review every PR incoming to the project, we are unable to accept HTML/CSS/JS contributions to the site.
+We're generally _not_ looking for code contributions to Built with Workers-because there are a lot of moving parts, as well as developers/designers who need to review every PR incoming to the project, we are unable to accept HTML/CSS/JS contributions to the site.
 
 ## Content
 
