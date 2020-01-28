@@ -30,7 +30,7 @@ const Nav = () => (
       </div>
 
       <div className="Nav--item">
-        <a className="Nav--link" href="https://support.cloudflare.com/hc/en-us/sections/360000215372-Cloudflare-Workers">Support</a>
+        <a className="Nav--link" href="https://community.cloudflare.com/tags/workers">Community</a>
       </div>
     </div>
 
