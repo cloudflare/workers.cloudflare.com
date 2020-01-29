@@ -53,17 +53,19 @@ async function handleEvent(event) {
         bypassCache: true,
       }
     }
-    return hydrateEdgeState({
-      response: getAssetFromKV(event, options),
-      state: transformBookmark(event.request),
-    })
+    const response = await getAssetFromKV(event, options)
+    const state = await transformBookmark(event.request)
+    return hydrateEdgeState({ response, state })
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
       try {
         let notFoundResponse = await getAssetFromKV(event, {
           mapRequestToAsset: req =>
-            new Request(`${new URL(req.url).origin}/404.html`, req),
+            new Request(
+              `${new URL(req.url).origin}/built-with/404/index.html`,
+              req
+            ),
         })
 
         return new Response(notFoundResponse.body, {
