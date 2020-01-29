@@ -26,6 +26,7 @@
     "sanity-plugin-markdown": "^1.0.1"
   },
   "devDependencies": {
+    "@sanity/cli": "^0.147.8",
     "yargs": "^14.2.0"
   }
 }
