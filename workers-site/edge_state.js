@@ -13,10 +13,7 @@ class EdgeStateEmbed {
   }
 }
 
-export const hydrateEdgeState = async ({ state, response }) => {
-  const rewriter = new HTMLRewriter().on(
-    "body",
-    new EdgeStateEmbed(await state)
-  )
-  return rewriter.transform(await response)
+export const hydrateEdgeState = ({ state, response }) => {
+  const rewriter = new HTMLRewriter().on("body", new EdgeStateEmbed(state))
+  return rewriter.transform(response)
 }
