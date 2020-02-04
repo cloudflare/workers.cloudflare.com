@@ -20,8 +20,9 @@
   flex: 1;
 }
 
-.ProjectPage--header-action {
+.ProjectPage--header-actions {
   margin-left: 3em;
+  padding-top: 1.666em;
 }
 
 .ProjectPage--header-action-button {
@@ -35,36 +36,27 @@
 }
 
 .ProjectPage--header-action-bookmark {
-  white-space: nowrap;
+  font-size: 0.85em;
   text-align: center;
 }
 
-.ProjectPage--header-action-bookmark-icon::before {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 34"><path fill="%23000" d="M2 0h22a2 2 0 012 2v29.586a1 1 0 01-1.707.707L13.707 21.707a1 1 0 00-1.414 0L1.707 32.293A1 1 0 010 31.586V2a2 2 0 012-2z"/></svg>');
+.ProjectPage--header-action-bookmark-icon {
   position: relative;
-  top: -0.16em;
+  top: -0.05em;
   display: inline-block;
-  height: 0.9em;
-  width: 0.9em;
+  height: 1.2em;
+  width: 1em;
   vertical-align: middle;
-  margin-right: 0.666em;
-}
-
-[theme="dark"] .ProjectPage--header-action-bookmark-icon::before {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 34"><path fill="%23eee" d="M2 0h22a2 2 0 012 2v29.586a1 1 0 01-1.707.707L13.707 21.707a1 1 0 00-1.414 0L1.707 32.293A1 1 0 010 31.586V2a2 2 0 012-2z"/></svg>');
-}
-
-.ProjectPage--header-action-bookmark[data-is-bookmarked="true"]
-  .ProjectPage--header-action-bookmark-icon::before {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 34"><defs><linearGradient id="g" x1="76%" x2="12%" y1="0%" y2="107%"><stop offset="0%" stop-color="%23f8ac4a"/><stop offset="100%" stop-color="%23f48424"/></linearGradient></defs><path fill="url(%23g)" d="M2 0h22a2 2 0 012 2v29.586a1 1 0 01-1.707.707L13.707 21.707a1 1 0 00-1.414 0L1.707 32.293A1 1 0 010 31.586V2a2 2 0 012-2z"/></svg>');
+  margin-right: 0.7em;
 }
 
 .ProjectPage--header-action-bookmark-text {
-  font-size: .95em;
+  font-size: 0.95em;
 }
 
-.ProjectPage--header-action-bookmark[data-is-bookmarked="true"] .ProjectPage--header-action-bookmark-text {
-  font-size: .9em;
+.ProjectPage--header-action-bookmark[data-is-bookmarked="true"]
+  .ProjectPage--header-action-bookmark-text {
+  font-size: 0.9em;
 }
 
 @media (max-width: 768px) {
@@ -86,14 +78,11 @@
   }
 
   .ProjectPage--header-actions {
+    padding-top: 0;
     margin-left: 0;
   }
 
   .ProjectPage--header-action-button {
-    width: 100%;
-  }
-
-  .ProjectPage--header-action-bookmark {
     width: 100%;
   }
 }
