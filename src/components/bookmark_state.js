@@ -1,10 +1,10 @@
 import { EdgeStateContext } from "./edge_state"
 import React, { useContext, useEffect, useState } from "react"
 
-export default key => {
+export default ( key, defaultState = false ) => {
   const [loaded, setLoaded] = useState(false)
   const [state, setState] = useContext(EdgeStateContext)
-  const [bookmarked, setBookmarked] = useState(false)
+  const [bookmarked, setBookmarked] = useState(defaultState)
 
   const bookmark = async () => {
     const url = new URL(window.location)
