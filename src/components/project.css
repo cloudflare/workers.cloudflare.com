@@ -159,7 +159,6 @@
 }
 
 .Project--bookmark {
-  visibility: hidden;
   position: absolute;
   top: -2px;
   right: 26px;
@@ -169,14 +168,11 @@
   z-index: 1;
 }
 
-.Project--bookmark[data-is-bookmarked="true"] {
-  visibility: visible;
+.Project--bookmark-should-fade-in {
+  opacity: 0;
+  animation: project-bookmark-fade-in .5s forwards ease;
 }
 
-.Project--bookmark > svg {
-  overflow: visible;
-}
-
-.Project--bookmark:hover {
-  opacity: 0.75;
+@keyframes project-bookmark-fade-in {
+  to { opacity: 1 }
 }
