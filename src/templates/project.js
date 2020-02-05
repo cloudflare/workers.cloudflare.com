@@ -52,7 +52,6 @@ const Project = ({
     allSanityProject,
     sanityProject: project,
   },
-  location
 }) => {
   const allCollections = flatten(allSanityCollection)
   let collections = allCollections.map(collection =>
@@ -67,11 +66,7 @@ const Project = ({
     projects.find(({ id }) => id === project.id)
   )
 
-  let propState
-  if (location && location.state && location.state.bookmarked) {
-    propState = location.state.bookmarked
-  }
-  const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug, propState)
+  const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
 
   return (
     <Layout>

@@ -22,7 +22,6 @@ const Project = ({ project }) => {
   return (
     <Link
       className="Project---link Project---link-fills-height"
-      state={{ bookmarked }}
       to={`/built-with/projects/${slug}`}
     >
       <div className="Project Project-fills-height">
