@@ -42,7 +42,7 @@
 
 .ProjectPage--header-action-bookmark-icon {
   position: relative;
-  top: -0.05em;
+  top: -.05em;
   display: inline-block;
   height: 1.2em;
   width: 1em;
@@ -150,20 +150,20 @@
   flex-shrink: 0;
   padding-left: 2em;
 
-  margin-top: -0.5em;
-  margin-bottom: -0.5em;
+  margin-top: -.5em;
+  margin-bottom: -.5em;
   padding-top: .5em;
   padding-bottom: .5em;
 
   /* TODO - consider */
   /* box-shadow: -.5em 0 1em -1.25em rgba(var(--shadow-color-rgb), .5); */
 
-  background-image: linear-gradient(
-    0deg,
-    rgba(var(--shadow-color-rgb), 0),
-    rgba(var(--shadow-color-rgb), .2),
-    rgba(var(--shadow-color-rgb), 0)
-  );
+  background-image:
+    linear-gradient(0deg,
+      rgba(var(--shadow-color-rgb), 0.0),
+      rgba(var(--shadow-color-rgb), 0.2),
+      rgba(var(--shadow-color-rgb), 0.0)
+    );
   background-repeat: no-repeat;
   background-size: 1px;
 }
