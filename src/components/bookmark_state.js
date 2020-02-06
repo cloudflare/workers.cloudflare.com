@@ -46,6 +46,5 @@ export default key => {
   }, [state])
 
   const toggleBookmark = bookmarked ? unbookmark : bookmark
-
   return { bookmarked, loaded, toggleBookmark }
 }

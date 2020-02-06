@@ -45,6 +45,12 @@ const getLinkText = linkType => {
   }
 }
 
+const BOOKMARK_STATE = {
+  bookmarked: "bookmarked",
+  loading: "loading",
+  unbookmarked: "unbookmarked",
+}
+
 const Project = ({
   data: {
     allSanityCollection,
@@ -67,6 +73,12 @@ const Project = ({
   )
 
   const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
+
+  const bookmarkState = loaded
+    ? bookmarked
+      ? BOOKMARK_STATE.bookmarked
+      : BOOKMARK_STATE.unbookmarked
+    : BOOKMARK_STATE.loading
 
   return (
     <Layout>
@@ -105,8 +117,7 @@ const Project = ({
 
               <div
                 className="ProjectPage--header-action-bookmark"
-                data-is-bookmarked={bookmarked}
-                data-is-loaded={loaded}
+                data-bookmark-state={bookmarkState}
               >
                 <button
                   className="ProjectPage--header-action-button Button"
