@@ -5,7 +5,8 @@ import { useLocalStorage } from "../utils"
 export default key => {
   const [loaded, setLoaded] = useState(false)
   const [state, setState] = useContext(EdgeStateContext)
-  const [bookmarked, setBookmarked] = useLocalStorage(key, false)
+  const [lsBookmarked, setLsBookmarked] = useLocalStorage(key, false)
+  const [bookmarked, setBookmarked] = useState(false)
 
   const bookmark = async () => {
     const url = new URL(window.location)
@@ -13,7 +14,7 @@ export default key => {
       method: "POST",
     })
 
-    setBookmarked(true)
+    setLsBookmarked("bookmarked")
     setState([key])
 
     return false
@@ -25,8 +26,8 @@ export default key => {
       method: "POST",
     })
 
-    setBookmarked(false)
-    const newState = state.filter(k => k != key)
+    setLsBookmarked("unbookmarking")
+    const newState = state.filter(k => !k.includes(key))
     setState(newState, { immutable: false })
 
     return false
@@ -37,8 +38,17 @@ export default key => {
       setLoaded(true)
 
       const kvBookmarked = state && !!state.find(k => k.includes(key))
-      if (kvBookmarked) {
-        setBookmarked(kvBookmarked)
+
+      switch (lsBookmarked) {
+        case "bookmarked":
+          return setBookmarked(true)
+        case "unbookmarking":
+          return setBookmarked(false)
+        default:
+          if (kvBookmarked) {
+            setBookmarked(kvBookmarked)
+            return setLsBookmarked("bookmarked")
+          }
       }
     }
 

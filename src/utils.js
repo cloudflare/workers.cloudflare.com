@@ -1,4 +1,5 @@
 import React from "react"
+import lscache from "lscache"
 
 const flatten = set => set.edges.map(({ node }) => node)
 
@@ -66,7 +67,7 @@ function useLocalStorage(key, initialValue) {
     }
 
     try {
-      const item = window.localStorage.getItem(key)
+      const item = lscache.get(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       console.log(error)
@@ -83,7 +84,7 @@ function useLocalStorage(key, initialValue) {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value
       setStoredValue(valueToStore)
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      lscache.set(key, JSON.stringify(valueToStore), 1)
     } catch (error) {
       console.log(error)
     }
