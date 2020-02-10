@@ -10,25 +10,25 @@ export default key => {
 
   const bookmark = async () => {
     const url = new URL(window.location)
+    setLsBookmarked("bookmarked")
+    setState([key])
+
     await fetch(url.pathname + "/bookmark", {
       method: "POST",
     })
-
-    setLsBookmarked("bookmarked")
-    setState([key])
 
     return false
   }
 
   const unbookmark = async () => {
     const url = new URL(window.location)
-    await fetch(url.pathname + "/unbookmark", {
-      method: "POST",
-    })
-
     setLsBookmarked("unbookmarking")
     const newState = state.filter(k => !k.includes(key))
     setState(newState, { immutable: false })
+
+    await fetch(url.pathname + "/unbookmark", {
+      method: "POST",
+    })
 
     return false
   }
