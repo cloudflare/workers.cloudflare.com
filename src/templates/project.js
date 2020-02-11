@@ -2,11 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import Bookmark from "../components/bookmark"
+import BookmarkIcon from "../components/bookmark_icon"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
 import RelatedProject from "../components/project"
 import SEO from "../components/seo"
+import useBookmarkState from "../components/bookmark_state"
 
 import { flatten, normalizeCollection } from "../utils"
 
@@ -44,6 +45,12 @@ const getLinkText = linkType => {
   }
 }
 
+const BOOKMARK_STATE = {
+  bookmarked: "bookmarked",
+  loading: "loading",
+  unbookmarked: "unbookmarked",
+}
+
 const Project = ({
   data: {
     allSanityCollection,
@@ -64,6 +71,14 @@ const Project = ({
   const collectionForProject = collections.find(({ projects }) =>
     projects.find(({ id }) => id === project.id)
   )
+
+  const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
+
+  const bookmarkState = loaded
+    ? bookmarked
+      ? BOOKMARK_STATE.bookmarked
+      : BOOKMARK_STATE.unbookmarked
+    : BOOKMARK_STATE.loading
 
   return (
     <Layout>
@@ -100,7 +115,22 @@ const Project = ({
                 ))}
               </div>
 
-              <Bookmark project={project} />
+              <div
+                className="ProjectPage--header-action-bookmark"
+                data-bookmark-state={bookmarkState}
+              >
+                <button
+                  className="ProjectPage--header-action-button Button"
+                  onClick={toggleBookmark}
+                >
+                  <span className="ProjectPage--header-action-bookmark-icon">
+                    <BookmarkIcon withGradientFill={bookmarked} />
+                  </span>
+                  <span className="ProjectPage--header-action-bookmark-text">
+                    {bookmarked ? "Bookmarked" : "Bookmark"}
+                  </span>
+                </button>
+              </div>
             </div>
           )}
         </div>

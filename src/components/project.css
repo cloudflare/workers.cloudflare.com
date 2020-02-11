@@ -157,3 +157,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.Project--bookmark {
+  position: absolute;
+  top: -2px;
+  right: 26px;
+  width: 26px;
+  height: 34px;
+  border-radius: 2px 2px 5px 5px;
+  z-index: 1;
+}
+
+.Project--bookmark-should-fade-in {
+  opacity: 0;
+  animation: project-bookmark-fade-in .5s forwards ease;
+}
+
+@keyframes project-bookmark-fade-in {
+  to { opacity: 1 }
+}

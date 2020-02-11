@@ -2,7 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import Bookmark from "./bookmark"
+import useBookmarkState from "./bookmark_state"
+import BookmarkIcon from "./bookmark_icon"
+
 import "./project.css"
 
 const Project = ({ project }) => {
@@ -14,6 +16,8 @@ const Project = ({ project }) => {
     slug,
     shortDescription,
   } = project
+
+  const { bookmarked } = useBookmarkState(project.slug)
 
   return (
     <Link
@@ -30,7 +34,11 @@ const Project = ({ project }) => {
           <p className="Project--description">{shortDescription}</p>
         </div>
 
-        <Bookmark project={project} readOnly />
+        {bookmarked && (
+          <div className="Project--bookmark Project--bookmark-should-fade-in">
+            <BookmarkIcon withGradientFill withShadow />
+          </div>
+        )}
       </div>
     </Link>
   )

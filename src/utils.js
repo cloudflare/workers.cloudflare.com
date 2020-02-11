@@ -1,4 +1,5 @@
 import React from "react"
+import lscache from "lscache"
 
 const flatten = set => set.edges.map(({ node }) => node)
 
@@ -58,4 +59,38 @@ const useSSR = (callback, delay) => {
   )
 }
 
-export { flatten, normalizeCollection, useSSR }
+function useLocalStorage(key, initialValue) {
+  const { isBrowser } = useSSR()
+  const [storedValue, setStoredValue] = React.useState(() => {
+    if (!isBrowser) {
+      return initialValue
+    }
+
+    try {
+      const item = lscache.get(key)
+      return item ? JSON.parse(item) : initialValue
+    } catch (error) {
+      console.log(error)
+      return initialValue
+    }
+  })
+
+  const setValue = value => {
+    if (!isBrowser) {
+      return
+    }
+
+    try {
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value
+      setStoredValue(valueToStore)
+      lscache.set(key, JSON.stringify(valueToStore), 1)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return [storedValue, setValue]
+}
+
+export { flatten, normalizeCollection, useLocalStorage, useSSR }
