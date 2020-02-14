@@ -14,19 +14,19 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^0.142.6",
-    "@sanity/components": "^0.142.6",
-    "@sanity/core": "^0.142.6",
-    "@sanity/default-layout": "^0.142.7",
-    "@sanity/default-login": "^0.142.6",
-    "@sanity/desk-tool": "^0.142.7",
+    "@sanity/base": "^1.148.2",
+    "@sanity/components": "^1.148.1",
+    "@sanity/core": "^1.148.1",
+    "@sanity/default-layout": "^1.148.1",
+    "@sanity/default-login": "^1.148.1",
+    "@sanity/desk-tool": "^1.148.1",
     "prop-types": "^15.6",
     "react": "^16.2",
     "react-dom": "^16.2",
     "sanity-plugin-markdown": "^1.0.1"
   },
   "devDependencies": {
-    "@sanity/cli": "^0.147.8",
+    "@sanity/cli": "^1.148.1",
     "yargs": "^14.2.0"
   }
 }
