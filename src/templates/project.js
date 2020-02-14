@@ -52,20 +52,11 @@ const BOOKMARK_STATE = {
 }
 
 const Project = ({
-  data: {
-    allSanityCollection,
-    allSanityFeature,
-    allSanityProject,
-    sanityProject: project,
-  },
+  data: { allSanityCollection, allSanityProject, sanityProject: project },
 }) => {
   const allCollections = flatten(allSanityCollection)
   let collections = allCollections.map(collection =>
-    normalizeCollection(
-      collection,
-      flatten(allSanityFeature),
-      flatten(allSanityProject)
-    )
+    normalizeCollection(collection, flatten(allSanityProject))
   )
 
   const collectionForProject = collections.find(({ projects }) =>
@@ -211,14 +202,6 @@ export const query = graphql`
   query ProjectPage($slug: String!) {
     sanityProject(slug: { eq: $slug }) {
       ...Project
-    }
-
-    allSanityFeature {
-      edges {
-        node {
-          ...Feature
-        }
-      }
     }
 
     allSanityProject {

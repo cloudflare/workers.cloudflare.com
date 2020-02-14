@@ -21,13 +21,6 @@ const collection = {
       type: "string",
     },
     {
-      title: "Feature",
-      name: "feature",
-      description: "A collection auto-generated from a corresponding feature",
-      type: "reference",
-      to: [{ type: "feature" }],
-    },
-    {
       title: "Projects",
       description: "A custom collection of projects",
       name: "projects",
