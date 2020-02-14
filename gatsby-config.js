@@ -10,7 +10,7 @@ module.exports = {
     socialImage:
       "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06",
   },
-  assetPrefix: "/built-with",
+  assetPrefix: "/",
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,

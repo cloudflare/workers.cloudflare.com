@@ -10,7 +10,3 @@
 @import "@cloudflare/workers-brand-assets/css/global/html.css";
 @import "@cloudflare/workers-brand-assets/css/global/surface.css";
 @import "@cloudflare/workers-brand-assets/css/global/body-font-size.css";
-
-.hidden {
-  visibility: hidden;
-}

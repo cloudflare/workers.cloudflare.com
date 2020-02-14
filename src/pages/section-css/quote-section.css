@@ -1,0 +1,74 @@
+.QuoteSection {
+  padding: var(--section-vertical-padding) 3em;
+  background: var(--section-tiger-stripe-background-color);
+}
+
+.QuoteSection--column {
+  display: flex;
+  justify-content: center;
+}
+
+.QuoteSection--cite {
+  font-style: normal;
+  margin-right: 4em;
+}
+
+.QuoteSection--cite-name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.QuoteSection--cite-title {
+  margin-bottom: 1em;
+}
+
+.QuoteSection--cite-company-logo {
+  width: 7em;
+}
+
+.QuoteSection--quote {
+  font-size: 2em;
+  width: 19.5em;
+  margin-right: 1em;
+  max-width: 100%;
+}
+
+.QuoteSection--quote strong {
+  font-weight: 600;
+}
+
+.QuoteSection--quote > p {
+  text-indent: -.425em;
+}
+
+@media (max-width: 768px) {
+  .QuoteSection--column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .QuoteSection--quote {
+    order: 0;
+    font-size: 1.25em;
+    margin: 0 0 1em;
+  }
+
+  .QuoteSection--cite {
+    order: 1;
+    margin: 0;
+    padding-left: 3em;
+    font-style: italic;
+  }
+
+  .QuoteSection--cite-name {
+    position: relative;
+    font-size: 1.25em;
+  }
+
+  .QuoteSection--cite-name::before {
+    position: absolute;
+    content: "—";
+    top: 0;
+    right: calc(100% + .4em);
+  }
+}

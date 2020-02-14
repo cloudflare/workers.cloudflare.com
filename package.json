@@ -45,6 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cloudflare/built-with-workers"
+    "url": "https://github.com/cloudflare/workers.cloudflare.com"
   }
 }

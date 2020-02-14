@@ -11,8 +11,12 @@ import "./built-with-workers-page.css"
 import "./collections.css"
 import "./collection.css"
 
-const IndexPage = ({
-  data: { allSanityCollection, allSanityProject, sanityLayout },
+const BuiltWithPage = ({
+  data: {
+    allSanityCollection,
+    allSanityProject,
+    sanityLayout,
+  },
 }) => {
   const allCollections = flatten(allSanityCollection)
   let collections = sanityLayout.collections.map(collection =>
@@ -139,4 +143,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default BuiltWithPage

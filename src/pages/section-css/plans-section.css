@@ -1,0 +1,134 @@
+.PlansSection--column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-vertical-padding) 1em;
+  width: 100%;
+}
+
+[theme="light"] .PlansSection-is-top-abutted .PlansSection--column {
+  padding-top: 0;
+}
+
+.PlansSection--plans {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* TODO */
+  width: 100%;
+}
+
+.PlansSection--plan {
+  width: 26em;
+  padding: 3em;
+  border: 1px solid rgba(var(--cloudflare-logo-orange-rgb), .4);
+  background: #fff;
+  border-radius: 1em;
+}
+
+@media (min-width: 901px) {
+  .PlansSection--plan-is-free {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: -1px;
+  }
+
+  .PlansSection--plan-is-unlimited {
+    padding-top: 5em;
+    padding-bottom: 5em;
+    box-shadow: 0 .5em 1em -.75em rgba(var(--cloudflare-logo-orange-rgb), .5);
+  }
+
+  /* TODO */
+  [theme="dark"] .PlansSection--plan-is-free {
+    margin-right: 0;
+  }
+
+  [theme="dark"] .PlansSection {
+    background: var(--section-tiger-stripe-background-color);
+  }
+
+  [theme="dark"] .PlansSection-is-after-customer-logos-section .PlansSection--column {
+    padding-top: 3em;
+  }
+
+  [theme="dark"] .PlansSection--plan {
+    border: 0;
+    background: rgba(0, 0, 0, .1); /* TODO */
+    box-shadow: inset 0 .25em .75em rgba(0, 0, 0, .05);
+  }
+
+  [theme="dark"] .PlansSection--plan-is-unlimited {
+    background: rgba(255, 255, 255, .03); /* TODO */
+    box-shadow: 0 .5em 1em rgba(var(--gray-0-rgb), .5);
+  }
+}
+
+.PlansSection--plan-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.PlansSection--plan-title {
+  font-size: 3.25em;
+  line-height: 1;
+  margin-bottom: .5em;
+  font-weight: bold;
+}
+
+.PlansSection--plan-subtitle {
+  font-size: 1.333em;
+}
+
+.PlansSection--plan-subtitle-note {
+  font-size: .8em;
+  margin-bottom: 1.5em;
+}
+
+.PlansSection--plan-plus-symbol {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: .25em;
+  margin-right: .25em;
+  line-height: .5;
+}
+
+.PlansSection--plan-details {
+  margin-bottom: 2em;
+  padding-left: 1em;
+  display: inline-block;
+  text-align: left;
+}
+
+.PlansSection--plan-cta {
+  font-size: 1.333em;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .PlansSection--plans {
+    display: block;
+    max-width: 100%;
+  }
+
+  .PlansSection--plan {
+    width: 30em;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .PlansSection--plan-details {
+    margin-bottom: 1em;
+    padding-left: .5em;
+  }
+
+  .PlansSection--plan:not(:last-child) {
+    margin-bottom: var(--section-vertical-padding);
+  }
+}

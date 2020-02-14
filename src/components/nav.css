@@ -45,7 +45,7 @@
 .Nav--main-links {
   display: flex;
   height: 100%;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 

@@ -2,7 +2,6 @@ import React from "react"
 
 import "@cloudflare/workers-brand-assets/css/components/footer.css"
 
-// TODO - move this to workers-brand-assets and import into workers.cloudflare.com and built-with-workers
 const Footer = () => (
   <footer className="Footer Footer-with-top-separator">
     <div className="Footer--columns">

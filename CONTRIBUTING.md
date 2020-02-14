@@ -40,7 +40,7 @@ gatsby develop
 Now you can view the site here:
 
 ```
-http://localhost:8000/built-with
+http://localhost:8000/
 ```
 
 If you do have something running on 8000, Gatsby will increment it (to 8001, 8002, ...) until it finds an available port.
@@ -60,7 +60,7 @@ gatsby develop -H 0.0.0.0
 To test the custom 404 page, visit the site at:
 
 ```
-http://localhost:8000/built-with/404
+http://localhost:8000/404
 ```
 
 (Same caveat with the port as above.)
