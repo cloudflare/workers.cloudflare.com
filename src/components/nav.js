@@ -27,7 +27,7 @@ const Nav = () => {
         </div>
 
         <div className="Nav--item">
-          <Link className="Nav--link" to="/built-with" partiallyActive="true" activeClassName="Nav--link-is-active">Built with</Link>
+          <Link className="Nav--link" to="/built-with" partiallyActive={true} activeClassName="Nav--link-is-active">Built with</Link>
         </div>
 
         <div className="Nav--item">
