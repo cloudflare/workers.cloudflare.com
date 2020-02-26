@@ -1,4 +1,0 @@
-echo "Moving things into public/built-with"
-mv public/built-with .
-mv public/* built-with
-mv built-with public
