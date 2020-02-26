@@ -5,11 +5,9 @@ import Img from "gatsby-image"
 import useBookmarkState from "./bookmark_state"
 import BookmarkIcon from "./bookmark_icon"
 
-import isDOMavailable from "../isDOMavailable.js"
-
 import "./project.css"
 
-const Project = ({ project }) => {
+const Project = ({ isInitialRoute, project }) => {
   const {
     thumbnail: {
       asset: { fluid },
@@ -37,7 +35,7 @@ const Project = ({ project }) => {
         </div>
 
         {bookmarked && (
-          <div className={`Project--bookmark${ !isDOMavailable ? 'Project--bookmark-should-fade-in' : '' }`}>
+          <div className={`Project--bookmark${ isInitialRoute ? ' Project--bookmark-should-fade-in' : '' }`}>
             <BookmarkIcon withGradientFill withShadow />
           </div>
         )}

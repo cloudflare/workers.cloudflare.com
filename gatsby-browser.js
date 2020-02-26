@@ -14,3 +14,5 @@ export const onInitialClientRender = () => {
 export const wrapRootElement = ({ element }) => (
   <EdgeStateProvider>{element}</EdgeStateProvider>
 )
+
+export { onRouteUpdate } from "./src/components/route-update-history.js"
