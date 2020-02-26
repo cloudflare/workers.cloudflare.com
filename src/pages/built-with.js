@@ -28,7 +28,7 @@ const BuiltWithPage = ({
 
   return (
     <Layout>
-      <SEO />
+      <SEO title="Built with Workers" />
 
       <div className="BuiltWithWorkersPage">
         <div className="BuiltWithWorkersPage--hero">

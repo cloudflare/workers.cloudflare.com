@@ -74,7 +74,7 @@ const Project = ({
   return (
     <Layout>
       <SEO
-        title={project.name}
+        title={[project.name, "Built with Workers"].join(" · ")} 
         description={project.shortDescription}
         image={project.image.asset.fluid.src}
       />

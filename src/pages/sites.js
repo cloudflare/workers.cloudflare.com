@@ -23,7 +23,7 @@ import "./section-css/plans-section.css"
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Workers Sites · Cloudflare Workers®" />
+      <SEO title="Workers Sites" />
 
       <section className="SitesHeroSection">
         <div className="SitesHeroSection--column">

@@ -27,7 +27,7 @@ function SEO({ description, image, lang, meta, title }) {
   )
 
   const formattedTitle = title
-    ? `${title} | ${site.siteMetadata.title}`
+    ? `${title} · ${site.siteMetadata.title}`
     : site.siteMetadata.title
 
   return (

@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Built with Workers`,
+    title: `Cloudflare Workers®`,
     description: `Build your next application with Cloudflare Workers`,
     author: `@cloudflaredev`,
     socialImage:
