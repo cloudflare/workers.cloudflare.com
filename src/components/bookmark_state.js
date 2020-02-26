@@ -1,5 +1,5 @@
 import { EdgeStateContext } from "./edge_state"
-import React, { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useLocalStorage } from "../utils"
 
 export default key => {
@@ -53,7 +53,7 @@ export default key => {
     }
 
     parse()
-  }, [state])
+  }, [key, lsBookmarked, setLsBookmarked, state])
 
   const toggleBookmark = bookmarked ? unbookmark : bookmark
   return { bookmarked, loaded, toggleBookmark }

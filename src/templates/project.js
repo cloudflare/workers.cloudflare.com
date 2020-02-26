@@ -73,7 +73,11 @@ const Project = ({
 
   return (
     <Layout>
-      <SEO title={project.name} />
+      <SEO
+        title={project.name}
+        description={project.shortDescription}
+        image={project.image.asset.fluid.src}
+      />
 
       <div className="BuiltWithWorkersPage ProjectPage">
         <div className="ProjectPage--header">

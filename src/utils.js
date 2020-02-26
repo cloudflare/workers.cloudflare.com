@@ -41,7 +41,7 @@ const useSSR = (callback, delay) => {
 
   return React.useMemo(
     () => Object.assign(Object.values(useSSRObject), useSSRObject),
-    [inBrowser]
+    [useSSRObject]
   )
 }
 
