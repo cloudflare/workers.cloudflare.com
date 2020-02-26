@@ -146,6 +146,7 @@
   width: 30em;
   max-width: 100%;
   margin-right: 3em;
+  word-wrap: break-word;
 }
 
 .ProjectPage--metadata {

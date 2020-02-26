@@ -1,6 +1,8 @@
 import React from "react"
 import lscache from "lscache"
 
+import isDOMavailable from "./isDOMavailable.js"
+
 const flatten = set => set.edges.map(({ node }) => node)
 
 const normalizeCollection = (collection, projects) => {
@@ -15,13 +17,6 @@ const normalizeCollection = (collection, projects) => {
 
   return normalized
 }
-
-// h/t https://react.30secondsofcode.org/snippet/useSSR
-const isDOMavailable = !!(
-  typeof window !== "undefined" &&
-  window.document &&
-  window.document.createElement
-)
 
 const useSSR = (callback, delay) => {
   const [inBrowser, setInBrowser] = React.useState(isDOMavailable)
