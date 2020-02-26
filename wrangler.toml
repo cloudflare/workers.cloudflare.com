@@ -8,7 +8,7 @@ kv-namespaces = [
 
 [env.production]
 workers_dev = false
-route = "workers.cloudflare.com/*"
+route = "https://workers.cloudflare.com/*"
 zone_id = "29ed9c83c2c78d6967876c4053ec8154"
 kv-namespaces = [
   { binding = "BUILT_WITH_WORKERS", id = "b2817b8f747d4f1b9bf87712eb72d1b5" } # prod
