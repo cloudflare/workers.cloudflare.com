@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: "gatsby-source-sanity",
       options: {
