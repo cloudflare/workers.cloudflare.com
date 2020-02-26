@@ -31,6 +31,15 @@ async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
 
+  let path = url.pathname
+  if (path.includes("docs")) {
+    const newUrl = "https://developers.cloudflare.com/workers"
+    path = path.replace("docs", "").replace("index.html", "")
+    const newPath = newUrl + path
+    console.log(`Redirecting to docs path: ${newPath}`)
+    return Response.redirect(newPath)
+  }
+
   if (event.request.method === "POST") {
     if (url.pathname.includes("/bookmark")) {
       return await bookmark(event.request)
