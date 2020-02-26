@@ -12,23 +12,14 @@ import "./collections.css"
 import "./collection.css"
 
 const IndexPage = ({
-  data: {
-    allSanityCollection,
-    allSanityFeature,
-    allSanityProject,
-    sanityLayout,
-  },
+  data: { allSanityCollection, allSanityProject, sanityLayout },
 }) => {
   const allCollections = flatten(allSanityCollection)
   let collections = sanityLayout.collections.map(collection =>
     allCollections.find(({ id }) => id === collection.id)
   )
   collections = collections.map(collection =>
-    normalizeCollection(
-      collection,
-      flatten(allSanityFeature),
-      flatten(allSanityProject)
-    )
+    normalizeCollection(collection, flatten(allSanityProject))
   )
 
   return (
@@ -118,23 +109,12 @@ export const query = graphql`
   fragment Collection on SanityCollection {
     id
     name
-    feature {
-      id
-    }
     projects {
       id
     }
   }
 
   query Homepage {
-    allSanityFeature {
-      edges {
-        node {
-          ...Feature
-        }
-      }
-    }
-
     allSanityProject {
       edges {
         node {
