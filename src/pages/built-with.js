@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import { isInitialRoute } from "../components/route-update-history"
+
 import Layout from "../components/layout"
 import Project from "../components/project"
 import SEO from "../components/seo"
@@ -48,7 +50,7 @@ const BuiltWithPage = ({
                 <div className="Collection--projects">
                   {collection.projects.map(project => (
                     <div className="Collection--project" key={project.id}>
-                      <Project project={project} />
+                      <Project project={project} isInitialRoute={isInitialRoute()} />
                     </div>
                   ))}
                   <div className="Collection--spacer" />
