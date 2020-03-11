@@ -20,7 +20,7 @@ const getLatencyToCloudflare = async () => {
       cache: "no-store",
     })
 
-    if (started <= NUM_TESTS) await load()
+    if (started < NUM_TESTS) await load()
   }
 
   await load()
