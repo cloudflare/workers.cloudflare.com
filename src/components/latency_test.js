@@ -25,7 +25,7 @@ const getLatencyToCloudflare = async () => {
 
   await load()
   let entries = performance.getEntriesByName(TEST_URL, "resource")
-  let min = null
+  let min = Infinity
 
   for (
     let i = Math.max(0, entries.length - NUM_TESTS);
@@ -36,7 +36,7 @@ const getLatencyToCloudflare = async () => {
     const duration =
       entries[i].duration || entries[i].responseEnd - entries[i].fetchStart
 
-    if (!min || duration < min) min = duration
+    if (duration < min) min = duration
   }
 
   return min | 0
