@@ -1,5 +1,6 @@
 import React from "react"
 
+import LatencyTest from '../components/latency_test'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -124,7 +125,7 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
                   <p>Every deploy is made to a network of data centers running <span className="PopoverTarget" data-js-popover="isolates">V8 isolates</span>. Your code is powered by Cloudflare’s network which is milliseconds away from virtually every Internet user.</p>
-                  <p className="BenefitsSection--benefit-description-latency-test" data-js-latency-test>Your actual latency: <span className="BenefitsSection--benefit-description-latency-test-value" data-js-latency-test-value></span> <span className="BenefitsSection--benefit-description-latency-test-button"><button className="Button Button-is-secondary-orange" data-js-latency-test-retry-button>Test again</button></span></p>
+                  <LatencyTest />
                 </div>
               </div>
             </div>
