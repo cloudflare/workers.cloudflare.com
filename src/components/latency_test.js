@@ -60,7 +60,9 @@ export default () => {
     }
   }
 
-  useEffect(testLatency, [])
+  useEffect(() => {
+    testLatency()
+  }, [])
 
   return [states.INIT, states.ERROR].includes(state) ? null : (
     <p className="BenefitsSection--benefit-description-latency-test">
