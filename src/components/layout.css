@@ -7,6 +7,5 @@
 @import "@cloudflare/workers-brand-assets/css/global/theme-helpers.css";
 @import "@cloudflare/workers-brand-assets/css/global/selection-color.css";
 @import "@cloudflare/workers-brand-assets/css/global/html.css";
-@import "@cloudflare/workers-brand-assets/css/global/body-font-size.css";
 
 @import "@cloudflare/workers-brand-assets/css/helpers/desktop-and-mobile-only.css";
