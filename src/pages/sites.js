@@ -106,11 +106,11 @@ const IndexPage = () => {
                   <pre className="CodeBlock CodeBlock-is-one-liner"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>npm install -g @cloudflare/wrangler</code></pre>
                   <p>To configure Wrangler, grab your <strong>Global API key</strong> from your <a className="Link" href="https://dash.cloudflare.com/profile">Profile</a>.</p>
                   <p>Then run the configure command and interactively enter your email address and this API key:</p>
-                  <pre className="CodeBlock"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler config</code><u><br/>
+                  <pre className="CodeBlock"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler config<u><br/>
 Enter email:<br/>
 foo@bar.com<br/>
 Enter api key:<br/>
-123456abcdef</u></pre>
+123456abcdef</u></code></pre>
                 </div>
               </div>
             </div>
