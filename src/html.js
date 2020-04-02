@@ -2,18 +2,28 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const loadTheme = `
-  const themeQuery = window.matchMedia("(prefers-color-scheme: dark)")
+  (() => {
+    const setTheme = (theme) => {
+      document.documentElement.setAttribute("theme", theme)
+      localStorage.theme = theme
+    }
 
-  const getTheme = () => {
-    const storedTheme = localStorage.theme
-    const matchedTheme = themeQuery.matches ? "dark" : "light"
-    return ["dark", "light"].includes(storedTheme) ? storedTheme : matchedTheme
-  }
+    document.documentElement.addEventListener("dblclick", () => {
+      const theme = document.documentElement.getAttribute("theme")
+      setTheme(theme === "dark" ? "light" : "dark")
+    })
 
-  const updateTheme = () => document.documentElement.setAttribute("theme", getTheme())
+    const query = window.matchMedia("(prefers-color-scheme: dark)")
+    query.addListener(() => {
+      setTheme(query.matches ? "dark" : "light")
+    })
 
-  themeQuery.addListener(updateTheme)
-  updateTheme()
+    if (["dark", "light"].includes(localStorage.theme)) {
+      setTheme(localStorage.theme)
+    } else {
+      setTheme(query.matches ? "dark" : "light")
+    }
+  })()
 `
 
 const setDomainAttr = `
