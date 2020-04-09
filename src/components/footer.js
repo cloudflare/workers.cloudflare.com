@@ -47,7 +47,7 @@ const Footer = () => (
         </ul>
       </div>
     </div>
-    <div className="Footer--legal">© 2019 Cloudflare, Inc. · <a className="Link Link-without-underline" href="https://www.cloudflare.com/privacypolicy/">Privacy</a> · <a className="Link Link-without-underline" href="https://www.cloudflare.com/website-terms/">Terms</a></div>
+    <div className="Footer--legal">© 2020 Cloudflare, Inc. · <a className="Link Link-without-underline" href="https://www.cloudflare.com/privacypolicy/">Privacy</a> · <a className="Link Link-without-underline" href="https://www.cloudflare.com/website-terms/">Terms</a></div>
   </footer>
 )
 
