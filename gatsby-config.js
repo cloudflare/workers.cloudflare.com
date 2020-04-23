@@ -34,5 +34,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-PKQFGQB",
+        dataLayerName: "cfDataLayer",
+        includeInDevelopment: true // TODO: remove before merge
+      },
+    },
   ],
 }
