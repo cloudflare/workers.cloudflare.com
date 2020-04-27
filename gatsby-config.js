@@ -39,7 +39,6 @@ module.exports = {
       options: {
         id: "GTM-PKQFGQB",
         dataLayerName: "cfDataLayer",
-        includeInDevelopment: true // TODO: remove before merge
       },
     },
   ],
