@@ -14,7 +14,6 @@ If you are interested in running this site locally, please see the Development s
 
 If you find that there's content issues with the site (such as broken links, typos, etc), we'd love your contributions! Note that because the content is driven by [Sanity.io](https://sanity.io), a headless CMS provider, a member of the Cloudflare Workers team will need to manage the update to the content. Please open an issue detailing the incorrect content and we'll get it fixed ASAP!
 
-
 ## Development
 
 Built with Workers is a [Gatsby](https://www.gatsbyjs.org/) site.
