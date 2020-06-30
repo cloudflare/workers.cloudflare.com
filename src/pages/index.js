@@ -34,7 +34,7 @@ const IndexPage = () => {
               <div className="HeroSection--title-second-line">We handle the rest.</div>
             </h1>
             <div className="HeroSection--description">
-              <p>Deploy serverless code to data centers across 200&nbsp;cities in 90&nbsp;countries to give it exceptional performance and reliability.</p>
+              <p>Deploy serverless code to data centers across 200&nbsp;cities in 95&nbsp;countries to give it exceptional performance and reliability.</p>
             </div>
             <div className="HeroSection--actions HeroSection--actions-desktop">
               <div className="HeroSection--actions-item">
