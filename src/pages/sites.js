@@ -44,7 +44,7 @@ const IndexPage = () => {
 
             <div className="SitesHeroSection--plan">Starting at $5/mo</div>
 
-            <div className="SitesHeroSection--plan-note">(Included in a <a className="Link SitesHeroSection--plan-note-link-style-refinement" href="#plans">Workers Unlimited</a> plan)</div>
+            <div className="SitesHeroSection--plan-note">(Included in a <a className="Link SitesHeroSection--plan-note-link-style-refinement" href="#plans">Workers Bundled</a> plan)</div>
 
             <div className="SitesHeroSection--actions SitesHeroSection--actions-desktop">
               <div className="SitesHeroSection--actions-item">
@@ -77,17 +77,17 @@ const IndexPage = () => {
               <div className="SetupSection--step-number-text">1</div>
             </div>
             <div className="SetupSection--step-content">
-              <div className="SetupSection--step-title"><span className="SetupSection--step-title-number">1. </span>Sign up for Workers Unlimited.</div>
+              <div className="SetupSection--step-title"><span className="SetupSection--step-title-number">1. </span>Sign up for Workers Bundled.</div>
               <div className="SetupSection--step-details SetupSection--step-details-desktop">
                 <div className="SetupSection--button-and-text">
                   <div className="SetupSection--button-and-text-button"><a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a></div>
-                  <div className="SetupSection--button-and-text-text">The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers Unlimited plan, and veryifying your email address.</div>
+                  <div className="SetupSection--button-and-text-text">The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers Bundled plan, and veryifying your email address.</div>
                 </div>
               </div>
               <div className="SetupSection--step-details SetupSection--step-details-mobile">
                 <div className="MarkdownLite">
                   <p><a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a></p>
-                  <p>The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers Unlimited plan, and veryifying your email address.</p>
+                  <p>The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers Bundled plan, and veryifying your email address.</p>
                 </div>
               </div>
             </div>
@@ -199,15 +199,15 @@ Enter api key:<br/>
             </div>
             <div className="BenefitsSection--benefit">
               <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
-                <img alt="Workers Unlimited illustration" src="../resources/illustrations/unlimited.svg"/>
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound.svg"/>
               </div>
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
-                <img alt="Workers Unlimited illustration" src="../resources/illustrations/unlimited-dark-theme.svg"/>
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound-dark-theme.svg"/>
               </div>
-              <h3 className="BenefitsSection--benefit-title">Workers... Unlimited.</h3>
+              <h3 className="BenefitsSection--benefit-title">Workers... Bundled.</h3>
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
-                  <p>Workers Sites requires the Workers Unlimited plan—starting at $5 per month. Workers Unlimited includes 10 million requests, 1 GB of Workers KV storage, and 1 million KV reads and writes each month with pay as you go pricing for additional usage.</p>
+                  <p>Workers Sites requires the Workers Bundled plan—starting at $5 per month. Workers Bundled includes 10 million requests, 1 GB of Workers KV storage, and 1 million KV reads and writes each month with pay as you go pricing for additional usage.</p>
                 </div>
               </div>
             </div>
@@ -218,10 +218,10 @@ Enter api key:<br/>
       <section className="PlansSection PlansSection-is-top-abutted" id="plans">
         <div className="PlansSection--column">
           <div className="PlansSection--plans">
-            <div className="PlansSection--plan PlansSection--plan-is-unlimited">
+            <div className="PlansSection--plan PlansSection--plan-is-unbound">
               <div className="PlansSection--plan-header">
                 <h2 className="PlansSection--plan-title">
-                  <div style={{fontSize: '.5em', marginBottom: '.4em'}}>Workers Unlimited plan</div>
+                  <div style={{fontSize: '.5em', marginBottom: '.4em'}}>Workers Bundled plan</div>
                   <div style={{fontSize: '.3em', fontWeight: 'normal'}}>(Includes Workers Sites)</div>
                 </h2>
                 <div className="PlansSection--plan-subtitle"><span className="Number Number-is-strong"><span className="Number--dollars">$</span><span className="Number--number">0.50</span><span className="Number--per">/</span><span className="Number--per-unit"><span className="Number--per-unit-multiplier">million</span> requests per month</span></span></div>

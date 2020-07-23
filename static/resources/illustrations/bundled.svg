@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="180px" height="160px" viewBox="0 0 180 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-    <title>unlimited</title>
+    <title>bundled</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="unlimited" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="bundled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="griddable-hexagon-grayscale" opacity="0.35" transform="translate(2.000000, 38.000000)" fill="#F4F4F7" stroke="#D7DADF">
             <polygon id="hexagon" points="6 0 7.10542736e-15 10 6 20 18.0454149 20 24 10 18.0454149 0"></polygon>
-        </g>
+        </g
         <g id="griddable-hexagon-grayscale" transform="translate(2.000000, 58.000000)" fill="#F4F4F7" stroke="#D7DADF">
             <polygon id="hexagon" points="6 0 7.10542736e-15 10 6 20 18.0454149 20 24 10 18.0454149 0"></polygon>
         </g>

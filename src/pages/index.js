@@ -150,7 +150,6 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
                   <p>Most serverless platforms have to do a cold start every time you deploy or your service increases in popularity. Workers cuts cold starts to less than 1/50th the time it takes to blink your eyes.</p>
-                  <p className="BenefitsSection--benefit-description-footnote-p">Unlimited plan only</p>
                 </div>
               </div>
             </div>
@@ -221,9 +220,9 @@ const IndexPage = () => {
               </div>
             </div>
 
-            <div className="PlansSection--plan PlansSection--plan-is-unlimited">
+            <div className="PlansSection--plan PlansSection--plan-is-bundled">
               <div className="PlansSection--plan-header">
-                <h2 className="PlansSection--plan-title">Unlimited</h2>
+                <h2 className="PlansSection--plan-title">Bundled</h2>
                 <div className="PlansSection--plan-subtitle"><span className="Number Number-is-strong"><span className="Number--dollars">$</span><span className="Number--number">0.50</span><span className="Number--per">/</span><span className="Number--per-unit"><span className="Number--per-unit-multiplier">million</span> requests per month</span></span></div>
                 <div className="PlansSection--plan-subtitle-note">(Minimum charge of <span className="Number"><span className="Number--dollars">$</span><span className="Number--number">5</span><span className="Number--per">/</span><span className="Number--per-unit">mo</span></span>)</div>
               </div>
