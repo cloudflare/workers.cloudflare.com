@@ -200,7 +200,7 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
                 <img style={{position: 'relative', left: '-4px'}} alt="Static to dynamic illustration" src="../resources/illustrations/static-to-dynamic-dark-theme.svg"/>
               </div>
-              <h3 className="BenefitsSection--benefit-title">Static assets with dynamic power.</h3>
+              <h3 className="BenefitsSection--benefit-title">Static assets with dynamic power</h3>
               <div className="BenefitsSection--benefit-description">Say goodbye to build steps which generate thousands of assets in advance. Harness the unrivaled raw power of the edge to generate images, SVGs, PDFs, whatever you need, <em>on the fly</em>, and deliver them to users as quickly as a static asset.</div>
             </div>
           </div>
