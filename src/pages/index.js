@@ -98,7 +98,7 @@ const IndexPage = () => {
             </figure>
           </cite>
 
-          <blockquote className="QuoteSection--quote" data-js-balance-text>
+          <blockquote className="QuoteSection--quote">
             <p>“Cloudflare Workers has changed the way we build our apps. We don’t have to think about regions, we just deploy code and it runs seamlessly around the world.”</p>
           </blockquote>
         </div>
