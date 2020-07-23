@@ -188,7 +188,7 @@ const IndexPage = () => {
               <h3 className="BenefitsSection--benefit-title">Edge storage, built in</h3>
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
-                  <p>With Workers KV, store your static assets at the edge, globally and with low-latency. Access your assets right alongside your code and transform them via powerful APIs (e.g. HTMLrewriter) to modify your page before it reaches the user.</p>
+                  <p>Store your static assets at the edge with Workers KV, our global, low-latency key-value data store. Access your assets alongside your code and transform them via powerful APIs (e.g. HTMLrewriter) to modify your page before it reaches the user.</p>
                   <p className="BenefitsSection--benefit-description-footnote-p">Requires Workers Bundled plan</p>
                 </div>
               </div>
@@ -201,7 +201,7 @@ const IndexPage = () => {
                 <img style={{position: 'relative', left: '-4px'}} alt="Static to dynamic illustration" src="../resources/illustrations/static-to-dynamic-dark-theme.svg"/>
               </div>
               <h3 className="BenefitsSection--benefit-title">Static assets with dynamic power</h3>
-              <div className="BenefitsSection--benefit-description">Say goodbye to build steps which generate thousands of assets in advance. Harness the unrivaled raw power of the edge to generate images, SVGs, PDFs, whatever you need, <em>on the fly</em>, and deliver them to users as quickly as a static asset.</div>
+              <div className="BenefitsSection--benefit-description">Say goodbye to build steps which pre-generate thousands of assets in advance. Harness the unrivaled raw power of the edge to generate images, SVGs, PDFs, whatever you need, <em>on the fly</em>, and deliver them to users as quickly as a static asset.</div>
             </div>
           </div>
           <div className="BenefitsSection--cta">
