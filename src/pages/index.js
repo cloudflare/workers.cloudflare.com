@@ -151,7 +151,7 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
                 <img alt="Short cold starts illustration" src="./resources/illustrations/short-cold-starts-dark-theme.svg"/>
               </div>
-              <h3 className="BenefitsSection--benefit-title">Cold starts under 5ms</h3>
+              <h3 className="BenefitsSection--benefit-title">0ms cold starts</h3>
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
                   <p>Most serverless platforms have to do a cold start every time you deploy or your service increases in popularity. Workers cuts cold starts to less than 1/50th the time it takes to blink your eyes.</p>
