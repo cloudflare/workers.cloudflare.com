@@ -178,8 +178,32 @@ const IndexPage = () => {
               <h3 className="BenefitsSection--benefit-title">No servers to maintain</h3>
               <div className="BenefitsSection--benefit-description">Spend more time building, less time configuring. No VMs, no servers, and no containers to spin up or manage. Deploy using our CLI, web interface, or API.</div>
             </div>
+            <div className="BenefitsSection--benefit">
+              <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound.svg"/>
+              </div>
+              <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound-dark-theme.svg"/>
+              </div>
+              <h3 className="BenefitsSection--benefit-title">Storage at the edge</h3>
+              <div className="BenefitsSection--benefit-description">
+                <div className="MarkdownLite">
+                  <p>With Workers KV, store your static assets at the edge, globally and with low-latency. Access your assets right alongside your code and transform them via powerful APIs (e.g. HTMLrewriter) to modify your page before it reaches the user.</p>
+                  <p className="BenefitsSection--benefit-description-footnote-p">Requires Workers Bundled plan</p>
+                </div>
+              </div>
+            </div>
+            <div className="BenefitsSection--benefit">
+              <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
+                <img alt="Static to dynamic illustration" src="../resources/illustrations/static-to-dynamic.svg"/>
+              </div>
+              <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
+                <img style={{position: 'relative', left: '-4px'}} alt="Static to dynamic illustration" src="../resources/illustrations/static-to-dynamic-dark-theme.svg"/>
+              </div>
+              <h3 className="BenefitsSection--benefit-title">Static assets with dynamic power.</h3>
+              <div className="BenefitsSection--benefit-description">Say goodbye to build steps which generate thousands of assets in advance. Harness the unrivaled raw power of the edge to generate images, SVGs, PDFs, whatever you need, <em>on the fly</em>, and deliver them to users as quickly as a static asset.</div>
+            </div>
           </div>
-
           <div className="BenefitsSection--cta">
             <h2 className="BenefitsSection--cta-title">Build your first Worker now.</h2>
             <div className="BenefitsSection--cta-cta">
