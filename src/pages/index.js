@@ -4,6 +4,8 @@ import LatencyTest from '../components/latency_test'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import WorkersUnboundBetaTeaserLink from "../components/workers-unbound-beta-teaser-link"
+
 import "@cloudflare/workers-brand-assets/css/components/number.css"
 import "@cloudflare/workers-brand-assets/css/components/superscript.css"
 import "@cloudflare/workers-brand-assets/css/components/link.css"
@@ -77,6 +79,10 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
+
+      <div className="HeroSection--workers-unbound-teaser-wrap">
+        <WorkersUnboundBetaTeaserLink/>
+      </div>
 
       <section className="QuoteSection">
         <div className="QuoteSection--column">
@@ -238,6 +244,10 @@ const IndexPage = () => {
                 <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Get started</a>
               </div>
             </div>
+          </div>
+
+          <div className="PlansSection--workers-unbound-teaser-wrap">
+            <WorkersUnboundBetaTeaserLink/>
           </div>
         </div>
       </section>

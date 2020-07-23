@@ -132,3 +132,17 @@
     margin-bottom: var(--section-vertical-padding);
   }
 }
+
+.PlansSection--workers-unbound-teaser-wrap {
+  display: block;
+  margin: var(--section-vertical-padding) auto 0;
+  padding: 0 10vw;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .PlansSection--workers-unbound-teaser-wrap {
+    width: 38em;
+    max-width: 100%;
+  }
+}

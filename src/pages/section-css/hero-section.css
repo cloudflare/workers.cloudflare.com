@@ -74,6 +74,13 @@
   width: calc(1em * var(--illustration-width-ems));
 }
 
+.HeroSection--workers-unbound-teaser-wrap {
+  display: block;
+  margin: calc(-1 * var(--section-vertical-padding) + 2.75em) auto 7em;
+  padding: 0 10vw;
+  text-align: center;
+}
+
 @media (min-width: 961px) and (max-width: 1300px) {
   .HeroSection--column {
     --illustration-font-size: 1.4vw;
@@ -126,6 +133,12 @@
   .HeroSection--illustration {
     width: 100%;
   }
+
+  .HeroSection--workers-unbound-teaser-wrap {
+    width: 38em;
+    max-width: 100%;
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 414px) {
@@ -165,3 +178,4 @@
     font-size: .75em;
   }
 }
+
