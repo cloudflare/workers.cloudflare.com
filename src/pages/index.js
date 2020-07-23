@@ -185,7 +185,7 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
                 <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound-dark-theme.svg"/>
               </div>
-              <h3 className="BenefitsSection--benefit-title">Storage at the edge</h3>
+              <h3 className="BenefitsSection--benefit-title">Edge storage, built in</h3>
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
                   <p>With Workers KV, store your static assets at the edge, globally and with low-latency. Access your assets right alongside your code and transform them via powerful APIs (e.g. HTMLrewriter) to modify your page before it reaches the user.</p>
