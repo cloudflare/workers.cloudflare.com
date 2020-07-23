@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  --vertical-padding-top: 4em;
+  --vertical-padding-top: 3.5em;
   --horizontal-gap: 4em;
   --illustration-width-ems: 28.8;
   --illustration-font-size: 1em;
@@ -27,6 +27,7 @@
 
 .HeroSection--title-first-line {
   font-size: .9em;
+  line-height: .9;
 }
 
 .HeroSection--description {
@@ -38,7 +39,7 @@
   font-size: 1.333em;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 2.25em;
+  margin-bottom: 2em;
 }
 
 .HeroSection--actions-mobile {
@@ -48,6 +49,15 @@
 .HeroSection--key-points {
   text-align: left;
   font-size: .95em;
+}
+
+.HeroSection--new-badge {
+  position: relative;
+  top: -1px;
+  margin-left: 2px;
+  font-size: .8em;
+  font-weight: 800;
+  color: rgb(var(--cloudflare-logo-orange-rgb));
 }
 
 [theme="dark"] .HeroSection--key-points {

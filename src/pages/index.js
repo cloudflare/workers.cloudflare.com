@@ -34,7 +34,7 @@ const IndexPage = () => {
               <div className="HeroSection--title-second-line">We handle the rest.</div>
             </h1>
             <div className="HeroSection--description">
-              <p>Deploy serverless code to data centers across 200&nbsp;cities in 95&nbsp;countries to give it exceptional performance and reliability.</p>
+              <p>Deploy serverless code instantly across the globe to give it exceptional performance, reliability, and scale.</p>
             </div>
             <div className="HeroSection--actions HeroSection--actions-desktop">
               <div className="HeroSection--actions-item">
@@ -54,10 +54,9 @@ const IndexPage = () => {
             </div>
             <div className="HeroSection--key-points">
               <ul className="UnorderedList UnorderedList-is-primary">
-                <li>Deploy to all of our data centers in <strong>~15&nbsp;seconds</strong></li>
-                <li>Your code runs within <strong>milliseconds</strong> from your users worldwide</li>
-                <li>Cold starts up to <a className="Link" href="https://serverless-benchmark.com/"><strong>50× faster</strong></a> than other platforms</li>
-                <li>Deploy for free to your own subdomain at <strong>workers.dev</strong></li>
+                <li>From signup to globally deployed in <strong>&lt;5min</strong></li>
+                <li>Your code runs within <strong>milliseconds</strong> of your users worldwide</li>
+                <li>Say goodbye to cold starts—support for <strong>0ms&nbsp;worldwide</strong>&nbsp;<span className="HeroSection--new-badge">NEW</span></li>
               </ul>
             </div>
           </div>

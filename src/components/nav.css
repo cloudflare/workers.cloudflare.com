@@ -62,12 +62,12 @@
 }
 
 .Nav--main-links .Nav--link.Nav--link-is-active {
-  background: rgba(var(--cloudflare-logo-light-orange-rgb), .18);
-  color: var(--orange-3);
+  background: rgba(var(--gray-5-rgb), .2);
 }
 
 [theme="dark"] .Nav--main-links .Nav--link.Nav--link-is-active {
-  color: var(--orange-7);
+  background: rgba(var(--orange-rgb), .08);
+  color: #fba056; /* TODO - use `var(--code-orange)` after updating workers-brand-assets */
 }
 
 .Nav--link.Nav--link-logo,
