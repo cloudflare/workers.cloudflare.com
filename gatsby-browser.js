@@ -1,3 +1,20 @@
+import "focus-visible-polyfill"
+
+import "@cloudflare/workers-brand-assets/css/global/box-sizing.css"
+import "@cloudflare/workers-brand-assets/css/global/element-normalization.css"
+import "@cloudflare/workers-brand-assets/css/global/sizes-variables.css"
+import "@cloudflare/workers-brand-assets/css/global/font-variables.css"
+import "@cloudflare/workers-brand-assets/css/global/brand-color-variables.css"
+import "@cloudflare/workers-brand-assets/css/global/theme-color-variables.css"
+import "@cloudflare/workers-brand-assets/css/global/theme-helpers.css"
+import "@cloudflare/workers-brand-assets/css/global/selection-color.css"
+import "@cloudflare/workers-brand-assets/css/global/html.css"
+
+import "@cloudflare/workers-brand-assets/css/helpers/desktop-and-mobile-only.css"
+import "@cloudflare/workers-brand-assets/css/helpers/is-smooth-scrolling.css"
+import "@cloudflare/workers-brand-assets/css/helpers/is-visually-hidden.css"
+import "@cloudflare/workers-brand-assets/css/helpers/with-styled-webkit-scrollbars.css"
+
 import React from "react"
 import { EdgeStateProvider } from "./src/components/edge_state"
 import { globalHistory } from "@reach/router"

@@ -103,10 +103,10 @@ const IndexPage = () => {
               <div className="SetupSection--step-details">
                 <div className="MarkdownLite">
                   <p>From any directory, use <span className="PopoverTarget" data-js-popover="npm">NPM</span> to install Wrangler globally:</p>
-                  <pre className="CodeBlock CodeBlock-is-one-liner"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>npm install -g @cloudflare/wrangler</code></pre>
+                  <pre className="CodeBlock CodeBlock-is-one-liner" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm install -g @cloudflare/wrangler</code></pre>
                   <p>To configure Wrangler, grab your <strong>Global API key</strong> from your <a className="Link" href="https://dash.cloudflare.com/profile">Profile</a>.</p>
                   <p>Then run the configure command and interactively enter your email address and this API key:</p>
-                  <pre className="CodeBlock"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler config<u><br/>
+                  <pre className="CodeBlock" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler config<u><br/>
 Enter email:<br/>
 foo@bar.com<br/>
 Enter api key:<br/>
@@ -126,12 +126,12 @@ Enter api key:<br/>
               <div className="SetupSection--step-details">
                 <div className="MarkdownLite">
                   <p>To create a new site, just generate it with the <code className="InlineCode">--site</code> flag:</p>
-                  <pre className="CodeBlock CodeBlock-is-one-liner"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler generate --site my-site</code></pre>
+                  <pre className="CodeBlock CodeBlock-is-one-liner" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler generate --site my-site</code></pre>
                   <p>That will create a directory called <code className="InlineCode">my-site</code> with all of the initial files necessary to create a basic site. Enter into that directory:</p>
-                  <pre className="CodeBlock CodeBlock-is-one-liner"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>cd my-site</code></pre>
+                  <pre className="CodeBlock CodeBlock-is-one-liner" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>cd my-site</code></pre>
                   <p>From that directory, you can deploy the site to your workers.dev subdomain using one simple command:</p>
-                  <pre className="CodeBlock"><code className="CodeBlock--code"><u><b className="CodeBlock--directory">~/my-site</b> <b className="CodeBlock--prompt">$</b> </u>wrangler publish<u><br/>
-<b className="CodeBlock--success">Published</b><b className="CodeBlock--success"> </b><b className="CodeBlock--value">https://my-site.&lt;subdomain&gt;.workers.dev</b></u></code></pre>
+                  <pre className="CodeBlock" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/my-site</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler publish<u><br/>
+<b className="CodeBlock--token-success">Published</b><b className="CodeBlock--token-success"> </b><b className="CodeBlock--token-value">https://my-site.&lt;subdomain&gt;.workers.dev</b></u></code></pre>
                   <p>If you’d like more info on deploying an existing static site, follow our <a className="Link" href="https://developers.cloudflare.com/workers/sites">general quick start</a>. Or you can watch this tutorial in which we create &amp; deploy a site from <a className="Link" href="https://github.com/facebook/create-react-app">create‑react‑app</a> in under 3 minutes:</p>
                   <div className="StreamVideo">
                     <div className="AspectRatio" style={{'--aspect-ratio': 'calc(16 / 9)'}}>

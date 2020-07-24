@@ -65,16 +65,16 @@ const IndexPage = () => {
 
           <div className="HeroSection--illustration">
             <div className="HeroSection--illustration-card">
-              <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally"><code className="CodeBlock--code"><u><b className="CodeBlock--comment"># Install Wrangler, and tell it who you are</b><br/>
-<b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>npm install -g @cloudflare/wrangler<br/>
-<u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler config<br/>
+              <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally CodeBlock--language-sh" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-comment"># Install Wrangler, and tell it who you are</b><br/>
+<b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm install -g @cloudflare/wrangler<br/>
+<u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler config<br/>
 <u><br/>
-<b className="CodeBlock--comment"># Create and publish a “Hello World” Worker</b><br/>
-<b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler generate hello<br/>
-<u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>cd hello<br/>
-<u><b className="CodeBlock--directory">~/hello</b> <b className="CodeBlock--prompt">$</b> </u>wrangler subdomain world<br/>
-<u><b className="CodeBlock--directory">~/hello</b> <b className="CodeBlock--prompt">$</b> </u>wrangler publish<u><br/>
-<b className="CodeBlock--success">Published</b><b className="CodeBlock--success"> </b><b className="CodeBlock--value">https://hello.world.workers.dev</b></u></code></pre>
+<b className="CodeBlock--token-comment"># Create and publish a “Hello World” Worker</b><br/>
+<b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler generate hello<br/>
+<u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>cd hello<br/>
+<u><b className="CodeBlock--token-directory">~/hello</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler subdomain world<br/>
+<u><b className="CodeBlock--token-directory">~/hello</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler publish<u><br/>
+<b className="CodeBlock--token-success">Published</b><b className="CodeBlock--token-success"> </b><b className="CodeBlock--token-value">https://hello.world.workers.dev</b></u></code></pre>
             </div>
           </div>
         </div>

@@ -81,13 +81,13 @@
   text-align: center;
 }
 
-@media (min-width: 961px) and (max-width: 1300px) {
+@media (min-width: 1001px) and (max-width: 1300px) {
   .HeroSection--column {
     --illustration-font-size: 1.4vw;
   }
 }
 
-@media (min-width: 961px) {
+@media (min-width: 1001px) {
   .HeroSection--illustration {
     perspective: 1500px;
     margin-bottom: 1em;
@@ -102,14 +102,14 @@
   }
 }
 
-@media (min-width: 961px) and (hover: hover) {
+@media (min-width: 1001px) and (hover: hover) {
   .HeroSection--illustration:hover .HeroSection--illustration-card,
   .HeroSection--illustration[has-selection-contained-within] .HeroSection--illustration-card {
     transform: rotate3d(0, 0, 0, 0deg) rotateZ(0deg);
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
   .HeroSection--column {
     flex-direction: column;
     width: 32em;
