@@ -1,0 +1,38 @@
+.WorkersUnboundBetaTeaserLink {
+  display: inline-block;
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  background: linear-gradient(25deg, rgb(var(--cloudflare-logo-orange-rgb)), rgb(var(--cloudflare-logo-light-orange-rgb)));
+  border-radius: .5em;
+  transform: skew(-9deg);
+}
+
+.WorkersUnboundBetaTeaserLink--inner {
+  padding: .85em 1.25em;
+  border: 2px solid transparent;
+  background: var(--background-color);
+  background-clip: padding-box;
+  border-radius: .5em;
+  transition: .3s background-color;
+  --background-opacity-hover: .2;
+}
+
+[theme="dark"] .WorkersUnboundBetaTeaserLink--inner {
+  --background-opacity-hover: .9;
+}
+
+.WorkersUnboundBetaTeaserLink:hover .WorkersUnboundBetaTeaserLink--inner {
+  background-color: rgba(var(--background-color-rgb), var(--background-opacity-hover));
+}
+
+.WorkersUnboundBetaTeaserLink--content {
+  transform: skew(9deg);
+}
+
+.WorkersUnboundBetaTeaserLink--beta {
+  position: relativ;
+  top: -1px;
+  font-size: .8em;
+  font-weight: 700;
+}

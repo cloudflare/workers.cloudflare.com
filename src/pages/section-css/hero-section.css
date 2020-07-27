@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  --vertical-padding-top: 4em;
+  --vertical-padding-top: 3.5em;
   --horizontal-gap: 4em;
   --illustration-width-ems: 28.8;
   --illustration-font-size: 1em;
@@ -27,6 +27,7 @@
 
 .HeroSection--title-first-line {
   font-size: .9em;
+  line-height: .9;
 }
 
 .HeroSection--description {
@@ -38,7 +39,7 @@
   font-size: 1.333em;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 2.25em;
+  margin-bottom: 2em;
 }
 
 .HeroSection--actions-mobile {
@@ -48,6 +49,15 @@
 .HeroSection--key-points {
   text-align: left;
   font-size: .95em;
+}
+
+.HeroSection--new-badge {
+  position: relative;
+  top: -1px;
+  margin-left: 2px;
+  font-size: .8em;
+  font-weight: 800;
+  color: rgb(var(--cloudflare-logo-orange-rgb));
 }
 
 [theme="dark"] .HeroSection--key-points {
@@ -64,13 +74,20 @@
   width: calc(1em * var(--illustration-width-ems));
 }
 
-@media (min-width: 961px) and (max-width: 1300px) {
+.HeroSection--workers-unbound-teaser-wrap {
+  display: block;
+  margin: calc(-1 * var(--section-vertical-padding) + 2.75em) auto 7em;
+  padding: 0 10vw;
+  text-align: center;
+}
+
+@media (min-width: 1001px) and (max-width: 1300px) {
   .HeroSection--column {
     --illustration-font-size: 1.4vw;
   }
 }
 
-@media (min-width: 961px) {
+@media (min-width: 1001px) {
   .HeroSection--illustration {
     perspective: 1500px;
     margin-bottom: 1em;
@@ -85,14 +102,14 @@
   }
 }
 
-@media (min-width: 961px) and (hover: hover) {
+@media (min-width: 1001px) and (hover: hover) {
   .HeroSection--illustration:hover .HeroSection--illustration-card,
   .HeroSection--illustration[has-selection-contained-within] .HeroSection--illustration-card {
     transform: rotate3d(0, 0, 0, 0deg) rotateZ(0deg);
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
   .HeroSection--column {
     flex-direction: column;
     width: 32em;
@@ -115,6 +132,12 @@
 
   .HeroSection--illustration {
     width: 100%;
+  }
+
+  .HeroSection--workers-unbound-teaser-wrap {
+    width: 38em;
+    max-width: 100%;
+    margin-top: 0;
   }
 }
 
@@ -155,3 +178,4 @@
     font-size: .75em;
   }
 }
+

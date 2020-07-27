@@ -4,6 +4,8 @@ import LatencyTest from '../components/latency_test'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import WorkersUnboundBetaTeaserLink from "../components/workers-unbound-beta-teaser-link"
+
 import "@cloudflare/workers-brand-assets/css/components/number.css"
 import "@cloudflare/workers-brand-assets/css/components/superscript.css"
 import "@cloudflare/workers-brand-assets/css/components/link.css"
@@ -34,7 +36,7 @@ const IndexPage = () => {
               <div className="HeroSection--title-second-line">We handle the rest.</div>
             </h1>
             <div className="HeroSection--description">
-              <p>Deploy serverless code to data centers across 200&nbsp;cities in 95&nbsp;countries to give it exceptional performance and reliability.</p>
+              <p>Deploy serverless code instantly across the globe to give it exceptional performance, reliability, and scale.</p>
             </div>
             <div className="HeroSection--actions HeroSection--actions-desktop">
               <div className="HeroSection--actions-item">
@@ -54,30 +56,33 @@ const IndexPage = () => {
             </div>
             <div className="HeroSection--key-points">
               <ul className="UnorderedList UnorderedList-is-primary">
-                <li>Deploy to all of our data centers in <strong>~15&nbsp;seconds</strong></li>
-                <li>Your code runs within <strong>milliseconds</strong> from your users worldwide</li>
-                <li>Cold starts up to <a className="Link" href="https://serverless-benchmark.com/"><strong>50× faster</strong></a> than other platforms</li>
-                <li>Deploy for free to your own subdomain at <strong>workers.dev</strong></li>
+                <li>From signup to globally deployed in <strong>&lt;5min</strong></li>
+                <li>Your code runs within <strong>milliseconds</strong> of your users worldwide</li>
+                <li>Say goodbye to cold starts—support for <strong>0ms&nbsp;worldwide</strong>&nbsp;<span className="HeroSection--new-badge">NEW</span></li>
               </ul>
             </div>
           </div>
 
           <div className="HeroSection--illustration">
             <div className="HeroSection--illustration-card">
-              <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally"><code className="CodeBlock--code"><u><b className="CodeBlock--comment"># Install Wrangler, and tell it who you are</b><br/>
-<b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>npm install -g @cloudflare/wrangler<br/>
-<u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler config<br/>
+              <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally CodeBlock--language-sh" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-comment"># Install Wrangler, and tell it who you are</b><br/>
+<b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm install -g @cloudflare/wrangler<br/>
+<u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler config<br/>
 <u><br/>
-<b className="CodeBlock--comment"># Create and publish a “Hello World” Worker</b><br/>
-<b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>wrangler generate hello<br/>
-<u><b className="CodeBlock--directory">~/</b> <b className="CodeBlock--prompt">$</b> </u>cd hello<br/>
-<u><b className="CodeBlock--directory">~/hello</b> <b className="CodeBlock--prompt">$</b> </u>wrangler subdomain world<br/>
-<u><b className="CodeBlock--directory">~/hello</b> <b className="CodeBlock--prompt">$</b> </u>wrangler publish<u><br/>
-<b className="CodeBlock--success">Published</b><b className="CodeBlock--success"> </b><b className="CodeBlock--value">https://hello.world.workers.dev</b></u></code></pre>
+<b className="CodeBlock--token-comment"># Create and publish a “Hello World” Worker</b><br/>
+<b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler generate hello<br/>
+<u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>cd hello<br/>
+<u><b className="CodeBlock--token-directory">~/hello</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler subdomain world<br/>
+<u><b className="CodeBlock--token-directory">~/hello</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler publish<u><br/>
+<b className="CodeBlock--token-success">Published</b><b className="CodeBlock--token-success"> </b><b className="CodeBlock--token-value">https://hello.world.workers.dev</b></u></code></pre>
             </div>
           </div>
         </div>
       </section>
+
+      <div className="HeroSection--workers-unbound-teaser-wrap">
+        <WorkersUnboundBetaTeaserLink/>
+      </div>
 
       <section className="QuoteSection">
         <div className="QuoteSection--column">
@@ -93,7 +98,7 @@ const IndexPage = () => {
             </figure>
           </cite>
 
-          <blockquote className="QuoteSection--quote" data-js-balance-text>
+          <blockquote className="QuoteSection--quote">
             <p>“Cloudflare Workers has changed the way we build our apps. We don’t have to think about regions, we just deploy code and it runs seamlessly around the world.”</p>
           </blockquote>
         </div>
@@ -146,11 +151,10 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
                 <img alt="Short cold starts illustration" src="./resources/illustrations/short-cold-starts-dark-theme.svg"/>
               </div>
-              <h3 className="BenefitsSection--benefit-title">Cold starts under 5ms</h3>
+              <h3 className="BenefitsSection--benefit-title">0ms cold starts</h3>
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
                   <p>Most serverless platforms have to do a cold start every time you deploy or your service increases in popularity. Workers cuts cold starts to less than 1/50th the time it takes to blink your eyes.</p>
-                  <p className="BenefitsSection--benefit-description-footnote-p">Unlimited plan only</p>
                 </div>
               </div>
             </div>
@@ -174,8 +178,32 @@ const IndexPage = () => {
               <h3 className="BenefitsSection--benefit-title">No servers to maintain</h3>
               <div className="BenefitsSection--benefit-description">Spend more time building, less time configuring. No VMs, no servers, and no containers to spin up or manage. Deploy using our CLI, web interface, or API.</div>
             </div>
+            <div className="BenefitsSection--benefit">
+              <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound.svg"/>
+              </div>
+              <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound-dark-theme.svg"/>
+              </div>
+              <h3 className="BenefitsSection--benefit-title">Edge storage, built in</h3>
+              <div className="BenefitsSection--benefit-description">
+                <div className="MarkdownLite">
+                  <p>Store your static assets at the edge with Workers KV, our global, low-latency key-value data store. Access your assets alongside your code and transform them via powerful APIs (e.g. HTMLrewriter) to modify your page before it reaches the user.</p>
+                  <p className="BenefitsSection--benefit-description-footnote-p">Requires Workers Bundled plan</p>
+                </div>
+              </div>
+            </div>
+            <div className="BenefitsSection--benefit">
+              <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
+                <img alt="Static to dynamic illustration" src="../resources/illustrations/static-to-dynamic.svg"/>
+              </div>
+              <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
+                <img style={{position: 'relative', left: '-4px'}} alt="Static to dynamic illustration" src="../resources/illustrations/static-to-dynamic-dark-theme.svg"/>
+              </div>
+              <h3 className="BenefitsSection--benefit-title">Static assets with dynamic power</h3>
+              <div className="BenefitsSection--benefit-description">Say goodbye to build steps which pre-generate thousands of assets in advance. Harness the unrivaled raw power of the edge to generate images, SVGs, PDFs, whatever you need, <em>on the fly</em>, and deliver them to users as quickly as a static asset.</div>
+            </div>
           </div>
-
           <div className="BenefitsSection--cta">
             <h2 className="BenefitsSection--cta-title">Build your first Worker now.</h2>
             <div className="BenefitsSection--cta-cta">
@@ -221,9 +249,9 @@ const IndexPage = () => {
               </div>
             </div>
 
-            <div className="PlansSection--plan PlansSection--plan-is-unlimited">
+            <div className="PlansSection--plan PlansSection--plan-is-bundled">
               <div className="PlansSection--plan-header">
-                <h2 className="PlansSection--plan-title">Unlimited</h2>
+                <h2 className="PlansSection--plan-title">Bundled</h2>
                 <div className="PlansSection--plan-subtitle"><span className="Number Number-is-strong"><span className="Number--dollars">$</span><span className="Number--number">0.50</span><span className="Number--per">/</span><span className="Number--per-unit"><span className="Number--per-unit-multiplier">million</span> requests per month</span></span></div>
                 <div className="PlansSection--plan-subtitle-note">(Minimum charge of <span className="Number"><span className="Number--dollars">$</span><span className="Number--number">5</span><span className="Number--per">/</span><span className="Number--per-unit">mo</span></span>)</div>
               </div>
@@ -240,6 +268,10 @@ const IndexPage = () => {
                 <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Get started</a>
               </div>
             </div>
+          </div>
+
+          <div className="PlansSection--workers-unbound-teaser-wrap">
+            <WorkersUnboundBetaTeaserLink/>
           </div>
         </div>
       </section>
