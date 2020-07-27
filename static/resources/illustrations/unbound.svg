@@ -7,7 +7,7 @@
     <g id="bundled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="griddable-hexagon-grayscale" opacity="0.35" transform="translate(2.000000, 38.000000)" fill="#F4F4F7" stroke="#D7DADF">
             <polygon id="hexagon" points="6 0 7.10542736e-15 10 6 20 18.0454149 20 24 10 18.0454149 0"></polygon>
-        </g
+        </g>
         <g id="griddable-hexagon-grayscale" transform="translate(2.000000, 58.000000)" fill="#F4F4F7" stroke="#D7DADF">
             <polygon id="hexagon" points="6 0 7.10542736e-15 10 6 20 18.0454149 20 24 10 18.0454149 0"></polygon>
         </g>
