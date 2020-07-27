@@ -154,7 +154,7 @@ const IndexPage = () => {
               <h3 className="BenefitsSection--benefit-title">Support for 0ms cold starts</h3>
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
-                  <p>Most serverless platforms experience a cold start every time you deploy or your service increases in popularity. Workers runs your code instantly, without cold starts, on every single request.</p>
+                  <p>Most serverless platforms experience a cold start every time you deploy or your service increases in popularity. Workers can run your code instantly, without cold starts.</p>
                 </div>
               </div>
             </div>
