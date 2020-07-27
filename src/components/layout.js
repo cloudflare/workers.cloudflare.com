@@ -1,12 +1,8 @@
-import "@cloudflare/workers-brand-assets/js/focus-visible-polyfill.js"
-
 import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
 import Footer from "./footer"
-
-import "./layout.css"
 
 const Layout = ({ children }) => {
   return (

@@ -29,8 +29,13 @@
 .QuoteSection--quote {
   font-size: 2em;
   width: 19.5em;
-  margin-right: 1em;
   max-width: 100%;
+}
+
+@media (max-width: 1001px) {
+  .QuoteSection--quote {
+    font-size: 1.75em;
+  }
 }
 
 .QuoteSection--quote strong {
