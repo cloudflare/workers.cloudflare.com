@@ -180,10 +180,10 @@ const IndexPage = () => {
             </div>
             <div className="BenefitsSection--benefit">
               <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
-                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound.svg"/>
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/bundled.svg"/>
               </div>
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
-                <img alt="Workers Unbound illustration" src="../resources/illustrations/unbound-dark-theme.svg"/>
+                <img alt="Workers Unbound illustration" src="../resources/illustrations/bundled-dark-theme.svg"/>
               </div>
               <h3 className="BenefitsSection--benefit-title">Edge storage, built in</h3>
               <div className="BenefitsSection--benefit-description">
