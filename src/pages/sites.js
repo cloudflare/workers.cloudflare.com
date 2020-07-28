@@ -189,10 +189,10 @@ Enter api key:<br/>
             </div>
             <div className="BenefitsSection--benefit">
               <div className="BenefitsSection--benefit-illustration" light-theme-only="true">
-                <img alt="All-in-one illustration" src="../resources/illustrations/unbound.svg"/>
+                <img alt="All-in-one illustration" src="../resources/illustrations/all-in-one.svg"/>
               </div>
               <div className="BenefitsSection--benefit-illustration" dark-theme-only="true">
-                <img style={{position: 'relative', left: '-4px'}} alt="All-in-one illustration" src="../resources/illustrations/unbound-dark-theme.svg"/>
+                <img style={{position: 'relative', left: '-4px'}} alt="All-in-one illustration" src="../resources/illustrations/all-in-one-dark-theme.svg"/>
               </div>
               <h3 className="BenefitsSection--benefit-title">Assets. APIs. All-in-one.</h3>
               <div className="BenefitsSection--benefit-description">Do you need to handle uploads, accept form submissions, validate content, without slowing down your site? Backend meets frontend at the nearest Cloudflare location to your user, meaning sites start fast and stay fast throughout the entire user experience.</div>
@@ -218,7 +218,7 @@ Enter api key:<br/>
       <section className="PlansSection PlansSection-is-top-abutted" id="plans">
         <div className="PlansSection--column">
           <div className="PlansSection--plans">
-            <div className="PlansSection--plan PlansSection--plan-is-unbound">
+            <div className="PlansSection--plan PlansSection--plan-is-bundled">
               <div className="PlansSection--plan-header">
                 <h2 className="PlansSection--plan-title">
                   <div style={{fontSize: '.5em', marginBottom: '.4em'}}>Workers Bundled plan</div>
