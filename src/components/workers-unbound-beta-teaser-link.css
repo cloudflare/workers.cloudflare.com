@@ -15,15 +15,10 @@
   background-clip: padding-box;
   border-radius: .5em;
   transition: .3s background-color;
-  --background-opacity-hover: .2;
-}
-
-[theme="dark"] .WorkersUnboundBetaTeaserLink--inner {
-  --background-opacity-hover: .9;
 }
 
 .WorkersUnboundBetaTeaserLink:hover .WorkersUnboundBetaTeaserLink--inner {
-  background-color: rgba(var(--background-color-rgb), var(--background-opacity-hover));
+  background-color: rgba(var(--background-color-rgb), .9);
 }
 
 .WorkersUnboundBetaTeaserLink--content {
