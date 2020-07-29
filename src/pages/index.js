@@ -257,6 +257,7 @@ const IndexPage = () => {
               </div>
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedList">
+                  <li>Persist and read data at the edge with Workers KV</li>
                   <li>Deploy up to 30 Worker scripts</li>
                   <li>Runs on all 200 data centers</li>
                   <li>Free workers.dev subdomain</li>
