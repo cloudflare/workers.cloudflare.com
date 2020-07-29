@@ -110,7 +110,7 @@ const IndexPage = () => {
 </a></p>
                   <p>Now run the config command to interactively enter your new API Token:</p>
                   <pre className="CodeBlock" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler config<u><br />
-Enter API Token::<br />
+Enter API Token:<br />
 yourNewTokenCreatedAbove</u></code></pre>
                 </div>
               </div>
