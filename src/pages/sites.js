@@ -106,7 +106,7 @@ const IndexPage = () => {
                   <pre className="CodeBlock CodeBlock-is-one-liner" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm install -g @cloudflare/wrangler</code></pre>
                   <p>To configure Wrangler, you need a <strong>Workers API Token</strong> from your <a className="Link" href="https://dash.cloudflare.com/profile/api-tokens">Profile</a>.
                   </p>
-                  <p>Click "Create Token" and use the "Edit Cloudflare Workers" template. For more information see <a className="Link" href="https://support.cloudflare.com/hc/en-us/articles/200167836-Managing-API-Tokens-and-Keys">Managing API Tokens and Keys
+                  <p>Click "Create Token" and use the "Edit Cloudflare Workers" template. For more information, see <a className="Link" href="https://support.cloudflare.com/hc/en-us/articles/200167836-Managing-API-Tokens-and-Keys">"Managing API Tokens and Keys"
 </a></p>
                   <p>Now run the config command to interactively enter your new API Token:</p>
                   <pre className="CodeBlock" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler config<u><br />
