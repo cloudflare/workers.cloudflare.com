@@ -101,6 +101,10 @@
   text-align: left;
 }
 
+.PlansSection--plan-details-list-alignment-item {
+  opacity: 0;
+}
+
 .PlansSection--plan-cta {
   font-size: 1.333em;
   text-align: center;
@@ -130,6 +134,11 @@
 
   .PlansSection--plan:not(:last-child) {
     margin-bottom: var(--section-vertical-padding);
+  }
+
+  .PlansSection--plan-details-list-alignment-item {
+    height: 0;
+    margin-top: -1em;
   }
 }
 

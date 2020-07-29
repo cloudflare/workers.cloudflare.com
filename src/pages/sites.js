@@ -231,11 +231,25 @@ yourNewTokenCreatedAbove</u></code></pre>
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedList">
                   <li>Deploy up to 30 sites</li>
-                  <li>Free workers.dev subdomain</li>
-                  <li>1 gigabyte of storage</li>
-                  <li>Up to 50ms CPU time per request</li>
                   <li>Runs on all 200 data centers</li>
+                  <li>Free workers.dev subdomain</li>
+                  <li>Up to 50ms CPU time per request</li>
                   <li>Always lowest latency</li>
+                  <li>
+                    Access to
+                    {" "}
+                    <a
+                      href="https://www.cloudflare.com/products/workers-kv/"
+                      className="Link"
+                      style={{
+                        "--underline-size": "-1px",
+                        "--underline-color": "rgba(var(--color-rgb), .5)"
+                      }}>
+                      Workers KV
+                    </a>
+                    {" "}
+                    edge storage
+                  </li>
                 </ul>
               </div>
               <div className="PlansSection--plan-cta">

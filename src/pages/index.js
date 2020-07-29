@@ -257,11 +257,27 @@ const IndexPage = () => {
               </div>
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedList">
-                  <li>Deploy up to 30 Worker scripts</li>
-                  <li>Runs on all 200 data centers</li>
-                  <li>Free workers.dev subdomain</li>
-                  <li>Up to 50ms CPU time per request</li>
-                  <li>Always lowest latency</li>
+                  <li>Everything in Free, plus:</li>
+                  <li>Up to <strong>50ms CPU time</strong> per request</li>
+                  <li><strong>Always lowest latency</strong></li>
+                  <li>
+                    Access to
+                    {" "}
+                    <strong>
+                      <a
+                        href="https://www.cloudflare.com/products/workers-kv/"
+                        className="Link"
+                        style={{
+                          "--underline-size": "-1px",
+                          "--underline-color": "rgba(var(--color-rgb), .5)"
+                        }}>
+                        Workers KV
+                      </a>
+                    </strong>
+                    {" "}
+                    edge storage
+                  </li>
+                  <li className="PlansSection--plan-details-list-alignment-item">&nbsp;</li>
                 </ul>
               </div>
               <div className="PlansSection--plan-cta">
