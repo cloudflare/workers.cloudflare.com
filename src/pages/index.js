@@ -4,7 +4,7 @@ import LatencyTest from '../components/latency_test'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import WorkersUnboundBetaTeaserLink from "../components/workers-unbound-beta-teaser-link"
+import WorkersBetaTeaserLink from "../components/workers-beta-teaser-link"
 
 import "@cloudflare/workers-brand-assets/css/components/number.css"
 import "@cloudflare/workers-brand-assets/css/components/superscript.css"
@@ -80,8 +80,8 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <div className="HeroSection--workers-unbound-teaser-wrap">
-        <WorkersUnboundBetaTeaserLink/>
+      <div className="HeroSection--workers-teaser-wrap">
+        <WorkersBetaTeaserLink/>
       </div>
 
       <section className="QuoteSection">
@@ -286,8 +286,8 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div className="PlansSection--workers-unbound-teaser-wrap">
-            <WorkersUnboundBetaTeaserLink/>
+          <div className="PlansSection--workers-teaser-wrap">
+            <WorkersBetaTeaserLink/>
           </div>
         </div>
       </section>
