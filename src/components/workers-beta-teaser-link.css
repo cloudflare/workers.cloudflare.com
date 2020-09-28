@@ -1,4 +1,4 @@
-.WorkersUnboundBetaTeaserLink {
+.WorkersBetaTeaserLink {
   display: inline-block;
   color: inherit;
   font-weight: 500;
@@ -8,7 +8,7 @@
   transform: skew(-9deg);
 }
 
-.WorkersUnboundBetaTeaserLink--inner {
+.WorkersBetaTeaserLink--inner {
   padding: .85em 1.25em;
   border: 2px solid transparent;
   background: var(--background-color);
@@ -17,15 +17,15 @@
   transition: .3s background-color;
 }
 
-.WorkersUnboundBetaTeaserLink:hover .WorkersUnboundBetaTeaserLink--inner {
+.WorkersBetaTeaserLink:hover .WorkersBetaTeaserLink--inner {
   background-color: rgba(var(--background-color-rgb), .9);
 }
 
-.WorkersUnboundBetaTeaserLink--content {
+.WorkersBetaTeaserLink--content {
   transform: skew(9deg);
 }
 
-.WorkersUnboundBetaTeaserLink--beta {
+.WorkersBetaTeaserLink--beta {
   position: relativ;
   top: -1px;
   font-size: .8em;

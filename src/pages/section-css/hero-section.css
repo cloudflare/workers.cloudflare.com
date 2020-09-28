@@ -74,7 +74,7 @@
   width: calc(1em * var(--illustration-width-ems));
 }
 
-.HeroSection--workers-unbound-teaser-wrap {
+.HeroSection--workers-teaser-wrap {
   display: block;
   margin: calc(-1 * var(--section-vertical-padding) + 2.75em) auto 7em;
   padding: 0 10vw;
@@ -134,7 +134,7 @@
     width: 100%;
   }
 
-  .HeroSection--workers-unbound-teaser-wrap {
+  .HeroSection--workers-teaser-wrap {
     width: 38em;
     max-width: 100%;
     margin-top: 0;
