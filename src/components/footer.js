@@ -1,6 +1,6 @@
 import React from "react"
 
-import "@cloudflare/workers-brand-assets/css/components/footer.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/footer.css"
 
 const Footer = () => (
   <footer className="Footer Footer-with-top-separator">

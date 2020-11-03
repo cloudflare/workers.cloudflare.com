@@ -3,16 +3,15 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import "@cloudflare/workers-brand-assets/css/components/number.css"
-import "@cloudflare/workers-brand-assets/css/components/superscript.css"
-import "@cloudflare/workers-brand-assets/css/components/link.css"
-import "@cloudflare/workers-brand-assets/css/components/button.css"
-import "@cloudflare/workers-brand-assets/css/components/inline-code.css"
-import "@cloudflare/workers-brand-assets/css/components/code-block.css"
-import "@cloudflare/workers-brand-assets/css/components/aspect-ratio.css"
-import "@cloudflare/workers-brand-assets/css/components/markdown-lite.css"
-// import "@cloudflare/workers-brand-assets/css/components/unordered-list.css"
-import "../components/unordered-list.css" // TODO - remove once https://git.io/JvmSL is resolved
+import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/superscript.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/link.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/button.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/inline-code.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/code-block.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/aspect-ratio.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/markdown-lite.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
 import "./section-css/sites-hero-section.css"
 import "./section-css/setup-section.css"
@@ -229,7 +228,7 @@ yourNewTokenCreatedAbove</u></code></pre>
                 <div className="PlansSection--plan-subtitle-note">(Minimum charge of <span className="Number"><span className="Number--dollars">$</span><span className="Number--number">5</span><span className="Number--per">/</span><span className="Number--per-unit">mo</span></span>)</div>
               </div>
               <div className="PlansSection--plan-details">
-                <ul className="UnorderedList">
+                <ul className="UnorderedListWorkersThemed">
                   <li>Deploy up to 30 sites</li>
                   <li>Runs on all 200 data centers</li>
                   <li>Free workers.dev subdomain</li>

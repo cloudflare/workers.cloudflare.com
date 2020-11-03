@@ -6,15 +6,14 @@ import SEO from "../components/seo"
 
 import WorkersBetaTeaserLink from "../components/workers-beta-teaser-link"
 
-import "@cloudflare/workers-brand-assets/css/components/number.css"
-import "@cloudflare/workers-brand-assets/css/components/superscript.css"
-import "@cloudflare/workers-brand-assets/css/components/link.css"
-import "@cloudflare/workers-brand-assets/css/components/button.css"
-import "@cloudflare/workers-brand-assets/css/components/inline-code.css"
-import "@cloudflare/workers-brand-assets/css/components/code-block.css"
-import "@cloudflare/workers-brand-assets/css/components/markdown-lite.css"
-// import "@cloudflare/workers-brand-assets/css/components/unordered-list.css"
-import "../components/unordered-list.css" // TODO - remove once https://git.io/JvmSL is resolved
+import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/superscript.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/link.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/button.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/inline-code.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/code-block.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/markdown-lite.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
 import "./section-css/hero-section.css"
 import "./section-css/quote-section.css"
@@ -55,7 +54,7 @@ const IndexPage = () => {
               </div>
             </div>
             <div className="HeroSection--key-points">
-              <ul className="UnorderedList UnorderedList-is-primary">
+              <ul className="UnorderedListWorkersThemed UnorderedListWorkersThemed-is-primary">
                 <li>From signup to globally deployed in <strong>&lt;5min</strong></li>
                 <li>Your code runs within <strong>milliseconds</strong> of your users worldwide</li>
                 <li>Say goodbye to cold starts—support for <strong>0ms&nbsp;worldwide</strong>&nbsp;<span className="HeroSection--new-badge">NEW</span></li>
@@ -235,7 +234,7 @@ const IndexPage = () => {
                 <div className="PlansSection--plan-subtitle-note">(Across all of your Worker scripts, UTC+0)</div>
               </div>
               <div className="PlansSection--plan-details">
-                <ul className="UnorderedList">
+                <ul className="UnorderedListWorkersThemed">
                   <li>Deploy up to 30 Worker scripts</li>
                   <li>Runs on all 200 data centers</li>
                   <li>Free workers.dev subdomain</li>
@@ -256,7 +255,7 @@ const IndexPage = () => {
                 <div className="PlansSection--plan-subtitle-note">(Minimum charge of <span className="Number"><span className="Number--dollars">$</span><span className="Number--number">5</span><span className="Number--per">/</span><span className="Number--per-unit">mo</span></span>)</div>
               </div>
               <div className="PlansSection--plan-details">
-                <ul className="UnorderedList">
+                <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
                   <li>Up to <strong>50ms CPU time</strong> per request</li>
                   <li><strong>Always lowest latency</strong></li>

@@ -13,7 +13,7 @@ import { flatten, normalizeCollection } from "../utils"
 
 import "../pages/built-with-workers-page.css"
 import "./project-page.css"
-import "@cloudflare/workers-brand-assets/css/components/definition-list.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/definition-list.css"
 
 const getPrimaryLinkText = linkType => {
   switch (linkType) {
@@ -74,7 +74,7 @@ const Project = ({
   return (
     <Layout>
       <SEO
-        title={[project.name, "Built with Workers"].join(" · ")} 
+        title={[project.name, "Built with Workers"].join(" · ")}
         description={project.shortDescription}
         image={project.image.asset.fluid.src}
       />
