@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import "@cloudflare/workers-brand-assets/css/components/error-page.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/error-page.css"
 
 const NotFoundPage = () => (
   <Layout>

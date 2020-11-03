@@ -1,11 +1,10 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
 
-import "@cloudflare/workers-brand-assets/css/components/link.css"
-import "@cloudflare/workers-brand-assets/css/components/inline-code.css"
-import "@cloudflare/workers-brand-assets/css/components/code-block.css"
-// import "@cloudflare/workers-brand-assets/css/components/unordered-list.css"
-import "./unordered-list.css" // TODO - remove once https://git.io/JvmSL is resolved
+import "@cloudflare/cloudflare-brand-assets/css/components/link.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/inline-code.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/code-block.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
 import "./markdown.css"
 
@@ -13,8 +12,8 @@ const Link = (props) => <a href={props.href} className="Link">{props.children}</
 
 const List = (props) => {
   return props.ordered ?
-    <ol className="OrderedList">{props.children}</ol> :
-    <ul className="UnorderedList">{props.children}</ul>
+    <ol>{props.children}</ol> :
+    <ul className="UnorderedListWorkersThemed">{props.children}</ul>
 }
 
 const InlineCode = (props) => <code className="InlineCode">{props.children}</code>

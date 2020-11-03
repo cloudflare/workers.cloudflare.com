@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Logo from "@cloudflare/workers-brand-assets/resources/logo/logo-combination-mark-horizontal.svg"
+import Logo from "@cloudflare/cloudflare-brand-assets/resources/workers/logo/logo-combination-mark-horizontal.svg"
 
-import "@cloudflare/workers-brand-assets/css/components/cloudflare-workers-logo.css"
-import "@cloudflare/workers-brand-assets/css/components/button.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/cloudflare-workers-logo.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/button.css"
 
 import "./nav.css"
 

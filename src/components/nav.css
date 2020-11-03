@@ -67,7 +67,7 @@
 
 [theme="dark"] .Nav--main-links .Nav--link.Nav--link-is-active {
   background: rgba(var(--orange-rgb), .08);
-  color: #fba056; /* TODO - use `var(--code-orange)` after updating workers-brand-assets */
+  color: var(--code-orange);
 }
 
 .Nav--link.Nav--link-logo,

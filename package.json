@@ -1,11 +1,11 @@
 {
-  "name": "built-with-workers",
+  "name": "workers.cloudflare.com",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Cloudflare Workers website.",
   "version": "0.1.0",
   "author": "Kristian Freeman <kristian@cloudflare.com>",
   "dependencies": {
-    "@cloudflare/workers-brand-assets": "2.0.0",
+    "@cloudflare/cloudflare-brand-assets": "4.0.0",
     "autoprefixer": "^9.6.5",
     "focus-visible-polyfill": "^1.0.0",
     "gatsby": "^2.16.1",
