@@ -14,12 +14,27 @@
 }
 
 .CustomerLogosSection--logos {
+  --frame-width: 78em;
+  overflow: hidden;
+  margin-top: -1em;
+  margin-bottom: -1em;
+}
+
+.CustomerLogosSection--logos-frame {
+  width: calc(100vw + var(--frame-width));
+  margin: 0 calc(-1/2 * var(--frame-width));
+}
+
+.CustomerLogosSection--logos-content {
   display: flex;
+  width: var(--frame-width);
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   padding-left: 1em;
   padding-right: 1em;
-  width: 100%;
 }
 
 .CustomerLogosSection--logo {
@@ -28,7 +43,7 @@
   position: relative;
   height: var(--height);
   width: calc(var(--height) / var(--aspect-ratio));
-  margin: 0 calc(var(--height) * .875);
+  margin: 1em calc(var(--height) * .875);
   top: calc(var(--height) * var(--vertical-adjust));
 }
 
@@ -37,7 +52,6 @@
 }
 
 @media (min-width: 901px) {
-  /* TODO */
   [theme="dark"] .CustomerLogosSection {
     padding-top: var(--section-vertical-padding);
     padding-bottom: 0;
@@ -45,8 +59,8 @@
 }
 
 @media (max-width: 1000px) {
-  .CustomerLogosSection--logo {
-    --height: 3vw;
+  .CustomerLogosSection--logos {
+    --frame-width: 58em;
   }
 }
 
@@ -56,14 +70,13 @@
   }
 
   .CustomerLogosSection--logos {
-    flex-wrap: wrap;
-    margin-top: -.75em;
-    margin-bottom: -.75em;
+    --frame-width: 44em;
   }
+}
 
-  .CustomerLogosSection--logo {
-    --height: 1.25em;
-    margin-top: .75em;
-    margin-bottom: .75em;
+@media (max-width: 414px) {
+  .CustomerLogosSection--logos {
+    --frame-width: 78em;
+    font-size: 3vw;
   }
 }
