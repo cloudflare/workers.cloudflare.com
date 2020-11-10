@@ -215,12 +215,23 @@ const IndexPage = () => {
       <section className="CustomerLogosSection">
         <div className="CustomerLogosSection--title">Building with Workers</div>
         <div className="CustomerLogosSection--logos">
-          <img className="CustomerLogosSection--logo" alt="Cordial logo" src="./resources/customer-logos/cordial.svg" style={{'--aspect-ratio': .4, '--vertical-adjust': -.2 }}/>
-          <img className="CustomerLogosSection--logo" alt="Discord logo" src="./resources/customer-logos/discord.svg" style={{'--aspect-ratio': .32, '--vertical-adjust': -.08 }}/>
-          <img className="CustomerLogosSection--logo" alt="NPM logo" src="./resources/customer-logos/npm.svg" style={{'--aspect-ratio': .35}}/>
-          <img className="CustomerLogosSection--logo" alt="MaxMind logo" src="./resources/customer-logos/maxmind.svg" style={{'--aspect-ratio': .2, '--vertical-adjust': -.3 }}/>
-          <img className="CustomerLogosSection--logo" alt="Optimizely logo" src="./resources/customer-logos/optimizely.svg" style={{'--aspect-ratio': .27, '--vertical-adjust': -.2 }}/>
-          <img className="CustomerLogosSection--logo" alt="Timely logo" src="./resources/customer-logos/timely.svg" style={{'--aspect-ratio': .35, '--vertical-adjust': -.1 }}/>
+          <div className="CustomerLogosSection--logos-frame">
+            <div className="CustomerLogosSection--logos-content">
+              <img className="CustomerLogosSection--logo" alt="23andMe logo" src="./resources/customer-logos/23andme.svg" style={{'--aspect-ratio': .4, 'transform': 'scale(1.5)'}}/>
+              <img className="CustomerLogosSection--logo" alt="Broadcom logo" src="./resources/customer-logos/broadcom.svg" style={{'--aspect-ratio': .2}}/>
+              <img className="CustomerLogosSection--logo" alt="CodePen logo" src="./resources/customer-logos/codepen.svg" style={{'--aspect-ratio': .23}}/>
+              <img className="CustomerLogosSection--logo" alt="Cordial logo" src="./resources/customer-logos/cordial.svg" style={{'--aspect-ratio': .4, '--vertical-adjust': -.07}}/>
+              <img className="CustomerLogosSection--logo" alt="Discord logo" src="./resources/customer-logos/discord.svg" style={{'--aspect-ratio': .32, '--vertical-adjust': .02}}/>
+              <img className="CustomerLogosSection--logo" alt="DoorDash logo" src="./resources/customer-logos/doordash.svg" style={{'--aspect-ratio': .22}}/>
+              <img className="CustomerLogosSection--logo" alt="Glossier logo" src="./resources/customer-logos/glossier.svg" style={{'--aspect-ratio': .3}}/>
+              <img className="CustomerLogosSection--logo" alt="Marketo logo" src="./resources/customer-logos/marketo.svg" style={{'--aspect-ratio': .25}}/>
+              <img className="CustomerLogosSection--logo" alt="MaxMind logo" src="./resources/customer-logos/maxmind.svg" style={{'--aspect-ratio': .22, '--vertical-adjust': -.16}}/>
+              <img className="CustomerLogosSection--logo" alt="NPM logo" src="./resources/customer-logos/npm.svg" style={{'--aspect-ratio': .38}}/>
+              <img className="CustomerLogosSection--logo" alt="Optimizely logo" src="./resources/customer-logos/optimizely.svg" style={{'--aspect-ratio': .27, '--vertical-adjust': -.18}}/>
+              <img className="CustomerLogosSection--logo" alt="ProPublica logo" src="./resources/customer-logos/propublica.svg" style={{'--aspect-ratio': .25, '--vertical-adjust': -.12}}/>
+              <img className="CustomerLogosSection--logo" alt="Timely logo" src="./resources/customer-logos/timely.svg" style={{'--aspect-ratio': .3, '--vertical-adjust': -.14}}/>
+            </div>
+          </div>
         </div>
       </section>
 
