@@ -287,7 +287,7 @@ const IndexPage = () => {
                   <li>Up to <strong>50ms CPU time</strong> per request</li>
                   <li><strong>Always lowest latency</strong></li>
                   <li>
-                    Access to
+                    Additional
                     {" "}
                     <strong>
                       <a
@@ -303,6 +303,7 @@ const IndexPage = () => {
                     {" "}
                     edge storage
                   </li>
+                  <li className="PlansSection--plan-details-list-alignment-item">&nbsp;</li>
                   <li className="PlansSection--plan-details-list-alignment-item">&nbsp;</li>
                 </ul>
               </div>
