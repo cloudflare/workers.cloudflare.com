@@ -188,7 +188,6 @@ const IndexPage = () => {
               <div className="BenefitsSection--benefit-description">
                 <div className="MarkdownLite">
                   <p>Store your static assets at the edge with Workers KV, our global, low-latency key-value data store. Access your assets alongside your code and transform them via powerful APIs (e.g. HTMLrewriter) to modify your page before it reaches the user.</p>
-                  <p className="BenefitsSection--benefit-description-footnote-p">Requires Workers Bundled plan</p>
                 </div>
               </div>
             </div>
@@ -251,6 +250,23 @@ const IndexPage = () => {
                   <li>Free workers.dev subdomain</li>
                   <li>Up to 10ms CPU time per request</li>
                   <li>Lowest latency after the first request</li>
+                  <li>
+                    Limited access to
+                    {" "}
+                    <strong>
+                      <a
+                        href="https://www.cloudflare.com/products/workers-kv/"
+                        className="Link"
+                        style={{
+                          "--underline-size": "-1px",
+                          "--underline-color": "rgba(var(--color-rgb), .5)"
+                        }}>
+                        Workers KV
+                      </a>
+                    </strong>
+                    {" "}
+                    edge storage
+                  </li>
                 </ul>
               </div>
               <div className="PlansSection--plan-cta">
