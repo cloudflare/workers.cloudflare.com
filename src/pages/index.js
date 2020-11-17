@@ -251,7 +251,7 @@ const IndexPage = () => {
                   <li>Up to 10ms CPU time per request</li>
                   <li>Lowest latency after the first request</li>
                   <li>
-                    Limited access to
+                    Limited
                     {" "}
                     <strong>
                       <a
