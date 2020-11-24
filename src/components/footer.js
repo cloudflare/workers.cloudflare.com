@@ -15,7 +15,7 @@ const Footer = () => (
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item"><a href="https://workers.cloudflare.com/sites" className="Link Link-without-underline Link-is-juicy">Workers Sites</a></li>
           <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/reference/storage/overview/" className="Link Link-without-underline Link-is-juicy">Key-value storage</a></li>
-          <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/about/using-cache/" className="Link Link-without-underline Link-is-juicy">Caching</a></li>
+          <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/about/using-cache/" className="Link Link-without-underline Link-is-juicy">Cache</a></li>
           <li className="Footer--column-list-item"><a href="https://workers.cloudflare.com/#plans" className="Link Link-without-underline Link-is-juicy">Pricing</a></li>
         </ul>
       </div>
@@ -32,7 +32,7 @@ const Footer = () => (
         <h2 className="Footer--column-title">About</h2>
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/about/how-it-works/" className="Link Link-without-underline Link-is-juicy">How it works</a></li>
-          <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/about/tips/" className="Link Link-without-underline Link-is-juicy">Tips</a></li>
+          <li className="Footer--column-list-item"><a href="https://workers.cloudflare.com/built-with" className="Link Link-without-underline Link-is-juicy">Built with</a></li>
           <li className="Footer--column-list-item"><a href="https://blog.cloudflare.com/serverlist/" className="Link Link-without-underline Link-is-juicy">Newsletter</a></li>
           <li className="Footer--column-list-item"><a href="https://blog.cloudflare.com/tag/serverless/" className="Link Link-without-underline Link-is-juicy">Blog</a></li>
         </ul>
@@ -42,7 +42,7 @@ const Footer = () => (
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item"><a href="https://www.cloudflarestatus.com/" className="Link Link-without-underline Link-is-juicy">Status</a></li>
           <li className="Footer--column-list-item"><a href="https://community.cloudflare.com/c/developers/workers" className="Link Link-without-underline Link-is-juicy">Forum</a></li>
-          <li className="Footer--column-list-item"><a href="https://support.cloudflare.com/hc/en-us/sections/360000215372-Cloudflare-Workers" className="Link Link-without-underline Link-is-juicy">Support</a></li>
+          <li className="Footer--column-list-item"><a href="https://support.cloudflare.com/hc/en-us/articles/200172476-Contacting-Cloudflare-Support" className="Link Link-without-underline Link-is-juicy">Support</a></li>
           <li className="Footer--column-list-item"><a href="https://twitter.com/CloudflareDev" className="Link Link-without-underline Link-is-juicy">Twitter</a></li>
         </ul>
       </div>
