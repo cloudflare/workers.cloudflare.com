@@ -8,11 +8,6 @@ const loadTheme = `
       localStorage.theme = theme
     }
 
-    document.documentElement.addEventListener("dblclick", () => {
-      const theme = document.documentElement.getAttribute("theme")
-      setTheme(theme === "dark" ? "light" : "dark")
-    })
-
     const query = window.matchMedia("(prefers-color-scheme: dark)")
     query.addListener(() => {
       setTheme(query.matches ? "dark" : "light")
