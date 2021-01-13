@@ -13,7 +13,7 @@ const Nav = () => {
     <nav className="Nav">
       <Link className="Nav--link Nav--link-logo" to="/">
         <div className="CloudflareWorkersLogo CloudflareWorkersLogo-horizontal-combination-mark">
-          <Logo/>
+          <Logo />
         </div>
       </Link>
 
@@ -35,7 +35,7 @@ const Nav = () => {
         </div>
 
         <div className="Nav--item">
-          <a className="Nav--link" href="https://community.cloudflare.com/tags/workers">Community</a>
+          <a className="Nav--link" href="https://discord.gg/cloudflaredev">Discord</a>
         </div>
       </div>
 
