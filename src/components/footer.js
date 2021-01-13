@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="Footer--columns">
       <div className="Footer--column Footer--column-logo">
         <a href="https://workers.cloudflare.com" className="Footer--logo-link Link Link-without-underline">
-          <img className="Footer--logo-link-image" alt="Workers logo" src="https://workers.cloudflare.com/resources/logo/logo.svg"/>
+          <img className="Footer--logo-link-image" alt="Workers logo" src="https://workers.cloudflare.com/resources/logo/logo.svg" />
         </a>
       </div>
       <div className="Footer--column">
@@ -41,7 +41,7 @@ const Footer = () => (
         <h2 className="Footer--column-title">Help</h2>
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item"><a href="https://www.cloudflarestatus.com/" className="Link Link-without-underline Link-is-juicy">Status</a></li>
-          <li className="Footer--column-list-item"><a href="https://community.cloudflare.com/c/developers/workers" className="Link Link-without-underline Link-is-juicy">Forum</a></li>
+          <li className="Footer--column-list-item"><a href="https://discord.gg/cloudflaredev" className="Link Link-without-underline Link-is-juicy">Discord</a></li>
           <li className="Footer--column-list-item"><a href="https://support.cloudflare.com/hc/en-us/articles/200172476-Contacting-Cloudflare-Support" className="Link Link-without-underline Link-is-juicy">Support</a></li>
           <li className="Footer--column-list-item"><a href="https://twitter.com/CloudflareDev" className="Link Link-without-underline Link-is-juicy">Twitter</a></li>
         </ul>
