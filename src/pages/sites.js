@@ -41,9 +41,9 @@ const IndexPage = () => {
               <p>Build blazing fast websites by seamlessly deploying static assets alongside your APIs and application code.</p>
             </div>
 
-            <div className="SitesHeroSection--plan">Starting at $5/mo</div>
+            <div className="SitesHeroSection--plan">Start for free/mo</div>
 
-            <div className="SitesHeroSection--plan-note">(Included in a <a className="Link SitesHeroSection--plan-note-link-style-refinement" href="#plans">Workers Bundled</a> plan)</div>
+            <div className="SitesHeroSection--plan-note">(Included in the <a className="Link SitesHeroSection--plan-note-link-style-refinement" href="#plans">Workers free plan</a> plan)</div>
 
             <div className="SitesHeroSection--actions SitesHeroSection--actions-desktop">
               <div className="SitesHeroSection--actions-item">
@@ -80,13 +80,13 @@ const IndexPage = () => {
               <div className="SetupSection--step-details SetupSection--step-details-desktop">
                 <div className="SetupSection--button-and-text">
                   <div className="SetupSection--button-and-text-button"><a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a></div>
-                  <div className="SetupSection--button-and-text-text">The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers Bundled plan, and veryifying your email address.</div>
+                  <div className="SetupSection--button-and-text-text">The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers plan, and veryifying your email address.</div>
                 </div>
               </div>
               <div className="SetupSection--step-details SetupSection--step-details-mobile">
                 <div className="MarkdownLite">
                   <p><a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Sign up</a></p>
-                  <p>The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers Bundled plan, and veryifying your email address.</p>
+                  <p>The signup process will guide you through choosing a workers.dev subdomain, selecting the Workers plan, and veryifying your email address.</p>
                 </div>
               </div>
             </div>
