@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import Layout from "../components/layout"
 import { setup, tw } from 'twind'
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 // Setup dark mode class config
 setup({ darkMode: 'class' })
@@ -18,7 +19,9 @@ const WorksPage = () => {
 
   return (
     <Layout>
-      <div className={tw`antialiased text-black dark:text-white`} hidden ref={content}>
+      <SEO title="Works on Workers" />
+
+      <div className={tw`antialiased text-black dark:text-white mx-4`} hidden ref={content}>
         <div className={tw`md:max-w-4xl mx-auto pt-16 pb-8`}>
           <div className={tw`text-center mt-16 mb-12`}>
             <h1 className={tw`text-4xl mb-4 font-bold`}>Works on Workers</h1>
