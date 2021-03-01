@@ -25,7 +25,8 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
-    "react-markdown": "^4.2.2"
+    "react-markdown": "^4.2.2",
+    "twind": "^0.15.6"
   },
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "^2.1.21",
