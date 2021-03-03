@@ -4,8 +4,6 @@ import LatencyTest from '../components/latency_test'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import WorkersBetaTeaserLink from "../components/workers-beta-teaser-link"
-
 import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/superscript.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/link.css"
@@ -78,10 +76,6 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
-
-      <div className="HeroSection--workers-teaser-wrap">
-        <WorkersBetaTeaserLink/>
-      </div>
 
       <section className="QuoteSection">
         <div className="QuoteSection--column">
@@ -311,10 +305,6 @@ const IndexPage = () => {
                 <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Get started</a>
               </div>
             </div>
-          </div>
-
-          <div className="PlansSection--workers-teaser-wrap">
-            <WorkersBetaTeaserLink/>
           </div>
         </div>
       </section>

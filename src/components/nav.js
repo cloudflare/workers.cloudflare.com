@@ -23,7 +23,7 @@ const Nav = () => {
         </div>
 
         <div className="Nav--item">
-          <Link className="Nav--link" to="/sites" activeClassName="Nav--link-is-active">Sites</Link>
+          <a className="Nav--link" href="https://pages.cloudflare.com">Pages</a>
         </div>
 
         <div className="Nav--item">
