@@ -13,7 +13,7 @@ const Footer = () => (
       <div className="Footer--column">
         <h2 className="Footer--column-title">Product</h2>
         <ul className="Footer--column-list">
-          <li className="Footer--column-list-item"><a href="https://workers.cloudflare.com/sites" className="Link Link-without-underline Link-is-juicy">Workers Sites</a></li>
+          <li className="Footer--column-list-item"><a href="https://pages.cloudflare.com" className="Link Link-without-underline Link-is-juicy">Cloudflare Pages</a></li>
           <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/reference/storage/overview/" className="Link Link-without-underline Link-is-juicy">Key-value storage</a></li>
           <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/about/using-cache/" className="Link Link-without-underline Link-is-juicy">Cache</a></li>
           <li className="Footer--column-list-item"><a href="https://workers.cloudflare.com/#plans" className="Link Link-without-underline Link-is-juicy">Pricing</a></li>
