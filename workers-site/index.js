@@ -1,5 +1,8 @@
 import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
 
+import redirector from 'lilredirector'
+import redirects from './redirects'
+
 import { hydrateEdgeState } from "./edge_state"
 import { bookmark, transformBookmark, unbookmark } from "./bookmark"
 
@@ -30,6 +33,9 @@ addEventListener("fetch", event => {
 async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
+
+  const { response: redirectResponse } = await redirector(event, redirects)
+  if (redirectResponse) return redirectResponse
 
   let path = url.pathname
   if (path.includes("docs")) {
@@ -81,7 +87,7 @@ async function handleEvent(event) {
           ...notFoundResponse,
           status: 404,
         })
-      } catch (e) {}
+      } catch (e) { }
     }
 
     return new Response(e.message || e.toString(), { status: 500 })
