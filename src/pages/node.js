@@ -35,7 +35,7 @@ const NodePage = () => {
             <h3 className={tw`text-xl font-semibold`}>What support does Cloudflare Workers currently offer for Node.js?</h3>
 
             <p className={tw`text-lg py-4`}>
-              The Workers runtime supports any Node.js package that doesn't rely on native code (e.g. C). You can use webpack (if the package supports it) to bundle up your Node.js dependencies and deploy to Workers using our CLI tool, <a className={tw`Link`} href="https://developers.cloudflare.com/workers/cli-wrangler/webpack">webpack</a>. Also, with <a className={tw`Link`} href="https://developers.cloudflare.com/workers/runtime-apis/durable-objects">Durable Objects</a>, you can use our new modules API that allows you to upload Workers as <a className={tw`Link`} href="https://github.com/cloudflare/wrangler/pull/1807">ES Modules</a>.
+              The Workers runtime supports any Node.js package that uses either webpack or another polyfill bundler. With webpack, you can bundle up your Node.js dependencies and deploy to Workers using our CLI tool, <a className={tw`Link`} href="https://developers.cloudflare.com/workers/cli-wrangler/webpack">wrangler</a>. Also, with <a className={tw`Link`} href="https://developers.cloudflare.com/workers/runtime-apis/durable-objects">Durable Objects</a>, you can use our new modules API that allows you to upload Workers as <a className={tw`Link`} href="https://github.com/cloudflare/wrangler/pull/1807">ES Modules</a>.
           </p>
 
             <h3 className={tw`text-xl font-semibold pt-4`}>How can I keep track on the latest news about Node.js support and other Workers products? </h3>
