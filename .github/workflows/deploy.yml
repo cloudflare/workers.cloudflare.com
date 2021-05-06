@@ -10,16 +10,6 @@ jobs:
     name: Deploy
     steps:
     - uses: actions/checkout@master
-    - name: Add NPM token
-      run: "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc"
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: NPM install
-      run: "npm install"
-    - name: Build app
-      run: "npm run build"
-      env:
-        SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
     - name: Publish app
       uses: cloudflare/wrangler-action@master
       with:

@@ -1,18 +1,9 @@
-import { getAssetFromKV, mapRequestToAsset } from "@cloudflare/kv-asset-handler"
-
 import redirector from 'lilredirector'
 import redirects from './redirects'
 
 import { hydrateEdgeState } from "./edge_state"
 import { bookmark, transformBookmark, unbookmark } from "./bookmark"
 
-/**
- * The DEBUG flag will do two things that help during development:
- * 1. we will skip caching on the edge, which makes it easier to
- *    debug.
- * 2. we will return an error message on exception in your Response rather
- *    than the default 404.html page.
- */
 const DEBUG = false
 
 addEventListener("fetch", event => {
@@ -32,7 +23,6 @@ addEventListener("fetch", event => {
 
 async function handleEvent(event) {
   const url = new URL(event.request.url)
-  let options = {}
 
   const { response: redirectResponse } = await redirector(event, redirects)
   if (redirectResponse) return redirectResponse
@@ -55,41 +45,11 @@ async function handleEvent(event) {
     }
   }
 
-  /**
-   * You can add custom logic to how we fetch your assets
-   * by configuring the function `mapRequestToAsset`
-   */
-  // options.mapRequestToAsset = handlePrefix(/^\/docs/)
-
   try {
-    if (DEBUG) {
-      // customize caching
-      options.cacheControl = {
-        bypassCache: true,
-      }
-    }
-    const response = await getAssetFromKV(event, options)
+    const response = await fetch(url)
     const state = await transformBookmark(event.request)
     return hydrateEdgeState({ response, state })
   } catch (e) {
-    // if an error is thrown try to serve the asset at 404.html
-    if (!DEBUG) {
-      try {
-        let notFoundResponse = await getAssetFromKV(event, {
-          mapRequestToAsset: req =>
-            new Request(
-              `${new URL(req.url).origin}/built-with/404/index.html`,
-              req
-            ),
-        })
-
-        return new Response(notFoundResponse.body, {
-          ...notFoundResponse,
-          status: 404,
-        })
-      } catch (e) { }
-    }
-
     return new Response(e.message || e.toString(), { status: 500 })
   }
 }
