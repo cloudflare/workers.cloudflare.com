@@ -15,3 +15,4 @@ jobs:
       with:
         apiToken: ${{ secrets.apiKey }}
         environment: "production"
+        workingDirectory: "worker"
