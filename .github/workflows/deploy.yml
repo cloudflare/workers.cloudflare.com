@@ -13,14 +13,15 @@ jobs:
     - uses: actions/checkout@master
     - name: "Trigger Pages deploy"
       run: |
-        curl "https://api.github.com/repos/$REPO/dispatches" \
-         -X POST \
-         -H "Accept: application/vnd.github.v3+json" \
-         -H "Authorization: token $GITHUB_TOKEN" \
-         -d "{\"event_type\":\"Repository Dispatch\", \"client_payload\": { \"project_name\": \"$PROJECT_NAME\" }}"
+        curl "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments" \
+        -X POST \
+        -s -o /dev/null \
+        --header "X-Auth-Email: $CF_EMAIL" \
+        --header "X-Auth-Key: $CF_API_KEY"
       env:
-        REPO: ${{ secrets.PAGES_REPO }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
+        CF_EMAIL: ${{ secrets.CF_EMAIL }}
         PROJECT_NAME: ${{ secrets.PAGES_PROJECT_NAME }}
     - name: Publish app
       uses: cloudflare/wrangler-action@master
