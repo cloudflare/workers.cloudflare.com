@@ -3,6 +3,7 @@ on:
     branches:
       - master
   repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -10,6 +11,17 @@ jobs:
     name: Deploy
     steps:
     - uses: actions/checkout@master
+    - name: "Trigger Pages deploy"
+      run: |
+        curl "https://api.github.com/repos/$REPO/dispatches" \
+         -X POST \
+         -H "Accept: application/vnd.github.v3+json" \
+         -H "Authorization: token $GITHUB_TOKEN" \
+         -d "{\"event_type\":\"Repository Dispatch\", \"client_payload\": { \"project_name\": \"$PROJECT_NAME\" }}"
+      env:
+        REPO: ${{ secrets.PAGES_REPO }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PROJECT_NAME: ${{ secrets.PAGES_PROJECT_NAME }}
     - name: Publish app
       uses: cloudflare/wrangler-action@master
       with:
