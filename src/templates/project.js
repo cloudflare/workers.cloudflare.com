@@ -192,8 +192,6 @@ const Project = ({
                       <RelatedProject project={project} />
                     </div>
                   ))}
-
-              <div className="Collection--spacer" />
             </div>
           </div>
         </div>

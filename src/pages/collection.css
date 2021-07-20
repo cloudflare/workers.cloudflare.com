@@ -52,7 +52,6 @@
 .Collection--header {
   display: flex;
   align-items: center;
-  padding: 0 var(--content-horizontal-padding) .5em;
 }
 
 .Collection--title {
@@ -62,12 +61,9 @@
 /* TODO - put scroll snap stuff inside of @supports (scroll-snap-align: start) */
 
 .Collection--projects {
-  display: flex;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-  scroll-padding: var(--content-horizontal-padding);
-  margin-top: -1em;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--project-width));
+  gap: 1em calc(var(--gutter) / 2);
 }
 
 @supports (-webkit-font-smoothing: antialiased) {
@@ -88,17 +84,13 @@
 }
 
 .Collection--project {
-  display: flex;
+  /* display: flex; */
   width: var(--project-width);
-  flex-direction: column;
+  /* flex-direction: column; */
   scroll-snap-align: start;
-  margin: 1em calc(var(--gutter) / 2);
+  margin: 1em 0;
   --border-radius: .5em;
   border-radius: var(--border-radius);
-}
-
-.Collection--project:first-child {
-  margin-left: var(--content-horizontal-padding);
 }
 
 .Collection--spacer {
@@ -117,10 +109,7 @@
 
 .Collection-is-centered .Collection--projects {
   scroll-padding: var(--scroll-padding);
-}
-
-.Collection-is-centered .Collection--project:first-child {
-  margin-left: var(--scroll-padding);
+  justify-content: center;
 }
 
 .Collection-is-centered .Collection--spacer {

@@ -53,7 +53,6 @@ const BuiltWithPage = ({
                       <Project project={project} isInitialRoute={isInitialRoute()} />
                     </div>
                   ))}
-                  <div className="Collection--spacer" />
                 </div>
               </div>
             </div>
