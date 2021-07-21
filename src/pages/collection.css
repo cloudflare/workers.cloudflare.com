@@ -24,9 +24,6 @@
 @media (max-width: 1500px) { .Collection { --columns: 3 }}
 @media (max-width: 1200px) { .Collection { --columns: 2 }}
 
-@media (max-width:  768px) and
-       (min-height: 600px) { .Collection { --columns: 1 }}
-
 @media (max-width:  375px) { .Collection { --columns: 1 }}
 
 @media (max-width: 2400px) {
@@ -40,6 +37,14 @@
       /
       (var(--columns) + .5)
     );
+  }
+}
+
+@media (max-width:  768px) and
+       (min-height: 600px) {
+  .Collection {
+    --columns: 1;
+    --project-width: 80vw;
   }
 }
 

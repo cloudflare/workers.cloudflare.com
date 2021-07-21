@@ -79,4 +79,6 @@ function useLocalStorage(key, initialValue) {
   return [storedValue, setValue]
 }
 
-export { flatten, normalizeCollection, useLocalStorage, useSSR }
+const PROJECTS_PER_COLLECTION = 6
+
+export { flatten, normalizeCollection, PROJECTS_PER_COLLECTION, useLocalStorage, useSSR }
