@@ -9,7 +9,7 @@ import RelatedProject from "../components/project"
 import SEO from "../components/seo"
 import useBookmarkState from "../components/bookmark_state"
 
-import { flatten, normalizeCollection } from "../utils"
+import { flatten, normalizeCollection, PROJECTS_PER_COLLECTION } from "../utils"
 
 import "../pages/built-with-workers-page.css"
 import "./project-page.css"
@@ -187,6 +187,7 @@ const Project = ({
               {collectionForProject &&
                 collectionForProject.projects
                   .filter(({ id }) => id !== project.id)
+                  .slice(0, PROJECTS_PER_COLLECTION)
                   .map(project => (
                     <div className="Collection--project" key={project.id}>
                       <RelatedProject project={project} />
