@@ -278,7 +278,7 @@ const IndexPage = () => {
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
-                  <li>Up to <strong>50ms CPU time</strong> per request</li>
+                  <li>Up to <strong>30s CPU time</strong> per request</li>
                   <li><strong>Always lowest latency</strong></li>
                   <li>
                     Additional
