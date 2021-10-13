@@ -9,6 +9,7 @@ module.exports = {
     author: `@cloudflaredev`,
     socialImage:
       "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06",
+    siteUrl: `https://workers.cloudflare.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -41,5 +42,6 @@ module.exports = {
         dataLayerName: "cfDataLayer",
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
