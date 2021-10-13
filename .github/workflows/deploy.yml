@@ -3,6 +3,7 @@ on:
     branches:
       - master
   repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -10,18 +11,21 @@ jobs:
     name: Deploy
     steps:
     - uses: actions/checkout@master
-    - name: Add NPM token
-      run: "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc"
+    - name: "Trigger Pages deploy"
+      run: |
+        curl "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments" \
+        -X POST \
+        -s -o /dev/null \
+        --header "X-Auth-Email: $CF_EMAIL" \
+        --header "X-Auth-Key: $CF_API_KEY"
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: NPM install
-      run: "npm install"
-    - name: Build app
-      run: "npm run build"
-      env:
-        SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
+        CF_EMAIL: ${{ secrets.CF_EMAIL }}
+        PROJECT_NAME: ${{ secrets.PAGES_PROJECT_NAME }}
     - name: Publish app
       uses: cloudflare/wrangler-action@master
       with:
         apiToken: ${{ secrets.apiKey }}
         environment: "production"
+        workingDirectory: "worker"

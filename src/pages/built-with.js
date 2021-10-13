@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import Project from "../components/project"
 import SEO from "../components/seo"
 
-import { flatten, normalizeCollection } from "../utils"
+import { flatten, normalizeCollection, PROJECTS_PER_COLLECTION } from "../utils"
 
 import "./built-with-workers-page.css"
 import "./collections.css"
@@ -48,12 +48,11 @@ const BuiltWithPage = ({
                 </div>
 
                 <div className="Collection--projects">
-                  {collection.projects.map(project => (
+                  {collection.projects.slice(0, PROJECTS_PER_COLLECTION).map(project => (
                     <div className="Collection--project" key={project.id}>
                       <Project project={project} isInitialRoute={isInitialRoute()} />
                     </div>
                   ))}
-                  <div className="Collection--spacer" />
                 </div>
               </div>
             </div>
