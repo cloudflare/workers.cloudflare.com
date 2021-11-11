@@ -1,4 +1,4 @@
-.WorkersBetaTeaserLink {
+.Notice {
   display: inline-block;
   color: inherit;
   font-weight: 500;
@@ -8,7 +8,7 @@
   transform: skew(-9deg);
 }
 
-.WorkersBetaTeaserLink--inner {
+.Notice--inner {
   padding: .85em 1.25em;
   border: 2px solid transparent;
   background: var(--background-color);
@@ -17,15 +17,15 @@
   transition: .3s background-color;
 }
 
-.WorkersBetaTeaserLink:hover .WorkersBetaTeaserLink--inner {
+.Notice:hover .Notice--inner {
   background-color: rgba(var(--background-color-rgb), .9);
 }
 
-.WorkersBetaTeaserLink--content {
+.Notice--content {
   transform: skew(9deg);
 }
 
-.WorkersBetaTeaserLink--beta {
+.Notice--beta {
   position: relativ;
   top: -1px;
   font-size: .8em;
