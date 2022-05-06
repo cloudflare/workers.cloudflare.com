@@ -2,6 +2,7 @@ import React from "react"
 
 import LatencyTest from '../components/latency_test'
 import Layout from "../components/layout"
+import Notice from "../components/notice"
 import SEO from "../components/seo"
 
 import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
@@ -76,6 +77,8 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
+
+      <Notice />
 
       <section className="QuoteSection">
         <div className="QuoteSection--column">
