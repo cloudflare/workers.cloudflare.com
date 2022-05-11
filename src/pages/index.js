@@ -65,7 +65,6 @@ const IndexPage = () => {
             <div className="HeroSection--illustration-card">
               <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally CodeBlock--language-sh" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-comment"># Install Wrangler, and log into your account</b><br />
                 <b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm install -g wrangler<br />
-                <u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler login<br />
                 <u><br />
                   <b className="CodeBlock--token-comment"># Create and publish a “Hello World” Worker</b><br />
                   <b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler init hello -y<br />
