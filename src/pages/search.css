@@ -1,0 +1,61 @@
+@import url(https://static.cloud.coveo.com/searchui/v2.10096/css/CoveoFullSearch.min.css);
+
+.CoveoSearchInterface {
+  min-width: inherit !important;
+  padding: 8rem 3rem;
+}
+
+.coveo-modal-content {
+  top: 50px;
+}
+
+.CoveoSearchInterface svg {
+  display: inline-block !important;
+}
+
+.CoveoSearchInterface p {
+  margin-bottom: 0 !important;
+}
+
+.CoveoSearchInterface .magic-box .magic-box-input,
+.CoveoSearchInterface .magic-box .magic-box-clear,
+.CoveoDynamicFacet,
+.CoveoDynamicFacetRange,
+.CoveoDynamicHierarchicalFacet,
+.CoveoSearchInterface input,
+.CoveoSearchInterface.coveo-small-facets .coveo-facet-dropdown-header {
+  background: transparent !important;
+}
+
+.CoveoSearchInterface,
+.CoveoSearchInterface input[type=text],
+.CoveoSearchInterface .magic-box,
+.CoveoSearchInterface .magic-box-clear-svg,
+.CoveoSearchInterface .coveo-search-button-svg,
+.CoveoSearchButton,
+.CoveoFieldValue .coveo-field-caption,
+.coveo-checkbox-label,
+.coveo-dynamic-facet-value .coveo-checkbox-span-label-suffix,
+.coveo-dynamic-facet-header-title,
+.coveo-dynamic-facet-header-btn,
+.coveo-dynamic-facet-show-more,
+
+.coveo-dynamic-facet-breadcrumb-collapse,
+.coveo-dynamic-facet-breadcrumb-value {
+  color: inherit !important;
+}
+
+.search ul {
+  list-style: none !important;
+}
+
+.search li {
+  margin-bottom: 0.5rem;
+}
+
+.coveo-dynamic-facet-header h2 {
+  margin-top: 0 !important;
+  line-height: 35px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
