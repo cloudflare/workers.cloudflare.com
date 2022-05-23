@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 
-import isDOMavailable from "./isDOMavailable.js"
+import isDOMavailable from "../isDOMavailable.js"
 
 import Logo from "@cloudflare/cloudflare-brand-assets/resources/workers/logo/logo-combination-mark-horizontal.svg"
 import "@cloudflare/cloudflare-brand-assets/css/components/cloudflare-workers-logo.css"
