@@ -97,6 +97,7 @@
 
 .Nav--search-input {
   outline: none;
+  border: none;
 }
 
 .Nav--search-icon {
