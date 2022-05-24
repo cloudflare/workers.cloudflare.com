@@ -11,7 +11,6 @@ const Search = () => {
   useEffect(() => {
     SearchEndpoint.configureCloudV2Endpoint(process.env.GATSBY_COVEO_ORG, process.env.GATSBY_COVEO_TOKEN)
     init(searchInterface.current)
-    executeQuery(searchInterface.current)
   })
 
   return (
