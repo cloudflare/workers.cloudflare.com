@@ -98,7 +98,7 @@ const Nav = ({ showInput = true }) => {
               className="Nav--search-input"
               type="text"
               value={value}
-              placeholder="Search Cloudflare..."
+              placeholder="Search Cloudflare"
               autoComplete="off"
               onChange={handleOnChange}
             />
