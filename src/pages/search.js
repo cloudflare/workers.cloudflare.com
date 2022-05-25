@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import { executeQuery, init, SearchEndpoint } from "coveo-search-ui"
+import { init, SearchEndpoint } from "coveo-search-ui"
 import { resultTemplate } from "../utils"
 import Header from "../components/header"
 

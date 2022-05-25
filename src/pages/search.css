@@ -53,9 +53,19 @@
   margin-bottom: 0.5rem;
 }
 
+.coveo-result-cell .CoveoFieldValue {
+  font-style: italic;
+  font-size: 85%;
+  margin-right: 15px;
+}
+
 .coveo-dynamic-facet-header h2 {
   margin-top: 0 !important;
   line-height: 35px !important;
   font-size: 15px !important;
   font-weight: 700 !important;
+}
+
+.CoveoQueryDuration::before {
+  content: " ";
 }
