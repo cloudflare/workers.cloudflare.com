@@ -42,6 +42,13 @@ const Search = () => {
             />
             <div
               className="CoveoDynamicFacet"
+              data-field="@product"
+              data-number-of-values="5"
+              data-title="Product"
+              data-sort-criteria="occurences"
+            />
+            <div
+              className="CoveoDynamicFacet"
               data-field="@language"
               data-number-of-values=""
               data-title="Language"
