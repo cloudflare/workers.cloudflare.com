@@ -100,6 +100,10 @@
   border: none;
 }
 
+[theme="dark"] .Nav--search-input {
+  background-color: var(--gray-01) !important;
+}
+
 .Nav--search-icon {
   width: .8rem;
   margin-right: 10px;
