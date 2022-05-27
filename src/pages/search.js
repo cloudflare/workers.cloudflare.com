@@ -23,7 +23,7 @@ const Search = () => {
         ref={searchInterface}
       >
         <div className="CoveoFolding" />
-        <div className="CoveoAnalytics" data-search-hub="Developer_docs" />
+        <div className="CoveoAnalytics" data-search-hub="Workers" />
         {/* empty tab section
           <div class="coveo-tab-section"></div>
         */}

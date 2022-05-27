@@ -45,6 +45,33 @@
   color: inherit !important;
 }
 
+[theme="dark"] .coveo-combobox-values {
+  background-color: var(--gray-05) !important;
+}
+
+[theme="dark"] .coveo-combobox-values li:hover {
+  background-color: var(--gray-00) !important;
+}
+
+[theme="dark"] .coveo-modal-backdrop {
+  background-color: var(--gray-05) !important;
+}
+
+[theme="dark"] .coveo-modal-body,
+[theme="dark"] .coveo-modal-header {
+  background-color: var(--gray-00) !important;
+}
+
+[theme="dark"] .CoveoResult a.CoveoResultLink,
+[theme="dark"] .CoveoResultLink,
+[theme="dark"] a.CoveoResultLink,
+[theme="dark"] .coveo-accessible-button.coveo-clickable {
+  --background-color-alpha: 0.03 !important;
+  --border-bottom-color-rgb: var(--orange-rgb) !important;
+  --border-bottom-color-alpha: 0.35 !important;
+  color: var(--code-orange) !important;
+}
+
 .search ul {
   list-style: none !important;
 }
