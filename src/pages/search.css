@@ -72,6 +72,26 @@
   color: var(--code-orange) !important;
 }
 
+[theme="dark"] .CoveoFieldValue .coveo-clickable {
+  color: var(--code-orange);
+}
+
+[theme="dark"] .coveo-pager-list-item,
+[theme="dark"] .coveo-results-per-page-list-item
+{
+  color: var(--code-orange) !important;
+}
+
+[theme="dark"] .coveo-pager-next-icon-svg {
+  color: var(--code-orange);
+}
+
+[theme="dark"] .coveo-active,
+[theme="dark"] .coveo-pager-list-item:hover,
+[theme="dark"] .coveo-results-per-page-list-item:hover  {
+  background-color: var(--orange-1);
+}
+
 .search ul {
   list-style: none !important;
 }
