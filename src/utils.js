@@ -100,9 +100,9 @@ const resultTemplate = () => `
         </div>
         <div class="coveo-result-row" style="margin-top:10px;">
           <div class="coveo-result-cell">
-            <span class="CoveoFieldValue" data-field="@customer_facing_source" data-text-caption="Source" style="margin-right:20px;"></span>
+            <span class="CoveoFieldValue" data-field="@customer_facing_source" data-text-caption="Source:" style="margin-right:20px;"></span>
             <span class="CoveoFieldValue" data-field="@product" data-split-values="true" data-text-caption="Product:" style="margin-right:20px;"></span>
-            <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+            <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language:" style="margin-right:30px;"></span>
           </div>
         </div>
         <div class="coveo-result-row" style="margin-top:10px;">
