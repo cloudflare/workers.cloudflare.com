@@ -102,6 +102,7 @@
 
 [theme="dark"] .Nav--search-input {
   background-color: var(--gray-01) !important;
+  color: #fff;
 }
 
 .Nav--search-icon {

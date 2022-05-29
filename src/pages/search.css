@@ -45,6 +45,15 @@
   color: inherit !important;
 }
 
+[theme="dark"] .CoveoSearchInterface.coveo-small-facets 
+.coveo-facet-column.coveo-facet-dropdown-modal-content {
+  background-color: var(--gray-00) !important;
+}
+
+[theme="dark"] .coveo-facet-dropdown-header {
+  background-color: var(--gray-05) !important;
+}
+
 [theme="dark"] .coveo-combobox-values {
   background-color: var(--gray-05) !important;
 }
@@ -89,7 +98,11 @@
 [theme="dark"] .coveo-active,
 [theme="dark"] .coveo-pager-list-item:hover,
 [theme="dark"] .coveo-results-per-page-list-item:hover  {
-  background-color: var(--orange-1);
+  background-color: var(--orange-0);
+}
+
+[theme="dark"] .coveo-dropdown-header p {
+  color: #fff;
 }
 
 .search ul {

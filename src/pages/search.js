@@ -9,7 +9,10 @@ const Search = () => {
   const searchInterface = useRef()
 
   useEffect(() => {
-    SearchEndpoint.configureCloudV2Endpoint(process.env.GATSBY_COVEO_ORG, process.env.GATSBY_COVEO_TOKEN)
+    SearchEndpoint.configureCloudV2Endpoint(
+      process.env.GATSBY_COVEO_ORG,
+      process.env.GATSBY_COVEO_TOKEN
+    )
     init(searchInterface.current)
   })
 
