@@ -7,7 +7,6 @@
   "dependencies": {
     "@cloudflare/cloudflare-brand-assets": "4.0.0",
     "autoprefixer": "^9.6.5",
-    "coveo-search-ui": "^2.10096.1",
     "focus-visible-polyfill": "^1.0.0",
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",

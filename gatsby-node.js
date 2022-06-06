@@ -32,20 +32,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
-// Fixing 3rd Party Modules: https://www.gatsbyjs.com/docs/debugging-html-builds/#fixing-third-party-modules
-
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html" || stage === "develop-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /coveo-search-ui/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    })
-  }
-}

@@ -46,6 +46,7 @@
   display: flex;
   height: 100%;
   margin-left: 0;
+  margin-right: auto;
 }
 
 .Nav--main-links .Nav--link {
@@ -82,39 +83,6 @@
 
 .Nav--item-sign-in {
   padding-right: 0;
-}
-
-.Nav--search {
-  display: flex;
-  margin-right: auto;
-  margin-left: 20px;
-}
-
-.Nav--search-form {
-  display: flex;
-  align-content: center;
-}
-
-.Nav--search-input {
-  outline: none;
-  border: none;
-}
-
-[theme="dark"] .Nav--search-input {
-  background-color: var(--gray-01) !important;
-  color: #fff;
-}
-
-.Nav--search-icon {
-  width: .8rem;
-  margin-right: 10px;
-  opacity: .3;
-  transition: color .3s ease, opacity .3s ease;
-}
-
-.Nav--search:focus-within .Nav--search-icon {
-  color: var(--code-orange);
-  opacity: 1;
 }
 
 @media (max-width: 1136px) {
