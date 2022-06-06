@@ -3,9 +3,9 @@ import Nav from "./nav"
 
 import "./header.css"
 
-const Header = ({ showInput = true }) => (
+const Header = () => (
   <header className="Header">
-    <Nav showInput={showInput} />
+    <Nav />
   </header>
 )
 
