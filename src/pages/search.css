@@ -92,8 +92,8 @@
 }
 
 [theme="dark"] .coveo-pager-previous-icon-svg,
-.coveo-dynamic-facet-collapse-toggle-svg,
-.coveo-pager-next-icon-svg {
+[theme="dark"] .coveo-dynamic-facet-collapse-toggle-svg,
+[theme="dark"] .coveo-pager-next-icon-svg {
   color: var(--code-orange);
 }
 
