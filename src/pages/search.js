@@ -7,13 +7,28 @@ import "./search.css"
 
 const Search = () => {
   const searchInterface = useRef()
+  const parent = useRef()
+
+  // hack to toggle search and loading icons
+  function showLoadingToggle(bool) {
+    const search = parent.current.querySelector("span.coveo-search-button")
+    const loading = parent.current.querySelector("span.coveo-search-button-loading")
+    console.log(search, loading)
+    search.style.display = bool ? "none" : "";
+    loading.style.display = bool ? "" : "none";
+  }
 
   useEffect(() => {
+    const root = searchInterface.current
     SearchEndpoint.configureCloudV2Endpoint(
       process.env.GATSBY_COVEO_ORG,
       process.env.GATSBY_COVEO_TOKEN
     )
-    init(searchInterface.current)
+
+    root.addEventListener('newQuery', () => showLoadingToggle(true))
+    root.addEventListener('newResultsDisplayed', () => showLoadingToggle(false))
+   
+    init(root)
   })
 
   return (
@@ -31,7 +46,7 @@ const Search = () => {
           <div class="coveo-tab-section"></div>
         */}
         <div className="coveo-search-section">
-          <div className="CoveoSearchbox" data-enable-omnibox="true" />
+          <div className="CoveoSearchbox" data-enable-omnibox="true" ref={parent} />
         </div>
         <div className="coveo-main-section">
           <div className="coveo-facet-column">

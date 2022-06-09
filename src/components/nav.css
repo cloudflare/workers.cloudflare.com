@@ -95,7 +95,7 @@
   align-content: center;
 }
 
-.Nav--search-input {
+.Nav--search-input, .Nav--search-input:focus-visible {
   outline: none;
   border: none;
 }
