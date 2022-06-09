@@ -1,1 +1,6 @@
+# Redirects file for workers.cloudflare.com
+# Docs: https://developers.cloudflare.com/pages/platform/redirects
+# <path-to-redirect> <url-or-pathname-to-redirect-to> <status-code (301 for permanent, 302 for temporary)>
+
+# Workershops redirects
 /workershops/san-jose https://www.ortusclub.com/cloudflare-developers-workershop-san-jose 301
