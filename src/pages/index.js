@@ -276,11 +276,11 @@ const IndexPage = () => {
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
-                  <li>Up to <strong>30s wall time</strong> per request Need more? <a className="Link"
+                  <li>Up to <strong>30s wall time</strong> per request Need more? <strong><a className="Link"
                         style={{
                           "--underline-size": "-1px",
                           "--underline-color": "rgba(var(--color-rgb), .5)"
-                        }} href="mailto:workers-product@cloudflare.com">contact us</a>!</li>
+                        }} href="mailto:workers-product@cloudflare.com">Contact us</a></strong>!</li>
                   <li><strong>Always lowest latency</strong></li>
                   <li>
                     Additional
