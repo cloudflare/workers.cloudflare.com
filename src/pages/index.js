@@ -238,7 +238,7 @@ const IndexPage = () => {
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedListWorkersThemed">
                   <li>Deploy up to 30 Worker scripts</li>
-                  <li>Runs on all 250 network locations</li>
+                  <li>Runs on all 275+ network locations</li>
                   <li>Free workers.dev subdomain</li>
                   <li>Up to 10ms CPU time per request</li>
                   <li>Lowest latency after the first request</li>
