@@ -23,6 +23,9 @@ jobs:
         CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
         CF_EMAIL: ${{ secrets.CF_EMAIL }}
         PROJECT_NAME: ${{ secrets.PAGES_PROJECT_NAME }}
+    - name: "Install dependencies"
+      working-directory: worker
+      run: "npm install"
     - name: Publish app
       uses: cloudflare/wrangler-action@master
       with:
