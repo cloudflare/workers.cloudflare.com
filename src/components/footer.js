@@ -33,7 +33,6 @@ const Footer = () => (
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item"><a href="https://developers.cloudflare.com/workers/about/how-it-works/" className="Link Link-without-underline Link-is-juicy">How it works</a></li>
           <li className="Footer--column-list-item"><a href="https://workers.cloudflare.com/built-with" className="Link Link-without-underline Link-is-juicy">Built with</a></li>
-          <li className="Footer--column-list-item"><a href="https://blog.cloudflare.com/serverlist/" className="Link Link-without-underline Link-is-juicy">Newsletter</a></li>
           <li className="Footer--column-list-item"><a href="https://blog.cloudflare.com/tag/serverless/" className="Link Link-without-underline Link-is-juicy">Blog</a></li>
         </ul>
       </div>
