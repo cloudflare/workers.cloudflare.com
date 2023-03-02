@@ -1,6 +1,7 @@
 import React from "react"
 
 import "@cloudflare/cloudflare-brand-assets/css/components/footer.css"
+import "./footer.css"
 
 const Footer = () => (
   <footer className="Footer Footer-with-top-separator">
@@ -47,7 +48,7 @@ const Footer = () => (
         </ul>
       </div>
     </div>
-    <div className="Footer--legal">© 2021 Cloudflare, Inc. · <a className="Link Link-without-underline" href="https://www.cloudflare.com/privacypolicy/">Privacy</a> · <a className="Link Link-without-underline" href="https://www.cloudflare.com/website-terms/">Terms</a></div>
+    <div className="Footer--legal">© 2021 Cloudflare, Inc. · <a className="Link Link-without-underline" href="https://www.cloudflare.com/privacypolicy/">Privacy</a> · <a className="Link Link-without-underline" href="https://www.cloudflare.com/website-terms/">Terms</a> · <a role="button" id="ot-sdk-btn" className="Link Link-without-underline ot-sdk-show-settings">Cookie Settings</a></div>
   </footer>
 )
 
