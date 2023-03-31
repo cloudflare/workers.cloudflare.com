@@ -32,16 +32,16 @@ const NodePage = () => {
           <div className={tw`md:max-w-4xl mx-auto mt-12 pt-8 pb-32`}>
             <h2 className={tw`text-4xl pt-4 pb-12`}>Frequently Asked Questions</h2>
 
-            <h3 className={tw`text-xl font-semibold`}>What support does Cloudflare Workers currently offer for Node.js?</h3>
+            <h3 className={tw`text-xl font-semibold`}>What Node.js APIs can I use in Cloudflare Workers</h3>
 
             <p className={tw`text-lg py-4`}>
-              The Workers runtime supports any Node.js package that uses either webpack or another polyfill bundler. With webpack, you can bundle up your Node.js dependencies and deploy to Workers using our CLI tool, <a className={tw`Link`} href="https://developers.cloudflare.com/workers/cli-wrangler/webpack">wrangler</a>. Also, with <a className={tw`Link`} href="https://developers.cloudflare.com/workers/runtime-apis/durable-objects">Durable Objects</a>, you can use our new modules API that allows you to upload Workers as <a className={tw`Link`} href="https://github.com/cloudflare/wrangler/pull/1807">ES Modules</a>.
-          </p>
+              You can use a <a className={tw`Link`} href="https://developers.cloudflare.com/workers/runtime-apis/nodejs/">subset of Node.js APIs</a> directly in your Worker, with no polyfills required, by enabling the `nodejs_compat` <a className={tw`Link`} href="https://developers.cloudflare.com/workers/platform/compatibility-dates/#compatibility-flags">compatibility flag</a>.
+            </p>
 
-            <h3 className={tw`text-xl font-semibold pt-4`}>How can I keep track on the latest news about Node.js support and other Workers products? </h3>
+            <h3 className={tw`text-xl font-semibold pt-4`}>How can I keep track of the latest news about Node.js support and other Workers products? </h3>
 
             <p className={tw`text-lg py-4`}>
-              Please come visit us in the <a className={tw`Link`} href="https://discord.gg/cloudflaredev">Workers Discord</a>, where the team regularly shares updates on the roadmap!
+              Join the <a className={tw`Link`} href="https://discord.gg/cloudflaredev">Workers Discord</a>, and tell us what APIs you'd like us to support!
           </p>
           </div>
         </>
