@@ -119,7 +119,7 @@ const Nav = ({ showInput = true }) => {
         <div className="Nav--item Nav--item-sign-up">
           <a
             className="Button Button-is-primary"
-            href="https://dash.cloudflare.com/sign-up/workers"
+            href="https://dash.cloudflare.com/sign-up/workers-and-pages"
           >
             Sign up
           </a>

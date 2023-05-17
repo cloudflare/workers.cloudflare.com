@@ -37,7 +37,7 @@ const IndexPage = () => {
             </div>
             <div className="HeroSection--actions HeroSection--actions-desktop">
               <div className="HeroSection--actions-item">
-                <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Start building</a>
+                <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers-and-pages">Start building</a>
               </div>
               <div className="HeroSection--actions-item">
                 <a className="Button Button-is-secondary" href="https://workers.cloudflare.com/docs">Read docs</a>
@@ -48,7 +48,7 @@ const IndexPage = () => {
                 <a className="Button Button-is-secondary" href="https://workers.cloudflare.com/docs">View docs</a>
               </div>
               <div className="HeroSection--actions-item">
-                <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">&nbsp;Sign&nbsp;up&nbsp;</a>
+                <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers-and-pages">&nbsp;Sign&nbsp;up&nbsp;</a>
               </div>
             </div>
             <div className="HeroSection--key-points">
@@ -197,7 +197,7 @@ const IndexPage = () => {
           <div className="BenefitsSection--cta">
             <h2 className="BenefitsSection--cta-title">Build your first Worker now.</h2>
             <div className="BenefitsSection--cta-cta">
-              <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Start building</a>
+              <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers-and-pages">Start building</a>
             </div>
           </div>
         </div>
@@ -262,8 +262,8 @@ const IndexPage = () => {
                 </ul>
               </div>
               <div className="PlansSection--plan-cta">
-                <a className="Button Button-is-secondary-orange" light-theme-only="true" href="https://dash.cloudflare.com/sign-up/workers">Get started</a>
-                <a className="Button Button-is-secondary" dark-theme-only="true" href="https://dash.cloudflare.com/sign-up/workers">Get started</a>
+                <a className="Button Button-is-secondary-orange" light-theme-only="true" href="https://dash.cloudflare.com/sign-up/workers-and-pages">Get started</a>
+                <a className="Button Button-is-secondary" dark-theme-only="true" href="https://dash.cloudflare.com/sign-up/workers-and-pages">Get started</a>
               </div>
             </div>
 
@@ -304,7 +304,7 @@ const IndexPage = () => {
                 </ul>
               </div>
               <div className="PlansSection--plan-cta">
-                <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers">Get started</a>
+                <a className="Button Button-is-primary" href="https://dash.cloudflare.com/sign-up/workers-and-pages">Get started</a>
               </div>
             </div>
           </div>
