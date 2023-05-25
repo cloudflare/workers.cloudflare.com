@@ -29,19 +29,19 @@ export default function HTML(props) {
   const env = process.env.NODE_ENV
   const cookieScript = env === 'production' ? (
     <>
-      <script type="text/javascript" src="https://cdn.cookielaw.org/consent/d3bba612-bde9-4daa-93e3-a78dab7d1a86/OtAutoBlock.js" ></script>
-      <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charSet="UTF-8" data-domain-script="d3bba612-bde9-4daa-93e3-a78dab7d1a86" ></script>
+      <script type="text/javascript" src="https://cdn.cookielaw.org/consent/316fefa6-e079-422c-b2be-31e41b337bad/OtAutoBlock.js" ></script>
+      <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="316fefa6-e079-422c-b2be-31e41b337bad" ></script>
       <script type="text/javascript">
-        function OptanonWrapper() { }
+      function OptanonWrapper() { }
       </script>
     </>
   ) : (
     <>
-      <script type="text/javascript" src="https://cdn.cookielaw.org/consent/d3bba612-bde9-4daa-93e3-a78dab7d1a86-test/OtAutoBlock.js" ></script>
-      <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charSet="UTF-8" data-domain-script="d3bba612-bde9-4daa-93e3-a78dab7d1a86-test" ></script>
-      <script type="text/javascript">
-        function OptanonWrapper() { }
-      </script>
+			<script type="text/javascript" src="https://cdn.cookielaw.org/consent/316fefa6-e079-422c-b2be-31e41b337bad-test/OtAutoBlock.js" ></script>
+			<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="316fefa6-e079-422c-b2be-31e41b337bad-test" ></script>
+			<script type="text/javascript">
+			function OptanonWrapper() { }
+			</script>
     </>
   )
 
@@ -57,6 +57,7 @@ export default function HTML(props) {
         {props.headComponents}
         <script dangerouslySetInnerHTML={{ __html: setDomainAttr }} />
         <script dangerouslySetInnerHTML={{ __html: loadTheme }} />
+        {cookieScript}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -69,7 +70,6 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        {cookieScript}
       </body>
     </html>
   )
