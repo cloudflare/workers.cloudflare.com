@@ -9,7 +9,7 @@
     "autoprefixer": "^9.6.5",
     "coveo-search-ui": "^2.10096.1",
     "focus-visible-polyfill": "^1.0.0",
-    "gatsby": "^2.16.1",
+    "gatsby": "^5.3.2",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-google-tagmanager": "^2.2.3",
     "gatsby-plugin-postcss": "^2.1.13",
