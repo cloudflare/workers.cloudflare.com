@@ -9,9 +9,6 @@ import "./project.css"
 
 const Project = ({ isInitialRoute, project }) => {
   const {
-    thumbnail: {
-      asset: { fluid },
-    },
     name,
     slug,
     shortDescription,
@@ -26,7 +23,7 @@ const Project = ({ isInitialRoute, project }) => {
     >
       <div className="Project Project-fills-height">
         <div className="Project--image">
-          <Img fluid={fluid} />
+          <img className="Project--image-img" src={project.image.asset.url} />
         </div>
 
         <div className="Project--content">
@@ -35,7 +32,7 @@ const Project = ({ isInitialRoute, project }) => {
         </div>
 
         {bookmarked && (
-          <div className={`Project--bookmark${ isInitialRoute ? ' Project--bookmark-should-fade-in' : '' }`}>
+          <div className={`Project--bookmark${isInitialRoute ? ' Project--bookmark-should-fade-in' : ''}`}>
             <BookmarkIcon withGradientFill withShadow />
           </div>
         )}
