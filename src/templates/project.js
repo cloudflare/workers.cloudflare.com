@@ -59,8 +59,8 @@ const Project = ({
     normalizeCollection(collection, flatten(allSanityProject))
   )
 
-  const collectionForProject = collections.find(({ projects }) =>
-    projects.find(({ id }) => id === project.id)
+  const collectionForProject = collections.find(collection =>
+    collection.projects && collection.projects.filter(project => project).find(({ id }) => id === project.id)
   )
 
   const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
@@ -76,7 +76,7 @@ const Project = ({
       <SEO
         title={[project.name, "Built with Workers"].join(" · ")}
         description={project.shortDescription}
-        image={project.image.asset.fluid.src}
+        image={project.image.asset.url}
       />
 
       <div className="BuiltWithWorkersPage ProjectPage">
@@ -131,13 +131,13 @@ const Project = ({
         </div>
 
         <div className="ProjectPage--image">
-          <Img fluid={project.image.asset.fluid} />
+          <img src={project.image.asset.url} style={{ objectFit: "cover", width: "100%" }} />
         </div>
 
         {project.longDescription && (
           <div className="ProjectPage--body">
             <div className="ProjectPage--about">
-              <Markdown source={project.longDescription} />
+              <Markdown children={project.longDescription} />
             </div>
 
             {(project.developer || project.links.length > 0) && (
@@ -176,7 +176,7 @@ const Project = ({
             )}
           </div>
         )}
-
+        {/* 
         <div className="ProjectPage--more">
           <div className="Collection Collection-is-centered">
             <div className="Collection--header">
@@ -195,7 +195,7 @@ const Project = ({
                   ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Layout>
   )

@@ -11,7 +11,8 @@
   border-radius: var(--border-radius);
 }
 
-[theme="dark"] .Project---link { /* TODO */
+[theme="dark"] .Project---link {
+  /* TODO */
   background: rgba(var(--gray-1-rgb), .5);
 }
 
@@ -64,6 +65,7 @@
 
 /* TODO */
 @media (hover: hover) {
+
   [theme] .Project---link:hover .Project::after,
   [theme] .Project---link[is-focus-visible] .Project::after {
     border-color: rgba(var(--orange-3-rgb), .4);
@@ -72,6 +74,7 @@
 
 /* TODO */
 @media (hover: none) {
+
   .Project---link:focus .Project::after,
   .Project---link:active .Project::after {
     background: rgba(var(--shadow-color-rgb), .25);
@@ -86,21 +89,27 @@
   overflow: hidden;
 }
 
+.Project--image-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
 /* TODO */
-.Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child {
+.Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child {
   padding-bottom: 62.5% !important;
 }
 
-[domain="localhost"] .Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child {
+[domain="localhost"] .Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child {
   background: var(--red-8);
   color: var(--red-3);
 }
 
-[domain="localhost"] .Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child ~ * {
+[domain="localhost"] .Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child~* {
   opacity: 0;
 }
 
-[domain="localhost"] .Project--image > .gatsby-image-wrapper > div:not([style*="padding-bottom: 62.5%"]):first-child::before {
+[domain="localhost"] .Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child::before {
   position: absolute;
   content: "Please use a 16:10 image.";
   height: 1em;
@@ -174,5 +183,7 @@
 }
 
 @keyframes project-bookmark-fade-in {
-  to { opacity: 1 }
+  to {
+    opacity: 1
+  }
 }

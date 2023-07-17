@@ -8,8 +8,10 @@ const flatten = set => set.edges.map(({ node }) => node)
 const normalizeCollection = (collection, projects) => {
   let normalized = collection
 
-  if (collection.projects.length) {
-    const collectionProjects = collection.projects.map(({ id }) =>
+  const filteredProjects = collection && collection.projects && collection.projects.filter(project => project)
+
+  if (filteredProjects && filteredProjects.length) {
+    const collectionProjects = filteredProjects.map(({ id }) =>
       projects.find(project => project.id === id)
     )
     normalized.projects = collectionProjects

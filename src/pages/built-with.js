@@ -20,13 +20,7 @@ const BuiltWithPage = ({
     sanityLayout,
   },
 }) => {
-  const allCollections = flatten(allSanityCollection)
-  let collections = sanityLayout.collections.map(collection =>
-    allCollections.find(({ id }) => id === collection.id)
-  )
-  collections = collections.map(collection =>
-    normalizeCollection(collection, flatten(allSanityProject))
-  )
+  let collections = sanityLayout._rawCollections
 
   return (
     <Layout>
@@ -71,9 +65,7 @@ export const query = graphql`
     slug
     image {
       asset {
-        fluid(maxWidth: 200) {
-          ...GatsbySanityImageFluid
-        }
+        url
       }
     }
   }
@@ -87,16 +79,12 @@ export const query = graphql`
     developer
     thumbnail: image {
       asset {
-        fluid(maxWidth: 440) {
-          ...GatsbySanityImageFluid
-        }
+        url
       }
     }
     image {
       asset {
-        fluid(maxWidth: 952) {
-          ...GatsbySanityImageFluid
-        }
+        url
       }
     }
     links {
@@ -137,9 +125,7 @@ export const query = graphql`
     }
 
     sanityLayout(page_id: { eq: "homepage" }) {
-      collections {
-        id
-      }
+      _rawCollections(resolveReferences: { maxDepth: 10 })
     }
   }
 `
