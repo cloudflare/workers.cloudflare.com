@@ -14,12 +14,9 @@ import "./collections.css"
 import "./collection.css"
 
 const BuiltWithPage = ({
-  data: {
-    allSanityCollection,
-    allSanityProject,
-    sanityLayout,
-  },
+  data
 }) => {
+  const { sanityLayout } = data
   let collections = sanityLayout._rawCollections
 
   return (
@@ -34,16 +31,16 @@ const BuiltWithPage = ({
         </div>
 
         <div className="Collections">
-          {collections.map((collection, i) => (
-            <div className="Collections--collection" key={collection.id}>
+          {collections.map((collection, ci) => (
+            <div className="Collections--collection" key={ci}>
               <div className="Collection">
                 <div className="Collection--header">
                   <h2 className="Collection--title">{collection.name}</h2>
                 </div>
 
                 <div className="Collection--projects">
-                  {collection.projects.slice(0, PROJECTS_PER_COLLECTION).map(project => (
-                    <div className="Collection--project" key={project.id}>
+                  {collection.projects.slice(0, PROJECTS_PER_COLLECTION).map((project, pi) => (
+                    <div className="Collection--project" key={pi}>
                       <Project project={project} isInitialRoute={isInitialRoute()} />
                     </div>
                   ))}
@@ -59,7 +56,6 @@ const BuiltWithPage = ({
 
 export const query = graphql`
   fragment Feature on SanityFeature {
-    id
     name
     description
     slug
@@ -71,7 +67,6 @@ export const query = graphql`
   }
 
   fragment Project on SanityProject {
-    id
     name
     shortDescription
     longDescription
@@ -93,18 +88,13 @@ export const query = graphql`
       url
     }
     features {
-      id
       name
       slug
     }
   }
 
   fragment Collection on SanityCollection {
-    id
     name
-    projects {
-      id
-    }
   }
 
   query Homepage {
