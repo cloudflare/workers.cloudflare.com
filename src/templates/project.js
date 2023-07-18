@@ -96,7 +96,7 @@ const Project = ({
             </p>
           </div>
 
-          {project.links.length > 0 && (
+          {project.links && project.links.length > 0 && (
             <div className="ProjectPage--header-actions">
               <div className="ProjectPage--header-action-primary">
                 {[project.links[0]].map(({ linkType, url }) => (
@@ -140,7 +140,7 @@ const Project = ({
               <Markdown children={project.longDescription} />
             </div>
 
-            {(project.developer || project.links.length > 0) && (
+            {(project.developer || project.links && project.links.length > 0) && (
               <div className="ProjectPage--metadata">
                 <dl className="DefinitionList">
                   {project.developer && (
@@ -151,7 +151,7 @@ const Project = ({
                       </dd>
                     </>
                   )}
-                  {project.links.length > 0 && (
+                  {project.links && project.links.length > 0 && (
                     <>
                       <dt className="DefinitionList--term">Links</dt>
                       <dd className="DefinitionList--definition">
@@ -176,7 +176,7 @@ const Project = ({
             )}
           </div>
         )}
-        {/* 
+        {/*
         <div className="ProjectPage--more">
           <div className="Collection Collection-is-centered">
             <div className="Collection--header">
