@@ -257,7 +257,6 @@ export const query = graphql`
 
           projects {
             ...Project
-            id
           }
         }
       }
