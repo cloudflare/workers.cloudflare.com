@@ -69,8 +69,6 @@ const Project = ({
     ({ id }) => featureIds.includes(id)
   )
 
-  console.log(featuresForProject)
-
   const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
 
   const bookmarkState = loaded

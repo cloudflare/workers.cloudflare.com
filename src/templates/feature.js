@@ -10,34 +10,36 @@ import "../pages/built-with-workers-page.css"
 import "./project-page.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/definition-list.css"
 
-const Collection = ({ data }) => {
+const Feature = ({ data }) => {
   const {
     allSanityProject,
-    sanityCollection: collection
+    sanityFeature: feature
   } = data
-  const projectIds = collection._rawProjects.map(({ id }) => id)
-  const projects = allSanityProject.edges.map(({ node }) => node).filter(
-    ({ id }) => projectIds.includes(id)
+  console.log(feature)
+  const projects = allSanityProject.edges.map(({ node }) => node)
+
+  const featureProjects = projects.filter(project =>
+    project && project._rawFeatures && project._rawFeatures.map(({ id: fId }) => fId).includes(feature.id)
   )
 
   return (
     <Layout>
       <SEO
-        title={[collection.name, "Built with Workers"].join(" · ")}
-        description={collection.description}
+        title={[feature.name, "Built with Workers"].join(" · ")}
+        description={feature.description}
       />
 
       <div className="BuiltWithWorkersPage ProjectPage">
         <div className="BuiltWithWorkersPage--hero">
-          <h1>{collection.name}</h1>
-          <p>{collection.description}</p>
+          <h1>{feature.name}</h1>
+          <p>{feature.description}</p>
         </div>
 
         <div className="Collections">
           <div className="Collections--collection">
             <div className="Collection">
               <div className="Collection--projects">
-                {shuffle(projects).slice(0, PROJECTS_PER_COLLECTION).map((project, pi) => (
+                {shuffle(featureProjects).slice(0, PROJECTS_PER_COLLECTION).map((project, pi) => (
                   <div className="Collection--project" key={pi}>
                     <Project project={project} isInitialRoute={isInitialRoute()} />
                   </div>
@@ -58,17 +60,18 @@ export const query = graphql`
         node {
           ...Project
           id
+          _rawFeatures(resolveReferences: { maxDepth: 10 })
         }
       }
     }
 
-    sanityCollection(slug: { eq: $slug }) {
-      id
+    sanityFeature(slug: { eq: $slug }) {
       name
       description
-      _rawProjects(resolveReferences: { maxDepth: 5 })
+      id
+      slug
     }
   }
 `
 
-export default Collection
+export default Feature

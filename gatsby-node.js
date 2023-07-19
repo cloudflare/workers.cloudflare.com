@@ -11,6 +11,14 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
+      allSanityFeature {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+
       allSanityProject {
         edges {
           node {
@@ -26,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const {
-    data: { allSanityCollection, allSanityProject },
+    data: { allSanityCollection, allSanityFeature, allSanityProject },
   } = result
 
   const collections = allSanityCollection.edges.map(({ node }) => node)
@@ -36,6 +44,17 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path,
       component: require.resolve("./src/templates/collection.js"),
+      context: { slug: node.slug },
+    })
+  })
+
+  const features = allSanityFeature.edges.map(({ node }) => node)
+  features.forEach((node, _index) => {
+    const path = `/built-with/features/${node.slug}`
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/feature.js"),
       context: { slug: node.slug },
     })
   })
