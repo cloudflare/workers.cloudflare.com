@@ -52,8 +52,9 @@ const BOOKMARK_STATE = {
 }
 
 const Project = ({
-  data: { allSanityCollection, allSanityProject, sanityProject: project },
+  data: { allSanityCollection, allSanityFeature, allSanityProject, sanityProject: project },
 }) => {
+  console.log(project._rawFeatures)
   const allCollections = flatten(allSanityCollection)
   let collections = allCollections.map(collection =>
     normalizeCollection(collection, flatten(allSanityProject))
@@ -62,6 +63,13 @@ const Project = ({
   const collectionForProject = collections.find(collection =>
     collection.projects && collection.projects.filter(project => project).find(({ id }) => id === project.id)
   )
+
+  const featureIds = project._rawFeatures.map(({ id }) => id)
+  const featuresForProject = allSanityFeature.edges.map(({ node }) => node).filter(
+    ({ id }) => featureIds.includes(id)
+  )
+
+  console.log(featuresForProject)
 
   const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
 
@@ -171,6 +179,26 @@ const Project = ({
                       </dd>
                     </>
                   )}
+                  {featuresForProject && featuresForProject.length > 0 && (
+                    <>
+                      <dt className="DefinitionList--term">Features</dt>
+                      <dd className="DefinitionList--definition">
+                        {featuresForProject.map(({ name, slug }) => (
+                          <span
+                            className="ProjectPage--metadata-link"
+                            key={slug}
+                          >
+                            <a
+                              className="Link Link-with-right-arrow"
+                              href={`/built-with/features/${slug}`}
+                            >
+                              {name}
+                            </a>
+                          </span>
+                        ))}
+                      </dd>
+                    </>
+                  )}
                 </dl>
               </div>
             )}
@@ -205,6 +233,7 @@ export const query = graphql`
   query ProjectPage($slug: String!) {
     sanityProject(slug: { eq: $slug }) {
       ...Project
+      _rawFeatures(resolveReferences: { maxDepth: 10 })
     }
 
     allSanityProject {
@@ -229,6 +258,17 @@ export const query = graphql`
         }
       }
     }
+
+    allSanityFeature {
+      edges {
+        node {
+          id
+          name
+          slug
+        }
+      }
+    }
+
   }
 `
 
