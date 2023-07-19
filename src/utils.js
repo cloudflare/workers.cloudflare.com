@@ -81,7 +81,7 @@ function useLocalStorage(key, initialValue) {
   return [storedValue, setValue]
 }
 
-const PROJECTS_PER_COLLECTION = 9999
+const PROJECTS_PER_COLLECTION = 8
 
 const shuffle = (array) => {
   let clone = [].concat(array)
