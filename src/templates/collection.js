@@ -15,7 +15,7 @@ const Collection = ({ data }) => {
     allSanityProject,
     sanityCollection: collection
   } = data
-  const projectIds = collection._rawProjects.map(({ id }) => id)
+  const projectIds = collection._rawProjects ? collection._rawProjects.map(({ id }) => id) : []
   const projects = allSanityProject.edges.map(({ node }) => node).filter(
     ({ id }) => projectIds.includes(id)
   )

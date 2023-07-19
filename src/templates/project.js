@@ -9,7 +9,7 @@ import RelatedProject from "../components/project"
 import SEO from "../components/seo"
 import useBookmarkState from "../components/bookmark_state"
 
-import { flatten, normalizeCollection, PROJECTS_PER_COLLECTION } from "../utils"
+import { flatten, normalizeCollection, PROJECTS_PER_COLLECTION, shuffle } from "../utils"
 
 import "../pages/built-with-workers-page.css"
 import "./project-page.css"
@@ -54,17 +54,16 @@ const BOOKMARK_STATE = {
 const Project = ({
   data: { allSanityCollection, allSanityFeature, allSanityProject, sanityProject: project },
 }) => {
-  console.log(project._rawFeatures)
   const allCollections = flatten(allSanityCollection)
   let collections = allCollections.map(collection =>
     normalizeCollection(collection, flatten(allSanityProject))
   )
 
   const collectionForProject = collections.find(collection =>
-    collection.projects && collection.projects.filter(project => project).find(({ id }) => id === project.id)
+    collection._rawProjects && collection._rawProjects.filter(project => project).find(({ id }) => id === project.id)
   )
 
-  const featureIds = project._rawFeatures.map(({ id }) => id)
+  const featureIds = project._rawFeatures ? project._rawFeatures.map(({ id }) => id) : []
   const featuresForProject = allSanityFeature.edges.map(({ node }) => node).filter(
     ({ id }) => featureIds.includes(id)
   )
@@ -202,7 +201,7 @@ const Project = ({
             )}
           </div>
         )}
-        {/*
+
         <div className="ProjectPage--more">
           <div className="Collection Collection-is-centered">
             <div className="Collection--header">
@@ -211,7 +210,7 @@ const Project = ({
 
             <div className="Collection--projects">
               {collectionForProject &&
-                collectionForProject.projects
+                shuffle(collectionForProject._rawProjects)
                   .filter(({ id }) => id !== project.id)
                   .slice(0, PROJECTS_PER_COLLECTION)
                   .map(project => (
@@ -221,7 +220,7 @@ const Project = ({
                   ))}
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </Layout>
   )
@@ -231,6 +230,7 @@ export const query = graphql`
   query ProjectPage($slug: String!) {
     sanityProject(slug: { eq: $slug }) {
       ...Project
+      id
       _rawFeatures(resolveReferences: { maxDepth: 10 })
     }
 
@@ -238,6 +238,7 @@ export const query = graphql`
       edges {
         node {
           ...Project
+          id
         }
       }
     }
@@ -246,12 +247,17 @@ export const query = graphql`
       edges {
         node {
           ...Collection
+          id
+          _rawProjects(resolveReferences: { maxDepth: 10 })
+
           feature {
             ...Feature
+            id
           }
 
           projects {
             ...Project
+            id
           }
         }
       }
