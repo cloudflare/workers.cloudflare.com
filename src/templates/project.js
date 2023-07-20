@@ -212,7 +212,7 @@ const Project = ({
               {collectionForProject &&
                 shuffle(collectionForProject._rawProjects)
                   .filter(({ id }) => id !== project.id)
-                  .slice(0, PROJECTS_PER_COLLECTION)
+                  .slice(0, 20)
                   .map(project => (
                     <div className="Collection--project" key={project.id}>
                       <RelatedProject project={project} />
