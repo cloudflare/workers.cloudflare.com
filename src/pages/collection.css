@@ -79,7 +79,7 @@
 }
 
 .Collection--title a {
-  color: var(--gray-8);
+  color: var(--color);
   font-size: 25px;
   text-decoration: none;
 }
