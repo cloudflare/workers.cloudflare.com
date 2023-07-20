@@ -39,7 +39,7 @@ const Feature = ({ data }) => {
           <div className="Collections--collection">
             <div className="Collection">
               <div className="Collection--projects">
-                {shuffle(featureProjects).slice(0, PROJECTS_PER_COLLECTION).map((project, pi) => (
+                {shuffle(featureProjects).slice(0, 20).map((project, pi) => (
                   <div className="Collection--project" key={pi}>
                     <Project project={project} isInitialRoute={isInitialRoute()} />
                   </div>
