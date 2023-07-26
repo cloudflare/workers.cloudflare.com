@@ -19,8 +19,12 @@ const getPrimaryLinkText = linkType => {
   switch (linkType) {
     case "announcement":
       return "Read announcement"
+    case "blog":
+      return "Read blog"
     case "code":
       return "Read code"
+    case "linkedin":
+      return "View on LinkedIn"
     case "twitter":
       return "View on Twitter"
     case "website":
@@ -34,8 +38,12 @@ const getLinkText = linkType => {
   switch (linkType) {
     case "announcement":
       return "Announcement"
+    case "blog":
+      return "Blog"
     case "code":
       return "Code"
+    case "linkedin":
+      return "LinkedIn"
     case "twitter":
       return "Twitter"
     case "website":
