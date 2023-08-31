@@ -8,7 +8,7 @@ module.exports = {
     description: `Build your next application with Cloudflare Workers`,
     author: `@cloudflaredev`,
     socialImage:
-      "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06",
+      "https://workers.cloudflare.com/static/resources/og-image.png",
     siteUrl: `https://workers.cloudflare.com`,
   },
   plugins: [
