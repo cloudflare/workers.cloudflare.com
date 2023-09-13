@@ -11,15 +11,15 @@ import "./project-page.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/definition-list.css"
 
 const Feature = ({ data }) => {
-  const {
-    allSanityProject,
-    sanityFeature: feature
-  } = data
+  const { allSanityProject, sanityFeature: feature } = data
   console.log(feature)
   const projects = allSanityProject.edges.map(({ node }) => node)
 
-  const featureProjects = projects.filter(project =>
-    project && project._rawFeatures && project._rawFeatures.map(({ id: fId }) => fId).includes(feature.id)
+  const featureProjects = projects.filter(
+    project =>
+      project &&
+      project._rawFeatures &&
+      project._rawFeatures.map(({ id: fId }) => fId).includes(feature.id)
   )
 
   return (
@@ -39,11 +39,16 @@ const Feature = ({ data }) => {
           <div className="Collections--collection">
             <div className="Collection">
               <div className="Collection--projects">
-                {shuffle(featureProjects).slice(0, 20).map((project, pi) => (
-                  <div className="Collection--project" key={pi}>
-                    <Project project={project} isInitialRoute={isInitialRoute()} />
-                  </div>
-                ))}
+                {shuffle(featureProjects)
+                  .slice(0, 20)
+                  .map((project, pi) => (
+                    <div className="Collection--project" key={pi}>
+                      <Project
+                        project={project}
+                        isInitialRoute={isInitialRoute()}
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import redirector from 'lilredirector'
-import redirects from './redirects'
+import redirector from "lilredirector"
+import redirects from "./redirects"
 
 import { hydrateEdgeState } from "./edge_state"
 import { bookmark, transformBookmark, unbookmark } from "./bookmark"

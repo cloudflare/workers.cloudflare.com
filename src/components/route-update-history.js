@@ -29,5 +29,5 @@ export {
   onRouteUpdate,
   getRouteUpdateHistory,
   getLastRouteUpdate,
-  isInitialRoute
+  isInitialRoute,
 }

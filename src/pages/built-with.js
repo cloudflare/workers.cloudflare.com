@@ -13,9 +13,7 @@ import "./built-with-workers-page.css"
 import "./collections.css"
 import "./collection.css"
 
-const BuiltWithPage = ({
-  data
-}) => {
+const BuiltWithPage = ({ data }) => {
   const { sanityLayout } = data
   let collections = sanityLayout._rawCollections
 
@@ -27,7 +25,14 @@ const BuiltWithPage = ({
         <div className="BuiltWithWorkersPage--hero">
           <h1>Built with Cloudflare</h1>
           <p>Projects running on the Developer Platform</p>
-          <p><a className="Button Button-is-primary" href="https://forms.gle/hK4wNQeXtAUR6Ud19">Submit a project</a></p>
+          <p>
+            <a
+              className="Button Button-is-primary"
+              href="https://forms.gle/hK4wNQeXtAUR6Ud19"
+            >
+              Submit a project
+            </a>
+          </p>
         </div>
 
         <div className="Collections">
@@ -43,11 +48,16 @@ const BuiltWithPage = ({
                 </div>
 
                 <div className="Collection--projects">
-                  {shuffle(collection.projects).slice(0, PROJECTS_PER_COLLECTION).map((project, pi) => (
-                    <div className="Collection--project" key={pi}>
-                      <Project project={project} isInitialRoute={isInitialRoute()} />
-                    </div>
-                  ))}
+                  {shuffle(collection.projects)
+                    .slice(0, PROJECTS_PER_COLLECTION)
+                    .map((project, pi) => (
+                      <div className="Collection--project" key={pi}>
+                        <Project
+                          project={project}
+                          isInitialRoute={isInitialRoute()}
+                        />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
