@@ -104,42 +104,32 @@ const IndexPage = () => {
                 <code className="CodeBlock--code">
                   <u>
                     <b className="CodeBlock--token-comment">
-                      # Install Wrangler, and log into your account
-                    </b>
-                    <br />
-                    <b className="CodeBlock--token-directory">~/</b>{" "}
-                    <b className="CodeBlock--token-prompt">$</b>{" "}
-                  </u>
-                  npm install -g wrangler
-                  <br />
-                  <u>
-                    <br />
-                    <b className="CodeBlock--token-comment">
                       # Create and publish a “Hello World” Worker
                     </b>
                     <br />
                     <b className="CodeBlock--token-directory">~/</b>{" "}
                     <b className="CodeBlock--token-prompt">$</b>{" "}
                   </u>
-                  wrangler init hello -y
+                  npm create cloudflare hello-world \<br />
+                  {" ".repeat(7)}-- --type hello-world
                   <br />
                   <u>
                     <b className="CodeBlock--token-directory">~/</b>{" "}
                     <b className="CodeBlock--token-prompt">$</b>{" "}
                   </u>
-                  cd hello
+                  cd hello-world
                   <br />
                   <u>
-                    <b className="CodeBlock--token-directory">~/hello</b>{" "}
+                    <b className="CodeBlock--token-directory">~/hello-world</b>{" "}
                     <b className="CodeBlock--token-prompt">$</b>{" "}
                   </u>
-                  wrangler publish
+                  npm run deploy
                   <u>
                     <br />
                     <b className="CodeBlock--token-success">Published</b>
                     <b className="CodeBlock--token-success"> </b>
                     <b className="CodeBlock--token-value">
-                      https://hello.world.workers.dev
+                      https://hello-world.workers.dev
                     </b>
                   </u>
                 </code>
