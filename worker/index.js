@@ -6,7 +6,7 @@ import { bookmark, transformBookmark, unbookmark } from "./bookmark"
 
 const DEBUG = false
 
-addEventListener("fetch", event => {
+addEventListener("fetch", (event) => {
   try {
     event.respondWith(handleEvent(event))
   } catch (e) {
@@ -26,6 +26,26 @@ async function handleEvent(event) {
 
   const { response: redirectResponse } = await redirector(event, redirects)
   if (redirectResponse) return redirectResponse
+
+  const originalHost = url.host
+  if (url.pathname.startsWith("/playground")) {
+    url.host = "playground.devprod.cloudflare.dev"
+    url.pathname = url.pathname.slice("/playground".length)
+    const response = await fetch(url, request)
+    const getSetCookie = response.headers.getSetCookie()
+    if (getSetCookie) {
+      const headers = new Headers(response.headers)
+      headers.delete("Set-Cookie")
+      getSetCookie.forEach((cook) => {
+        headers.append(
+          "Set-Cookie",
+          cook.replace("playground.devprod.cloudflare.dev", originalHost)
+        )
+      })
+      return new Response(response.body, { ...response, headers })
+    }
+    return new Response(response.body, response)
+  }
 
   let path = url.pathname
   if (path.includes("docs")) {
