@@ -62,14 +62,11 @@ const IndexPage = () => {
 
           <div className="HeroSection--illustration">
             <div className="HeroSection--illustration-card">
-              <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally CodeBlock--language-sh" language="sh"><code className="CodeBlock--code"><u><b className="CodeBlock--token-comment"># Install Wrangler, and log into your account</b><br />
-                <b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm install -g wrangler<br />
-                <u><br />
-                  <b className="CodeBlock--token-comment"># Create and publish a “Hello World” Worker</b><br />
-                  <b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler init hello -y<br />
-                <u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>cd hello<br />
-                <u><b className="CodeBlock--token-directory">~/hello</b> <b className="CodeBlock--token-prompt">$</b> </u>wrangler publish<u><br />
-                  <b className="CodeBlock--token-success">Published</b><b className="CodeBlock--token-success"> </b><b className="CodeBlock--token-value">https://hello.world.workers.dev</b></u></code></pre>
+              <pre className="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally CodeBlock--language-sh" language="sh"><code className="CodeBlock--code"><u>
+                <b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>npm create cloudflare -- my-app<br />
+                <u><b className="CodeBlock--token-directory">~/</b> <b className="CodeBlock--token-prompt">$</b> </u>cd my-app<br />
+                <u><b className="CodeBlock--token-directory">~/my-app</b> <b className="CodeBlock--token-prompt">$</b> </u>npx wrangler deploy<u><br />
+                  <b className="CodeBlock--token-success">Published</b><b className="CodeBlock--token-success"> </b><b className="CodeBlock--token-value">https://my-app.world.workers.dev</b></u></code></pre>
             </div>
           </div>
         </div>
@@ -277,10 +274,10 @@ const IndexPage = () => {
                 <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
                   <li>Up to <strong>30s wall time</strong> per request Need more? <strong><a className="Link"
-                        style={{
-                          "--underline-size": "-1px",
-                          "--underline-color": "rgba(var(--color-rgb), .5)"
-                        }} href="mailto:workers-product@cloudflare.com">Contact us</a></strong>!</li>
+                    style={{
+                      "--underline-size": "-1px",
+                      "--underline-color": "rgba(var(--color-rgb), .5)"
+                    }} href="mailto:workers-product@cloudflare.com">Contact us</a></strong>!</li>
                   <li><strong>Always lowest latency</strong></li>
                   <li>
                     Additional
