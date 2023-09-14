@@ -1405,6 +1405,11 @@
   resolved "https://registry.yarnpkg.com/@cloudflare/cloudflare-brand-assets/-/cloudflare-brand-assets-4.0.0.tgz#40a91c9ebae539c7656c7334411a2482a05e8618"
   integrity sha512-eTNrjSUk+S2E820LryhBeZjX1YFxBSUn4WO/h2BpesByuSSlQGF1dBKSQdMbJwMFlciJU38R8N2jWLweZGCIBw==
 
+"@cloudflare/workers-types@^4.20230904.0":
+  version "4.20230904.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20230904.0.tgz#80e3b2384d7425c0b696a7aa8cab1b3c5d09e45c"
+  integrity sha512-IX4oJCe14ctblSPZBlW64BVZ9nYLUo6sD2I5gu3hX0ywByYWm1OuoKm9Xb/Zpbj8Ph18Z7Ryii6u2/ocnncXdA==
+
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
