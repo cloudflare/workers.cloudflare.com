@@ -3,7 +3,7 @@
     "target": "es2021",
     "lib": ["es2021"],
     "module": "es2022",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "types": ["@cloudflare/workers-types/experimental"],
     "noEmit": true,
     "isolatedModules": true,

@@ -1,0 +1,53 @@
+name: Deploy Worker
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  publish_worker:
+    if: ${{ github.repository_owner == 'cloudflare' }}
+    name: Deploy Worker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+      - name: Install Yarn Dependencies
+        run: yarn install
+
+      - name: Install NPM Dependencies
+        run: npm ci
+        working-directory: worker
+
+      - name: Run tests
+        run: npm run test
+        working-directory: worker
+
+      - name: Deploy worker
+        run: npm run deploy
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
+          CF_EMAIL: ${{ secrets.CF_EMAIL }}
+        working-directory: worker
+
+      # Only deploy to production on the master branch
+      - name: Deploy Worker (production)
+        if: github.event_name != 'pull_request'
+        run: npm run deploy:production
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
+          CF_EMAIL: ${{ secrets.CF_EMAIL }}
+        working-directory: worker
