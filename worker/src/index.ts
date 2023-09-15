@@ -8,6 +8,11 @@ export default <ExportedHandler<Env>>{
     try {
       const url = new URL(request.url)
 
+      // Use prod as the origin when running as a preview on workers.dev
+      if (url.hostname.endsWith("workers.dev")) {
+        url.hostname = "workers.cloudflare.com"
+      }
+
       for (const redirect of redirects) {
         if (url.pathname === redirect.path) {
           return Response.redirect(redirect.redirect, 302)
