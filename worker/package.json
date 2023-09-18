@@ -6,8 +6,20 @@
   "main": "index.js",
   "author": "Ashley Lewis <ashleymichal@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "lilredirector": "^1.0.1",
     "mime": "^2.5.2"
+  },
+  "scripts": {
+    "deploy:production": "wrangler deploy -e production",
+    "deploy": "wrangler deploy",
+    "start": "wrangler dev",
+    "test": "vitest run --no-threads"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230904.0",
+    "@types/mime": "^3.0.1",
+    "vitest": "^0.34.4",
+    "wrangler": "^3.8.0"
   }
 }
