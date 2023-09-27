@@ -54,7 +54,7 @@ const IndexPage = () => {
               <div className="HeroSection--actions-item">
                 <a
                   className="Button Button-is-secondary"
-                  href="https://workers.cloudflare.com/docs"
+                  href="https://developers.cloudflare.com/workers/"
                 >
                   Read docs
                 </a>
@@ -64,7 +64,7 @@ const IndexPage = () => {
               <div className="HeroSection--actions-item">
                 <a
                   className="Button Button-is-secondary"
-                  href="https://workers.cloudflare.com/docs"
+                  href="https://developers.cloudflare.com/workers/"
                 >
                   View docs
                 </a>
