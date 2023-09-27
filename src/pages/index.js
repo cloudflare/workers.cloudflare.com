@@ -66,7 +66,7 @@ const IndexPage = () => {
                   className="Button Button-is-secondary"
                   href="https://developers.cloudflare.com/workers/"
                 >
-                  View docs
+                  Read docs
                 </a>
               </div>
               <div className="HeroSection--actions-item">
