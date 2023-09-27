@@ -46,7 +46,7 @@ const IndexPage = () => {
               <div className="HeroSection--actions-item">
                 <a
                   className="Button Button-is-primary"
-                  href="https://dash.cloudflare.com/sign-up/workers-and-pages"
+                  href="https://workers.cloudflare.com/playground"
                 >
                   Start building
                 </a>
