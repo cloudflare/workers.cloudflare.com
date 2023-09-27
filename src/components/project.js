@@ -8,11 +8,7 @@ import BookmarkIcon from "./bookmark_icon"
 import "./project.css"
 
 const Project = ({ isInitialRoute, project }) => {
-  const {
-    name,
-    slug,
-    shortDescription,
-  } = project
+  const { name, slug, shortDescription } = project
 
   const { bookmarked } = useBookmarkState(project.slug)
 
@@ -32,7 +28,11 @@ const Project = ({ isInitialRoute, project }) => {
         </div>
 
         {bookmarked && (
-          <div className={`Project--bookmark${isInitialRoute ? ' Project--bookmark-should-fade-in' : ''}`}>
+          <div
+            className={`Project--bookmark${
+              isInitialRoute ? " Project--bookmark-should-fade-in" : ""
+            }`}
+          >
             <BookmarkIcon withGradientFill withShadow />
           </div>
         )}

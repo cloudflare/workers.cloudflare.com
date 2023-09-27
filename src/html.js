@@ -27,23 +27,36 @@ const setDomainAttr = `
 
 export default function HTML(props) {
   const env = process.env.NODE_ENV
-  const cookieScript = env === 'production' ? (
-    <>
-      <script type="text/javascript" src="https://cdn.cookielaw.org/consent/316fefa6-e079-422c-b2be-31e41b337bad/OtAutoBlock.js" ></script>
-      <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="316fefa6-e079-422c-b2be-31e41b337bad" ></script>
-      <script type="text/javascript">
-      function OptanonWrapper() { }
-      </script>
-    </>
-  ) : (
-    <>
-			<script type="text/javascript" src="https://cdn.cookielaw.org/consent/316fefa6-e079-422c-b2be-31e41b337bad-test/OtAutoBlock.js" ></script>
-			<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="316fefa6-e079-422c-b2be-31e41b337bad-test" ></script>
-			<script type="text/javascript">
-			function OptanonWrapper() { }
-			</script>
-    </>
-  )
+  const cookieScript =
+    env === "production" ? (
+      <>
+        <script
+          type="text/javascript"
+          src="https://cdn.cookielaw.org/consent/316fefa6-e079-422c-b2be-31e41b337bad/OtAutoBlock.js"
+        ></script>
+        <script
+          src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+          type="text/javascript"
+          charset="UTF-8"
+          data-domain-script="316fefa6-e079-422c-b2be-31e41b337bad"
+        ></script>
+        <script type="text/javascript">function OptanonWrapper() {}</script>
+      </>
+    ) : (
+      <>
+        <script
+          type="text/javascript"
+          src="https://cdn.cookielaw.org/consent/316fefa6-e079-422c-b2be-31e41b337bad-test/OtAutoBlock.js"
+        ></script>
+        <script
+          src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+          type="text/javascript"
+          charset="UTF-8"
+          data-domain-script="316fefa6-e079-422c-b2be-31e41b337bad-test"
+        ></script>
+        <script type="text/javascript">function OptanonWrapper() {}</script>
+      </>
+    )
 
   return (
     <html {...props.htmlAttributes} theme="light">

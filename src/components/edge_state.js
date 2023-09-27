@@ -1,7 +1,7 @@
 import React from "react"
 import { useSSR } from "../utils"
 
-const parseDocumentState = key => {
+const parseDocumentState = (key) => {
   const edgeStateElement = document.querySelector("#edge_state")
   try {
     const jsonData = JSON.parse(edgeStateElement.innerText)
