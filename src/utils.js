@@ -3,16 +3,19 @@ import lscache from "lscache"
 
 import isDOMavailable from "./isDOMavailable.js"
 
-const flatten = set => set.edges.map(({ node }) => node)
+const flatten = (set) => set.edges.map(({ node }) => node)
 
 const normalizeCollection = (collection, projects) => {
   let normalized = collection
 
-  const filteredProjects = collection && collection.projects && collection.projects.filter(project => project)
+  const filteredProjects =
+    collection &&
+    collection.projects &&
+    collection.projects.filter((project) => project)
 
   if (filteredProjects && filteredProjects.length) {
     const collectionProjects = filteredProjects.map(({ id }) =>
-      projects.find(project => project.id === id)
+      projects.find((project) => project.id === id)
     )
     normalized.projects = collectionProjects
   }
@@ -63,7 +66,7 @@ function useLocalStorage(key, initialValue) {
     }
   })
 
-  const setValue = value => {
+  const setValue = (value) => {
     if (!isBrowser) {
       return
     }
@@ -86,12 +89,11 @@ const PROJECTS_PER_COLLECTION = 8
 const shuffle = (array) => {
   let clone = [].concat(array)
   for (let i = clone.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [clone[i], clone[j]] = [clone[j], clone[i]];
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[clone[i], clone[j]] = [clone[j], clone[i]]
   }
   return clone
 }
-
 
 const resultTemplate = () => `
     <div class="coveo-result-frame">

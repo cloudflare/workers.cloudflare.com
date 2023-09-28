@@ -9,13 +9,18 @@ import RelatedProject from "../components/project"
 import SEO from "../components/seo"
 import useBookmarkState from "../components/bookmark_state"
 
-import { flatten, normalizeCollection, PROJECTS_PER_COLLECTION, shuffle } from "../utils"
+import {
+  flatten,
+  normalizeCollection,
+  PROJECTS_PER_COLLECTION,
+  shuffle,
+} from "../utils"
 
 import "../pages/built-with-workers-page.css"
 import "./project-page.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/definition-list.css"
 
-const getPrimaryLinkText = linkType => {
+const getPrimaryLinkText = (linkType) => {
   switch (linkType) {
     case "announcement":
       return "Read announcement"
@@ -34,7 +39,7 @@ const getPrimaryLinkText = linkType => {
   }
 }
 
-const getLinkText = linkType => {
+const getLinkText = (linkType) => {
   switch (linkType) {
     case "announcement":
       return "Announcement"
@@ -60,21 +65,32 @@ const BOOKMARK_STATE = {
 }
 
 const Project = ({
-  data: { allSanityCollection, allSanityFeature, allSanityProject, sanityProject: project },
+  data: {
+    allSanityCollection,
+    allSanityFeature,
+    allSanityProject,
+    sanityProject: project,
+  },
 }) => {
   const allCollections = flatten(allSanityCollection)
-  let collections = allCollections.map(collection =>
+  let collections = allCollections.map((collection) =>
     normalizeCollection(collection, flatten(allSanityProject))
   )
 
-  const collectionForProject = collections.find(collection =>
-    collection._rawProjects && collection._rawProjects.filter(project => project).find(({ id }) => id === project.id)
+  const collectionForProject = collections.find(
+    (collection) =>
+      collection._rawProjects &&
+      collection._rawProjects
+        .filter((project) => project)
+        .find(({ id }) => id === project.id)
   )
 
-  const featureIds = project._rawFeatures ? project._rawFeatures.map(({ id }) => id) : []
-  const featuresForProject = allSanityFeature.edges.map(({ node }) => node).filter(
-    ({ id }) => featureIds.includes(id)
-  )
+  const featureIds = project._rawFeatures
+    ? project._rawFeatures.map(({ id }) => id)
+    : []
+  const featuresForProject = allSanityFeature.edges
+    .map(({ node }) => node)
+    .filter(({ id }) => featureIds.includes(id))
 
   const { bookmarked, loaded, toggleBookmark } = useBookmarkState(project.slug)
 
@@ -144,7 +160,10 @@ const Project = ({
         </div>
 
         <div className="ProjectPage--image">
-          <img src={project.image.asset.url} style={{ objectFit: "cover", width: "100%" }} />
+          <img
+            src={project.image.asset.url}
+            style={{ objectFit: "cover", width: "100%" }}
+          />
         </div>
 
         {project.longDescription && (
@@ -153,7 +172,8 @@ const Project = ({
               <Markdown children={project.longDescription} />
             </div>
 
-            {(project.developer || project.links && project.links.length > 0) && (
+            {(project.developer ||
+              (project.links && project.links.length > 0)) && (
               <div className="ProjectPage--metadata">
                 <dl className="DefinitionList">
                   {project.developer && (
@@ -221,7 +241,7 @@ const Project = ({
                 shuffle(collectionForProject._rawProjects)
                   .filter(({ id }) => id !== project.id)
                   .slice(0, PROJECTS_PER_COLLECTION)
-                  .map(project => (
+                  .map((project) => (
                     <div className="Collection--project" key={project.id}>
                       <RelatedProject project={project} />
                     </div>
@@ -279,7 +299,6 @@ export const query = graphql`
         }
       }
     }
-
   }
 `
 

@@ -12,10 +12,12 @@ const Search = () => {
   // hack to toggle search and loading icons
   function showLoadingToggle(bool) {
     const search = parent.current.querySelector("span.coveo-search-button")
-    const loading = parent.current.querySelector("span.coveo-search-button-loading")
+    const loading = parent.current.querySelector(
+      "span.coveo-search-button-loading"
+    )
     console.log(search, loading)
-    search.style.display = bool ? "none" : "";
-    loading.style.display = bool ? "" : "none";
+    search.style.display = bool ? "none" : ""
+    loading.style.display = bool ? "" : "none"
   }
 
   useEffect(() => {
@@ -25,9 +27,9 @@ const Search = () => {
       process.env.GATSBY_COVEO_TOKEN
     )
 
-    root.addEventListener('newQuery', () => showLoadingToggle(true))
-    root.addEventListener('newResultsDisplayed', () => showLoadingToggle(false))
-   
+    root.addEventListener("newQuery", () => showLoadingToggle(true))
+    root.addEventListener("newResultsDisplayed", () => showLoadingToggle(false))
+
     init(root)
   })
 
@@ -46,7 +48,11 @@ const Search = () => {
           <div class="coveo-tab-section"></div>
         */}
         <div className="coveo-search-section">
-          <div className="CoveoSearchbox" data-enable-omnibox="true" ref={parent} />
+          <div
+            className="CoveoSearchbox"
+            data-enable-omnibox="true"
+            ref={parent}
+          />
         </div>
         <div className="coveo-main-section">
           <div className="coveo-facet-column">
@@ -102,8 +108,11 @@ const Search = () => {
               data-wait-animation="fade"
               data-auto-select-fields-to-include="true"
             >
-              <script className='result-template' type='text/html'
-                dangerouslySetInnerHTML={{ __html: resultTemplate() }} />
+              <script
+                className="result-template"
+                type="text/html"
+                dangerouslySetInnerHTML={{ __html: resultTemplate() }}
+              />
             </div>
             <div className="CoveoPager" />
             <div className="CoveoResultsPerPage" />

@@ -2,7 +2,7 @@ import React from "react"
 
 import Icon from "./icon"
 
-const BookmarkIcon = props => (
+const BookmarkIcon = (props) => (
   <Icon
     {...props}
     viewBox="0 0 26 34"

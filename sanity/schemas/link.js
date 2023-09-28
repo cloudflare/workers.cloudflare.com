@@ -14,7 +14,14 @@ const link = {
       name: "linkType",
       type: "string",
       options: {
-        list: ["website", "twitter", "code", "announcement", "linkedin", "blog"],
+        list: [
+          "website",
+          "twitter",
+          "code",
+          "announcement",
+          "linkedin",
+          "blog",
+        ],
       },
       required: true,
     },

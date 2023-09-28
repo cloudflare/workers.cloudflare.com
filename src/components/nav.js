@@ -12,12 +12,12 @@ import "./nav.css"
 const Nav = ({ showInput = true }) => {
   const [value, setValue] = useState("")
 
-  const handleOnChange = event => {
+  const handleOnChange = (event) => {
     const value = event.target.value
     setValue(value)
   }
 
-  const handleOnSubmit = event => {
+  const handleOnSubmit = (event) => {
     event.preventDefault()
     if (isDOMavailable) {
       window.location.href = `/search/#q=${value}`
