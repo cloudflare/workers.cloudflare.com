@@ -561,7 +561,7 @@ const IndexPage = () => {
               </div>
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedListWorkersThemed">
-                  <li>Deploy up to 30 Worker scripts</li>
+                  <li>Deploy up to 100 Worker scripts</li>
                   <li>Runs on all 275+ network locations</li>
                   <li>Free workers.dev subdomain</li>
                   <li>Up to 10ms CPU time per request</li>
