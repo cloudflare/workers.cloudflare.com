@@ -633,20 +633,7 @@ const IndexPage = () => {
                 <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
                   <li>
-                    Up to <strong>30s wall time</strong> per request Need more?{" "}
-                    <strong>
-                      <a
-                        className="Link"
-                        style={{
-                          "--underline-size": "-1px",
-                          "--underline-color": "rgba(var(--color-rgb), .5)",
-                        }}
-                        href="mailto:workers-product@cloudflare.com"
-                      >
-                        Contact us
-                      </a>
-                    </strong>
-                    !
+                    Up to <strong>30s of CPU time</strong> per request
                   </li>
                   <li>
                     <strong>Always lowest latency</strong>
