@@ -633,23 +633,7 @@ const IndexPage = () => {
                 <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
                   <li>
-                    Up to <strong>15 mins of CPU time</strong> per request<br />
-                    <small>
-                      Need more?{" "}
-                      <strong>
-                        <a
-                          className="Link"
-                          style={{
-                            "--underline-size": "-1px",
-                            "--underline-color": "rgba(var(--color-rgb), .5)",
-                          }}
-                          href="https://docs.google.com/forms/d/1JRcOlJGVVT9utbSlyKKVVsRsTg6ZeYhBpjCiC_H9X3k/edit"
-                        >
-                          Contact us
-                        </a>
-                      </strong>
-                    </small>
-                    !
+                    Up to <strong>30s of CPU time</strong> per request
                   </li>
                   <li>
                     <strong>Always lowest latency</strong>
