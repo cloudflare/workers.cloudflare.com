@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Build Sanity Application
+    name: Deploy Sanity Application
     steps:
     - uses: actions/checkout@master
     - name: NPM install
