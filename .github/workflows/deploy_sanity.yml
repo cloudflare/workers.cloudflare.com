@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+    - 'sanity/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Build Sanity Application
+    steps:
+    - uses: actions/checkout@master
+    - name: NPM install
+      run: "npm install"
+      working-directory: 'sanity'
+    - name: Build app
+      run: "./node_modules/.bin/sanity build"
+      env:
+        SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+      working-directory: 'sanity'
+    - name: Deploy app
+      run: "./node_modules/.bin/sanity deploy"
+      env:
+        SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+      working-directory: 'sanity'
