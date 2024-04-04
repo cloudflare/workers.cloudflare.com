@@ -21,6 +21,7 @@ const link = {
           "announcement",
           "linkedin",
           "blog",
+          "discord",
         ],
       },
       required: true,
