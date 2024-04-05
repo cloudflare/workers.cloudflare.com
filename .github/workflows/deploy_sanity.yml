@@ -24,3 +24,8 @@ jobs:
       env:
         SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
       working-directory: 'sanity'
+    - name: Deploy GraphQL API
+      run: "./node_modules/.bin/sanity graphql deploy"
+      env:
+        SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+      working-directory: 'sanity'

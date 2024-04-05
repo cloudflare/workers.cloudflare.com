@@ -208,14 +208,14 @@ const Project = ({
                     <>
                       <dt className="DefinitionList--term">Features</dt>
                       <dd className="DefinitionList--definition">
-                        {featuresForProject.map(({ name, slug }) => (
+                        {featuresForProject.map(({ external_url, name, slug }) => (
                           <span
                             className="ProjectPage--metadata-link"
-                            key={slug}
+                            key={external_url || slug}
                           >
                             <a
                               className="Link Link-with-right-arrow"
-                              href={`/built-with/features/${slug}`}
+                              href={external_url ? external_url : `/built-with/features/${slug}`}
                             >
                               {name}
                             </a>
@@ -278,11 +278,6 @@ export const query = graphql`
           id
           _rawProjects(resolveReferences: { maxDepth: 10 })
 
-          feature {
-            ...Feature
-            id
-          }
-
           projects {
             ...Project
           }
@@ -294,6 +289,7 @@ export const query = graphql`
       edges {
         node {
           id
+          external_url
           name
           slug
         }
