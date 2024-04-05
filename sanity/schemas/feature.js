@@ -26,6 +26,11 @@ const feature = {
       required: true,
       type: "string",
     },
+    {
+      title: "External URL",
+      name: "external_url",
+      type: "string",
+    },
   ],
 }
 

@@ -22,5 +22,5 @@ jobs:
     - name: Deploy app
       run: "./node_modules/.bin/sanity deploy"
       env:
-        SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+        SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
       working-directory: 'sanity'
