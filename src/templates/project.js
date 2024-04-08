@@ -34,6 +34,8 @@ const getPrimaryLinkText = (linkType) => {
       return "View on Twitter"
     case "website":
       return "Visit website"
+    case "discord":
+      return "Discord"
     default:
       return "Learn more"
   }
@@ -53,6 +55,8 @@ const getLinkText = (linkType) => {
       return "Twitter"
     case "website":
       return "Website"
+    case "discord":
+      return "Discord"
     default:
       return "Learn more"
   }
