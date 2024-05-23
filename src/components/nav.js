@@ -35,7 +35,7 @@ const Nav = ({ showInput = true }) => {
       <div className="Nav--main-links">
         <div className="Nav--item">
           <Link
-            className="Nav--link"
+            className="Nav--link Nav--link-home"
             to="/"
             activeClassName="Nav--link-is-active"
           >

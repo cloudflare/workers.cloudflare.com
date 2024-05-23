@@ -46,6 +46,7 @@
   display: flex;
   height: 100%;
   margin-left: 0;
+  flex-shrink: 0;
 }
 
 .Nav--main-links .Nav--link {
@@ -78,6 +79,7 @@
 .Nav--account-management {
   display: flex;
   height: 100%;
+  flex-shrink: 0;
 }
 
 .Nav--item-sign-in {
@@ -93,6 +95,12 @@
 .Nav--search-form {
   display: flex;
   align-content: center;
+}
+
+.Nav--search-input {
+  min-width: 150px;
+  max-width: 250px;
+  width: 50vw;
 }
 
 .Nav--search-input, .Nav--search-input:focus-visible {
@@ -123,17 +131,23 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+  .Nav--account-management {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
   .Nav--main-links {
     display: none;
   }
 
-  .Nav--link.Nav--link-logo:first-child {
-    margin-right: auto;
+  .Nav--search-input {
+    width: 20vw;
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 388px) {
   .Nav--link-logo {
     font-size: .85em;
   }
@@ -146,5 +160,9 @@
   .Nav--item-sign-in {
     padding-left: .75em;
     padding-right: .75em;
+  }
+
+  .Nav--search {
+    display: none;
   }
 }
