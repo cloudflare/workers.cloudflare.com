@@ -89,7 +89,7 @@ describe("worker", () => {
         {
           "data": {},
           "error": "UploadFailed",
-          "message": "Token not provided",
+          "message": "Valid token not provided",
         }
       `)
     })
@@ -109,8 +109,9 @@ describe("worker", () => {
       // valid tokens is tested in `workers-sdk`
       expect(await resp.json()).toMatchInlineSnapshot(`
         {
-          "error": "UnexpectedError",
-          "message": "Something went wrong",
+          "data": {},
+          "error": "UploadFailed",
+          "message": "Valid token not provided",
         }
       `)
     })
