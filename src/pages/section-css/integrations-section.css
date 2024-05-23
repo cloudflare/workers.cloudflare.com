@@ -1,0 +1,75 @@
+.IntegrationsSection {
+  padding-bottom: var(--section-vertical-padding);
+  background: var(--section-tiger-stripe-background-color);
+  justify-content: center;
+  max-width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.IntegrationsSection--title {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin-top: -.25em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.IntegrationsSection--title-first-line {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: .25em;
+}
+
+.IntegrationsSection--title-second-line {
+  margin-bottom: .125em;
+}
+
+[theme="dark"] .IntegrationsSection--title-second-line {
+  color: var(--gray-4); 
+}
+
+@media (max-width: 500px) {
+  .GreatPowerSection--title {
+    font-size: 8vw;
+  }
+}
+
+.IntegrationSection--integrations {
+  --integration-width: 16em;
+  --integration-gutter: 1em;
+  width: 100%;
+  max-width: calc(var(--integration-width)*4);
+  display: flex;  
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.IntegrationSection--integration {
+  display: flex;
+  align-items: center;
+  width: var(--integration-width);
+  margin: calc(var(--integration-gutter) / 2);
+  max-width: 100%;
+  height: 40px;
+  justify-content: center;
+}
+
+.IntegrationSection--integration-image {
+  border-radius: 50%;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1;
+  width: calc(var(--height) / var(--aspect-ratio));
+  margin-right: 10px;
+}
+
+.IntegrationSection--integration-name {
+  font-weight: bold;
+  text-align: left;
+}

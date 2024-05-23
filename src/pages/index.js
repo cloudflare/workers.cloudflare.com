@@ -14,6 +14,7 @@ import "@cloudflare/cloudflare-brand-assets/css/components/markdown-lite.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
 import "./section-css/hero-section.css"
+import "./section-css/integrations-section.css"
 import "./section-css/quote-section.css"
 import "./section-css/great-power-section.css"
 import "./section-css/benefits-section.css"
@@ -167,6 +168,115 @@ const IndexPage = () => {
               seamlessly around the world.”
             </p>
           </blockquote>
+        </div>
+      </section>
+
+      <section className="IntegrationsSection">
+        <h2 className="IntegrationsSection--title">
+          <div className="IntegrationsSection--title-first-line">
+            Integrations
+          </div>
+          <div className="IntegrationsSection--title-second-line">
+            Integrate your Worker with third-party services.
+          </div>
+        </h2>
+        <div className="IntegrationSection--integrations">
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Baselime Customer Logo"
+              src="./resources/customer-logos/baselime.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Baselime</h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Momento Customer Logo"
+              src="./resources/customer-logos/momento.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Momento</h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Neon Customer Logo"
+              src="./resources/customer-logos/neon.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Neon</h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="PlanetScale Customer Logo"
+              src="./resources/customer-logos/planetscale.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">
+              PlanetScale
+            </h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Sentry Customer Logo"
+              src="./resources/customer-logos/sentry.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Sentry</h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Supabase Customer Logo"
+              src="./resources/customer-logos/supabase.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Supabase</h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Turso Customer Logo"
+              src="./resources/customer-logos/turso.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Turso</h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Upstash Kafka Illustration"
+              src="./resources/customer-logos/upstash.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">
+              Upstash Kafka
+            </h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Upstash QStash Illustration"
+              src="./resources/customer-logos/upstash.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">
+              Upstash QStash
+            </h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Upstash Redis Illustration"
+              src="./resources/customer-logos/upstash.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">
+              Upstash Redis
+            </h3>
+          </div>
+          <div className="IntegrationSection--integration">
+            <img
+              alt="Xata Illustration"
+              src="./resources/customer-logos/xata.svg"
+              className="IntegrationSection--integration-image"
+            />
+            <h3 className="IntegrationSection--integration-name">Xata</h3>
+          </div>
         </div>
       </section>
 
