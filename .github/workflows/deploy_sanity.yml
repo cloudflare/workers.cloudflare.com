@@ -5,6 +5,7 @@ on:
     paths:
     - 'sanity/**'
     repository_dispatch:
+    workflow_dispatch:
 
 jobs:
   deploy:
