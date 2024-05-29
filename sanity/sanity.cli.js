@@ -10,9 +10,9 @@ export default defineCliConfig({
       id: 'development',
       workspace: 'development'
     }
-  ]
-  // api: {
-  //   projectId: '0s2zavz0',
-  //   dataset: 'production'
-  // }
+  ],
+  api: {
+    projectId: '0s2zavz0',
+    dataset: 'production'
+  }
 })
