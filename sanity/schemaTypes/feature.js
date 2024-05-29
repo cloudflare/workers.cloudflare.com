@@ -31,6 +31,11 @@ const feature = {
       name: "external_url",
       type: "string",
     },
+    {
+      title: "Feature Category",
+      name: "feature_category",
+      type: "reference", to: [{ type: "feature_category" }],
+    },
   ],
 }
 
