@@ -4,6 +4,7 @@ on:
       - master
     paths:
     - 'sanity/**'
+    repository_dispatch:
 
 jobs:
   deploy:
