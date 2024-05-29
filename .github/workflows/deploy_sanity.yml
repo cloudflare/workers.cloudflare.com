@@ -4,8 +4,8 @@ on:
       - master
     paths:
     - 'sanity/**'
-    repository_dispatch:
-    workflow_dispatch:
+  repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy:
