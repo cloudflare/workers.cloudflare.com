@@ -1,0 +1,6 @@
+.Header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: var(--header-height);
+}
