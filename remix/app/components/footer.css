@@ -1,0 +1,15 @@
+html #ot-sdk-btn.ot-sdk-show-settings {
+  color: inherit;
+  border: none !important;
+  transition: none !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  font-size: inherit !important;
+
+  text-decoration: none;
+}
+
+html #ot-sdk-btn.ot-sdk-show-settings:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
