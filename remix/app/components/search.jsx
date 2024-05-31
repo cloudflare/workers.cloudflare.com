@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useRef } from "react"
 import { resultTemplate } from "../utils"
 import Header from "../components/header"
 
-import "./search.css"
+import "../styles/search.css"
 
 const Search = () => {
   const searchInterface = useRef()

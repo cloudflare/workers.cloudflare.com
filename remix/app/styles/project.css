@@ -1,0 +1,189 @@
+.Project---link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  --accent-color: var(--orange-6);
+  --focus-size: 5px;
+  --focus-shadow: 0 0 0 var(--focus-size) var(--focus-color);
+  box-shadow: var(--focus-shadow);
+  transition: box-shadow .3s ease;
+  --border-radius: .5em;
+  border-radius: var(--border-radius);
+}
+
+[theme="dark"] .Project---link {
+  /* TODO */
+  background: rgba(var(--gray-1-rgb), .5);
+}
+
+[js-focus-visible-polyfill-available] .Project---link:focus {
+  outline: none;
+}
+
+.Project---link:not([is-focus-visible]):hover {
+  transition-duration: 0s;
+}
+
+.Project---link:not([is-focus-visible]):not(:hover) {
+  --focus-size: 0;
+}
+
+@media (hover: none) {
+  .Project---link:not([is-focus-visible]):hover {
+    --focus-size: 0;
+  }
+}
+
+.Project {
+  position: relative;
+  width: var(--project-width, 20em);
+  border-radius: var(--border-radius, .5em);
+}
+
+.Project---link-fills-height,
+.Project-fills-height {
+  height: 100%;
+}
+
+.Project::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(var(--shadow-color-rgb), .25);
+  transition: border .3s ease;
+}
+
+[theme="dark"] .Project::after {
+  border-color: transparent;
+}
+
+/* TODO */
+@media (hover: hover) {
+
+  [theme] .Project---link:hover .Project::after,
+  [theme] .Project---link[is-focus-visible] .Project::after {
+    border-color: rgba(var(--orange-3-rgb), .4);
+  }
+}
+
+/* TODO */
+@media (hover: none) {
+
+  .Project---link:focus .Project::after,
+  .Project---link:active .Project::after {
+    background: rgba(var(--shadow-color-rgb), .25);
+  }
+}
+
+.Project--image {
+  position: relative;
+  border-radius: var(--border-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
+}
+
+.Project--image-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* TODO */
+.Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child {
+  padding-bottom: 62.5% !important;
+}
+
+[domain="localhost"] .Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child {
+  background: var(--red-8);
+  color: var(--red-3);
+}
+
+[domain="localhost"] .Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child~* {
+  opacity: 0;
+}
+
+[domain="localhost"] .Project--image>.gatsby-image-wrapper>div:not([style*="padding-bottom: 62.5%"]):first-child::before {
+  position: absolute;
+  content: "Please use a 16:10 image.";
+  height: 1em;
+  line-height: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.Project--image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(var(--color-rgb), .13);
+}
+
+/* TODO - figure out why Gatsby is setting `object-position` inline */
+.Project--image picture img {
+  object-position: top center !important;
+}
+
+.Project--content {
+  padding: 1.33em;
+}
+
+.Project--title {
+  font-size: 1.3em;
+  line-height: 1.25;
+  margin-bottom: .33em;
+  margin-top: -.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Project--features {
+  display: none;
+}
+
+.Project--description {
+  font-size: .9em;
+
+  /* https://caniuse.com/#feat=css-line-clamp */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Project--bookmark {
+  position: absolute;
+  top: -2px;
+  right: 26px;
+  width: 26px;
+  height: 34px;
+  border-radius: 2px 2px 5px 5px;
+  z-index: 1;
+}
+
+.Project--bookmark-should-fade-in {
+  opacity: 0;
+  animation: project-bookmark-fade-in .5s forwards ease;
+}
+
+@keyframes project-bookmark-fade-in {
+  to {
+    opacity: 1
+  }
+}

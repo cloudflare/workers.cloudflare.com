@@ -1,0 +1,9 @@
+.Collections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Collections > .Collections--collection:not(:last-child) {
+  margin-bottom: 4em;
+}

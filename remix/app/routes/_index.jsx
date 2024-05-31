@@ -1,9 +1,8 @@
-import type { MetaFunction } from "@remix-run/node";
 import { ClientOnly } from "remix-utils/client-only"
 
-export const meta: MetaFunction = () => {
+export const meta = () => {
   return [
-    { title: "New Remix App" },
+    { title: "Cloudflare Workers©" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
@@ -20,12 +19,12 @@ import "@cloudflare/cloudflare-brand-assets/css/components/code-block.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/markdown-lite.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
-import "../section-css/hero-section.css"
-import "../section-css/quote-section.css"
-import "../section-css/great-power-section.css"
-import "../section-css/benefits-section.css"
-import "../section-css/customer-logos-section.css"
-import "../section-css/plans-section.css"
+import "../styles/hero-section.css"
+import "../styles/quote-section.css"
+import "../styles/great-power-section.css"
+import "../styles/benefits-section.css"
+import "../styles/customer-logos-section.css"
+import "../styles/plans-section.css"
 
 const IndexPage = () => {
   return (

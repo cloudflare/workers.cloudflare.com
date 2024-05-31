@@ -1,7 +1,7 @@
 import React from "react"
 import Nav from "./nav"
 
-import "./header.css"
+import "../styles/header.css"
 
 const Header = ({ showInput = true }) => (
   <header className="Header">
