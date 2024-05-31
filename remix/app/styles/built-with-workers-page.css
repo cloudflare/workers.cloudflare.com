@@ -1,0 +1,40 @@
+.BuiltWithWorkersPage {
+  --vertical-padding-top: 2em;
+  padding: calc(var(--header-height) + var(--vertical-padding-top)) 0 var(--section-vertical-padding);
+  width: 100%;
+}
+
+.BuiltWithWorkersPage--hero {
+  text-align: center;
+  width: 38em;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  padding: 1em 1em 0;
+}
+
+.BuiltWithWorkersPage--hero > h1 {
+  line-height: 1;
+  font-size: 2.75em;
+  font-weight: 600;
+  margin-bottom: .25em;
+}
+
+@media (max-width: 768px) {
+  .BuiltWithWorkersPage--hero {
+    padding-top: 0;
+  }
+
+  .BuiltWithWorkersPage--hero > h1 {
+    font-size: 2em;
+  }
+}
+
+.BuiltWithWorkersPage--hero > p {
+  font-size: 1.1em;
+}
+
+.BuiltWithWorkersPage--hero > p:not(:last-child) {
+  margin-bottom: 1em;
+}

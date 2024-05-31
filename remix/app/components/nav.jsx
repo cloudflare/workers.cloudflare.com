@@ -5,7 +5,7 @@ import { ClientOnly } from "remix-utils/client-only"
 import "@cloudflare/cloudflare-brand-assets/css/components/cloudflare-workers-logo.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/button.css"
 
-import "./nav.css"
+import "../styles/nav.css"
 
 const Logo = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1430 375">
