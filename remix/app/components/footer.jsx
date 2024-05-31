@@ -2,7 +2,7 @@ import React from "react"
 import { ClientOnly } from "remix-utils/client-only"
 
 import "@cloudflare/cloudflare-brand-assets/css/components/footer.css"
-import "./footer.css"
+import "../styles/footer.css"
 
 const Footer = () => (
   <footer className="Footer Footer-with-top-separator">
