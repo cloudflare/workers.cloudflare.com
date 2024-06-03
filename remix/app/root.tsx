@@ -7,6 +7,14 @@ import {
 } from "@remix-run/react";
 
 import "@cloudflare/cloudflare-brand-assets/css/components/error-page.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/superscript.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/link.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/button.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/inline-code.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/code-block.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/markdown-lite.css"
+import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
 const loadTheme = `
   (function() {
@@ -77,6 +85,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: setDomainAttr }} />
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: loadTheme }} />
         {cookieScript}
+        <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=DC-9309168&l=cfDataLayer&cx=c"></script>
+        <script 
+          dangerouslySetInnerHTML={{__html:`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GTM-PKQFGQB');
+          `}}>
+        </script>
       </head>
       <body>
         {children}

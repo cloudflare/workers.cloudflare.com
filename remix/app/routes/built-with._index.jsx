@@ -12,6 +12,19 @@ import "../styles/built-with-workers-page.css";
 import "../styles/collections.css";
 import "../styles/collection.css";
 
+export const meta = () => {
+  return [
+    { title: "Built with Workers ・ Cloudflare Workers©" },
+    { name: "description", content: "Build your next application with Cloudflare Workers" },
+    { name: "og:title", content: "Built with Workers ・ Cloudflare Workers©" },
+    { name: "og:description", content: "Build your next application with Cloudflare Workers" },
+    { name: "og:image", content: "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06" },
+    { name: "twitter:title", content: "Built with Workers ・ Cloudflare Workers©" },
+    { name: "twitter:description", content: "Build your next application with Cloudflare Workers" },
+    { name: "twitter:image:src", content: "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06" },
+  ];
+};
+
 export const query = `
   {
     "layout": *[_type == "layout" && page_id == "homepage"][0] {
