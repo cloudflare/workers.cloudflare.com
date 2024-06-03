@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 // import { init, SearchEndpoint } from "coveo-search-ui"
 import { resultTemplate } from "../utils"
 import Header from "../components/header"

@@ -12,4 +12,9 @@ export default defineConfig({
 		remix(),
 		tsconfigPaths(),
 	],
+  resolve: {
+    alias: {
+      'stream': 'node:stream'
+    }
+  }
 });
