@@ -20,6 +20,22 @@ import "../styles/built-with-workers-page.css"
 import "../styles/collection.css"
 import "../styles/project-page.css"
 
+export const meta = ({ data }) => {
+  const { image, name, shortDescription } = data.project
+  const title = `${name} ・ Built with Workers ・ Cloudflare Workers©`
+
+  return [
+    { title },
+    { name: "description", content: shortDescription },
+    { name: "og:title", content: title },
+    { name: "og:description", content: shortDescription },
+    { name: "og:image", content: image.asset.url },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: shortDescription },
+    { name: "twitter:image:src", content: image.asset.url }
+  ];
+};
+
 const getPrimaryLinkText = (linkType) => {
   switch (linkType) {
     case "announcement":

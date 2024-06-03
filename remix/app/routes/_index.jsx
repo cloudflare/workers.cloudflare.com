@@ -3,21 +3,21 @@ import { ClientOnly } from "remix-utils/client-only"
 export const meta = () => {
   return [
     { title: "Cloudflare Workers©" },
-    { name: "description", content: "Welcome to Remix!" },
+    { name: "description", content: "Build your next application with Cloudflare Workers" },
+    { name: "og:title", content: "Cloudflare Workers©" },
+    { name: "og:description", content: "Build your next application with Cloudflare Workers" },
+    { name: "og:image", content: "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06" },
+    { name: "og:type", content: "website" },
+    { name: "twitter:title", content: "Cloudflare Workers©" },
+    { name: "twitter:description", content: "Build your next application with Cloudflare Workers" },
+    { name: "twitter:image:src", content: "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06" },
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:creator", content: "@cloudflaredev" },
   ];
 };
 
 import LatencyTest from "../components/latency_test"
 import Layout from "../components/layout"
-
-import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/superscript.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/link.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/button.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/inline-code.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/code-block.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/markdown-lite.css"
-import "@cloudflare/cloudflare-brand-assets/css/components/unordered-list-workers-themed.css"
 
 import "../styles/hero-section.css"
 import "../styles/quote-section.css"
