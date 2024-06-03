@@ -1,7 +1,7 @@
 import React from "react";
 import uniq from 'lodash/uniq';
 import { Link, useLoaderData } from "@remix-run/react"
-import { json } from "@remix-run/node";
+import { json } from "@remix-run/cloudflare";
 import { ClientOnly } from "remix-utils/client-only"
 
 import { client } from "../lib/sanity"
