@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react"
-import { json } from "@remix-run/node";
+import { json } from "@remix-run/cloudflare";
 
 import Layout from "../components/layout";
 import Project from "../components/project";
@@ -46,7 +46,7 @@ export const loader = async () => {
 
 const BuiltWithPage = () => {
   const { layout } = useLoaderData();
-  let collections = layout.collections
+  let collections = layout ? layout.collections : []
 
   return (
     <Layout>
