@@ -1,20 +1,36 @@
-# workers.cloudflare.com
+# Welcome to Remix + Vite!
 
-## About
+📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
 
-The website for the Cloudflare Workers product.
+## Development
 
-[Visit the site →](https://workers.cloudflare.com/)
+Run the Vite dev server:
 
-## License
+```shellscript
+npm run dev
+```
 
-### Code
+## Deployment
 
-The code in this repo is licensed, at your option, under either:
+First, build your app for production:
 
-- Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+```sh
+npm run build
+```
 
-### Trademark
+Then run the app in production mode:
 
-Cloudflare Workers® and the Cloudflare Workers logo are trademarks of Cloudflare, Inc. You may only use Cloudflare logos and trademarks in accordance with our Branding Guidelines and General Trademark License, available at https://www.cloudflare.com/trademark/.
+```sh
+npm start
+```
+
+Now you'll need to pick a host to deploy it to.
+
+### DIY
+
+If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+- `build/server`
+- `build/client`
