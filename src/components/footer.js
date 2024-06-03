@@ -31,7 +31,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/platform/storage-options/"
+              href="https://developers.cloudflare.com/workers/platform/storage-options"
               className="Link Link-without-underline Link-is-juicy"
             >
               Key-value storage
@@ -39,7 +39,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/reference/how-the-cache-works/"
+              href="https://developers.cloudflare.com/workers/reference/how-the-cache-works"
               className="Link Link-without-underline Link-is-juicy"
             >
               Cache
@@ -60,7 +60,7 @@ const Footer = () => (
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/tutorials/"
+              href="https://developers.cloudflare.com/workers/tutorials"
               className="Link Link-without-underline Link-is-juicy"
             >
               Tutorials
@@ -68,7 +68,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/templates/"
+              href="https://developers.cloudflare.com/workers/templates"
               className="Link Link-without-underline Link-is-juicy"
             >
               Templates
@@ -76,7 +76,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/wrangler/"
+              href="https://developers.cloudflare.com/workers/wrangler"
               className="Link Link-without-underline Link-is-juicy"
             >
               Tooling reference
@@ -84,7 +84,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/runtime-apis/"
+              href="https://developers.cloudflare.com/workers/runtime-apis"
               className="Link Link-without-underline Link-is-juicy"
             >
               API reference
@@ -97,7 +97,7 @@ const Footer = () => (
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/reference/how-workers-works/"
+              href="https://developers.cloudflare.com/workers/reference/how-workers-works"
               className="Link Link-without-underline Link-is-juicy"
             >
               How it works
@@ -150,7 +150,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/support/contacting-cloudflare-support/"
+              href="https://developers.cloudflare.com/support/contacting-cloudflare-support"
               className="Link Link-without-underline Link-is-juicy"
             >
               Support
