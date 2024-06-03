@@ -31,7 +31,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/reference/storage/overview/"
+              href="https://developers.cloudflare.com/workers/platform/storage-options/"
               className="Link Link-without-underline Link-is-juicy"
             >
               Key-value storage
@@ -39,7 +39,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/about/using-cache/"
+              href="https://developers.cloudflare.com/workers/reference/how-the-cache-works/"
               className="Link Link-without-underline Link-is-juicy"
             >
               Cache
@@ -76,7 +76,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/reference/tooling/"
+              href="https://developers.cloudflare.com/workers/wrangler/"
               className="Link Link-without-underline Link-is-juicy"
             >
               Tooling reference
@@ -84,7 +84,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/reference/runtime/apis/"
+              href="https://developers.cloudflare.com/workers/runtime-apis/"
               className="Link Link-without-underline Link-is-juicy"
             >
               API reference
@@ -97,7 +97,7 @@ const Footer = () => (
         <ul className="Footer--column-list">
           <li className="Footer--column-list-item">
             <a
-              href="https://developers.cloudflare.com/workers/about/how-it-works/"
+              href="https://developers.cloudflare.com/workers/reference/how-workers-works/"
               className="Link Link-without-underline Link-is-juicy"
             >
               How it works
@@ -105,7 +105,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://workers.cloudflare.com/built-with"
+              href="https://workers.cloudflare.com/built-with/"
               className="Link Link-without-underline Link-is-juicy"
             >
               Built with
@@ -113,7 +113,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://www.youtube.com/channel/UC3QIolTSR29ba4_u15vtEUQ"
+              href="https://www.youtube.com/@CloudflareWorkers"
               className="Link Link-without-underline Link-is-juicy"
             >
               YouTube
@@ -142,7 +142,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://discord.gg/cloudflaredev"
+              href="https://discord.cloudflare.com"
               className="Link Link-without-underline Link-is-juicy"
             >
               Discord
@@ -150,7 +150,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://support.cloudflare.com/hc/en-us/articles/200172476-Contacting-Cloudflare-Support"
+              href="https://developers.cloudflare.com/support/contacting-cloudflare-support/"
               className="Link Link-without-underline Link-is-juicy"
             >
               Support
@@ -158,7 +158,7 @@ const Footer = () => (
           </li>
           <li className="Footer--column-list-item">
             <a
-              href="https://twitter.com/CloudflareDev"
+              href="https://x.com/CloudflareDev"
               className="Link Link-without-underline Link-is-juicy"
             >
               Twitter
@@ -168,7 +168,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="Footer--legal">
-      © 2021 Cloudflare, Inc. ·{" "}
+      © 2024 Cloudflare, Inc. ·{" "}
       <a
         className="Link Link-without-underline"
         href="https://www.cloudflare.com/privacypolicy/"
