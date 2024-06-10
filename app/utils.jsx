@@ -86,15 +86,6 @@ function useLocalStorage(key, initialValue) {
 
 const PROJECTS_PER_COLLECTION = 8
 
-const shuffle = (array) => {
-  let clone = [].concat(array)
-  for (let i = clone.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[clone[i], clone[j]] = [clone[j], clone[i]]
-  }
-  return clone
-}
-
 const resultTemplate = () => `
     <div class="coveo-result-frame">
       <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
@@ -138,7 +129,6 @@ export {
   flatten,
   normalizeCollection,
   resultTemplate,
-  shuffle,
   useLocalStorage,
   useSSR,
 }

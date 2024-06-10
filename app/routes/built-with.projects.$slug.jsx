@@ -12,7 +12,6 @@ import RelatedProject from "../components/project"
 import {
   normalizeCollection,
   PROJECTS_PER_COLLECTION,
-  shuffle,
 } from "../utils"
 
 import "@cloudflare/cloudflare-brand-assets/css/components/definition-list.css"
