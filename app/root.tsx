@@ -1,10 +1,13 @@
 import {
+  useLoaderData,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
+} from "@remix-run/react"
+
+import { json } from "@remix-run/cloudflare"
 
 import "@cloudflare/cloudflare-brand-assets/css/components/error-page.css"
 import "@cloudflare/cloudflare-brand-assets/css/components/number.css"
@@ -40,7 +43,17 @@ const setDomainAttr = `
   document.documentElement.setAttribute('domain', document.domain)
 `
 
+export async function loader() {
+  return json({
+    ENV: {
+      COVEO_ORG: process.env.COVEO_ORG,
+      COVEO_TOKEN: process.env.COVEO_TOKEN
+    },
+  });
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const data = useLoaderData() || {}
   const escapedLoadTheme = loadTheme.replace(/"/g, '\\"');
 
   const env = process.env.NODE_ENV
@@ -98,6 +111,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(
+              data.ENV
+            )}`,
+          }}
+        />
+
         <Scripts />
       </body>
     </html>
