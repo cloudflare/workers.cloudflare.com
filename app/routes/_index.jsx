@@ -614,7 +614,7 @@ const IndexPage = () => {
                 <div className="PlansSection--plan-subtitle">
                   <span className="Number Number-is-strong">
                     <span className="Number--dollars">$</span>
-                    <span className="Number--number">0.15</span>
+                    <span className="Number--number">0.30</span>
                     <span className="Number--per">/</span>
                     <span className="Number--per-unit">
                       <span className="Number--per-unit-multiplier">
