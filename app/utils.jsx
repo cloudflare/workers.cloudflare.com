@@ -84,7 +84,7 @@ function useLocalStorage(key, initialValue) {
   return [storedValue, setValue]
 }
 
-const PROJECTS_PER_COLLECTION = 8
+const PROJECTS_PER_COLLECTION = 9
 
 const resultTemplate = () => `
     <div class="coveo-result-frame">

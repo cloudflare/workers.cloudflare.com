@@ -6,7 +6,6 @@ import Project from "../components/project";
 import { isInitialRoute } from "../components/route-update-history.js";
 
 import { client } from "../lib/sanity";
-import { PROJECTS_PER_COLLECTION } from "../utils";
 
 import "../styles/built-with-workers-page.css";
 import "../styles/collections.css";
@@ -27,7 +26,7 @@ export const meta = ({ data: { collection } }) => {
   ];
 };
 
-export const query = `
+const query = `
   {
     "collection": *[_type == "collection" && slug == $slug][0] {
       ...,
@@ -59,7 +58,6 @@ const BuiltWithPage = () => {
           <div className="Collection">
             <div className="Collection--projects">
               {collection.projects
-                .slice(0, PROJECTS_PER_COLLECTION)
                 .map((project, pi) => (
                   <div className="Collection--project" key={pi}>
                     <Project
