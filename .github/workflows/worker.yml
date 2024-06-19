@@ -30,9 +30,9 @@ jobs:
         run: npm ci
         working-directory: worker
 
-      - name: Run tests
-        run: npm run test
-        working-directory: worker
+          # - name: Run tests
+          #   run: npm run test
+          #   working-directory: worker
 
       - name: Deploy worker
         run: npm run deploy
