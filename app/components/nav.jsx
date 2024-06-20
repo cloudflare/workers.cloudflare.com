@@ -83,7 +83,7 @@ const Nav = ({ showInput = true }) => {
         <div className="Nav--item">
           <NavLink
             className={({ isActive, isPending }) =>
-              isActive ? "Nav--link-is-active Nav--link" : "Nav--link"
+              isActive ? "Nav--link-is-active Nav--link" : "Nav--link Nav--link-home"
             }
             to="/"
           >
