@@ -7,10 +7,19 @@ import __STATIC_CONTENT_MANIFEST from "__STATIC_CONTENT_MANIFEST";
 const MANIFEST = JSON.parse(__STATIC_CONTENT_MANIFEST);
 const handleRemixRequest = createRequestHandler(remixBuild);
 
+const redirects = {
+  '/docs': 'https://developers.cloudflare.com/workers'
+}
+
 export default {
   async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+
+    if (redirects[url.pathname]) {
+      return Response.redirect(redirects[url.pathname])
+    }
+
     try {
-      const url = new URL(request.url);
       const ttl = url.pathname.startsWith("/assets/")
         ? 60 * 60 * 24 * 365 // 1 year
         : 60 * 5; // 5 minutes
