@@ -9,7 +9,6 @@ on:
 
 jobs:
   publish_worker:
-    if: ${{ github.repository_owner == 'cloudflare' }}
     name: Deploy Worker
     runs-on: ubuntu-latest
 
@@ -25,11 +24,8 @@ jobs:
           node-version: 18
           cache: "npm"
 
-      - name: Install Yarn Dependencies
-        run: yarn install
-
       - name: Install NPM Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Deploy worker
         run: npm run deploy
@@ -37,4 +33,5 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
           CF_EMAIL: ${{ secrets.CF_EMAIL }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
 
