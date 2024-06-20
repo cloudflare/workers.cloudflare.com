@@ -1,4 +1,4 @@
-name: Deploy Worker
+name: Deploy Playground Worker
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
   pull_request:
 
 jobs:
-  publish_worker:
+  publish_playground_worker:
     if: ${{ github.repository_owner == 'cloudflare' }}
-    name: Deploy Worker
+    name: Deploy Playground Worker
     runs-on: ubuntu-latest
 
     steps:
