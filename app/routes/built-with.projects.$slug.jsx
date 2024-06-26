@@ -43,14 +43,18 @@ const getPrimaryLinkText = (linkType) => {
       return "Read blog"
     case "code":
       return "Read code"
+    case "demo":
+      return "Demo"
+    case "discord":
+      return "Discord"
     case "linkedin":
       return "View on LinkedIn"
     case "twitter":
       return "View on Twitter"
     case "website":
       return "Visit website"
-    case "discord":
-      return "Discord"
+    case "youtube":
+      return "YouTube"
     default:
       return "Learn more"
   }
@@ -64,14 +68,18 @@ const getLinkText = (linkType) => {
       return "Blog"
     case "code":
       return "Code"
+    case "demo":
+      return "Demo"
+    case "discord":
+      return "Discord"
     case "linkedin":
       return "LinkedIn"
     case "twitter":
       return "Twitter"
     case "website":
       return "Website"
-    case "discord":
-      return "Discord"
+    case "youtube":
+      return "YouTube"
     default:
       return "Learn more"
   }
