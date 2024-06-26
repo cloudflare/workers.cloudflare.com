@@ -1,3 +1,5 @@
+name: Build Sanity Studio
+
 on:
   push:
     branches-ignore:
