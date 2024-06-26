@@ -4,6 +4,7 @@ on:
     - master
     paths:
     - 'sanity/**'
+    - '.github/workflows/build_sanity.yml'
 
 jobs:
   deploy:
@@ -15,7 +16,7 @@ jobs:
       run: "npm install"
       working-directory: 'sanity'
     - name: Build app
-      run: "sanity build"
+      run: "npx sanity build"
+      working-directory: 'sanity'
       env:
         SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
-      working-directory: 'sanity'

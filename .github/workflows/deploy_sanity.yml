@@ -4,6 +4,7 @@ on:
       - master
     paths:
     - 'sanity/**'
+    - '.github/workflows/deploy_sanity.yml'
   repository_dispatch:
   workflow_dispatch:
 
@@ -18,16 +19,16 @@ jobs:
       working-directory: 'sanity'
     - name: Build app
       run: "npx sanity build"
+      working-directory: 'sanity'
       env:
         SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
-      working-directory: 'sanity'
     - name: Deploy app
       run: "npx sanity deploy"
+      working-directory: 'sanity'
       env:
         SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-      working-directory: 'sanity'
     - name: Deploy GraphQL API
       run: "npx sanity graphql deploy"
+      working-directory: 'sanity'
       env:
         SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-      working-directory: 'sanity'
