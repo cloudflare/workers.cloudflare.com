@@ -40,6 +40,11 @@ const project = {
       of: [{ type: "reference", to: [{ type: "feature" }] }],
     },
     {
+      title: "Stream Video ID",
+      name: "stream_video_id",
+      type: "string",
+    },
+    {
       title: "Links",
       name: "links",
       type: "array",

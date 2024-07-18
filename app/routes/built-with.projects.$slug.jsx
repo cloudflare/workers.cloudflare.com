@@ -1,5 +1,6 @@
 import React from "react";
 import uniq from 'lodash/uniq';
+import { Stream } from "@cloudflare/stream-react";
 import { Link, useLoaderData } from "@remix-run/react"
 import { json } from "@remix-run/cloudflare";
 import { ClientOnly } from "remix-utils/client-only"
@@ -141,10 +142,14 @@ const Project = () => {
         </div>
 
         <div className="ProjectPage--image">
-          <img
-            src={project.image.asset.url}
-            style={{ objectFit: "cover", width: "100%" }}
-          />
+          {project.stream_video_id ? (
+            <Stream controls src={project.stream_video_id} />
+          ) : (
+            <img
+              src={project.image.asset.url}
+              style={{ objectFit: "cover", width: "100%" }}
+            />
+          )}
         </div>
 
         {project.longDescription && (
