@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@cloudflare/cloudflare-brand-assets": "^4.7.7",
+    "@cloudflare/stream-react": "^1.9.1",
     "@remix-run/cloudflare": "^2.9.2",
     "@remix-run/cloudflare-pages": "^2.9.2",
     "@remix-run/node": "^2.9.2",
