@@ -143,7 +143,11 @@ const Project = () => {
 
         <div className="ProjectPage--image">
           {project.stream_video_id ? (
-            <Stream controls src={project.stream_video_id} />
+            <Stream 
+              controls src={project.stream_video_id} 
+              letterboxColor="transparent"
+              poster={project.image.asset.url}
+            />
           ) : (
             <img
               src={project.image.asset.url}
