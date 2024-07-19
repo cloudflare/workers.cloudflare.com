@@ -39,7 +39,7 @@ const Markdown = (props) => (
   <ReactMarkdown
     {...props}
     className="Markdown"
-    renderers={{
+    components={{
       link: Link,
       list: List,
       inlineCode: InlineCode,

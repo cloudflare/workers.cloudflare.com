@@ -101,8 +101,8 @@ const Project = () => {
   const relatedProjects = collectionForProject && 
     uniq(collectionForProject.projects).slice(0, PROJECTS_PER_COLLECTION)
 
-  const featureIds = project.features ? project.features.map(({ id }) => id) : []
-  const featuresForProject = features.filter(({ id }) => featureIds.includes(id))
+  const featureIds = project.features ? project.features.map(({ _id }) => _id) : []
+  const featuresForProject = features.filter(({ _id }) => featureIds.includes(_id))
 
   return (
     <Layout>
@@ -236,7 +236,7 @@ const query = `
   {
     "project": *[_type == "project" && slug == $slug]{
       ...,
-      features->,
+      features[]->,
       image { asset -> { url }},
     }[0],
 
