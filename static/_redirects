@@ -1,1 +1,2 @@
 /docs https://developers.cloudflare.com/workers
+/docs/* https://developers.cloudflare.com/workers/:splat
