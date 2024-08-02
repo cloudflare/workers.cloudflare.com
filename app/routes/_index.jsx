@@ -270,14 +270,14 @@ const IndexPage = () => {
                 app, creating a function, or writing an API. We have{" "}
                 <a
                   className="Link"
-                  href="https://workers.cloudflare.com/docs/templates/"
+                  href="https://developers.cloudflare.com/workers/get-started/quickstarts/"
                 >
                   templates
                 </a>
                 ,{" "}
                 <a
                   className="Link"
-                  href="https://workers.cloudflare.com/docs/tutorials/"
+                  href="https://developers.cloudflare.com/workers/tutorials/"
                 >
                   tutorials
                 </a>
