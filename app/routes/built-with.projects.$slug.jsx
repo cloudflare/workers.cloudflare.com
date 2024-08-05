@@ -2,7 +2,7 @@ import React from "react";
 import uniq from 'lodash/uniq';
 import { Stream } from "@cloudflare/stream-react";
 import { Link, useLoaderData } from "@remix-run/react"
-import { json } from "@remix-run/cloudflare";
+import { json, redirect } from "@remix-run/cloudflare";
 import { ClientOnly } from "remix-utils/client-only"
 
 import { client } from "../lib/sanity"
@@ -99,7 +99,7 @@ const Project = () => {
         .find(({ id }) => id === project.id)
   )
 
-  const relatedProjects = collectionForProject && 
+  const relatedProjects = collectionForProject &&
     uniq(collectionForProject.projects).slice(0, PROJECTS_PER_COLLECTION)
 
   const featureIds = project.features ? project.features.map(({ _id }) => _id) : []
@@ -143,8 +143,8 @@ const Project = () => {
 
         <div className="ProjectPage--image">
           {project.stream_video_id ? (
-            <Stream 
-              controls src={project.stream_video_id} 
+            <Stream
+              controls src={project.stream_video_id}
               letterboxColor="transparent"
               poster={project.image.asset.url}
             />
@@ -257,13 +257,14 @@ const query = `
         image { asset -> { url }}
       }
     },
-  
+
     "features": *[_type == "feature"]
   }
 `
 
 export const loader = async ({ params: { slug } }) => {
   const response = await client.fetch(query, { slug })
+  if (!response.project) return redirect("/not-found")
   return json(response);
 };
 
