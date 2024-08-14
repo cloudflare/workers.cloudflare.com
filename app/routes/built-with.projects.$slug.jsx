@@ -205,7 +205,7 @@ const Project = () => {
                           >
                             <a
                               className="Link Link-with-right-arrow"
-                              href={external_url ? external_url : `/built-with/features/${slug}`}
+                              href={external_url ? external_url : `/built-with/collections/${slug}`}
                             >
                               {name}
                             </a>
