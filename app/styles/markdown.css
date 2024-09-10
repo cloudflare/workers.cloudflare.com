@@ -13,7 +13,7 @@
   margin-top: 1.5em;
 }
 
-.Markdown > a {
+.Markdown > p a {
   color: var(--color);
 }
 
