@@ -3,18 +3,35 @@ import { ClientOnly } from "remix-utils/client-only"
 export const meta = () => {
   return [
     { title: "Cloudflare Workers©" },
-    { name: "description", content: "Build your next application with Cloudflare Workers" },
+    {
+      name: "description",
+      content: "Build your next application with Cloudflare Workers",
+    },
     { name: "og:title", content: "Cloudflare Workers©" },
-    { name: "og:description", content: "Build your next application with Cloudflare Workers" },
-    { name: "og:image", content: "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06" },
+    {
+      name: "og:description",
+      content: "Build your next application with Cloudflare Workers",
+    },
+    {
+      name: "og:image",
+      content:
+        "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06",
+    },
     { name: "og:type", content: "website" },
     { name: "twitter:title", content: "Cloudflare Workers©" },
-    { name: "twitter:description", content: "Build your next application with Cloudflare Workers" },
-    { name: "twitter:image:src", content: "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06" },
+    {
+      name: "twitter:description",
+      content: "Build your next application with Cloudflare Workers",
+    },
+    {
+      name: "twitter:image:src",
+      content:
+        "https://repository-images.githubusercontent.com/215130914/0a128400-41f5-11ea-8dc8-b1c09a48fa06",
+    },
     { name: "twitter:card", content: "summary" },
     { name: "twitter:creator", content: "@cloudflaredev" },
-  ];
-};
+  ]
+}
 
 import LatencyTest from "../components/latency_test"
 import Layout from "../components/layout"
@@ -237,9 +254,7 @@ const IndexPage = () => {
                     . Your code is powered by Cloudflare’s network which is
                     milliseconds away from virtually every Internet user.
                   </p>
-                  <ClientOnly>
-                    {() => <LatencyTest />}
-                  </ClientOnly>
+                  <ClientOnly>{() => <LatencyTest />}</ClientOnly>
                 </div>
               </div>
             </div>
@@ -570,6 +585,7 @@ const IndexPage = () => {
                   <li>Deploy up to 100 Worker scripts</li>
                   <li>Runs on all 275+ network locations</li>
                   <li>Free workers.dev subdomain</li>
+                  <li>Free static asset requests</li>
                   <li>Up to 10ms CPU time per request</li>
                   <li>Lowest latency after the first request</li>
                   <li>
