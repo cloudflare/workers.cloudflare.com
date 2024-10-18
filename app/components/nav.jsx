@@ -68,7 +68,7 @@ const Nav = ({ showInput = true }) => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault()
-    window.location.href = `https://www.cloudflare.com/searchresults/#q=${value}`
+    window.location.href = `https://www.cloudflare.com/searchresults/?q=${value}`
   }
 
   return (
