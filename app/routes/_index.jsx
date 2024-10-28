@@ -629,31 +629,36 @@ const IndexPage = () => {
                 <h2 className="PlansSection--plan-title">Paid</h2>
                 <div className="PlansSection--plan-subtitle">
                   <span className="Number Number-is-strong">
-                    <span className="Number--dollars">$</span>
-                    <span className="Number--number">0.30</span>
-                    <span className="Number--per">/</span>
-                    <span className="Number--per-unit">
-                      <span className="Number--per-unit-multiplier">
-                        million
-                      </span>{" "}
-                      requests per month
-                    </span>
+                    <span className="Number--number">10 million requests per month</span>
                   </span>
                 </div>
                 <div className="PlansSection--plan-subtitle-note">
-                  (Minimum charge of{" "}
-                  <span className="Number">
-                    <span className="Number--dollars">$</span>
-                    <span className="Number--number">5</span>
-                    <span className="Number--per">/</span>
-                    <span className="Number--per-unit">mo</span>
-                  </span>
+                  <p>
+                    <span className="Number">
+                      <span className="Number--dollars">+$</span>
+                      <span className="Number--number">0.30</span>
+                      /million requests per month
+                    </span>
+                  </p>
+                  <p>
+                    (Minimum charge of{" "}
+                    <span className="Number">
+                      <span className="Number--dollars">$</span>
+                      <span className="Number--number">5</span>
+                      <span className="Number--per">/</span>
+                      <span className="Number--per-unit">mo</span>
+                    </span>
                   )
+                  </p>
                 </div>
               </div>
               <div className="PlansSection--plan-details">
                 <ul className="UnorderedListWorkersThemed">
                   <li>Everything in Free, plus:</li>
+                  <li>
+                    <strong>20 million included logs per month</strong>
+                    &nbsp;(+$0.60 per additional million)
+                  </li>
                   <li>
                     Up to <strong>30s of CPU time</strong> per request
                   </li>
