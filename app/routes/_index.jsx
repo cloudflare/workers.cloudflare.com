@@ -699,6 +699,12 @@ const IndexPage = () => {
               </div>
             </div>
           </div>
+
+          <div className="PlansSection--pricing-cta">
+            <p>
+              Visit our docs to <a href="https://developers.cloudflare.com/workers/platform/pricing/">learn more about pricing</a>.
+            </p>
+          </div>
         </div>
       </section>
     </Layout>

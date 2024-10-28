@@ -141,3 +141,12 @@
     margin-top: -1em;
   }
 }
+
+.PlansSection--pricing-cta {
+  a { color: var(--gray-9); }
+
+  color: var(--gray-6);
+  --margin: 2.5em;
+  margin-top: var(--margin);
+  margin-bottom: calc(var(--margin) * -1);
+}
