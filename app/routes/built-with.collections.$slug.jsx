@@ -5,6 +5,8 @@ import Layout from "../components/layout";
 import Project from "../components/project";
 import { isInitialRoute } from "../components/route-update-history.js";
 
+import { sortAndLimitProjects } from "../utils";
+
 import { client } from "../lib/sanity";
 
 import "../styles/built-with-workers-page.css";
@@ -57,7 +59,7 @@ const BuiltWithPage = () => {
         <div className="Collections">
           <div className="Collection">
             <div className="Collection--projects">
-              {collection.projects
+              {sortAndLimitProjects(collection)
                 .map((project, pi) => (
                   <div className="Collection--project" key={pi}>
                     <Project
