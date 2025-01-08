@@ -126,6 +126,10 @@ const resultTemplate = () => `
 
 const sortAndLimitProjects = (collection) => {
   const numToShow = collection.numProjectsToShow || 3;
+  return sortProjects(collection).slice(0, numToShow)
+}
+
+const sortProjects = (collection) => {
   const sortOrder = collection.sortOrder || "_updated_at desc";
   const [sortField, sortDirection] = sortOrder.split(" ");
 
@@ -140,18 +144,16 @@ const sortAndLimitProjects = (collection) => {
       // Not sure, default to created_at desc
       return a[sortField] > b[sortField] ? 1 : -1;
     })
-    .slice(0, numToShow)
 
   return projects;
 }
-
-
 
 export {
   PROJECTS_PER_COLLECTION,
   flatten,
   normalizeCollection,
   resultTemplate,
+  sortProjects,
   sortAndLimitProjects,
   useLocalStorage,
   useSSR,
