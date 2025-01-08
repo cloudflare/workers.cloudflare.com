@@ -20,19 +20,19 @@
 
 @media (max-width: 2400px) {
   .Collection {
-    --columns: 6
+    --columns: 3
   }
 }
 
 @media (max-width: 2100px) {
   .Collection {
-    --columns: 5
+    --columns: 3
   }
 }
 
 @media (max-width: 1800px) {
   .Collection {
-    --columns: 4
+    --columns: 3
   }
 }
 
