@@ -124,11 +124,35 @@ const resultTemplate = () => `
     </div>
   `
 
+const sortAndLimitProjects = (collection) => {
+  const numToShow = collection.numProjectsToShow || 3;
+  const sortOrder = collection.sortOrder || "_updated_at desc";
+  const [sortField, sortDirection] = sortOrder.split(" ");
+
+  const projects = collection.projects
+    .sort((a, b) => {
+      if (sortField === "name") {
+        return a.name.localeCompare(b.name);
+      }
+      if (["_created_at", "_updated_at"].includes(sortField)) {
+        return a[sortField] > b[sortField] ? 1 : -1;
+      }
+      // Not sure, default to created_at desc
+      return a[sortField] > b[sortField] ? 1 : -1;
+    })
+    .slice(0, numToShow)
+
+  return projects;
+}
+
+
+
 export {
   PROJECTS_PER_COLLECTION,
   flatten,
   normalizeCollection,
   resultTemplate,
+  sortAndLimitProjects,
   useLocalStorage,
   useSSR,
 }

@@ -6,7 +6,7 @@ import Project from "../components/project";
 import { isInitialRoute } from "../components/route-update-history.js";
 
 import { client } from "../lib/sanity";
-import { PROJECTS_PER_COLLECTION } from "../utils";
+import { PROJECTS_PER_COLLECTION, sortAndLimitProjects } from "../utils";
 
 import "../styles/built-with-workers-page.css";
 import "../styles/collections.css";
@@ -77,8 +77,7 @@ const BuiltWithPage = () => {
                 </div>
 
                 <div className="Collection--projects">
-                  {collection.projects
-                    .slice(0, PROJECTS_PER_COLLECTION)
+                  {sortAndLimitProjects(collection)
                     .map((project, pi) => (
                       <div className="Collection--project" key={pi}>
                         <Project
