@@ -169,7 +169,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="Footer--legal">
-      © 2021 Cloudflare, Inc. ·{" "}
+      © {new Date().getFullYear()} Cloudflare, Inc. ·{" "}
       <a
         className="Link Link-without-underline"
         href="https://www.cloudflare.com/privacypolicy/"
