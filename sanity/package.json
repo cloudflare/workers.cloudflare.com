@@ -1,5 +1,5 @@
 {
-  "name": "built-with-workers",
+  "name": "@cloudflare/built-with-workers",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
