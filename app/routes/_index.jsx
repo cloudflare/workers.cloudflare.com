@@ -588,6 +588,8 @@ const IndexPage = () => {
                   <li>Free static asset requests</li>
                   <li>Up to 10ms CPU time per request</li>
                   <li>Lowest latency after the first request</li>
+                  <li>Up to 3,000 build minutes per month</li>
+                  <li>1 concurrent build slot</li>
                   <li>
                     Limited{" "}
                     <strong>
@@ -665,6 +667,12 @@ const IndexPage = () => {
                   <li>
                     <strong>Always lowest latency</strong>
                   </li>
+                  <li
+                  >
+                    <strong>6,000 included build minutes per month</strong>
+                    &nbsp;(+$0.005 per additional minute)
+                  </li>
+                  <li>6 concurrent build slots</li>
                   <li>
                     Additional{" "}
                     <strong>
