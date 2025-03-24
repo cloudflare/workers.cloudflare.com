@@ -15,7 +15,7 @@ const Footer = () => (
           <img
             className="Footer--logo-link-image"
             alt="Workers logo"
-            src="https://workers.cloudflare.com/resources/logo/logo.svg"
+            src="https://workers.cloudflare.com/logo.svg"
           />
         </a>
       </div>
