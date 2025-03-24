@@ -34,3 +34,7 @@ Make sure to deploy the output of `npm run build`
 
 - `build/server`
 - `build/client`
+
+# Image resources
+
+`logo.svg` is being used by [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) for displaying the Workers logo in pull request comments. Please ensure that this file remains accessible at /logo.svg.
