@@ -33,5 +33,6 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_API_KEY: ${{ secrets.CF_GLOBAL_APIKEY }}
           CF_EMAIL: ${{ secrets.CF_EMAIL }}
+          NODE_ENV: production
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
 
