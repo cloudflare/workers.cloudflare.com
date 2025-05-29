@@ -92,6 +92,17 @@ const Nav = ({ showInput = true }) => {
         </div>
 
         <div className="Nav--item">
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isActive ? "Nav--link-is-active Nav--link" : "Nav--link"
+            }
+            to="/pricing"
+          >
+            Pricing
+          </NavLink>
+        </div>
+
+        <div className="Nav--item">
           <a className="Nav--link" href="https://pages.cloudflare.com">
             Pages
           </a>
