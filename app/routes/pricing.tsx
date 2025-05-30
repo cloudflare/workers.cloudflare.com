@@ -107,7 +107,7 @@ const pricingData: PricingData = {
           { name: "Standard Storage", included: "10 GB-month", unit: "per GB-month", price: "$0.015" },
           { name: "Standard Class A operations", included: "1 million", unit: "per million requests", price: "$4.50" },
           { name: "Standard Class B operations", included: "10 million", unit: "per million requests", price: "$0.36" },
-          { name: "Infrequent Access Storage", included: "10 GB-month", unit: "per GB-month", price: "$0.015" },
+          { name: "Infrequent Access Storage", included: "10 GB-month", unit: "per GB-month", price: "$0.01" },
           { name: "Infrequent Access Class A operations", included: "1 million", unit: "per million requests", price: "$9.00" },
           { name: "Infrequent Access Class B operations", included: "10 million", unit: "per million requests", price: "$0.90" },
           { name: "Infrequent Access Data Retrieval", included: "None", unit: "per GB", price: "$0.10" },
