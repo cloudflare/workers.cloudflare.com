@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import "../styles/pricing.css"
 
@@ -138,6 +138,8 @@ const pricingData: PricingData = {
         description: "Stateful serverless applications",
         link: "https://developers.cloudflare.com/durable-objects/",
         components: [
+          { name: "Requests", included: "None", unit: "per million", price: "$0.15" },
+          { name: "Duration", included: "None", unit: "per million GB-s", price: "$12.50" },
           { name: "Rows Read", included: "None", unit: "per million rows", price: "$0.0001" },
           { name: "Rows written", included: "None", unit: "per million rows", price: "$1.00" },
           { name: "SQL Stored data", included: "None", unit: "per GB-month", price: "$0.20" },
@@ -205,6 +207,28 @@ const pricingData: PricingData = {
       },
     ],
   },
+  observability: {
+    name: "Observability",
+    icon: "📊",
+    products: [
+      {
+        product: "Workers Logs",
+        description: "Monitor Workers performance",
+        link: "https://developers.cloudflare.com/workers/observability/",
+        components: [
+          { name: "Events", included: "20 million", unit: "per million events", price: "$0.60" },
+        ],
+      },
+      {
+        product: "Workers Logpush",
+        description: "Push Workers logs to external destinations",
+        link: "https://developers.cloudflare.com/workers/observability/logpush/",
+        components: [
+          { name: "Requests", included: "None", unit: "per million requests", price: "$0.05" },
+        ],
+      },
+    ],
+  },
   ai: {
     name: "AI",
     icon: "🤖",
@@ -241,14 +265,6 @@ const pricingData: PricingData = {
         ],
       },
       {
-        product: "Workers Observability",
-        description: "Monitor Workers performance",
-        link: "https://developers.cloudflare.com/workers/observability/",
-        components: [
-          { name: "Events", included: "20 million", unit: "per million events", price: "$0.60" },
-        ],
-      },
-      {
         product: "Workers Builds",
         description: "Build Workers at scale",
         link: "https://developers.cloudflare.com/workers/",
@@ -269,8 +285,53 @@ const pricingData: PricingData = {
 }
 
 const PricingPage = () => {
+  const categoryOrder = ["compute", "storage", "media", "observability", "ai", "other"]
   const [activeTab, setActiveTab] = useState("compute")
-  const categoryOrder = ["compute", "storage", "media", "ai", "other"]
+  
+  // Update localStorage and URL hash when tab changes
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab)
+    
+    if (typeof window !== "undefined") {
+      // Update localStorage
+      localStorage.setItem("pricingActiveTab", tab)
+      
+      // Update URL hash without scrolling
+      window.history.replaceState(null, "", `#${tab}`)
+    }
+  }
+  
+  // Set initial tab from URL hash or localStorage on client mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Check URL hash first
+      const hash = window.location.hash.replace("#", "")
+      if (hash && categoryOrder.includes(hash)) {
+        setActiveTab(hash)
+      } else {
+        // Then check localStorage
+        const savedTab = localStorage.getItem("pricingActiveTab")
+        if (savedTab && categoryOrder.includes(savedTab)) {
+          setActiveTab(savedTab)
+        }
+      }
+    }
+  }, [])
+  
+  // Listen for hash changes (browser back/forward)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleHashChange = () => {
+        const hash = window.location.hash.replace("#", "")
+        if (hash && categoryOrder.includes(hash)) {
+          setActiveTab(hash)
+        }
+      }
+      
+      window.addEventListener("hashchange", handleHashChange)
+      return () => window.removeEventListener("hashchange", handleHashChange)
+    }
+  }, [])
 
   return (
     <Layout>
@@ -290,7 +351,7 @@ const PricingPage = () => {
                 <button
                   key={categoryKey}
                   className={`PricingSection--tab ${activeTab === categoryKey ? "PricingSection--tab-active" : ""}`}
-                  onClick={() => setActiveTab(categoryKey)}
+                  onClick={() => handleTabChange(categoryKey)}
                 >
                   <span className="PricingSection--tab-icon">{category.icon}</span>
                   <span className="PricingSection--tab-name">{category.name}</span>
