@@ -185,14 +185,21 @@ const Footer = () => (
       </a>{" "}
       ·{" "}
       <ClientOnly>
-        {() => 
-          <a
-            role="button"
-            id="ot-sdk-btn"
-            className="Link Link-without-underline ot-sdk-show-settings"
-          >
-            Cookie Settings
-          </a>
+        {() =>
+          <div id="ot-sdk-wrapper">
+            <img
+              src="./resources/icons/privacyoptions.svg"
+              alt="privacy options"
+              height="12"
+            />
+            <a
+              role="button"
+              id="ot-sdk-btn"
+              className="Link Link-without-underline ot-sdk-show-settings"
+            >
+              Cookie Settings
+            </a>
+          </div>
         }
       </ClientOnly>
     </div>

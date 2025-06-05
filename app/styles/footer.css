@@ -13,3 +13,9 @@ html #ot-sdk-btn.ot-sdk-show-settings:hover {
   background-color: transparent;
   color: var(--accent-color);
 }
+
+html #ot-sdk-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
