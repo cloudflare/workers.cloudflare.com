@@ -5,7 +5,7 @@ html #ot-sdk-btn.ot-sdk-show-settings {
   padding: 0 !important;
   line-height: inherit !important;
   font-size: inherit !important;
-
+  background-color: transparent;
   text-decoration: none;
 }
 

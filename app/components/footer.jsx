@@ -185,22 +185,24 @@ const Footer = () => (
       </a>{" "}
       ·{" "}
       <ClientOnly>
-        {() =>
-          <div id="ot-sdk-wrapper">
+        {() => (
+          <div
+            id="ot-sdk-wrapper"
+            onClick={() => window?.Optanon?.ToggleInfoDisplay()}
+          >
             <img
               src="./resources/icons/privacyoptions.svg"
               alt="privacy options"
               height="12"
             />
-            <a
-              role="button"
+            <button
               id="ot-sdk-btn"
-              className="Link Link-without-underline ot-sdk-show-settings"
+              className="ot-sdk-show-settings Link Link-without-underline"
             >
               Cookie Settings
-            </a>
+            </button>
           </div>
-        }
+        )}
       </ClientOnly>
     </div>
   </footer>
