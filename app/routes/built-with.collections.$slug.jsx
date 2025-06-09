@@ -7,7 +7,7 @@ import { isInitialRoute } from "../components/route-update-history.js";
 
 import { sortProjects } from "../utils";
 
-import { client } from "../lib/sanity";
+import { createSanityClient } from "../lib/sanity";
 
 import "../styles/built-with-workers-page.css";
 import "../styles/collections.css";
@@ -40,7 +40,8 @@ const query = `
   }
 `
 
-export const loader = async ({ params: { slug } }) => {
+export const loader = async ({ params: { slug }, context }) => {
+  const client = createSanityClient(context.env.SANITY_API_TOKEN);
   const response = await client.fetch(query, { slug })
   return json(response);
 };

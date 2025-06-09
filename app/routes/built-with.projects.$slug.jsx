@@ -5,7 +5,7 @@ import { Link, useLoaderData } from "@remix-run/react"
 import { json, redirect } from "@remix-run/cloudflare";
 import { ClientOnly } from "remix-utils/client-only"
 
-import { client } from "../lib/sanity"
+import { createSanityClient } from "../lib/sanity"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
 import RelatedProject from "../components/project"
@@ -262,7 +262,8 @@ const query = `
   }
 `
 
-export const loader = async ({ params: { slug } }) => {
+export const loader = async ({ params: { slug }, context }) => {
+  const client = createSanityClient(context.env.SANITY_API_TOKEN);
   const response = await client.fetch(query, { slug })
   if (!response.project) return redirect("/not-found")
   return json(response);
