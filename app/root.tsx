@@ -98,15 +98,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: setDomainAttr }} />
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: loadTheme }} />
         {cookieScript}
-        <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=DC-9309168&l=cfDataLayer&cx=c"></script>
-        <script 
-          dangerouslySetInnerHTML={{__html:`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GTM-PKQFGQB');
-          `}}>
-        </script>
       </head>
       <body>
         {children}
