@@ -250,7 +250,7 @@ const pricingData: PricingData = {
         description: "Run AI models at the edge",
         link: "https://developers.cloudflare.com/workers-ai/",
         components: [
-          { name: "Neurons", included: "None", unit: "per 1,000 neurons/day", price: "$0.011" },
+          { name: "Neurons", included: "None", unit: "per 1,000 neurons", price: "$0.011" },
         ],
       },
     ],
