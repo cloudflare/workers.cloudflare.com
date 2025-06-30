@@ -9,6 +9,80 @@ export default <ExportedHandler<Env>>{
       }
 
       const originalHost = url.host
+      
+      // Sanity API proxy endpoint
+      if (url.pathname.startsWith("/api/sanity")) {
+        // Security check: Only allow requests from the current domain
+        const origin = request.headers.get("Origin")
+        const referer = request.headers.get("Referer")
+        
+        // Check if the request is coming from the same domain
+        const allowedOrigins = [
+          "https://workers.cloudflare.com",
+          "http://localhost:3000", // For local development
+          "http://localhost:8788"  // For local worker development
+        ]
+        
+        // Verify origin or referer is from allowed domains
+        const isAllowedOrigin = origin && allowedOrigins.some(allowed => origin.startsWith(allowed))
+        const isAllowedReferer = referer && allowedOrigins.some(allowed => referer.startsWith(allowed))
+        
+        if (!isAllowedOrigin && !isAllowedReferer) {
+          return new Response("Forbidden", { status: 403 })
+        }
+
+        if (!env.SANITY_TOKEN) {
+          return new Response("Sanity token not configured", { status: 500 })
+        }
+
+        // Extract the query from the request body or URL params
+        const query = url.searchParams.get("query")
+        const params = url.searchParams.get("params")
+        
+        if (!query) {
+          return new Response("Query parameter is required", { status: 400 })
+        }
+
+        // Construct the Sanity API URL
+        const sanityUrl = new URL(
+          `https://${env.SANITY_PROJECT_ID}.api.sanity.io/v2024-05-31/data/query/${env.SANITY_DATASET}`
+        )
+        sanityUrl.searchParams.set("query", query)
+        if (params) {
+          sanityUrl.searchParams.set("params", params)
+        }
+
+        // Make the request to Sanity with the token
+        const sanityResponse = await fetch(sanityUrl.toString(), {
+          headers: {
+            "Authorization": `Bearer ${env.SANITY_TOKEN}`,
+            "Content-Type": "application/json"
+          }
+        })
+
+        // Return the response from Sanity with CORS headers
+        const corsHeaders = {
+          "Access-Control-Allow-Origin": origin || "https://workers.cloudflare.com",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Content-Type": "application/json",
+          "Cache-Control": "public, max-age=60, s-maxage=300"
+        }
+
+        // Handle preflight requests
+        if (request.method === "OPTIONS") {
+          return new Response(null, {
+            status: 204,
+            headers: corsHeaders
+          })
+        }
+
+        return new Response(sanityResponse.body, {
+          status: sanityResponse.status,
+          headers: corsHeaders
+        })
+      }
+
       if (url.pathname.startsWith("/playground")) {
         url.hostname = "playground.devprod.cloudflare.dev"
         url.port = ""
