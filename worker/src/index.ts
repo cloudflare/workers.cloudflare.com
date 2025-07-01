@@ -12,25 +12,6 @@ export default <ExportedHandler<Env>>{
       
       // Sanity API proxy endpoint
       if (url.pathname.startsWith("/api/sanity")) {
-        // Security check: Only allow requests from the current domain
-        const origin = request.headers.get("Origin")
-        const referer = request.headers.get("Referer")
-        
-        // Check if the request is coming from the same domain
-        const allowedOrigins = [
-          "https://workers.cloudflare.com",
-          "http://localhost:3000", // For local development
-          "http://localhost:8788"  // For local worker development
-        ]
-        
-        // Verify origin or referer is from allowed domains
-        const isAllowedOrigin = origin && allowedOrigins.some(allowed => origin.startsWith(allowed))
-        const isAllowedReferer = referer && allowedOrigins.some(allowed => referer.startsWith(allowed))
-        
-        if (!isAllowedOrigin && !isAllowedReferer) {
-          return new Response("Forbidden", { status: 403 })
-        }
-
         if (!env.SANITY_TOKEN) {
           return new Response("Sanity token not configured", { status: 500 })
         }
