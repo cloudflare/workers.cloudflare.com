@@ -1,23 +1,9 @@
-export const client = {
-  fetch: async (query: string, params?: any) => {
-    // Since this runs on the server side, we need to construct the full URL
-    // In production, this will be handled by the worker proxy
-    const baseUrl = process.env.NODE_ENV === 'development' 
-      ? 'http://localhost:8788' 
-      : 'https://workers.cloudflare.com'
-    
-    const url = new URL('/api/sanity', baseUrl)
-    url.searchParams.set('query', query)
-    if (params) {
-      url.searchParams.set('params', JSON.stringify(params))
-    }
+import { createClient } from '@sanity/client'
 
-    const response = await fetch(url.toString())
-    if (!response.ok) {
-      throw new Error(`Sanity query failed: ${response.statusText}`)
-    }
-
-    const data = await response.json()
-    return data.result
-  }
-}
+export const client = createClient({
+  projectId: '0s2zavz0',
+  dataset: 'production',
+  token: "skmT17U6Qj930vYyXBwk2SCQC9sxHOnuTamok96EthWPZ5JuXyplSBDX082fgIeaX2KVeIfLgK9pcGc8E6B5eCyi1erjq0IguB7kSyifPzxNtf0BsyEFqwBEuL5kYloYwQIZUX15dkCF7eAkxBU5PCwtwFKZbVi7n1Ja4dLPStZLm4e733gX",
+  useCdn: true,
+  apiVersion: '2024-05-31'
+})
