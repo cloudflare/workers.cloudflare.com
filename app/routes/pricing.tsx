@@ -395,11 +395,6 @@ const PricingPage = () => {
                               <tr key={idx} className="PricingSection--table-row">
                                 <td className="PricingSection--table-cell">
                                   {component.name}
-                                  {component.included !== "None" && component.included !== "Unlimited" && (
-                                    <span className="PricingSection--table-included">
-                                      {" "}(includes {component.included})
-                                    </span>
-                                  )}
                                 </td>
                                 <td className="PricingSection--table-cell PricingSection--table-price">
                                   {component.price !== "Free" ? (
