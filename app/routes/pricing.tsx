@@ -445,14 +445,6 @@ const PricingPage = () => {
             </div>
           </details>
 
-          <details className="PricingSection--faq-item">
-            <summary className="PricingSection--faq-question">Is there a free tier?</summary>
-            <div className="PricingSection--faq-answer">
-              <p>
-                Cloudflare offers a generous free tier across many products. Check individual product documentation for specific free tier limits.
-              </p>
-            </div>
-          </details>
 
           <details className="PricingSection--faq-item">
             <summary className="PricingSection--faq-question">Can I use multiple products together?</summary>
