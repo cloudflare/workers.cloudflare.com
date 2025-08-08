@@ -43,11 +43,12 @@ const setDomainAttr = `
   document.documentElement.setAttribute('domain', document.domain)
 `
 
-export async function loader() {
+export async function loader({ context }) {
   return json({
     ENV: {
-      COVEO_ORG: process.env.COVEO_ORG,
-      COVEO_TOKEN: process.env.COVEO_TOKEN
+      COVEO_ORG: context.cloudflare?.env?.COVEO_ORG || context.env?.COVEO_ORG,
+      COVEO_TOKEN: context.cloudflare?.env?.COVEO_TOKEN || context.env?.COVEO_TOKEN,
+      NODE_ENV: context.cloudflare?.env?.NODE_ENV || context.env?.NODE_ENV || 'production'
     },
   });
 }
@@ -56,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const data = useLoaderData() || {}
   const escapedLoadTheme = loadTheme.replace(/"/g, '\\"');
 
-  const env = process.env.NODE_ENV
+  const env = data?.ENV?.NODE_ENV || 'production'
   const cookieScript =
     env === "production" ? (
       <>

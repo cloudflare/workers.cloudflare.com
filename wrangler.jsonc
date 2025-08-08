@@ -1,0 +1,15 @@
+{
+  "name": "workers-cloudflare-com-remix",
+  "main": "./server.js",
+  "workers_dev": true,
+  "compatibility_date": "2025-08-01",
+  "assets": {
+    "directory": "./build/client",
+    "binding": "ASSETS"
+  },
+  "build": {
+    "command": "npm run build"
+  }
+  // Add the SANITY_TOKEN as a secret (set via wrangler secret put SANITY_TOKEN)
+  // For local development, use .dev.vars file
+}
