@@ -7,7 +7,7 @@ import { isInitialRoute } from "../components/route-update-history.js";
 
 import { sortProjects } from "../utils";
 
-import { client } from "../lib/sanity";
+import { getSanityClient } from "../lib/sanity";
 
 import "../styles/built-with-workers-page.css";
 import "../styles/collections.css";
@@ -40,7 +40,9 @@ const query = `
   }
 `
 
-export const loader = async ({ params: { slug } }) => {
+export const loader = async ({ params: { slug }, context }) => {
+  const sanityToken = context.cloudflare?.env?.SANITY_TOKEN || context.env?.SANITY_TOKEN;
+  const client = getSanityClient(sanityToken);
   const response = await client.fetch(query, { slug })
   return json(response);
 };
