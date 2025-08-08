@@ -1,10 +1,6 @@
-import { getAssetFromKV } from "@cloudflare/kv-asset-handler";
 import { createRequestHandler } from "@remix-run/cloudflare";
 import * as remixBuild from "./build/server";
-// eslint-disable-next-line import/no-unresolved
-import __STATIC_CONTENT_MANIFEST from "__STATIC_CONTENT_MANIFEST";
 
-const MANIFEST = JSON.parse(__STATIC_CONTENT_MANIFEST);
 const handleRemixRequest = createRequestHandler(remixBuild);
 
 const redirects = {
@@ -19,28 +15,28 @@ export default {
       return Response.redirect(redirects[url.pathname])
     }
 
-    try {
-      const ttl = url.pathname.startsWith("/assets/")
-        ? 60 * 60 * 24 * 365 // 1 year
-        : 60 * 5; // 5 minutes
-      return await getAssetFromKV(
-        {
-          request,
-          waitUntil: ctx.waitUntil.bind(ctx),
-        },
-        {
-          ASSET_NAMESPACE: env.__STATIC_CONTENT,
-          ASSET_MANIFEST: MANIFEST,
-          cacheControl: {
-            browserTTL: ttl,
-            edgeTTL: ttl,
-          },
+    // Try to serve static assets first using Workers Assets
+    if (env.ASSETS) {
+      try {
+        const asset = await env.ASSETS.fetch(request);
+        if (asset.status !== 404) {
+          // Set appropriate cache headers
+          const headers = new Headers(asset.headers);
+          const ttl = url.pathname.startsWith("/assets/")
+            ? 60 * 60 * 24 * 365 // 1 year for assets
+            : 60 * 5; // 5 minutes for other files
+          headers.set('Cache-Control', `public, max-age=${ttl}`);
+          return new Response(asset.body, {
+            status: asset.status,
+            headers
+          });
         }
-      );
-    } catch (error) {
-      // No-op
+      } catch (error) {
+        // Asset not found, continue to Remix handler
+      }
     }
 
+    // Handle with Remix
     try {
       const loadContext = {
         cloudflare: {
@@ -56,11 +52,13 @@ export default {
           caches,
           env,
         },
+        // Pass env directly for access to SANITY_TOKEN
+        env,
       };
       return await handleRemixRequest(request, loadContext);
     } catch (error) {
       console.log(error);
-      return new Response(err.toString(), { status: 500 });
+      return new Response(error.toString(), { status: 500 });
     }
   },
 };
