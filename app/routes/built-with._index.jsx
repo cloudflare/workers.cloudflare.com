@@ -39,8 +39,10 @@ export const query = `
   }
 `
 
-export const loader = async () => {
-  const client = getSanityClient();
+export const loader = async ({ context }) => {
+  // In dev mode, pass token from context; in production it uses cloudflare:workers env
+  const sanityToken = context?.cloudflare?.env?.SANITY_TOKEN || context?.env?.SANITY_TOKEN;
+  const client = getSanityClient(sanityToken);
   const response = await client.fetch(query)
   return json(response);
 };

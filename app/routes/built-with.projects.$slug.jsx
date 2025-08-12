@@ -262,8 +262,10 @@ const query = `
   }
 `
 
-export const loader = async ({ params: { slug } }) => {
-  const client = getSanityClient();
+export const loader = async ({ params: { slug }, context }) => {
+  // In dev mode, pass token from context; in production it uses cloudflare:workers env
+  const sanityToken = context?.cloudflare?.env?.SANITY_TOKEN || context?.env?.SANITY_TOKEN;
+  const client = getSanityClient(sanityToken);
   const response = await client.fetch(query, { slug })
   if (!response.project) return redirect("/not-found")
   return json(response);
