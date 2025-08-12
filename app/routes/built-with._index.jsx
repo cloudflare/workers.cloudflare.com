@@ -39,9 +39,8 @@ export const query = `
   }
 `
 
-export const loader = async ({ context }) => {
-  const sanityToken = context.cloudflare?.env?.SANITY_TOKEN || context.env?.SANITY_TOKEN;
-  const client = getSanityClient(sanityToken);
+export const loader = async () => {
+  const client = getSanityClient();
   const response = await client.fetch(query)
   return json(response);
 };

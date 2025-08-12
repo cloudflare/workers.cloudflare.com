@@ -18,6 +18,7 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   ssr: {
+    external: ["cloudflare:workers"],
     resolve: {
       conditions: ["workerd", "worker", "browser"],
     },
@@ -27,5 +28,8 @@ export default defineConfig({
   },
   build: {
     minify: true,
+    rollupOptions: {
+      external: ["cloudflare:workers"],
+    },
   },
 });
