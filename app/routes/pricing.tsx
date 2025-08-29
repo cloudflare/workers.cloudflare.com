@@ -79,7 +79,7 @@ const pricingData: PricingData = {
         link: "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/",
         components: [
           { name: "Requests", included: "20 million", unit: "per million requests", price: "$0.30" },
-          { name: "CPU time", included: "60 million ms", unit: "per million CPU milliseconds", price: "$0.02" },
+          { name: "CPU time", included: "60 million ms", unit: "per 10 million CPU milliseconds", price: "$0.20" },
           { name: "Scripts Deployed", included: "1,000", unit: "per script", price: "$0.02" },
         ],
       },
@@ -104,13 +104,13 @@ const pricingData: PricingData = {
         description: "Object storage with zero egress fees",
         link: "https://developers.cloudflare.com/r2/",
         components: [
-          { name: "Standard Storage", included: "10 GB-month", unit: "per GB-month", price: "$0.015" },
+          { name: "Standard Storage", included: "10 GB-month", unit: "per TB-month", price: "$15.00" },
           { name: "Standard Class A operations", included: "1 million", unit: "per million requests", price: "$4.50" },
           { name: "Standard Class B operations", included: "10 million", unit: "per million requests", price: "$0.36" },
-          { name: "Infrequent Access Storage", included: "10 GB-month", unit: "per GB-month", price: "$0.01" },
+          { name: "Infrequent Access Storage", included: "10 GB-month", unit: "per TB-month", price: "$10.00" },
           { name: "Infrequent Access Class A operations", included: "1 million", unit: "per million requests", price: "$9.00" },
           { name: "Infrequent Access Class B operations", included: "10 million", unit: "per million requests", price: "$0.90" },
-          { name: "Infrequent Access Data Retrieval", included: "None", unit: "per GB", price: "$0.10" },
+          { name: "Infrequent Access Data Retrieval", included: "None", unit: "per TB", price: "$100.00" },
         ],
       },
       {
@@ -118,7 +118,7 @@ const pricingData: PricingData = {
         description: "Low-latency key-value data store",
         link: "https://developers.cloudflare.com/kv/",
         components: [
-          { name: "Stored Data", included: "1 GB", unit: "per GB-month", price: "$0.50" },
+          { name: "Stored Data", included: "1 GB", unit: "per GB", price: "$0.50" },
           { name: "Read Requests", included: "10 million", unit: "per million requests", price: "$0.50" },
           { name: "Write, Delete, List requests", included: "1 million", unit: "per million requests", price: "$5.00" },
         ],
@@ -128,8 +128,8 @@ const pricingData: PricingData = {
         description: "Serverless SQL database",
         link: "https://developers.cloudflare.com/d1/",
         components: [
-          { name: "Storage", included: "None", unit: "per GB-month", price: "$0.75" },
-          { name: "Rows read", included: "None", unit: "per million rows", price: "$0.001" },
+          { name: "Storage", included: "None", unit: "per GB", price: "$0.75" },
+          { name: "Rows read", included: "None", unit: "per 10 million rows", price: "$0.01" },
           { name: "Rows written", included: "None", unit: "per million rows", price: "$1.00" },
         ],
       },
@@ -138,14 +138,14 @@ const pricingData: PricingData = {
         description: "Stateful serverless applications",
         link: "https://developers.cloudflare.com/durable-objects/",
         components: [
-          { name: "Requests", included: "None", unit: "per million", price: "$0.15" },
-          { name: "Duration", included: "None", unit: "per million GB-s", price: "$12.50" },
+          { name: "Requests", included: "None", unit: "per million requests", price: "$0.15" },
+          { name: "Duration", included: "None", unit: "per million GB-sec", price: "$12.50" },
           { name: "SQL Rows Read", included: "None", unit: "per million rows", price: "$0.001" },
           { name: "SQL Rows Written", included: "None", unit: "per million rows", price: "$1.00" },
           { name: "SQL Stored data", included: "5 GB", unit: "per GB-month", price: "$0.20" },
-          { name: "Read request units (KV storage backend)", included: "None", unit: "per million rows", price: "$0.20" },
-          { name: "Write request units (KV storage backend)", included: "None", unit: "per million rows", price: "$1.00" },
-          { name: "Delete requests (KV storage backend)", included: "None", unit: "per million rows", price: "$1.00" },
+          { name: "Read request units (KV storage backend)", included: "None", unit: "per million requests", price: "$0.20" },
+          { name: "Write request units (KV storage backend)", included: "None", unit: "per million requests", price: "$1.00" },
+          { name: "Delete requests (KV storage backend)", included: "None", unit: "per million requests", price: "$1.00" },
           { name: "Stored data (KV storage backend)", included: "1 GB", unit: "per GB-month", price: "$0.20" },
         ],
       },
@@ -186,7 +186,7 @@ const pricingData: PricingData = {
         description: "Live data streaming platform",
         link: "https://developers.cloudflare.com/realtime/",
         components: [
-          { name: "Data Egress", included: "None", unit: "per GB", price: "$0.05" },
+          { name: "Data Egress", included: "None", unit: "per TB", price: "$50.00" },
         ],
       },
       {
@@ -205,7 +205,7 @@ const pricingData: PricingData = {
         link: "https://developers.cloudflare.com/stream/",
         components: [
           { name: "Minutes Stored", included: "None", unit: "per 1,000 minutes", price: "$5.00" },
-          { name: "Minutes Delivered", included: "None", unit: "per 1,000 minutes", price: "$1.00" },
+          { name: "Minutes Viewed", included: "None", unit: "per 1,000 minutes", price: "$1.00" },
         ],
       },
     ],
@@ -219,7 +219,7 @@ const pricingData: PricingData = {
         description: "Monitor Workers performance",
         link: "https://developers.cloudflare.com/workers/observability/",
         components: [
-          { name: "Events", included: "20 million", unit: "per million events", price: "$0.60" },
+          { name: "Events", included: "20 million", unit: "per 100,000 events", price: "$0.06" },
         ],
       },
       {
@@ -241,8 +241,8 @@ const pricingData: PricingData = {
         description: "Vector database for AI",
         link: "https://developers.cloudflare.com/vectorize/",
         components: [
-          { name: "Vector dimensions queried", included: "None", unit: "per million", price: "$0.01" },
-          { name: "Vector dimensions stored", included: "None", unit: "per 100 million", price: "$0.05" },
+          { name: "Vector dimensions queried", included: "None", unit: "per 10 million", price: "$0.10" },
+          { name: "Vector dimensions stored", included: "None", unit: "per billion", price: "$0.50" },
         ],
       },
       {
@@ -250,7 +250,7 @@ const pricingData: PricingData = {
         description: "Run AI models at the edge",
         link: "https://developers.cloudflare.com/workers-ai/",
         components: [
-          { name: "Neurons", included: "None", unit: "per 1,000 neurons", price: "$0.011" },
+          { name: "Neurons", included: "None", unit: "per 10,000 neurons", price: "$0.11" },
         ],
       },
     ],
