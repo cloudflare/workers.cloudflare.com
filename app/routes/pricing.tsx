@@ -410,6 +410,11 @@ const PricingPage = () => {
                             ))}
                           </tbody>
                         </table>
+                        {(product.product === "R2" || product.product === "Realtime") && (
+                          <div className="PricingSection--product-note">
+                            <p>* Enterprise customers will be billed by TB</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}

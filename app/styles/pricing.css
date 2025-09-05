@@ -303,6 +303,21 @@ details[open] .PricingSection--faq-question::before {
   margin: 0;
 }
 
+.PricingSection--product-note {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(251, 176, 52, 0.08);
+  border-radius: 6px;
+  border-left: 3px solid var(--color-orange);
+}
+
+.PricingSection--product-note p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .PricingSection {
     padding: 6rem 1rem 2rem;
@@ -418,4 +433,13 @@ details[open] .PricingSection--faq-question::before {
 
 [theme="dark"] .PricingSection--faq-question:hover {
   background: rgba(var(--gray-1-rgb), .4);
+}
+
+[theme="dark"] .PricingSection--product-note {
+  background: rgba(var(--gray-1-rgb), .2);
+  border-left-color: var(--color-orange);
+}
+
+[theme="dark"] .PricingSection--product-note p {
+  color: var(--color-gray-300);
 }
