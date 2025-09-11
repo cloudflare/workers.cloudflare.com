@@ -148,8 +148,14 @@ const sortProjects = (collection) => {
   return projects;
 }
 
+// Take a Sanity asset image url and return a relative path that is cached by CF
+const cacheableUrl = u => {
+  return `/api/v1/image-proxy?url=${encodeURIComponent(u.toString())}`
+}
+
 export {
   PROJECTS_PER_COLLECTION,
+  cacheableUrl,
   flatten,
   normalizeCollection,
   resultTemplate,

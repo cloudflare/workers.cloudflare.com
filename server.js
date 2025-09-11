@@ -36,6 +36,26 @@ export default {
       }
     }
 
+    if (url.pathname.startsWith("/api/v1/image-proxy")) {
+      const url = new URL(request.url)
+      const originalUrl = url.searchParams.get("url")
+      if (!originalUrl) {
+        return new Response("Missing url", { status: 400 })
+      }
+
+      let cache = caches.default
+      const cacheKey = originalUrl
+      const cachedResponse = await cache.match(cacheKey)
+      if (cachedResponse) {
+        return cachedResponse
+      }
+
+      const response = await fetch(originalUrl, request)
+      cache.put(cacheKey, response.clone())
+      return response
+    }
+
+
     // Handle with Remix
     try {
       const loadContext = {

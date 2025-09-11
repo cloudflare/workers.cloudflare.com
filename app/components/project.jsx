@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "@remix-run/react"
+import { cacheableUrl } from "../utils"
 
 import "../styles/project.css"
 
@@ -13,7 +14,7 @@ const Project = ({ isInitialRoute, project }) => {
     >
       <div className="Project Project-fills-height">
         <div className="Project--image">
-          <img className="Project--image-img" src={project.image.asset.url} />
+          <img className="Project--image-img" src={cacheableUrl(project.image.asset.url)} />
         </div>
 
         <div className="Project--content">

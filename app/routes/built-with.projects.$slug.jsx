@@ -5,6 +5,7 @@ import { Link, useLoaderData } from "@remix-run/react"
 import { json, redirect } from "@remix-run/cloudflare";
 import { ClientOnly } from "remix-utils/client-only"
 
+import { cacheableUrl } from "../utils"
 import { getSanityClient } from "../lib/sanity"
 import Layout from "../components/layout"
 import Markdown from "../components/markdown"
@@ -29,10 +30,10 @@ export const meta = ({ data }) => {
     { name: "description", content: shortDescription },
     { name: "og:title", content: title },
     { name: "og:description", content: shortDescription },
-    { name: "og:image", content: image.asset.url },
+    { name: "og:image", content: cacheableUrl(image.asset.url) },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: shortDescription },
-    { name: "twitter:image:src", content: image.asset.url }
+    { name: "twitter:image:src", content: cacheableUrl(image.asset.url) }
   ];
 };
 
@@ -146,11 +147,11 @@ const Project = () => {
             <Stream
               controls src={project.stream_video_id}
               letterboxColor="transparent"
-              poster={project.image.asset.url}
+              poster={cacheableUrl(project.image.asset.url)}
             />
           ) : (
             <img
-              src={project.image.asset.url}
+              src={cacheableUrl(project.image.asset.url)}
               style={{ objectFit: "cover", width: "100%" }}
             />
           )}
