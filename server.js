@@ -37,22 +37,94 @@ export default {
     }
 
     if (url.pathname.startsWith("/api/v1/image-proxy")) {
-      const url = new URL(request.url)
       const originalUrl = url.searchParams.get("url")
       if (!originalUrl) {
-        return new Response("Missing url", { status: 400 })
+        return new Response("Missing url parameter", { status: 400 })
       }
 
-      let cache = caches.default
-      const cacheKey = originalUrl
-      const cachedResponse = await cache.match(cacheKey)
+      // Security: Validate URL to prevent SSRF attacks
+      const ALLOWED_DOMAINS = ['cdn.sanity.io', 'sanity.io'];
+      let parsedUrl;
+      try {
+        parsedUrl = new URL(originalUrl);
+        // Only allow HTTPS URLs from Sanity domains
+        if (parsedUrl.protocol !== 'https:') {
+          return new Response("Only HTTPS URLs are allowed", { status: 403 });
+        }
+        const isAllowed = ALLOWED_DOMAINS.some(domain => 
+          parsedUrl.hostname === domain || parsedUrl.hostname.endsWith(`.${domain}`)
+        );
+        if (!isAllowed) {
+          return new Response("URL not allowed", { status: 403 });
+        }
+      } catch (error) {
+        return new Response("Invalid URL", { status: 400 });
+      }
+
+      // Use cache with proper key
+      const cache = caches.default;
+      const cacheKey = new Request(originalUrl, { method: 'GET' });
+      const cachedResponse = await cache.match(cacheKey);
       if (cachedResponse) {
-        return cachedResponse
+        // Add cache hit header
+        const headers = new Headers(cachedResponse.headers);
+        headers.set('X-Cache', 'HIT');
+        return new Response(cachedResponse.body, {
+          status: cachedResponse.status,
+          headers
+        });
       }
 
-      const response = await fetch(originalUrl, request)
-      cache.put(cacheKey, response.clone())
-      return response
+      // Fetch with timeout and error handling
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+        
+        const response = await fetch(originalUrl, {
+          signal: controller.signal,
+          headers: {
+            'User-Agent': 'CloudflareWorkers-ImageProxy/1.0'
+          }
+        });
+        
+        clearTimeout(timeoutId);
+        
+        // Validate response
+        if (!response.ok) {
+          return new Response(`Upstream error: ${response.status}`, { 
+            status: response.status 
+          });
+        }
+        
+        // Validate content type is an image
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.startsWith('image/')) {
+          return new Response("Invalid content type - only images are allowed", { 
+            status: 400 
+          });
+        }
+        
+        // Add cache headers
+        const headers = new Headers(response.headers);
+        headers.set('Cache-Control', 'public, max-age=86400'); // 24 hours
+        headers.set('X-Cache', 'MISS');
+        
+        const newResponse = new Response(response.body, {
+          status: response.status,
+          headers
+        });
+        
+        // Store in cache
+        ctx.waitUntil(cache.put(cacheKey, newResponse.clone()));
+        
+        return newResponse;
+      } catch (error) {
+        console.error('Image proxy error:', error);
+        if (error.name === 'AbortError') {
+          return new Response("Request timeout", { status: 504 });
+        }
+        return new Response("Proxy error", { status: 500 });
+      }
     }
 
 
