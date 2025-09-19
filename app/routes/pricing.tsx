@@ -215,7 +215,7 @@ const pricingData: PricingData = {
     icon: "📊",
     products: [
       {
-        product: "Workers Logs",
+        product: "Workers Observability",
         description: "Monitor Workers performance",
         link: "https://developers.cloudflare.com/workers/observability/",
         components: [
