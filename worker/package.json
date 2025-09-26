@@ -19,7 +19,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230904.0",
     "@types/mime": "^3.0.1",
-    "vitest": "^0.34.4",
+    "vitest": "^0.34.6",
     "wrangler": "^3.8.0"
   }
 }
